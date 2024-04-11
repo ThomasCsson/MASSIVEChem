@@ -3,5 +3,6 @@ from rdkit.Chem import Draw
 
 mol_smi = 'CCC(CC)(CC)CC'
 mol = Chem.MolFromSmiles(mol_smi)
-img = Draw.MolToImage(mol)
+molH = Chem.AddHs(mol)
+img = Draw.MolToImage(molH)
 img.show()
