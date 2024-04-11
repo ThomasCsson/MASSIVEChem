@@ -6,4 +6,6 @@ mol = Chem.MolFromSmiles(mol_smi)
 img = Draw.MolToImage(mol)
 img.show()
 
+print("sasfdgh")
+
 
