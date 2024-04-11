@@ -1,7 +1,9 @@
 from rdkit import Chem
 from rdkit.Chem import Draw
 
-
+#This calculates the insaturation of the molecule.
+#Input: SMILES
+#Output: Insaturation degree & Image of the molecule
 mol_smi = input('Enter the SMILES of a molecule: ')
 mol_1 = Chem.MolFromSmiles(mol_smi)
 mol = Chem.AddHs(mol_1)
@@ -19,5 +21,5 @@ def insaturation_level (mol):
     insaturation = C + 1 + (N-HX)/2
     return insaturation
 print(f'The insaturation of the given molecule is {insaturation_level(mol)}')
-img = Draw.MolToImage(mol)
+img = Draw.MolToImage(mol_1)
 img.show()
