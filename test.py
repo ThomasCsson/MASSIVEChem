@@ -7,3 +7,8 @@ molH = Chem.AddHs(mol)
 img = Draw.MolToImage(molH)
 img.show()
 
+
+list = [1, 2 ,3 ,4]
+print(list)
+
+
