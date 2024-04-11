@@ -23,3 +23,6 @@ def insaturation_level (mol):
 print(f'The insaturation of the given molecule is {insaturation_level(mol)}')
 img = Draw.MolToImage(mol_1)
 img.show()
+
+def subgroup_finder(mol):
+      print('')
