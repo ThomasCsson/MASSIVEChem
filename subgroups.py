@@ -12,7 +12,7 @@ def subgroup_finder(mol_smi):
         if mol.GetSubstructMatch(subgroup):
             contained_subgroup_list.append(subgroup)
             contained_subgroup_list_smi.append(Chem.MolToSmiles(subgroup))
-    return contained_subgroup_list,contained_subgroup_list_smi
+    return contained_subgroup_list,contained_subgroup_list_smi #here choose either mol or SMILES format for output
 
 print(subgroup_finder(input('Input a SMILES: ')))
 
