@@ -26,10 +26,8 @@ def subgroup_nmr_value (mol_smi):
         if mol.HasSubstructMatch(substruct):
             list_contained_subgroups.append(SMILES)
             list_contained_subgroups_values.append(value)
-            for atom in substruct.GetAtoms():
-                 if atom.GetSymbol()=='C':
-                    index = mol.GetIdx(atom)
-                    print(index)
+            indices = mol.GetSubstructMatch(substruct)
+            print(indices)
         else:
             list_contained_subgroups.append(f'NOT {SMILES}')
 
