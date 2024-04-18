@@ -3,42 +3,25 @@ from rdkit.Chem import Draw
 import time
 
 #dictionary of all subgroups to check for alogn with their associated values for the NMR spectrum
-list_subgroups_shift_dict = {
-    'C1CC1': 0.5,
-    'c1ccCcc1': 2.5,
-    'CNC': 2.8,
-    'CSC': 2.5,
-    'CS': 3.8,
-    'CN': 4.2,
-    'C(=O)O': 11,
-    'C=O': 10,
-}
-
-
+list_subgroups_dict = {'C=O':1.1,'C(=O)O':1.2,'COC':1.3}
 
 
 #function that takes the SMILES of a molecule in entry and gives the subgroups contained along with the values for the NMR specturm
+
 def subgroup_nmr_value (mol_smi):
 
-    list_contained_subgroups, list_contained_subgroups_values_x,list_contained_subgroups_values_y = [],[],[]
+    list_contained_subgroups, list_contained_subgroups_values = [],[]
     mol = Chem.MolFromSmiles(mol_smi)
-    for SMILES, value in list_subgroups_shift_dict.items():
-        substructmol = Chem.MolFromSmiles(SMILES)
-        if mol.HasSubstructMatch(Chem.MolFromSmiles(substructmol)):
+    for SMILES, value in list_subgroups_dict.items():
+        if mol.HasSubstructMatch(Chem.MolFromSmiles(SMILES)):
             list_contained_subgroups.append(SMILES)
-            list_contained_subgroups_values_x.append(value)
-            index = substructmol.GetIdx()
-
+            list_contained_subgroups_values.append(value)
         else:
             list_contained_subgroups.append(f'NOT {SMILES}')
-            list_contained_subgroups_values_x(0)
 
-    return list_contained_subgroups,list_contained_subgroups_values_x
+    return list_contained_subgroups,list_contained_subgroups_values
 
 print(subgroup_nmr_value(input('Input a SMILES: ')))
-
-
-
 
 #function that takes SMILES as input and gives insaturation as output
 def insaturation_level (mol_smi):
