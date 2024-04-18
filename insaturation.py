@@ -24,7 +24,7 @@ def insaturation_level (mol):
     return insaturation
 end = time.time()
 print(f'The insaturation of the given molecule is {insaturation_level(mol)}')
-print(f'This program took{end - start} seconds to complete')
+print(f'This program took {end - start} seconds to complete')
 img = Draw.MolToImage(mol_1)
 img.show()
 

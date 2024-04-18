@@ -4,8 +4,6 @@ import time
 
 #dictionary of all subgroups to check for alogn with their associated values for the NMR spectrum
 list_subgroups_shift_dict = {
-    'C1CC1': 0.5,
-    'c1ccccc1': 2.5,
     'CNC': 2.8,
     'CSC': 2.5,
     'CS': 3.8,

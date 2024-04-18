@@ -16,10 +16,7 @@ def subgroup_finder(mol_smi):
             contained_subgroup_list.append(subgroup)
             contained_subgroup_list_smi.append(substructmol)
 
-            for atom in substructmol.GetAtoms():
-                if atom.GetSymbol()=='C':
-                    index = mol.GetIdx(atom)
-            print(index)
+            
 
             
             
