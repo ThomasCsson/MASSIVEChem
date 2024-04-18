@@ -24,6 +24,9 @@ def subgroup_nmr_value (mol_smi):
 
 print(subgroup_nmr_value(input('Input a SMILES: ')))
 
+
+
+
 #function that takes SMILES as input and gives insaturation as output
 def insaturation_level (mol_smi):
 
