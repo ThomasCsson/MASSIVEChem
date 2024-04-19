@@ -51,7 +51,7 @@ Ranges_functional_groups = {
 }
 specific_func_group_shift = {
     'C1CC1': 0.5,
-    'c1ccCcc1': 2.5,
+    'c1ccccc1': 2.5,
     'CNC': 2.8,
     'CSC': 2.5,
     'CS': 3.8,
@@ -59,37 +59,3 @@ specific_func_group_shift = {
     'C(=O)O': 11,
     'C=O': 10,
 }
-
-#PD for benzene shifting
-
-with open('Benzene_shifting.txt', 'r', encoding='ISO-8859-1') as file:
-    # Sauter la première ligne
-    next(file)
-    lines = file.readlines()
-
-colonne11 = []
-colonne22 = []
-colonne33 = []
-colonne44 = []
-
-# Parcours des lignes et extraction des valeurs
-for line in lines:
-    values = line.split()  # Séparation des valeurs par espace
-
-    # Vérifier si la ligne contient le nombre attendu de valeurs
-    if len(values) >= 2:
-        # Remplacement des virgules par des points pour les décimales et conversion en float
-        colonne11.append(values[0])
-        colonne22.append(float(values[1]))
-        colonne33.append(float(values[2]))
-        colonne44.append(float(values[3]))
-
-Benzene = {
-    'Substituent': colonne11,
-    'Z1': colonne22,
-    'Z2': colonne33,
-    'Z3': colonne44
-}
-
-Benzene_DF = pd.DataFrame(Benzene)
-print(Benzene_DF)
