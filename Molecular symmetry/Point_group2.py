@@ -54,8 +54,9 @@ pg_df = pd.DataFrame(PG_dict)
 print(pg_df)
 
 from rdkit import Chem
-from rdkit.Chem import AllChem
 import numpy as np
+from rdkit.Chem import AllChem
+from rdkit.Chem import Draw
 
 # Define a function to generate 3D coordinates for a molecule using RDKit
 def generate_3d_coordinates(smiles):
@@ -64,8 +65,38 @@ def generate_3d_coordinates(smiles):
     AllChem.EmbedMolecule(mol, AllChem.ETKDG())
     return mol
 
+# Define a function to generate 3D coordinates for a molecule using RDKit
+def generate_3d_coordinates(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    mol = Chem.AddHs(mol)
+    AllChem.EmbedMolecule(mol, AllChem.ETKDG())
+    return mol
+
+# Define a function to show the atomic coordinates of a molecule
+def show_coordinates(mol):
+    conformer = mol.GetConformer()
+    num_atoms = mol.GetNumAtoms()
+
+    # Create an empty list to store the coordinates
+    coordinates_list = []
+
+    for i in range(num_atoms):
+        pos = conformer.GetAtomPosition(i)
+        atom = mol.GetAtomWithIdx(i)
+        symbol = atom.GetSymbol()
+        x, y, z = pos.x, pos.y, pos.z
+
+        # Append the coordinates to the list
+        coordinates_list.append({'Atom': symbol, 'X': x, 'Y': y, 'Z': z})
+
+    # Convert the list of dictionaries to a DataFrame
+    df = pd.DataFrame(coordinates_list)
+    print(df)
+    return df
+
+
 # Define a function to determine the principal axis of a molecule
-def determine_principal_axis(mol):
+"""def determine_principal_axis(mol):
     # Get the atomic coordinates
     coords = mol.GetConformer().GetPositions()
 
@@ -84,14 +115,61 @@ def determine_principal_axis(mol):
     # The first principal axis corresponds to the direction of highest variance
     principal_axis = v[0]
 
-    return principal_axis
+    return principal_axis"""
+
+
+# Define a function to visualize a molecule from its SMILES representation
+def visualize_molecule(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    mol = Chem.AddHs(mol)
+    if mol is not None:
+        return Draw.MolToImage(mol)
+    else:
+        return None
 
 # Define the SMILES string for the molecule
-smiles = 'CCO'
+smiles = 'c1ccccc1P(c1ccccc1)c1ccccc1'
 
 # Generate 3D coordinates for the molecule
 mol = generate_3d_coordinates(smiles)
 
-# Determine the principal axis of the molecule
+""""# Determine the principal axis of the molecule
 principal_axis = determine_principal_axis(mol)
-print("Principal axis:", principal_axis)
+print("Principal axis:", principal_axis)"""
+
+# Visualize the molecule
+image = visualize_molecule(smiles)
+if image is not None:
+    image.show()
+else:
+    print("Unable to visualize molecule from the given SMILES string.")
+
+# Generate 3D coordinates for the molecule
+mol = generate_3d_coordinates(smiles)
+
+# Show the atomic coordinates of the molecule
+show_coordinates(mol)
+
+import pandas as pd
+import numpy as np
+
+df = show_coordinates(mol)
+
+# Define atomic masses
+atomic_masses = {'H': 1.0079, 'C': 12.0107, 'P': 30.9738}
+
+# Calculate the mass of each atom and add a 'Mass' column to the DataFrame
+df['Mass'] = df['Atom'].map(atomic_masses)
+
+# Calculate the total mass of the molecule
+total_mass = df['Mass'].sum()
+
+# Calculate the center of mass along each axis
+center_of_mass_x = np.dot(df['Mass'], df['X']) / total_mass
+center_of_mass_y = np.dot(df['Mass'], df['Y']) / total_mass
+center_of_mass_z = np.dot(df['Mass'], df['Z']) / total_mass
+
+# Output the center of mass
+print("Center of Mass (X):", center_of_mass_x)
+print("Center of Mass (Y):", center_of_mass_y)
+print("Center of Mass (Z):", center_of_mass_z)
