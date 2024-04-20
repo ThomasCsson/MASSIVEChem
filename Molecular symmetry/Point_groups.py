@@ -46,3 +46,39 @@ Point_group_database = {
 Point_group_database_DF = pd.DataFrame(Point_group_database)
 print(Point_group_database_DF)
 
+from rdkit import Chem
+from rdkit.Chem import AllChem
+import numpy as np
+
+# Define a molecule from a SMILES string
+mol = Chem.MolFromSmiles('CCO')
+mol = Chem.AddHs(mol)
+# Generate 3D coordinates using the MMFF94 force field method
+AllChem.EmbedMolecule(mol, AllChem.ETKDG())
+
+# Get the atomic coordinates
+coords = mol.GetConformer().GetPositions()
+
+# Calculate the center of mass
+center_of_mass = np.mean(coords, axis=0)
+
+# Translate the molecule to center it at the origin
+coords -= center_of_mass
+
+# Output the 3D coordinates
+for i, coord in enumerate(coords):
+    print(f"{mol.GetAtomWithIdx(i).GetSymbol()} {coord[0]:.4f} {coord[1]:.4f} {coord[2]:.4f}")
+
+
+from rdkit import Chem
+from rdkit.Chem import AllChem
+
+# Define a molecule from a SMILES string
+mol = Chem.MolFromSmiles('CCO')
+mol = Chem.AddHs(mol)
+# Generate 3D coordinates using the MMFF94 force field method
+AllChem.EmbedMolecule(mol, AllChem.ETKDG())
+
+# Output the 3D coordinates
+print(Chem.MolToMolBlock(mol))
+
