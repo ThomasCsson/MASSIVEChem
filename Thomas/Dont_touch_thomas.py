@@ -107,8 +107,8 @@ def main_function (mol):
     
     
     print(len(list_output))
-    '''plt.plot(x_axis_final,y_axis_final,marker = 'o')'''
-    '''plt.show()'''
+    plt.plot(x_axis_final,y_axis_final,marker = 'o')
+    plt.show()
     return list_output
 
 print(main_function(mol))
