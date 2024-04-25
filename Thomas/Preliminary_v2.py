@@ -9,7 +9,10 @@ import pandas as pd
 
 #Turn data into lists
 
-df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt', sep='\t', header=None, names=['Atom', 'Mass', 'Percentage'])
+df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
+                 , sep='\t'
+                 , header=None
+                 , names=['Atom', 'Mass', 'Percentage'])
 
 mass = df['Mass'].tolist()
 mass = [float(m) for m in mass]
@@ -29,8 +32,8 @@ for percent in abundance_percent:
 #Turn SMILEs repre. into list of atomic symbols
 
 mol_smi = input('Enter SMILEs: ')
-mol_without_Hs = Chem.MolFromSmiles(mol_smi)
-mol = Chem.AddHs(mol_without_Hs)
+mol = Chem.MolFromSmiles(mol_smi)
+'mol = Chem.AddHs(mol_without_Hs)'
 start_time = time.time()
 
 #Function that takes in list of atoms and then gives a list of list of shape [[mass,proba],[mass,proba],...]
@@ -72,7 +75,9 @@ def main_function (mol):
 
                 #This for loop runs over all isotope types of the atom type in pos 0 in list_atoms (input list)
                 index = isotopes.index(list_atoms[0])
-                list_output_new.append([(list_output[i][0] + mass_copy[index]),list_output[i][1] * abundance_copy[index]])
+                new_mass = list_output[i][0] + mass_copy[index]
+                new_proba = list_output[i][1] * abundance_copy[index]
+                list_output_new.append([new_mass,new_proba])
                 mass_copy.pop(index)
                 abundance_copy.pop(index)
                 isotopes_copy.pop(index)
