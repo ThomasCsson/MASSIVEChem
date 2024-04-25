@@ -1,14 +1,34 @@
 from rdkit import Chem
-from rdkit.Chem import Draw
-import numpy as np
+
 import pandas as pd
 
-mol_smi = input('SMILEs: ')
-mol = Chem.MolFromSmiles(mol_smi)
+# Lecture du fichier texte
+with open('abundance.txt', 'r', encoding='ISO-8859-1') as file:
+    # Sauter la première ligne
+    next(file)
+    lines = file.readlines()
 
-atoms_present = []
-for atom in mol.GetAtoms():
-    AtomSymbol = atom.GetSymbol()
-    atoms_present.append(AtomSymbol)
-print(atoms_present)
+# Initialisation des listes pour stocker les valeurs des colonnes
+colonne1 = []
+colonne2 = []
+colonne3 = []
 
+
+# Parcours des lignes et extraction des valeurs
+for line in lines:
+    values = line.split()
+
+    colonne1.append(values[0])
+    colonne2.append(float(values[1]))
+    colonne3.append(float(values[2]))
+
+data = {
+    'Atom': colonne1,
+    'Mass': colonne2,
+    'Abundance %': pd.to_numeric(colonne3)
+}
+
+# Création du DataFrame
+DF = pd.DataFrame(data)
+
+print(DF)
