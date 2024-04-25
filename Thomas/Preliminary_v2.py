@@ -1,5 +1,6 @@
 from rdkit import Chem
 import time
+import pandas as pd
 
 
 
@@ -8,11 +9,17 @@ import time
 
 
 
-isotopes =  ['C','C','N','N']
-mass = [12,13,14,15]
-abundance_percent = [99,1,99.5,0.5]
+df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt', sep='\t', header=None, names=['Atom', 'Mass', 'Percentage'])
+
+mass = df['Mass'].tolist()
+mass = [float(m) for m in mass]
+
+abundance_percent = df['Percentage'].tolist()
+abundance_percent = [float(ap) for ap in abundance_percent]
+
+isotopes = df['Atom'].tolist()
+
 abundance = []
-
 for percent in abundance_percent:
     abundance.append(percent/100)
 
@@ -21,7 +28,8 @@ for percent in abundance_percent:
 
 
 mol_smi = input('Enter SMILEs: ')
-mol = Chem.MolFromSmiles(mol_smi)
+mol_without_Hs = Chem.MolFromSmiles(mol_smi)
+mol = Chem.AddHs(mol_without_Hs)
 start_time = time.time()
 
 def main_function (mol):

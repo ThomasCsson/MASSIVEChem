@@ -1,6 +1,5 @@
 import pandas as pd
 
-# Read the .txt file into a DataFrame
 df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt', sep='\t', header=None, names=['Atom', 'Mass', 'Percentage'])
 
 
@@ -8,10 +7,14 @@ df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Chr
 
 
 
-# Extract the 'Mass' column as a list
-atom_masses = df['Mass'].tolist()
 
-# Print the list of atom masses
-print(atom_masses)
-# Print the DataFrame
-print(df)
+mass = df['Mass'].tolist()
+mass = [float(m) for m in mass]
+
+abundance_percent = df['Percentage'].tolist()
+abundance_percent = [float(ap) for ap in abundance_percent]
+
+isotopes = df['Atom'].tolist()
+
+
+print(mass)
