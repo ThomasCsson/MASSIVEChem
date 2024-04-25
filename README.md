@@ -1,2 +1,2 @@
-# ppchem-project-Christiansson-Gonteri-Humery
+ReadMe of ppchem project repository
 Repository for ppchem project
