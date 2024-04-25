@@ -18,4 +18,10 @@ pip install matplotlib
 pip install bokeh
 pip install rdkit
 pip install numpy
+pip install pandas
 ```
+Specifically, from these packages, the following subpackages are required:
+```bash
+from rdkit import Chem
+from rdkit.Chem import Draw
+import matplotlib.pyplot as plt
