@@ -3,6 +3,7 @@
 from rdkit import Chem
 import time
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 
@@ -32,8 +33,8 @@ for percent in abundance_percent:
 #Turn SMILEs repre. into list of atomic symbols
 
 mol_smi = input('Enter SMILEs: ')
-mol = Chem.MolFromSmiles(mol_smi)
-'mol = Chem.AddHs(mol_without_Hs)'
+mol_without_Hs = Chem.MolFromSmiles(mol_smi)
+mol = Chem.AddHs(mol_without_Hs)
 start_time = time.time()
 
 #Function that takes in list of atoms and then gives a list of list of shape [[mass,proba],[mass,proba],...]
@@ -73,7 +74,7 @@ def main_function (mol):
 
             for _ in range (isotopes.count(list_atoms[0])):
 
-                #This for loop runs over all isotope types of the atom type in pos 0 in list_atoms (input list)
+                #This for-loop runs over all isotope types of the atom type in pos 0 in list_atoms (input list)
                 index = isotopes.index(list_atoms[0])
                 new_mass = list_output[i][0] + mass_copy[index]
                 new_proba = list_output[i][1] * abundance_copy[index]
@@ -84,8 +85,28 @@ def main_function (mol):
                 
         list_output = list_output_new
         list_atoms.pop(0)
-    return list_output
+    #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
+    x_axis, y_axis = [],[]
+    x_axis_final, y_axis_final = [],[]
+    for j in range (len(list_output)):
+        x_axis.append(list_output[j][0])
+        y_axis.append(list_output[j][0])
+    
 
+    #Compression of lists x_axis & y_axis into x_axis_final & y_axis_final so that peaks corresponding to same mass will be represented together 
+    for j in range (len(x_axis)):
+            if x_axis.count(x_axis[j]) == 1 or x_axis_final.count(x_axis[j]) == 0:
+                x_axis_final.append(x_axis[j])
+                y_axis_final.append(y_axis[j])
+            else:
+                index = x_axis_final.index(x_axis[j])
+                y_axis_final[index] =y_axis_final[index] + y_axis[j]
+    
+    
+
+    plt.plot(x_axis_final,y_axis_final,marker = 'o')
+    plt.show()
+    return list_output
 
 print(main_function(mol))
 
