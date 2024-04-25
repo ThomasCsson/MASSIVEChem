@@ -1,2 +1,2 @@
-# ppchem-project-Christiansson-Gonteri-Humery
+# ppchem-project-Christiansson-Gonteri-Humer
 Repository for ppchem project
