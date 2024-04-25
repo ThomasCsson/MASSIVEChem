@@ -1,3 +1,5 @@
+#Imports
+
 from rdkit import Chem
 import time
 import pandas as pd
@@ -5,9 +7,7 @@ import pandas as pd
 
 
 
-
-
-
+#Turn data into lists
 
 df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt', sep='\t', header=None, names=['Atom', 'Mass', 'Percentage'])
 
@@ -26,11 +26,14 @@ for percent in abundance_percent:
 
 
 
+#Turn SMILEs repre. into list of atomic symbols
 
 mol_smi = input('Enter SMILEs: ')
 mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 mol = Chem.AddHs(mol_without_Hs)
 start_time = time.time()
+
+#Function that takes in list of atoms and then gives a list of list of shape [[mass,proba],[mass,proba],...]
 
 def main_function (mol):
     list_atoms = []
