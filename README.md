@@ -7,7 +7,7 @@ This repository provides the user a package which will display an interactive in
    - Mass spectrometry is a very important analytical tool which allows to recognize which molecule was present in a mixture by ionizing it and passing it through a magnetic field
    - test
 
-Lets go through the steps required to make this package.
+Let us go through the steps required to make this package.
 
 #### Imported packages
 
