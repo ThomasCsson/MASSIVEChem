@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 
-#Turn data into lists
+#Turn data (of Symbol | Mass | Probability) into lists
 
 df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
                  , sep='\t'
@@ -45,7 +45,10 @@ def main_function (mol):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
+    
+    '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
     list_atoms.append('H')
+    
     print(list_atoms)
 
     list_output = []
