@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
-df = pd.read_csv('/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
+df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
@@ -51,10 +51,10 @@ def main_function (mol):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
-    
+
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
-    list_atoms.append('H')
-    
+    list_atoms.remove('H')
+
     print(list_atoms)
 
     list_output = []
@@ -102,7 +102,7 @@ def main_function (mol):
     x_axis_final, y_axis_final = [],[]
     for j in range (len(list_output)):
         x_axis.append(list_output[j][0])
-        y_axis.append(list_output[j][0])
+        y_axis.append(list_output[j][1])
     
 
     #Compression of lists x_axis & y_axis into x_axis_final & y_axis_final so that peaks corresponding to same mass will be represented together 
@@ -124,7 +124,7 @@ def main_function (mol):
     print(len(y_axis_final))
     print(max(y_axis))
     print(max(y_axis_final))
-    return list_output
+    return x_axis_final,y_axis_final
 
 print(main_function(mol))
 
