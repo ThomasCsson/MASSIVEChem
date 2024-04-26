@@ -116,31 +116,20 @@ def main_function (mol):
                 y_axis_final.append(y_axis[j])
             else:
                 index = x_axis_final.index(x_axis[j])
-                y_axis_final[index] =y_axis_final[index] + y_axis[j]
+                y_axis_final[index] =y_axis_final[index] + (y_axis[j])
     
-    
+    sum = 0
     print(len(list_output))
+    
+    for i in range (len(y_axis)):
+        sum = sum + y_axis[i]
 
 
 
-    #regression
-    #doesnt work
-    n = 100
-    coefficients = np.polyfit(x_axis_final, y_axis_final, n)
-    polynomial = np.poly1d(coefficients)
 
-    plt.scatter(x_axis_final, y_axis_final, color='blue', label='Data')
-
-
-    X_range = np.linspace(min(x_axis_final), max(x_axis_final), 100)  
-    plt.plot(X_range, polynomial(X_range), color='red', label='reg')
-
-    plt.title('Polynomial Regression')
-    plt.xlabel('X')
-    plt.ylabel('Y')
-    plt.legend()
-    plt.grid(True)
+    plt.plot(x_axis_final,y_axis_final)
     plt.show()
+    print(sum)
 
 
 
