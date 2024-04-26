@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
-df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
+df = pd.read_csv('/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
@@ -56,7 +56,7 @@ def main_function (mol):
         list_atoms.append(atom.GetSymbol())
     
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
-    list_atoms.append('H')
+    list_atoms.remove('H')
     
     print(list_atoms)
 
@@ -127,7 +127,28 @@ def main_function (mol):
     print(len(y_axis_final))
     print(max(y_axis))
     print(max(y_axis_final))
-    return list_output
+
+    masses = x_axis
+    intensities = y_axis
+
+    aggregated_intensities = {'Peak positions': [], 'Peak Intensities': []}
+
+    for mass, intensity in zip(masses, intensities):
+        if mass in aggregated_intensities['Peak positions']:
+            idx = aggregated_intensities['Peak positions'].index(mass)
+            aggregated_intensities['Peak Intensities'][idx] += intensity
+        else:
+            aggregated_intensities['Peak positions'].append(mass)
+            aggregated_intensities['Peak Intensities'].append(intensity)
+
+    return aggregated_intensities
+
+    peak_positions = aggregated_intensities['Peak positions']
+    peak_intensities = aggregated_intensities['Peak Intensities']
+
+    print("Peak positions:", peak_positions)
+    print("Peak intensities:", peak_intensities)
+
 
 print(main_function(mol))
 
