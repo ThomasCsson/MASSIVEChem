@@ -124,6 +124,7 @@ def main_function (mol):
 
 
     #regression
+    #doesnt work
     n = 100
     coefficients = np.polyfit(x_axis_final, y_axis_final, n)
     polynomial = np.poly1d(coefficients)
