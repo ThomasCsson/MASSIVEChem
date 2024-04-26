@@ -54,10 +54,10 @@ def main_function (mol):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
-    
+
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
     list_atoms.remove('H')
-    
+
     print(list_atoms)
 
     list_output = []
@@ -105,7 +105,7 @@ def main_function (mol):
     x_axis_final, y_axis_final = [],[]
     for j in range (len(list_output)):
         x_axis.append(list_output[j][0])
-        y_axis.append(list_output[j][0])
+        y_axis.append(list_output[j][1])
     
 
     #Compression of lists x_axis & y_axis into x_axis_final & y_axis_final so that peaks corresponding to same mass will be represented together 
