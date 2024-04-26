@@ -147,36 +147,32 @@ def main_function (mol):
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
     
 
-    #test
+    #nicer plot
 
     max_x = max(x_axis_final)
     min_x = min(x_axis_final)
-
-
     diff = (max_x-min_x)
-    print(diff)
+    x_axis_final_use = x_axis_final.copy()
+    y_axis_final_use = y_axis_final.copy()
     for i in range(int(100*diff)):
-        x_axis_final.append(i/100 + min_x)
-        y_axis_final.append(0)
+        x_axis_final_use.append(i/100 + min_x)
+        y_axis_final_use.append(0)
     x_final_final = []
     y_final_final = []
-    while len(x_axis_final)>0 :
-        minx = min(x_axis_final)
-        index = x_axis_final.index(minx)
-
+    while len(x_axis_final_use)>1 :
+        minx = min(x_axis_final_use)
+        index = x_axis_final_use.index(minx)
         x_final_final.append(minx)
-        y_final_final.append(y_axis_final[index])
-        x_axis_final.pop(index)
-        y_axis_final.pop(index)
-
-
-
+        y_final_final.append(y_axis_final_use[index])
+        x_axis_final_use.pop(index)
+        y_axis_final_use.pop(index)
 
     #graphing
 
     plt.plot(x_final_final,y_final_final,marker = ' ')
 
     plt.show()
+    print()
     return x_axis_final,y_axis_final
 
 print(main_function(mol))
