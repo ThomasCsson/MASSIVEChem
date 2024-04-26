@@ -8,19 +8,28 @@ import matplotlib.pyplot as plt
 
 
 
-#Turn data (of Symbol | Mass | Probability) into lists
+#Turn data (of Symbol | Mass | Probability) into lists 
 
 df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
 
+#mass = [mass1, mass2, mass3,...]
 mass = df['Mass'].tolist()
+#change from elements (not sure) to floats
 mass = [float(m) for m in mass]
 
+#abundance = [ab1, ab2, ab3,...]
 abundance_percent = df['Percentage'].tolist()
+#change from elements (not sure) to floats
 abundance_percent = [float(ap) for ap in abundance_percent]
+#from percent to proba
+abundance = []
+for percent in abundance_percent:
+    abundance.append(percent/100)
 
+#isotopes = [iso1, iso2, iso3,...]
 isotopes = df['Atom'].tolist()
 
 abundance = []
@@ -101,17 +110,23 @@ def main_function (mol):
 
     #Compression of lists x_axis & y_axis into x_axis_final & y_axis_final so that peaks corresponding to same mass will be represented together 
     for j in range (len(x_axis)):
-            if x_axis.count(x_axis[j]) == 1 or x_axis_final.count(x_axis[j]) == 0:
+            if x_axis.count(x_axis[j]) == 1:
                 x_axis_final.append(x_axis[j])
                 y_axis_final.append(y_axis[j])
+            elif x_axis_final.count(x_axis[j]) == 0:
+                x_axis_final.append(x_axis[j])
+                y_axis_final.append(y_axis[j])
+
             else:
                 index = x_axis_final.index(x_axis[j])
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
     
     
     print(len(list_output))
-    plt.plot(x_axis_final,y_axis_final,marker = 'o')
-    plt.show()
+    print(len(x_axis_final))
+    print(len(y_axis_final))
+    print(max(y_axis))
+    print(max(y_axis_final))
     return list_output
 
 print(main_function(mol))
