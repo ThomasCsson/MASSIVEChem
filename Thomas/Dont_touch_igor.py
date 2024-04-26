@@ -52,8 +52,8 @@ def main_function(mol):
         list_atoms.append(atom.GetSymbol())
 
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
-    list_atoms.remove('H')
-
+    if 'H' in list_atoms:
+        list_atoms.remove('H')
     print(list_atoms)
 
     list_output = []
