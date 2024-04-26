@@ -34,7 +34,7 @@ mass_range = np.linspace(0, 500, 1000)
 intensity = np.zeros_like(mass_range)
 
 
-for peak_position in aggre:
+for peak_position in agg:
     # Define the peak shape using Lorentzian distribution
     peak_shape = 1 / (1 + ((mass_range - peak_position) / 10) ** 2)  # Lorentzian example (width = 10)
 
