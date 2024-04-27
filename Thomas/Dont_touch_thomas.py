@@ -148,20 +148,16 @@ def main_function (mol):
     end_time = time.time()
     print(f'Runtime: {end_time-start_time}s')
     
-    #normal plot (not very nice)
 
-    plt.scatter(x_axis,y_axis,marker = 'o')
-    plt.show()
-
-
-    #nicer plot (still not great)
+    #plotting
 
     max_x = max(x_axis_final)
     min_x = min(x_axis_final)
     diff = (max_x-min_x)
     x_axis_final_use = x_axis_final.copy()
     y_axis_final_use = y_axis_final.copy()
-    for i in range(int(100*diff)):
+
+    for i in range(int(-(100*diff)/10),int(11*(100*diff)/10)):
         x_axis_final_use.append(i/100 + min_x)
         y_axis_final_use.append(0)
     x_final_final = []
@@ -174,16 +170,16 @@ def main_function (mol):
         x_axis_final_use.pop(index)
         y_axis_final_use.pop(index)
 
-    #graphing
 
-    plt.plot(x_final_final,y_final_final,marker = ' ')
+    #plotting
 
-    plt.show()
-
-    
-
+    x, y = x_final_final, y_final_final
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x_axis_final,y_axis_final))
+    fig.add_trace(go.Scatter(x = x,y = y))
+
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y), max(y)], type="linear"),dragmode='zoom',)
+
+
     fig.show()
 
     return x_axis_final,y_axis_final

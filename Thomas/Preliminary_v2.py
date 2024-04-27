@@ -177,9 +177,7 @@ def main_function (mol):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x = x,y = y))
 
-    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),
-    yaxis=dict(range=[min(y), max(y)], type="linear"),
-    dragmode='zoom',)
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y), max(y)], type="linear"),dragmode='zoom',)
 
 
     fig.show()
