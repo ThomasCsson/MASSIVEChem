@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
-df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
+df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance_simplified.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
@@ -71,7 +71,9 @@ def main_function (mol):
         list_atoms.append(atom.GetSymbol())
 
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
-    list_atoms.remove('H')
+    
+    if 'H' in list_atoms:
+        list_atoms.remove('H')
 
     print(list_atoms)
 
@@ -141,14 +143,22 @@ def main_function (mol):
             elif x_axis_final.count(x_axis[j]) == 0:
                 x_axis_final.append(x_axis[j])
                 y_axis_final.append(y_axis[j])
-
             else:
                 index = x_axis_final.index(x_axis[j])
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
+
+    #timing
+
+    end_time = time.time()
+    print(f'Runtime: {end_time-start_time}s')
     
-    plt.plot(x_axis,y_axis)
+    #normal plot (not very nice)
+
+    plt.scatter(x_axis,y_axis,marker = 'o')
     plt.show()
-    #nicer plot
+
+
+    #nicer plot (still not great)
 
     max_x = max(x_axis_final)
     min_x = min(x_axis_final)
@@ -173,7 +183,7 @@ def main_function (mol):
     plt.plot(x_final_final,y_final_final,marker = ' ')
 
     plt.show()
-    print()
+
     return x_axis_final,y_axis_final
 
 print(main_function(mol))
