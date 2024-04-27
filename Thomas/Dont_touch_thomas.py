@@ -146,7 +146,8 @@ def main_function (mol):
                 index = x_axis_final.index(x_axis[j])
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
     
-
+    plt.plot(x_axis,y_axis)
+    plt.show()
     #nicer plot
 
     max_x = max(x_axis_final)
