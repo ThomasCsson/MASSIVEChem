@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
-df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance_simplified.txt'
+df = pd.read_csv('Thomas/abundance_simplified.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
@@ -43,12 +43,6 @@ for percent in abundance_percent:
 #isotopes = [iso1, iso2, iso3,...]
 
 isotopes = df['Atom'].tolist()
-
-abundance = []
-for percent in abundance_percent:
-    abundance.append(percent/100)
-
-
 
 
 #Turn SMILEs representation into list of atomic symbols
