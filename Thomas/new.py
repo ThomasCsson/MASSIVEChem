@@ -1,13 +1,21 @@
-from rdkit import Chem
+import plotly.graph_objects as go
 
+# Create a figure
+fig = go.Figure()
+x = [1,2,3,4,5,6]
+y = [1,3,5,7,9,11]
+# Add traces
+fig.add_trace(go.Scatter(x=x, y=y))
 
-mol_smi = input('Enter SMILEs: ')
-mol_without_Hs = Chem.MolFromSmiles(mol_smi)
-mol = Chem.AddHs(mol_without_Hs)
+# Enable zooming and panning
+fig.update_layout(
+    xaxis=dict(
+        rangeslider=dict(
+            visible=True
+        ),
+        type="linear"
+    )
+)
 
-list_atoms = []
-for atom in mol.GetAtoms():
-    list_atoms.append(atom.GetSymbol())
-if 'H' in list_atoms:
-    list_atoms.remove('H')
-print(list_atoms)
+# Show the plot
+fig.show()

@@ -4,10 +4,11 @@ from rdkit import Chem
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
-df = pd.read_csv('Thomas/abundance_simplified.txt'
+df = pd.read_csv('Thomas/abundance.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
@@ -67,6 +68,7 @@ def main_function (mol):
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
     
     if 'H' in list_atoms:
+        #Check that there is in fact a proton to remove
         list_atoms.remove('H')
 
     print(list_atoms)
@@ -177,6 +179,12 @@ def main_function (mol):
     plt.plot(x_final_final,y_final_final,marker = ' ')
 
     plt.show()
+
+    
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x_axis_final,y_axis_final))
+    fig.show()
 
     return x_axis_final,y_axis_final
 

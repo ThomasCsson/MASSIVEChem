@@ -4,10 +4,11 @@ from rdkit import Chem
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
-df = pd.read_csv('/Users/thomaschristiansson/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Thomas/abundance.txt'
+df = pd.read_csv('Thomas/abundance.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
@@ -44,12 +45,6 @@ for percent in abundance_percent:
 
 isotopes = df['Atom'].tolist()
 
-abundance = []
-for percent in abundance_percent:
-    abundance.append(percent/100)
-
-
-
 
 #Turn SMILEs representation into list of atomic symbols
 
@@ -71,7 +66,10 @@ def main_function (mol):
         list_atoms.append(atom.GetSymbol())
 
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
-    list_atoms.remove('H')
+    
+    if 'H' in list_atoms:
+        #Check that there is in fact a proton to remove
+        list_atoms.remove('H')
 
     print(list_atoms)
 
@@ -141,20 +139,25 @@ def main_function (mol):
             elif x_axis_final.count(x_axis[j]) == 0:
                 x_axis_final.append(x_axis[j])
                 y_axis_final.append(y_axis[j])
-
             else:
                 index = x_axis_final.index(x_axis[j])
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
+
+    #timing
+
+    end_time = time.time()
+    print(f'Runtime: {end_time-start_time}s')
     
 
-    #nicer plot
+    #plotting
 
     max_x = max(x_axis_final)
     min_x = min(x_axis_final)
     diff = (max_x-min_x)
     x_axis_final_use = x_axis_final.copy()
     y_axis_final_use = y_axis_final.copy()
-    for i in range(int(100*diff)):
+
+    for i in range(int(-(100*diff)/10),int(11*(100*diff)/10)):
         x_axis_final_use.append(i/100 + min_x)
         y_axis_final_use.append(0)
     x_final_final = []
@@ -167,12 +170,20 @@ def main_function (mol):
         x_axis_final_use.pop(index)
         y_axis_final_use.pop(index)
 
-    #graphing
 
-    plt.plot(x_final_final,y_final_final,marker = ' ')
+    #plotting
 
-    plt.show()
-    print()
+    x, y = x_final_final, y_final_final
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x = x,y = y))
+
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),
+    yaxis=dict(range=[min(y), max(y)], type="linear"),
+    dragmode='zoom',)
+
+
+    fig.show()
+
     return x_axis_final,y_axis_final
 
 print(main_function(mol))
