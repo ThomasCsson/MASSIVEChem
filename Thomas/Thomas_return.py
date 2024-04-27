@@ -5,6 +5,7 @@ import time
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+from bokeh.plotting import figure, show
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
@@ -171,16 +172,22 @@ def main_function (mol):
         y_axis_final_use.pop(index)
 
 
-    #plotting
+    #plotting with pyplot
+
+    
+
+
+    #plotting with bokeh
 
     x, y = x_final_final, y_final_final
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x = x,y = y))
 
-    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y), max(y)], type="linear"),dragmode='zoom',)
+    p = figure(title="Simple Line Graph", x_axis_label='x', y_axis_label='y')
+    p.line(x,y,legend_label="Line", line_width=2)
+    show(p)
 
 
-    fig.show()
+
+
 
     return x_axis_final,y_axis_final
 
