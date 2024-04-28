@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = ""
+name = "project ppchem ... "
 version = ""
 description = ""
 readme = "README.md"
@@ -15,4 +15,11 @@ authors = [
   { name = "Igor Gonteri", email = "" }
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch"}
   ]
-dependencies = [] 
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",]
+
+[project.urls]
+Homepage = "https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git"
