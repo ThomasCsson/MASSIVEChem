@@ -1,6 +1,7 @@
 #Imports
 
 from rdkit import Chem
+from rdkit.Chem import Draw
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -52,6 +53,8 @@ isotopes = df['Atom'].tolist()
 mol_smi = input('Enter SMILEs: ')
 mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 mol = Chem.AddHs(mol_without_Hs)
+img = Draw.MolToImage(mol)
+img.show()
 
 
 #Timing element (not very useful but its pretty so it's staying)
@@ -121,7 +124,7 @@ def main_function (mol):
         list_output = list_output_new
         list_atoms.pop(0)
 
-
+    print(list_output)
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
 
     x_axis, y_axis = [],[]
@@ -181,7 +184,7 @@ def main_function (mol):
 
     x, y = x_final_final, y_final_final
 
-    p = figure(title="Simple Line Graph", x_axis_label='x', y_axis_label='y')
+    p = figure(title="Simple Line Graph", x_axis_label='Mass of compound [g/mol]', y_axis_label='Abundance [%]')
     p.line(x,y,legend_label="Line", line_width=2)
     show(p)
 
