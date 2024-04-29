@@ -140,7 +140,7 @@ def main_function (mol):
         list_output = list_output_new
         list_atoms.pop(0)
 
-    print(list_output)
+    
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
 
     x_axis, y_axis = [],[]
@@ -167,7 +167,6 @@ def main_function (mol):
     #if there is any, add peaks corresponding to Sulphur/Nitrogen presence
     maximum = max(y_axis_final)
     maximum_2 = 0
-    minimum = min(y_axis_final)
     for i in range (len(y_axis_final)):
         if y_axis_final[i]>maximum_2 and y_axis_final[i]< maximum:
             maximum_2 = y_axis_final[i]
