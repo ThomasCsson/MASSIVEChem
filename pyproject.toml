@@ -9,6 +9,7 @@ version = "1.0"
 description = "..."
 readme = {file = "README.txt", content-type = "text/markdown"}
 requires-python = ">=3.8"
+license = "MIT"
 keywords = ["unsaturation", "Mass spectroscopy"]
 authors = [
   { name = "Thomas Christianson", email = "thomas.christiansson@epfl.ch" },
