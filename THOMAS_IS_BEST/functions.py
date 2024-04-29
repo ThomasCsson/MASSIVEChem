@@ -66,6 +66,7 @@ def data_list_generator():
     #isotopes = [iso1, iso2, iso3,...]
 
     isotopes = df['Atom'].tolist()
+
     return mass, abundance, isotopes
 
 def SMILEs_interpreter(mol_smi):
@@ -78,17 +79,16 @@ def SMILEs_interpreter(mol_smi):
     Output: molecule under MOL representation
     '''
     #---------------------------------------------------------------------------------------------#
-    # Turn SMILEs representation into list of atomic symbols
-    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     #Checks that the SMILEs input is correct
+    
     if mol_without_Hs is None:
-        print("Invalid SMILES input.")
+        print("Invalid SMILEs input.")
         exit()
 
+    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
     mol = Chem.AddHs(mol_without_Hs)
 
-    
     return mol
 
 def molecule_list_generator(mol):
