@@ -12,7 +12,7 @@ from bokeh.models import WheelPanTool, WheelZoomTool
 from bokeh.models.tickers import FixedTicker
 
 
-#Turn data (of Symbol | Mass | Probability) into lists 
+#Turn data of (Symbol | Mass | Probability) into lists 
 
 df = pd.read_csv('Thomas/abundance.txt'
                  , sep='\t'
@@ -81,6 +81,8 @@ def main_function (mol):
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
 
+
+
     #check for sulphur and nitrogen
 
     has_N = False
@@ -147,7 +149,7 @@ def main_function (mol):
         list_output = list_output_new
         list_atoms.pop(0)
 
-    
+
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
 
     x_axis, y_axis = [],[]
@@ -155,7 +157,7 @@ def main_function (mol):
     for j in range (len(list_output)):
         x_axis.append(list_output[j][0])
         y_axis.append(list_output[j][1])
-    
+
 
     #Compression of lists x_axis & y_axis into x_axis_final & y_axis_final so that peaks corresponding to same mass will be represented together 
     
@@ -260,7 +262,7 @@ def main_function (mol):
     for i in range(len(x_axis_final)):
         if y_axis_final[i]>0.0001:
             ticked_peaks.append(x_axis_final[i])
-        
+
     print(ticked_peaks)
 
     # Create a new plot with a title and axis labels
@@ -284,7 +286,7 @@ def main_function (mol):
 
 
 
-    return x_axis_final, y_axis_final
+    return 
 
 print(main_function(mol))
 
