@@ -279,4 +279,6 @@ mol_smi = input('Enter SMILEs: ')
 mol = SMILEs_interpreter(mol_smi)
 mass, abundance, isotopes = list_generator()
 xvalues, yvalues = main_function(mol)
-print(matplotlib_plotter(xvalues,yvalues))
+print(bokeh_plotter(xvalues,yvalues))
+
+
