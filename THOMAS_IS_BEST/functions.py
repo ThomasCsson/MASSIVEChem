@@ -80,11 +80,15 @@ def SMILEs_interpreter(mol_smi):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    #Turn SMILEs representation into list of atomic symbols
+    #Checks that the SMILEs input is correct
+    
+    if mol_without_Hs is None:
+        print("Invalid SMILEs input.")
+        exit()
+
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
     mol = Chem.AddHs(mol_without_Hs)
 
-    
     return mol
 
 def molecule_list_generator(mol):
