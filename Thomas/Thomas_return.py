@@ -75,6 +75,15 @@ def main_function (mol):
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
 
+    #check for sulphur and nitrogen
+
+    has_N = False
+    has_S = False
+    if 'N' in list_atoms:
+        has_N = True
+    elif 'S' in list_atoms:
+        has_S = True
+
     print(list_atoms)
 
     list_output = []
@@ -147,6 +156,20 @@ def main_function (mol):
                 index = x_axis_final.index(x_axis[j])
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
 
+
+    #if there is any, add peaks corresponding to Sulphur/Nitrogen presence
+    if has_N:
+        x_axis_final.append()  #Add values
+        y_axis_final.append()  #Add values
+    
+    if has_S:
+        x_axis_final.append()  #Add values
+        y_axis_final.append()  #Add values
+
+    
+
+    '''HERE, IF YOU WERE TO 'return x_axis_final, y_axis_final', THE OUTPUT IS TWO LISTS, THE FIRST OF THE VALUES OF THE X AXIS (COMBINED MASSES) AND THE SECOND OF THE VALUES ON Y '''
+    
     #timing
 
     end_time = time.time()
