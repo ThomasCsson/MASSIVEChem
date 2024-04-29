@@ -1,0 +1,1922 @@
+Point_Group	Species_Name
+C∞v	HD	Deuterium hydride
+C∞v	HeH	Helium hydride
+C∞v	LiH	Lithium Hydride
+C∞v	HeLi+	Helium Lithium cation
+C∞v	BeH	beryllium monohydride
+C∞v	BeH2+	Beryllium dihydride cation
+C∞v	BH	Boron monohydride
+C∞v	CH	Methylidyne
+C∞v	NH	Imidogen
+C∞v	OH	Hydroxyl radical
+C∞v	DO	Hydroxyl-d
+C∞v	HF	Hydrogen fluoride
+C∞v	DF	Hydrofluoric acid-d
+C∞v	NeH	neon hydrogen
+C∞v	NaH	sodium hydride
+C∞v	MgH	magnesium monohydride
+C∞v	AlH	aluminum monohydride
+C∞v	SiH	Silylidyne
+C∞v	PH	phosphorus monohydride
+C∞v	DS	Mercapto-d
+C∞v	HS	Mercapto radical
+C∞v	HCl	Hydrogen chloride
+C∞v	DCl	Hydrochloric acid-d
+C∞v	ArH+	Argon hydride cation
+C∞v	H2Ar	H2 Ar dimer
+C∞v	KH	Potassium hydride
+C∞v	CaH	Calcium monohydride
+C∞v	ScH	Scandium monohydride
+C∞v	TiH	Titanium monohydride
+C∞v	CrH	Chromium hydride
+C∞v	CuH	Copper monohydride
+C∞v	ZnH	Zinc monohydride
+C∞v	GaH	Gallium monohydride
+C∞v	GeH	germylidene
+C∞v	AsH	Arsenic monohydride
+C∞v	HSe	Selenium monohydride
+C∞v	HBr	hydrogen bromide
+C∞v	KrH+	Protonated Krypton
+C∞v	SbH	Antimony monohydride
+C∞v	TeH	Telluryl radical
+C∞v	HI	Hydrogen iodide
+C∞v	XeH+	Xenon, protonated
+C∞v	LiBe	Lithium Beryllium
+C∞v	LiB	Lithium boride
+C∞v	BeB	Beryllium monoboride
+C∞v	LiC	Lithium Carbide
+C∞v	BeC	Beryllium Carbide
+C∞v	BC	boron monocarbide
+C∞v	C2H	Ethynyl radical
+C∞v	LiN	Lithium Nitride
+C∞v	BeN	Beryllium mononitride
+C∞v	BN	boron nitride
+C∞v	CN	Cyano radical
+C∞v	HNB	hydrogen nitrogen boron
+C∞v	HCN	Hydrogen cyanide
+C∞v	HNC	hydrogen isocyanide
+C∞v	NNH+	Dinitrogen monohydride cation
+C∞v	HBNH	Boranimine
+C∞v	HCNH+	N-protonated HCN
+C∞v	LiO	lithium oxide
+C∞v	BeO	beryllium oxide	BeO-	Beryllium monoxide anion	BeO+	Beryllium monoxide cation
+C∞v	BO	boron monoxide	BO-	boron monoxide anion	BO+	boron monoxide cation
+C∞v	CO	Carbon monoxide	CO	Carbon monoxide	CO-	carbon monoxide anion	CO+	carbon monoxide cation
+C∞v	NO	Nitric oxide	NO-	nitric oxide anion	NO-	nitric oxide anion	NO+	nitric oxide cation
+C∞v	LiOH	lithium hydroxide
+C∞v	BeOH	beryllium monohydroxide
+C∞v	HBO	Boron hydride oxide
+C∞v	HCO+	Formyl cation
+C∞v	COH+	Carbon Monoxide, protonated
+C∞v	HO2	Hydroperoxy radical	HO2+	Hydroperoxy cation (conformer 2)
+C∞v	LiF	lithium fluoride	LiF-	lithium fluoride anion	LiF+	lithium fluoride cation
+C∞v	BeF	Beryllium monofluoride	BeF-	Beryllium monofluoride anion	BeF+	Beryllium monofluoride cation
+C∞v	BF	Boron monofluoride	BF-	Boron monofluoride anion	BF+	Boron monofluoride cation
+C∞v	CF	Fluoromethylidyne	CF-	carbon monofluoride anion	CF-	carbon monofluoride anion	CF+	carbon monofluoride cation
+C∞v	NF	nitrogen fluoride	NF	nitrogen fluoride	NF-	nitrogen monofluorine anion	NF+	nitrogen monofluoirde cation
+C∞v	FO	Oxygen monofluoride	FO-	flourine oxide anion	FO+	fluorine monoxide cation
+C∞v	LiNe+	Lithium Neon cation
+C∞v	NaLi	lithium sodium	NaLi-	lithium sodium anion	NaLi+	lithium sodium cation
+C∞v	NaBe	Sodium Beryllium
+C∞v	NaO	sodium monoxide	NaO-	sodium oxide anion	NaO+	sodium oxide cation
+C∞v	NaF	sodium fluoride	NaF-	sodium fluoride anion	NaF+	sodium fluoride cation
+C∞v	NaOH	sodium hydroxide
+C∞v	LiMg	Lithium magnesium
+C∞v	BeMg	Beryllium Magnesium
+C∞v	MgN	Magnesium Nitride	MgN	Magnesium Nitride
+C∞v	MgO	magnesium oxide	MgO-	magnesium oxide anion	MgO+	magnesium oxide cation
+C∞v	MgF	Magnesium monofluoride	MgF-	magnesium fluoride anion	MgF+	magnesium fluoride cation
+C∞v	NaMg	Sodium Magnesium
+C∞v	MgOH	magnesium hydroxide
+C∞v	LiAl	Lithium Aluminum
+C∞v	BAl	Boron Aluminum
+C∞v	AlC	Aluminum carbide
+C∞v	AlN	Aluminum nitride	AlN	Aluminum nitride	AlN-	aluminum mononitride anion	AlN+	aluminum mononitride cation
+C∞v	AlO	Aluminum monoxide	AlO-	Aluminum monoxide anion	AlO+	aluminum monoxide cation
+C∞v	AlF	Aluminum monofluoride	AlF-	Aluminum monofluoride anion	AlF+	Aluminum monofluoride cation
+C∞v	NaAl	Sodium aluminum
+C∞v	BSi	Boron silicide	BSi	Boron silicide
+C∞v	SiC	silicon monocarbide	SiC	silicon monocarbide	SiC-	silicon monocarbide anion	SiC+	silicon monocarbide cation
+C∞v	SiN	Silicon nitride	SiN-	silicon mononitride anion	SiN+	silicon mononitride cation
+C∞v	SiO	Silicon monoxide	SiO-	silicon monoxide anion	SiO+	silicon monoxide cation
+C∞v	SiF	silicon monofluoride	SiF-	silicon monofluoride anion	SiF-	silicon monofluoride anion	SiF+	silicon monofluoride cation
+C∞v	LiP	Lithium monophosphide	LiP	Lithium monophosphide
+C∞v	BP	Boron monophosphide	BP	Boron monophosphide
+C∞v	CP	Carbon monophosphide	CP-	carbon monophosphide anion	CP+	carbon monophosphide cation	CP+	carbon monophosphide cation
+C∞v	PN	Phosphorus mononitride	PN-	phosphorus nitride anion	PN+	phosphorus nitride cation
+C∞v	PO	Phosphorus monoxide	PO-	phosphorus monoxide anion	PO+	phosphorus monoxide cation
+C∞v	PF	phosphorus monofluoride	PF	phosphorus monofluoride	PF	phosphorus monofluoride	PF-	phosphorus monofluoride anion	PF+	phosphorus monofluoride cation
+C∞v	AlP	Aluminum monophosphide	AlP	Aluminum monophosphide	AlP	Aluminum monophosphide
+C∞v	SiP	Silicon monophosphide	SiP-	Silicon monophosphide anion	SiP+	Silicon monophosphide cation	SiP+	Silicon monophosphide cation
+C∞v	HCP	Phosphaethyne	HCP+	Phosphaethyne cation
+C∞v	LiS	Lithium monosulfide	LiS+	Lithium sulfide cation
+C∞v	BeS	beryllium sulfide	BeS-	Beryllium monosulfide anion	BeS+	Beryllium monosulfide cation
+C∞v	BS	boron sulfide	BS-	boron monosulfide anion	BS+	boron monosulfide cation
+C∞v	CS	carbon monosulfide	CS-	carbon monosulfide anion	CS+	carbon monosulfide cation
+C∞v	NS	Mononitrogen monosulfide	NS-	nitrogen sulfide anion	NS-	nitrogen sulfide anion	NS+	nitrogen sulfide cation
+C∞v	SO	Sulfur monoxide	SO	Sulfur monoxide	SO-	sulfur monoxide anion	SO+	sulfur monoxide cation
+C∞v	SF	Monosulfur monofluoride	SF-	sulfur monofluoride anion	SF+	sulfur monofluoride cation	SF+	sulfur monofluoride cation
+C∞v	NaS	Sodium sulfide
+C∞v	MgS	magnesium sulfide	MgS-	magnesium sulfide anion	MgS+	magnesium sulfide cation
+C∞v	AlS	Aluminum sulfide	AlS-	aluminum monosulfide anion	AlS+	aluminum monosulfide cation
+C∞v	SiS	silicon monosulfide	SiS-	silicon monosulfide anion	SiS+	silicon monosulfide cation
+C∞v	PS	phosphorus sulfide	PS-	phosphorus monosulfide anion	PS-	phosphorus monosulfide anion	PS+	phosphorus monosulfide cation
+C∞v	HBS	hydrogen boron sulfide
+C∞v	HCS	Thioformyl radical	HCS+	Thioformyl cation
+C∞v	LiCl	lithium chloride	LiCl-	lithium chloride anion	LiCl+	lithium chloride cation
+C∞v	BeCl	beryllium monochloride	BeCl-	beryllium monochloride anion	BeCl+	beryllium monochloride cation
+C∞v	BCl	boron monochloride	BCl-	boron monochloride anion	BCl+	boron monochloride cation
+C∞v	CCl	carbon monochloride	CCl-	carbon monochloride anion	CCl+	carbon monochloride cation
+C∞v	NCl	nitrogen monochloride	NCl	nitrogen monochloride	NCl-	nitrogen monochloride anion	NCl+	nitrogen monochloride cation
+C∞v	ClO	Monochlorine monoxide	ClO-	chlorine monoxide anion	ClO+	chlorine monoxide cation	ClO+	chlorine monoxide cation
+C∞v	ClF	Chlorine monofluoride	ClF-	clorine monofluoride anion	ClF+	clorine monofluoride cation
+C∞v	NaCl	Sodium Chloride	NaCl-	sodium chloride anion	NaCl+	sodium chloride cation
+C∞v	MgCl	magnesium monochloride	MgCl-	magnesium monochloride anion	MgCl+	magnesium monochloride cation
+C∞v	AlCl	Aluminum monochloride	AlCl-	aluminum monochloride anion	AlCl+	aluminum monochloride cation
+C∞v	SiCl	Clorosilylidyne	SiCl-	silicon monochloride anion	SiCl+	silicon monochloride cation
+C∞v	PCl	phosphorus chloride	PCl	phosphorus chloride	PCl-	phosphorus monochloride anion	PCl+	phosphorus monochloride cation
+C∞v	SCl	sulfur monochloride	SCl-	sulfur monochloride anion	SCl+	sulfur monochloride cation	SCl+	sulfur monochloride cation
+C∞v	HCCl	Chloromethylene
+C∞v	LiK	Lithium Potassium
+C∞v	KO	Potassium monoxide	KO+	Potassium monoxide cation
+C∞v	KF	Potassium Fluoride
+C∞v	NaK	Sodium Potassium	NaK+	Sodium Potassium diatomic cation
+C∞v	KCl	Potassium Chloride
+C∞v	KOH	Potassium hydroxide
+C∞v	CaC	Calcium monocarbide
+C∞v	CaO	Calcium monoxide
+C∞v	CaF	Calcium monofluoride
+C∞v	CaS	Calcium sulfide	CaS	Calcium sulfide
+C∞v	CaCl	calcium monochloride
+C∞v	CaOH	Calcium monohydroxide
+C∞v	ScO	Scandium monoxide
+C∞v	ScF	Scandium monofluoride	ScF	Scandium monofluoride
+C∞v	TiN	Titanium mononitride
+C∞v	TiO	Titanium monoxide
+C∞v	TiCl	Titanium Monochloride
+C∞v	VO	Vanadium monoxide
+C∞v	CuO	Copper Monoxide
+C∞v	CuF	Copper monofluoride
+C∞v	CuCl	Copper monochloride
+C∞v	ZnO	zinc monoxide
+C∞v	ZnF	Zinc monofluoride	ZnF-	Zinc monofluoride anion	ZnF+	Zinc monofluoride cation
+C∞v	ZnS	Zinc sulfide	ZnS	Zinc sulfide
+C∞v	ZnCl	Zinc monochloride
+C∞v	BGa	Boron Gallium
+C∞v	GaN	Gallium mononitride	GaN	Gallium mononitride
+C∞v	GaO	Gallium monoxide
+C∞v	GaF	Gallium monofluoride	GaF+	Gallium monofluoride cation
+C∞v	AlGa	Aluminum Gallium	AlGa	Aluminum Gallium
+C∞v	GaP	Gallium monophosphide	GaP	Gallium monophosphide	GaP	Gallium monophosphide	GaP	Gallium monophosphide
+C∞v	GaS	Gallium monosulfide
+C∞v	GaCl	Gallium monochloride	GaCl+	Gallium monochloride cation
+C∞v	GeC	Germanium monocarbide	GeC	Germanium monocarbide
+C∞v	GeO	Germanium monoxide	GeO+	Germanium monoxide cation
+C∞v	GeF	Germanium monofluoride	GeF+	Germanium monofluoride cation
+C∞v	SiGe	Silicon Germanium
+C∞v	GeS	Germanium monosulfide
+C∞v	GeCl	Germanium monochloride	GeCl+	Germanium monochloride cation
+C∞v	AsN	Arsenic mononitride
+C∞v	AsO	Arsenic monoxide
+C∞v	AsF	Arsenic monofluoride	AsF	Arsenic monofluoride	AsF	Arsenic monofluoride
+C∞v	AsP	Arsenic monophosphide
+C∞v	AsS	Arsenic monosulfide
+C∞v	AsCl	Arsenic monochloride
+C∞v	GaAs	Gallium arsenide	GaAs	Gallium arsenide
+C∞v	LiSe	Lithium monoselenide
+C∞v	CSe	Carbon monoselenide	CSe-	Carbon monoselenide anion	CSe+	Carbon monoselenide cation
+C∞v	NSe	Nitrogen monoselenide
+C∞v	SeO	Selenium monoxide	SeO	Selenium monoxide	SeO-	selenium monoxide anion	SeO+	selenium monoxide cation
+C∞v	SeF	Selenium monofluoride
+C∞v	SiSe	Silicon Monoselenide	SiSe+	Silicon Monoselenide cation
+C∞v	PSe	Phosphorus monoselenide
+C∞v	SeS	Selenium monosulfide	SeS-	selenium monosulfide anion	SeS+	selenium monosulfide cation
+C∞v	SeCl	Selenium monochloride
+C∞v	GeSe	Germanium monoselenide
+C∞v	AsSe	Arsenic monoselenide
+C∞v	LiBr	Lithium Bromide	LiBr-	lithium bromide anion	LiBr+	lithium bromide cation
+C∞v	BBr	Boron monobromide
+C∞v	CBr	Carbon monobromide
+C∞v	NBr	nitrogen monobromide
+C∞v	BrO	Bromine monoxide	BrO-	Bromine monoxide anion	BrO+	Bromine monoxide cation
+C∞v	BrF	Bromine monofluoride	BrF-	bromine fluoride anion	BrF+	bromine fluoride cation
+C∞v	NaBr	Sodium Bromide	NaBr-	sodium bromide anion	NaBr+	sodium bromide cation
+C∞v	AlBr	Aluminum monobromide
+C∞v	SiBr	Silicon monobromide	SiBr+	Silicon monobromide cation
+C∞v	PBr	Phosphorus monobromide
+C∞v	SBr	Sulfur monobromide radical	SBr+	Sulfur monobromide cation
+C∞v	BrCl	Bromine monochloride	BrCl-	bromine chloride anion	BrCl+	bromine chloride cation
+C∞v	CaBr	Calcium monobromide
+C∞v	KBr	Potassium Bromide
+C∞v	GaBr	Gallium monobromide
+C∞v	SeBr	Selenium monobromide
+C∞v	SbN	Antimony nitride
+C∞v	SbF	Antimony monofluoride
+C∞v	SbCl	Antimony monochloride
+C∞v	TeO	Tellurium monoxide
+C∞v	LiI	Lithium Iodide
+C∞v	IO	Iodine monoxide
+C∞v	IF	Iodine monofluoride
+C∞v	NaI	Sodium Iodide
+C∞v	AlI	Aluminum monoiodide
+C∞v	ICl	Iodine monochloride
+C∞v	KI	Potassium Iodide
+C∞v	IBr	Iodine monobromide
+C∞v	LiCN	lithium cyanide	LiCN	lithium cyanide (conformer 3)
+C∞v	CNN	Diazocarbene
+C∞v	N3+	azide cation
+C∞v	HCCN	cyanomethylene
+C∞v	CCO	Dicarbon monoxide	CCO	Dicarbon monoxide
+C∞v	NCO	isocyanato radical	NCO-	cyanate
+C∞v	CNO-	fulminate
+C∞v	CO2+	Carbon dioxide cation
+C∞v	N2O	Nitrous oxide	N2O+	Nitrous oxide cation
+C∞v	HCCO	ketenyl radical
+C∞v	HCNO	fulminic acid
+C∞v	HNNO+	Nitrous oxide, N-protonated
+C∞v	FCN	Cyanogen fluoride
+C∞v	FBO	Boron monofluoride monoxide
+C∞v	CNF	iso cyanogen fluoride
+C∞v	FCO+	Carbonyl fluoride cation
+C∞v	F3-	trifluoride anion
+C∞v	HCCF	Fluoroacetylene	HCCF+	fluoroacetylene cation
+C∞v	NaCN	Sodium Cyanide	NaCN	Sodium Cyanide (conformer 3)
+C∞v	AlCN	Aluminum monocyanide
+C∞v	AlNC	Aluminum isocyanide
+C∞v	PPO	Phosphorus oxide phosphide
+C∞v	OCS	Carbonyl sulfide	OCS+	Carbonyl sulfide cation
+C∞v	NNS	Nitrogen sulfide
+C∞v	SCN	thiocyanato radical	SCN-	thiocyanide anion
+C∞v	SNO	Nitrogen oxide sulfide
+C∞v	HNCS	Isothiocyanic acid
+C∞v	ClCN	chlorocyanogen
+C∞v	ClCO	carbonyl monochloride
+C∞v	HCCCl	Chloroacetylene
+C∞v	KCN	Potassium cyanide	KCN	Potassium cyanide (conformer 2)
+C∞v	CuCN	Copper cyanide	CuCN	Copper cyanide
+C∞v	ZnCN	Zinc monocyanide
+C∞v	ZnNC	Zinc isocyanide
+C∞v	OCSe	Carbonyl selenide
+C∞v	SCSe	Carbon sulfide selenide
+C∞v	BrCN	Cyanogen bromide
+C∞v	HCCBr	bromoacetylene
+C∞v	SCTe	Carbon sulfide Telluride
+C∞v	ICN	Cyanogen iodide
+C∞v	C4H2	Diacetylene
+C∞v	HCCCN	Cyanoacetylene	HCCCN+	Cyanoacetylene cation
+C∞v	C3O	Tricarbon monoxide
+C1	CH3O	Methoxy radical
+C1	CH2OH	Hydroxymethyl radical
+C1	CH3OH+	Methyl alcohol cation
+C1	NH2OH2+	protonated hydroxylamine
+C1	HOSH	hydrogen thioperoxide
+C1	C3H7	n-Propyl radical	C3H7+	n-propyl cation
+C1	NHCHNH2	aminomethanimine
+C1	CH2CHNH2	aminoethene
+C1	NH2NO	Nitrosamide
+C1	CHONH2	formamide
+C1	CNOH3	1,2-oxaziridine
+C1	CH2OOH	CH2OOH radical
+C1	H2OH2CO	water formaldehyde dimer
+C1	CH3OOH	Methyl peroxide
+C1	CH3CHOH	1-hydroxy-ethyl radical
+C1	CH2CH2OH	2-hydroxy ethyl radical
+C1	CH3OCH2	methoxymethyl radical
+C1	NH2CH2OH	aminomethanol
+C1	CH3CH2OH	Ethanol
+C1	H2OCH3OH	water methanol dimer
+C1	CH2FOH	fluoromethanol
+C1	CH3SSH	Hydrogen methyl disulfide
+C1	CH3CH2SH	ethanethiol
+C1	CHFCl	Chlorofluoromethyl radical
+C1	HOClO	Chlorous acid
+C1	CHClCH3	1-chloroethyl radical
+C1	C4H6	1-Methylcyclopropene
+C1	CH2CHCH2CH3	1-Butene
+C1	CH3CHCH2CH3	2-Butyl radical
+C1	CH3NHN2+	methyl azide, protonated
+C1	CH5N3	Guanidine
+C1	HOCH2CN	cyanomethanol
+C1	NH2COOH	Carbamic acid
+C1	HCOOHH2O	Formic acid water dimer
+C1	H2OHCOOH	Water formic acid dimer 1
+C1	H2OHCOOH	Water formic acid dimer 2
+C1	HOCH2OOH	hydroxy methyl peroxide
+C1	CH3CONH2	Acetamide
+C1	CH2C(OH)NH2	1-amino vinyl alchohol
+C1	C3H6O	Propylene oxide
+C1	C3H6O	2-Propen-1-ol
+C1	C3H5OH	Cyclopropanol
+C1	CH3COHCH3+	acetone, protonated
+C1	HOCH2CH2NH2	monoethanolamine	HOCH2CH2NH2	monoethanolamine (conformer 3)
+C1	CH3CHOHCH3	Isopropyl alcohol
+C1	H2OCH3OCH3	water dimethylether dimer
+C1	CH2CHCH2F	Allyl Fluoride
+C1	CH2FCH2OH	2-fluoroethanol
+C1	CH2FCH2CH3	1-Fluoropropane
+C1	HSO3	Hydroxysulfonyl radical
+C1	CH3CSNH2	Ethanethioamide
+C1	C3H6S	Thiirane, methyl-
+C1	HClO3	Chloric Acid
+C1	CH2ClCHO	chloroacetaldehyde
+C1	CH2FCH2Cl	Ethane, 1-chloro-2-fluoro-
+C1	CH3CHFCl	Ethane, 1-chloro-1-fluoro-
+C1	CH2ClCH2OH	2-Chloroethanol
+C1	CH2ClCH2OH2+	2-chloroethanol, protonated
+C1	CH2ClCH2CH3	Propane, 1-chloro-
+C1	CHFClBr	fluorochlorobromomethane
+C1	CHFClI	fluorochloroiodomethane
+C1	C5H8	1,2-Pentadiene
+C1	CH2CHCH2CH2CH3	1-pentene	CH2CHCH2CH2CH3	1-pentene (conformer 2)
+C1	C5H10	Cyclopentane
+C1	C5H10	1-Butene, 2-methyl-
+C1	C5H10	2-Pentene, (Z)-
+C1	C5H11	2-Methylbut-2-yl radical
+C1	C5H12	Butane, 2-methyl-
+C1	C3H10N2	1,2-Diaminopropane
+C1	C(CH3)3NH2	2-Propanamine, 2-methyl-
+C1	C(NH2)H2C(CH3)HCH3	1-Propanamine, 2-methyl-
+C1	C(NH2)H2CH2CH2CH3	1-Butanamine
+C1	CH3C(NH2)HCH2CH3	2-Butanamine
+C1	HOONO2	peroxy nitric acid
+C1	C3H4O2	propanedial
+C1	HOCH2COOH	Hydroxyacetic acid
+C1	CH2CHCONH2	Acrylamide
+C1	CH3OCH2CN	Methoxyacetonitrile
+C1	CH2CHOCHCH2	Vinyl ether
+C1	C4H6O	Furan, 2,3-dihydro-
+C1	HCOOC2H5	Ethyl formate
+C1	C3H6O2	1,3-Dioxolane
+C1	C3H7NO	dimethylformamide
+C1	C3H7NO	Propanamide
+C1	CH3COCH2CH3	2-Butanone
+C1	C2H3OC2H5	Ethene, ethoxy-
+C1	CH2C(CH3)OCH3	1-Propene, 2-methoxy-
+C1	C3H8O2	Propylene glycol
+C1	C3H8O2	1,3-Propanediol	C3H8O2	1,3-Propanediol (conformer 2)
+C1	C3H8O2	Hydroperoxide, 1-methylethyl
+C1	C4H10O	1-Butanol	C4H10O+	1-Butanol cation
+C1	C4H10O	Ethanol, 1,1-dimethyl-
+C1	C4H10O	1-Propanol, 2-methyl-
+C1	C4H10O	Methyl propyl ether
+C1	C4H10O	Propane, 2-methoxy-
+C1	C4H10O	2-Butanol, (.+/-.)-
+C1	CHF2CH2F	Ethane, 1,1,2-trifluoro
+C1	CH3CHFCH2CH3	2-fluorobutane
+C1	C4H9F	1-fluorobutane
+C1	HSO3F	Fluorosulfonic acid
+C1	CH5N3S	Hydrazinecarbothioamide
+C1	C4H6S	Thiophene, 2,3-dihydro-
+C1	C4H8S	Thiophene, tetrahydro-
+C1	CH2(SH)CH(CH3)CH3	1-Propanethiol, 2-methyl-
+C1	CH3CH(SH)CH2CH3	2-Butanethiol
+C1	CH3C(SCH3)HCH3	Propane, 2-(methylthio)-
+C1	CHCl2CHO	dichloroacetaldehyde
+C1	CH2ClCHCl2	1,1,2-trichloroethane
+C1	C3H5ClO	Oxirane, (chloromethyl)-
+C1	CH2ClCHClCH3	Propane, 1,2-dichloro-
+C1	CHCl2CH2CH3	1,1-dichloropropane
+C1	CH2CHCHClCH3	1-Butene, 3-chloro-
+C1	CH2ClCHCHCH3	2-Butene, 1-chloro-
+C1	CH2CHCH2CH2Cl	1-Butene, 4-chloro-
+C1	CHClCHCH2CH3	(E)-1-Chloro-1-butene
+C1	CH3CHClCH2CH3	Butane, 2-chloro-
+C1	CFClBrI	fluorochlorobromoiodomethane
+C1	C6H8	Bicyclo[3.1.0]hex-2-ene
+C1	C6H8	3-Methylenecyclopentene
+C1	C6H10	Cyclopentene, 1-methyl-
+C1	C6H10	Cyclopentene, 3-methyl-
+C1	C6H10	Cyclopentene, 4-methyl-
+C1	C6H10	1,4-Hexadiene, (Z)-
+C1	C6H10	1,4-Hexadiene, (E)-
+C1	C6H12	Cyclopentane, methyl-
+C1	C6H12	hex-1-ene
+C1	C6H12	(E)-3-methylpent-2-ene
+C1	C6H12	3-methylenepentane
+C1	C6H12	(Z)-3-methylpent-2-ene
+C1	C6H12	(E)-2-Hexene	C6H12	(E)-2-Hexene (conformer 2)
+C1	C6H12	Ethylcyclobutane
+C1	C6H12	(Z)-hex-2-ene
+C1	C6H12	cis-1,2-dimethylcyclobutane
+C1	C6H14	Butane, 2,2-dimethyl-
+C1	C6H14	Pentane, 2-methyl-
+C1	CH3N5	5-Aminotetrazole
+C1	C2H4N4	2H-Tetrazole, 2-methyl-
+C1	C4H6N2	1H-Imidazole, 2-methyl-
+C1	C5H7N	1H-Pyrrole, 1-methyl-
+C1	C5H7N	(E)-3-Pentenenitrile
+C1	C5H7N	(Z)-2-Pentenenitrile
+C1	C5H9N	1,2,3,6-Tetrahydropyridine
+C1	C5H9N	Butanenitrile, 2-methyl-
+C1	C4H12N2	1,2-Butanediamine
+C1	C4H4O2	2-Oxetanone, 4-methylene-
+C1	C4H5NO	Isoxazole, 5-methyl-
+C1	C4H5NO	3-Methylisoxazole
+C1	C2H5NO3	Nitric acid, ethyl ester
+C1	C5H6O	2H-Pyran
+C1	C5H6O	2-methylfuran
+C1	C4H6O2	2-Propenoic acid, methyl ester
+C1	C4H6O2	γ–Butyrolactone
+C1	C2H6N2O2	Dimethylnitroamine
+C1	C4H7NO	Methacrylamide
+C1	C4H7NO	2-Pyrrolidinone
+C1	NH2COOC2H5	Urethane
+C1	CH3CH(NH2)COOH	Alanine
+C1	NH2CH2CH2COOH	β–alanine
+C1	CH3NHCH2COOH	Sarcosine
+C1	CH3CH(CH3)ONO	Isopropyl nitrite
+C1	C3H7ONO	Propyl nitrite
+C1	C5H8O	2H-Pyran, 3,4-dihydro-
+C1	C5H8O	Furan, 2,3-dihydro-5-methyl-
+C1	C4H8O2	Butanoic acid
+C1	C4H8O2	1,3-Dioxolane, 2-methyl-
+C1	C4H8O2	1,3-Dioxane
+C1	N(CH3)2CONH2	Urea, N,N-dimethyl-
+C1	NH2CONHC2H5	Urea, ethyl-
+C1	C3H8O3	1,2,3-Propanetriol
+C1	C4H9NO	Butanamide
+C1	C4H9NO	Propanamide, 2-methyl-
+C1	C5H10O	2-methylbutyraldehyde
+C1	C5H10O	Cyclopentanol
+C1	C5H10O	2-Pentanone
+C1	C5H10O	2-Butanone, 3-methyl-
+C1	C4H10O2	1,3-Butanediol
+C1	C5H12O	1-Butanol, 2-methyl-
+C1	C5H12O	3-Pentanol
+C1	C5H12O	2-Butanol, 3-methyl-
+C1	C5H12O	2-Pentanol
+C1	C3H4S3	1,3-Dithiolane-2-thione
+C1	C4H5NS	4-Methylthiazole
+C1	C4H6OS	Dihydro-3-(2H)-thiophenone
+C1	C4H6OS	Dihydro-2-(3H)-thiophenone
+C1	C4H6OS	4,5-dihydrothiophene-3-ol
+C1	C4H6OS	2,5-dihydrothiophene-3-ol
+C1	C4H6OS	4,5-dihydrothiophene-2-ol
+C1	C4H6OS	2,3-dihydrothiophene-2-ol
+C1	CH6N4S	Carbonothioic dihydrazide
+C1	C2H6O3S	Sulfurous acid, dimethyl ester
+C1	C3H6S3	Carbonotrithioic acid, dimethyl ester
+C1	C4H8OS	s-Ethyl thioacetate
+C1	C3H8O2S	(Methylsulfonyl)ethane
+C1	C5H10S	Cyclopentanethiol
+C1	C5H10S	Thiophene, tetrahydro-2-methyl-
+C1	C5H10S	Thiophene, tetrahydro-3-methyl-
+C1	C4H10OS	Diethyl sulfoxide
+C1	C5H12S	1-Butanethiol, 2-methyl-
+C1	C5H12S	2-Butanethiol, 3-methyl-
+C1	B2Cl4	Diboron tetrachloride
+C1	C3H5ClO2	Carbonochloridic acid, ethyl ester
+C1	C4H8Cl2	Butane, 1,2-dichloro-
+C1	C4H8Cl2	Butane, 1,3-dichloro-
+C1	C7H16	3-methylhexane
+C1	C7H16	2-methylhexane
+C1	C6H13N	cyclohexanamine
+C1	C6H13N	2-Methylpiperidine
+C1	C5H5NO	2(3H)-Pyridinone
+C1	HO2CCHNH2CH2OH	Serine
+C1	C6H12O	Oxepane
+C1	CF3CHFCl	1,1,1,2-tetrafluorochloroethane
+C1	CHCl2CClF2	Ethane, 1,2,2-trichloro-1,1-difluoro-
+C1	C5H9NO2	Proline
+C1	C6H12O2	Methyl pivalate
+C1	CF2ClCFCl2	Ethane, 1,1,2-trichloro-1,2,2-trifluoro-
+C1	CH3COC6H5	acetophenone
+C2	C2H7+	Ethane, protonated
+C2	N2H4	Hydrazine
+C2	H2O2	Hydrogen peroxide
+C2	H5O2+	Dihydroxonium ion
+C2	P2H4	Diphosphine
+C2	H2S2	Disulfane
+C2	H2Se2	hydrogen diselenide
+C2	CH3CHCH3+	Isopropyl cation
+C2	HNCNH	diiminomethane
+C2	HNNNH+	1,2-Triazadienium
+C2	NH2CH2NH2	diaminomethane
+C2	Be(OH)2	Beryllium hydroxide
+C2	H2O3	Hydrogen trioxide
+C2	CH2(OH)2	methanediol
+C2	Mg(OH)2	Magnesium dihydroxide
+C2	HSSSH	trisulfane
+C2	HSCH2SH	Methanedithiol
+C2	CH2CHCHCH2	1,3-Butadiene
+C2	CH3CH2CH2CH3	Butane
+C2	NH2CCNH2	Diaminoacetylene
+C2	H2NCHCHNH2	diaminoethylene
+C2	CH3NNCH3	(Z)-1,2-Dimethyldiazene
+C2	C2H8N2	Ethylenediamine
+C2	CH3NHNHCH3	dimethyl hydrazine
+C2	ONNO	NO dimer
+C2	NH2CONH2	Urea
+C2	CH3COCH3	Acetone
+C2	CH3OOCH3	dimethylperoxide
+C2	FOOF	Perfluoroperoxide
+C2	C2H4F2	1,2-difluoroethane
+C2	FSSF	Difluorodisulfane
+C2	NH2CSNH2	Thiourea
+C2	CH3SSCH3	Disulfide, dimethyl
+C2	ClOOCl	Dichlorine dioxide
+C2	ClSSCl	Disulfur dichloride
+C2	CH2ClCH2Cl	Ethane, 1,2-dichloro-
+C2	CH2BrCH2Br	Ethane, 1,2-dibromo-
+C2	C5H8	1,4-Pentadiene
+C2	C5H8	2,3-Pentadiene
+C2	HOCHCCHOH	allenediol
+C2	C2H4O3	trioxolane124
+C2	C3H6O2	1,3-Dioxolane
+C2	C4H8O	Furan, tetrahydro-
+C2	C3H8O2	Methane, dimethoxy-
+C2	CH2FCH2CH2F	1,3-difluoropropane
+C2	H2SO4	Sulfuric acid
+C2	CH2CHSCHCH2	Divinyl sulfide
+C2	CH3SSSCH3	dimethyl trisulfide
+C2	CHClCCHCl	1,3-dichloroallene
+C2	CH2ClCH2CH2Cl	1,3-dichloropropane
+C2	H2SeO4	Selenic acid
+C2	C6H8	1,3-Cyclohexadiene
+C2	C6H10	cyclohexene
+C2	C6H10	1,5-Hexadiene
+C2	C6H10	3-Hexyne
+C2	C6H12	Cyclohexane
+C2	C6H12	(Z)-hex-3-ene
+C2	C6H12	(1R,2R)-1,2-dimethylcyclobutane
+C2	C4H4N2	Succinonitrile
+C2	C2H4CO3	Ethylene carbonate
+C2	C4H6O2	2,3-Butanedione
+C2	C5H8O	Cyclopentanone
+C2	NH(CH3)CONH(CH3)	Urea, N,N'-dimethyl-
+C2	CHF2CHF2	1,1,2,2-tetrafluoroethane
+C2	C2H4N2S2	Ethanedithioamide
+C2	CHFClCHFCl	1,2-dichloro-1,2-difluoroethane RR
+C2	CHCl2CHCl2	Ethane, 1,1,2,2-tetrachloro-
+C2	C4H8Cl2	Butane, 2,3-dichloro-, (r*,r*)-(.+/-.)-
+C2	C7H14	cycloheptane
+C2	N2O5	Dinitrogen pentoxide
+C2	C5H8O2	Acetylacetone
+C2	C3H7OC3H7	di-n-propyl ether
+C2	C4H8O2S	Sulfolane
+C2	CH3C6H4CH3	paraxylene
+C2	(CH3)3CC(CH3)3	tetramethylbutane
+C2	CF2ClCF2Cl	1,2-Dichloro-1,1,2,2-tetrafluoroethane
+C2	C4F6	perfluorobutadiene
+C2	C12H10	Heptalene
+C2	C14H14	Bibenzyl
+C2	C6H5COC6H5	benzophenone
+C2h	HCCH-	acetylene anion
+C2h	C2H4-	Ethylene anion
+C2h	C2H6+	ethane cation
+C2h	N2H2	(E)-diazene	N2H2+	trans-diazene cation
+C2h	N2H4+	hydrazine cation
+C2h	NH3NH3	Ammonia Dimer
+C2h	H2O2	Hydrogen peroxide	H2O2+	Hydrogen peroxide cation
+C2h	Si2H2	disilyne
+C2h	Si2H4	Disilene
+C2h	H2S2+	hydrogen disulfide cation
+C2h	Mg(OH)2	Magnesium dihydroxide
+C2h	CH2CHCHCH2	1,3-Butadiene
+C2h	CH3CHCHCH3	2-Butene, (E)-
+C2h	CH3CH2CH2CH3	Butane
+C2h	HNCCNH	Ethenediimine
+C2h	CH3NNCH3	(E)-1,2-Dimethyldiazene
+C2h	C2H8N2	Ethylenediamine
+C2h	ONNO	NO dimer
+C2h	C2H2O2	Ethanedial	C2H2O2+	Ethanedial cation
+C2h	C2H6O2	1,2-Ethanediol
+C2h	CH3OOCH3	dimethylperoxide
+C2h	N2F2	Dinitrogen difluoride, (E)-
+C2h	C2H2F2	Ethene, 1,2-difluoro-, (E)-
+C2h	C2H4F2	1,2-difluoroethane
+C2h	CH2SHCH2SH	1,2-Ethanedithiol
+C2h	CHClCHCl	Ethene, 1,2-dichloro-, (E)-
+C2h	CH2ClCH2Cl	Ethane, 1,2-dichloro-
+C2h	CHBrCHBr	Ethene, 1,2-dibromo-, (E)-
+C2h	CH2BrCH2Br	Ethane, 1,2-dibromo-
+C2h	C6H4	(E)-Hexa-1,5-diyne-3-ene
+C2h	C6H6	Hexa-1,5-diene-3-yne
+C2h	C6H6	1,2,4,5-Hexatetraene
+C2h	C6H8	(E)-hexa-1,3,5-triene
+C2h	C6H8	(E)-hexa-2,3,4-triene
+C2h	C6H10	2,4-Hexadiene, (E,E)-
+C2h	C6H12	(1r,3r)-1,3-dimethylcyclobutane
+C2h	C6H14	Butane, 2,3-dimethyl-
+C2h	C6H14	Hexane
+C2h	C4H2N2	Fumaronitrile
+C2h	C4H4N2	Succinonitrile
+C2h	C2H2O4	Oxalic Acid
+C2h	C2H4N2O2	Oxalamide
+C2h	C2H4O4	Formic acid dimer
+C2h	C4H6O2	2,3-Butanedione
+C2h	C2H6N2O2	(E)-Azodioxymethane
+C2h	C4H8O2	1,4-Dioxane
+C2h	C4H10O2	1,4-Butanediol
+C2h	C4H10O2	Ethane, 1,2-dimethoxy-
+C2h	CHF2CHF2	1,1,2,2-tetrafluoroethane
+C2h	C2H4N2S2	Ethanedithioamide
+C2h	C4H10S2	1,4-Butanedithiol
+C2h	ClCOClCO	Oxalyl chloride
+C2h	CFClCClF	trans-1,2-dichloro-1,2-difluoroethylene
+C2h	CHCl2CHCl2	Ethane, 1,1,2,2-tetrachloro-
+C2h	C4H8Cl2	1,4-Dichlorobutane
+C2h	C8H6	Pentalene
+C2h	CH3C6H4CH3	paraxylene
+C2h	C8H18	Octane
+C2h	C4F4	tetrafluorcyclobutadiene
+C2h	CF2ClCF2Cl	1,2-Dichloro-1,1,2,2-tetrafluoroethane
+C2h	C10H22	Decane
+C2h	C4F6	perfluorobutadiene
+C2h	C12H10N2	azobenzene
+C2v	BH2	boron dihydride	BH2-	boron dihydride anion	BH2-	boron dihydride anion
+C2v	BH3	boron trihydride	BH3+	boron trihydride cation (conformer 2)	BH3+	boron trihydride cation (conformer 3)
+C2v	BH4	borohydride
+C2v	CH2	Methylene	CH2	Methylene	CH2-	methylene anion	CH2+	methylene cation
+C2v	CH4+	Methane cation
+C2v	CH2D2	methane-d2
+C2v	NH2	Amino radical	NH2-	amino anion	NH2+	Amino cation
+C2v	ND2	Amidogen-d2
+C2v	H2O	Water	H2O-	water anion	H2O+	water cation
+C2v	D2O	Deuterium oxide
+C2v	H2F+	dihydrogen fluoride cation
+C2v	AlH2	aluminum dihydride	AlH2-	aluminum dihydride anion
+C2v	AlH3+	aluminum trihydride cation
+C2v	SiH2	silicon dihydride	SiH2	silicon dihydride	SiH2-	silicon dihydride anion	SiH2+	silicon dihydride cation
+C2v	SiH4+	Silane cation
+C2v	SiH2D2	silane-d2
+C2v	PH2	Phosphino radical	PH2-	Phosphino anion	PH2+	Phosphino cation
+C2v	H2S	Hydrogen sulfide	H2S+	Hydrogen sulfide cation
+C2v	D2S	Hydrogen sulfide-d2
+C2v	H2Cl+	dihydrogen monochloride cation
+C2v	CaH2	Calcium Hydride
+C2v	ZnH2	Zinc hydride
+C2v	GeH2	germylene	GeH2-	germylene anion
+C2v	AsH2	Arsenic dihydride	AsH2+	Arsenic dihydride cation
+C2v	H2Se	Hydrogen selenide	H2Se+	Hydrogen selenide cation
+C2v	H2Br+	protonated hydrogen bromide
+C2v	H2Te	Hydrogen Telluride
+C2v	H2I+	Iodonium
+C2v	HBHHBH	Diborane(4) C2V
+C2v	CCH2	vinylidene	CCH2	vinylidene	H2CC-	vinylidene anion
+C2v	CH2BH	methyleneborane
+C2v	C2H3+	vinyl cation	C2H3+	vinyl cation (conformer 2)
+C2v	C2H5+	Ethyl cation
+C2v	LiNH2	lithium amide
+C2v	H2CN	Dihydrogen cyanide radical	H2CN+	hydrocyanonium cation
+C2v	CNH2	Aminomethylidyne radical	CNH2+	N-protonated hydrogen isocyanide
+C2v	N2H2	(Z)-Diazene
+C2v	H2NN	Isodiazene
+C2v	BH2NH2	Boranamine
+C2v	CH2NH2+	methyleneamine cation
+C2v	H2CO	Formaldehyde	H2CO-	formaldehyde anion (conformer 2)	H2CO+	formaldehyde cation
+C2v	H2NO	nitroxide
+C2v	H2O2+	Hydrogen peroxide cation
+C2v	CH2F+	fluoromethyl cation
+C2v	Si2H2	disilyne
+C2v	CH2SiH2	silaethylene
+C2v	Si2H4	Disilene
+C2v	H2CS	Thioformaldehyde	H2CS-	thioformaldehyde anion	H2CS+	thioformaldehyde cation
+C2v	CH2Cl+	chloromethyl cation
+C2v	ZnCH2	Zinc methylene	ZnCH2	Zinc methylene
+C2v	H2CSe	Selenoformaldehyde
+C2v	CH2Cl	chloromethyl radical
+C2v	Li3	Lithium trimer
+C2v	C3	carbon trimer	C3+	carbon trimer cation (conformer 2)
+C2v	C3H3	Propargyl radical	C3H3-	Propargyl anion (conformer 2)	C3H3+	Propargyl cation
+C2v	C3H4	cyclopropene
+C2v	C3H5	Allyl radical	C3H5+	Allyl cation
+C2v	C3H8	Propane
+C2v	CN2	3H-Diazirin-3-ylidene
+C2v	CH2N2	diazirine
+C2v	CH2NN	diazomethane
+C2v	NH2CN	cyanamide
+C2v	NH2CNH+	cyanamide, cn protonated
+C2v	NH2BHNH2	diaminoborane
+C2v	C2H5NH+	Protonated Aziridine
+C2v	C2H6N+	aziridine, protonated
+C2v	NH2CH2NH2	diaminomethane
+C2v	(CH3)2NH2+	dimethylammonium cation
+C2v	LiO2	Lithium dioxide
+C2v	CO2-	Carbon dioxide anion
+C2v	NO2	Nitrogen dioxide	NO2-	Nitrogen dioxide anion
+C2v	O3	Ozone	O3-	Ozone anion	O3+	Ozone cation
+C2v	HCO2-	formate anion
+C2v	C2H2O	Oxirene
+C2v	CH2CO	Ketene	CH2CO+	Ketene cation
+C2v	Be(OH)2	Beryllium hydroxide
+C2v	CH2O2	Dioxirane
+C2v	C2H4O	Ethylene oxide	C2H4O+	ethylene oxide cation
+C2v	H2COCH2+	Methyl, (methyleneoxoniumyl)-
+C2v	CH3OCH3	Dimethyl ether
+C2v	BF2	Boron difluoride radical
+C2v	CF2	Difluoromethylene	CF2	Difluoromethylene	CF2-	Difluoromethylene anion	CF2+	Difluoromethylene cation
+C2v	NF2	Difluoroamino radical	NF2+	Difluoroamino cation
+C2v	F2O	Difluorine monoxide
+C2v	BHF2	Difluoroborane
+C2v	CHF2+	difluoromethyl cation
+C2v	CH2F2	Methane, difluoro-
+C2v	NaO2	Sodium superoxide
+C2v	Na2O	disodium monoxide
+C2v	SiC2	Silicon dicarbide
+C2v	SiF2	Silicon difluoride	SiF2	Silicon difluoride	SiF2+	Silicon difluoride cation
+C2v	SiH2F2	difluorosilane
+C2v	SiH2(CH3)2	dimethylsilane
+C2v	Si3H8	trisilane
+C2v	PO2	Phosphorus dioxide	PO2-	Phosphorus dioxide anion
+C2v	PF2	Phosphorus difluoride	PF2+	Phosphorus difluoride cation
+C2v	Li2S	dilithium sulfide
+C2v	SO2	Sulfur dioxide	SO2-	Sulfur dioxide anion	SO2+	Sulfur dioxide cation
+C2v	SF2	sulfur difluoride	SF2+	sulfur difluoride cation
+C2v	CS2-	Carbon disulfide anion
+C2v	S3	Sulfur trimer	S3-	Sulfur trimer anion	S3+	Sulfur trimer cation
+C2v	CH2CS	Thioketene
+C2v	C2H4S	Thiirane
+C2v	CH3SCH3	Dimethyl sulfide	CH3SCH3+	dimethyl sulfide cation
+C2v	OClO	Chlorine dioxide	OClO-	Chlorine dioxide anion	OClO+	Chlorine dioxide cation
+C2v	CCl2	dichloromethylene	CCl2-	dichloromethylene anion	CCl2+	dichloromethylene cation
+C2v	Cl2O	Dichlorine monoxide
+C2v	SiCl2	Dichlorosilylene
+C2v	SCl2	Sulfur dichloride
+C2v	BHCl2	Borane, dichloro-
+C2v	CHCl2+	dichloromethyl cation	CHCl2	dichloromethyl radical
+C2v	CH2Cl2	Methylene chloride
+C2v	SiH2Cl2	dichlorosilane
+C2v	CaF2	Calcium difluoride
+C2v	TiO2	Titanium dioxide
+C2v	CuF2	Copper difluoride
+C2v	ZnF2	Zinc difluoride
+C2v	ZnCl2	Zinc dichloride
+C2v	Zn(CH3)2	dimethyl zinc
+C2v	GeF2	Germanium difluoride
+C2v	GeCl2	Germanium dichloride
+C2v	AsO2	Aresenic dioxide
+C2v	SeO2	Selenium dioxide	SeO2+	Selenium dioxide cation
+C2v	SeF2	Selenium difluoride
+C2v	SeCl2	Selenium Dichloride
+C2v	CH3SeCH3	dimethylselenide
+C2v	OBrO	Bromine dioxide radical
+C2v	CBr2	dibromomethylene	CBr2	dibromomethylene
+C2v	BrOBr	Bromine oxide
+C2v	SBr2	Sulfur dibromide
+C2v	SeBr2	Selenium dibromide
+C2v	CH2Br2	dibromomethane
+C2v	TeO2	Tellurium Dioxide
+C2v	CH2I2	Diiodomethane
+C2v	B4H10	Tetraborane(10)
+C2v	C4H6	Bicyclo[1.1.0]butane
+C2v	C4H6	Cyclobutene
+C2v	C4H6	Methylenecyclopropane
+C2v	CH2C(CH3)CH3	1-Propene, 2-methyl-
+C2v	CH3CHCHCH3	2-Butene, (Z)-
+C2v	CH3NNCH3	(Z)-1,2-Dimethyldiazene
+C2v	CO3	Carbon trioxide
+C2v	ONNO	NO dimer
+C2v	NO3	Nitrogen trioxide	NO3	Nitrogen trioxide (conformer 3)	NO3+	nitrogen trioxide cation
+C2v	NH2NO2	nitramide
+C2v	C2H2CO	cyclopropenone
+C2v	C3H2O	Propadienal
+C2v	C2H2O2	Ethanedial
+C2v	H2CO3	Carbonic acid
+C2v	H2NO3+	Nitric Acid, Protonated
+C2v	C3H4O	Cyclopropanone
+C2v	NH2CONH2	Urea	NH2CONH2+	Urea cation
+C2v	C2H4O2	1,3-dioxetane
+C2v	CH3COCH3	Acetone
+C2v	C3H6O	Oxetane
+C2v	CF2O	Carbonic difluoride	CF2O+	Carbonic difluoride cation
+C2v	BF3+	boron trifluoride cation
+C2v	FNO2	Nitryl fluoride
+C2v	N2F2	(Z)-Difluorodiazene
+C2v	CH2CF2	Ethene, 1,1-difluoro-
+C2v	C2H2F2	Ethene, 1,2-difluoro-, (Z)-
+C2v	SF3	Sulfur trifluoride
+C2v	S4	Sulfur tetramer
+C2v	H2CS3	thiocarbonic acid
+C2v	CH3CSCH3	Thioacetone
+C2v	ClNO2	Nitryl chloride
+C2v	BClF2	Chlorodifluoroborane
+C2v	ClF3	Chlorine trifluoride
+C2v	CCl2O	Phosgene
+C2v	AlF2Cl	Aluminum chloride difluoride
+C2v	Cl2CS	Thiophosgene
+C2v	AlFCl2	Aluminum dichloride fluoride
+C2v	CH2CCl2	Ethene, 1,1-dichloro-
+C2v	CHClCHCl	Ethene, 1,2-dichloro-, (Z)-
+C2v	SeO3	selenium trioxide
+C2v	BrF3	Bromine trifluoride
+C2v	COBr2	Carbonic dibromide
+C2v	CHBrCHBr	Ethene, 1,2-dibromo-, (Z)-
+C2v	C2H2Br2	1,1-dibromoethene
+C2v	IF3	iodone trifluoride
+C2v	C5H5	cyclopentadienyl radical
+C2v	C5H6	1,3-Cyclopentadiene
+C2v	C5H7	cyclopentenyl radical
+C2v	C5H7	1,3-pentadienyl radical
+C2v	C5H8	1,2-Butadiene, 3-methyl-
+C2v	C5H10	Cyclopropane, 1,1-dimethyl-
+C2v	C5H12	Pentane
+C2v	C3H2N2	Malononitrile
+C2v	C3H3N2	imidazolyl radical	C3H3N2-	imidizolyl anion
+C2v	C4H4N	pyrrolide radical	C4H4N-	pyrrolide anion
+C2v	C3H4N2	2H-Imidazole
+C2v	C4H5N	Pyrrole
+C2v	C4H6N+	pyrrole, protonated
+C2v	C3O2	Carbon suboxide
+C2v	B2O3	diboron trioxide
+C2v	BeCO3	Beryllium Carbonate
+C2v	ONONO	Nitrosyl nitrite
+C2v	C2H2N2O	Furazan
+C2v	CHOOCHO	diformyl ether
+C2v	C4H4O	Furan	C4H4O+	Furan cation
+C2v	CH2CHOCHCH2	Vinyl ether
+C2v	C4H6O	Cyclobutanone
+C2v	C4H6O	Furan, 2,5-dihydro-
+C2v	C3H8O2	Methane, dimethoxy-
+C2v	C4H10O	Ethoxy ethane
+C2v	CH3CF2CH3	2,2-difluoropropane
+C2v	MgCO3	Magnesium Carbonate
+C2v	SO2F2	Sulfuryl fluoride
+C2v	SF4	Sulfur tetrafluoride
+C2v	C2H2N2S	1,3,4-Thiadiazole
+C2v	C4H4S	Thiophene
+C2v	C4H6S	Thiophene, 2,5-dihydro-
+C2v	C2H6O2S	Dimethyl sulfone
+C2v	C3H8S2	1,3-Propanedithiol
+C2v	C2H5SC2H5	Diethyl sulfide
+C2v	CF2Cl2	difluorodichloromethane
+C2v	SO2Cl2	Sulfuryl chloride
+C2v	CCl4+	Carbon tetrachloride cation
+C2v	SCl4	Sulfur tetrachloride
+C2v	CH2ClCH2CH2Cl	1,3-dichloropropane
+C2v	CH3CCl2CH3	Propane, 2,2-dichloro-
+C2v	SiCl2(CH3)2	dichlorodimethylsilane
+C2v	CaCO3	Calcium Carbonate
+C2v	SeF4	Selenium tetrafluoride
+C2v	C4H4Se	selenophene
+C2v	CBr2F2	Methane, dibromodifluoro-
+C2v	CBr2Cl2	dibromodichloromethane
+C2v	CF2I2	difluorodiiodomethane
+C2v	CCl2I2	dichlorodiiodomethane
+C2v	C6H4	Benzyne
+C2v	C6H4	(Z)-Hexa-1,5-diyne-3-ene
+C2v	C6H5	phenyl	C6H5-	phenyl anion
+C2v	C6H6	Fulvene
+C2v	C6H6	Benzvalene
+C2v	C6H6	3,4-Dimethylenecyclobutene
+C2v	C6H6	Dewar Benzene
+C2v	C6H7+	benzene, protonated
+C2v	C6H8	Bicyclo[2.1.1]hex-2-ene
+C2v	C6H8	(Z)-hexa-1,3,5-triene
+C2v	C6H8	(Z)-hexa-2,3,4-triene
+C2v	C6H10	3-Hexyne
+C2v	C6H12	cis-1,3-dimethylcyclobutane
+C2v	C4H6(CH3)2	1,1-dimethylcyclobutane
+C2v	C4H4N2	Pyridazine
+C2v	C4H4N2	1,3-Diazine
+C2v	C5H5N	Pyridine
+C2v	C5H6N+	Pyridinium
+C2v	Li2CO3	Lithium Carbonate
+C2v	C3H2O3	vinylene carbonate
+C2v	C2H4CO3	Ethylene carbonate
+C2v	C4H8O2	Ethene, 1,1-dimethoxy-
+C2v	C5H10O	3-Pentanone
+C2v	Na2CO3	Sodium Carbonate
+C2v	MgSO4	Magnesium Sulfate
+C2v	CF2CCl2	difluorodichloroethylene
+C2v	CFClCFCl	cis-1,2-dichloro-1,2-difluoroethylene
+C2v	SOF4	Sulfur tetrafluoride oxide
+C2v	C6H5CH2	benzyl radical
+C2v	C7H7	cycloheptatrienyl radical
+C2v	C7H8	Norbornadiene
+C2v	C7H8	Quadricyclane
+C2v	C7H12	Norbornane
+C2v	C7H16	heptane
+C2v	C4H2O3	Maleic Anhydride
+C2v	C5H4O2	4-Cyclopentene-1,3-dione
+C2v	C6H5O	phenoxy radical
+C2v	C5H5NO	4(1H)-Pryidinone
+C2v	C6H6O	2,5-Cyclohexadienone
+C2v	C3H7OC3H7	di-n-propyl ether
+C2v	C6H5F	Fluorobenzene
+C2v	PF6	Hexafluorophosphate neutral
+C2v	C6H5Cl	chlorobenzene
+C2v	C6H5Br	bromobenzene
+C2v	C6H5CCH	phenylacetylene
+C2v	C8H6	benzocyclobutadiene
+C2v	C8H6	Calicene
+C2v	CH3C6H4CH3	paraxylene
+C2v	C6H5CN	phenyl cyanide
+C2v	C6H4F2	orthodifluorobenzene
+C2v	C6H4F2	metadifluorobenzene
+C2v	C6H4Cl2	1,2-dichlorobenzene
+C2v	C6H4Cl2	1,3-dichlorobenzene
+C2v	C9H20	Nonane
+C2v	C6H5NO2	Nitrobenzene
+C2v	C6H3F3	Benzene trifluoride 123
+C2v	C10H8	Azulene
+C2v	C3F8	perfluoropropane
+C2v	C12H8	Acenaphthylene
+C2v	C13H10	Fluorene
+C2v	C14H10	Phenanthrene
+C2v	C6H5COC6H5	benzophenone
+C3	CH7N3	triaminomethane
+C3	H3PO4	Phosphoric Acid
+C3	C6H15N	triethylamine
+C3	C19H16	Triphenylmethane
+C3h	B(CH3)3	trimethylborane
+C3h	H3BO3	Boric acid
+C3h	H3CO3+	carbonic acid, protonated
+C3h	H3AlO3	Aluminum hydroxide
+C3h	Al(CH3)3	trimethyl aluminum
+C3h	N(SiH3)3	trisilylamine
+C3v	BH3-	boron trihydride anion
+C3v	CH3-	methyl anion
+C3v	CH4-	Methane anion
+C3v	CH3D	methane-d
+C3v	CHD3	methane-d3
+C3v	NH3	Ammonia	NH3-	Ammonia anion
+C3v	ND3	Ammonia-d3
+C3v	H3O+	hydronium cation
+C3v	AlH3-	aluminum trihydride anion
+C3v	SiH3	Silyl radical	SiH3-	Silyl anion
+C3v	PH3	Phosphine	PH3+	Phosphine cation
+C3v	H3S+	Sulfonium cation
+C3v	ScH3	Scandium trihydride
+C3v	GeH3	Germyl radical
+C3v	AsH3	Arsine	AsH3+	Arsine cation
+C3v	H3Se+	Hydrogen Selenide, protonated
+C3v	SbH3	Stibine
+C3v	LiBH4	Lithium borohydride
+C3v	CH3Li	methyl lithium
+C3v	BH3NH3	borane ammonia
+C3v	CH3NH3	methyl ammonium radical	CH3NH3+	protonated methylamine
+C3v	N2H7+	ammonia ammonium dimer
+C3v	CH3O-	methoxy anion	CH3O+	Methoxy cation
+C3v	NH3O	Ammonia Oxide
+C3v	CD3F	methylfluoride-d3
+C3v	CH3F	Methyl fluoride
+C3v	SiH3F	monofluorosilane
+C3v	CH3SiH3	methyl silane
+C3v	H3PO	Phosphine oxide
+C3v	BH3PH3	borane phosphine
+C3v	CH3PH3+	methyl phosphine, protonated
+C3v	CH3S	thiomethoxy
+C3v	NH3S	sulfidoazane
+C3v	CH3Cl	Methyl chloride	CH3Cl+	Methyl chloride cation
+C3v	CD3Cl	methyl chloride d3
+C3v	NH3Cl+	protonated monochloroammonia
+C3v	SiH3Cl	chlorosilane
+C3v	NH4Cl	Ammonium chloride
+C3v	CuCH3	monomethyl copper
+C3v	ZnCH3	Zinc monomethyl
+C3v	GeH3F	monofluorogermane
+C3v	GeH3Cl	monochlorogermane
+C3v	GeH3CH3	methyl germane
+C3v	CH3Br	methyl bromide
+C3v	SiH3Br	bromosilane
+C3v	CH3I	methyl iodide
+C3v	SiH3I	Silyl Iodide
+C3v	CH3CCH	propyne
+C3v	CH3CN	Acetonitrile	CH3CN-	acetonitrile anion	CH3CN+	Acetonitrile cation
+C3v	CH3NC	methyl isocyanide
+C3v	NCNH3+	Cyanamide, protonated
+C3v	NH3CN+	cyanamide, amine protonated
+C3v	BH3CO	Borane carbonyl
+C3v	CH3BO	Borane, methyloxo-
+C3v	CH3CO+	acetyl cation
+C3v	NaOCH3	Sodium methoxide
+C3v	CH3MgBr	Methyl Magnesium Bromide
+C3v	C(CH3)3	Tert-butyl radical
+C3v	CH3CH(CH3)CH3	Isobutane
+C3v	Li3N	trilithium nitride
+C3v	N(CH3)3	Trimethylamine
+C3v	(CH3)3NH+	protonated trimethyl amine
+C3v	C3H9O+	trimethyl oxonium cation
+C3v	BF3-	Borane, trifluoro- anion
+C3v	CF3	Trifluoromethyl radical	CF3-	Trifluoromethyl anion
+C3v	NF3	Nitrogen trifluoride	NF3-	Nitrogen trifluoride anion	NF3+	Nitrogen trifluoride cation
+C3v	CHF3	Methane, trifluoro-
+C3v	NF3H+	protonated nitrogen trifluoride
+C3v	SiF3	Silicon trifluoride radical
+C3v	SiHF3	trifluorosilane
+C3v	SiH(CH3)3	trimethylsilane
+C3v	PF3	Phosphorus trifluoride
+C3v	P(CH3)3	trimethylphosphine
+C3v	SO3--	Sulfate dianion
+C3v	ClO3	Chlorine trioxide
+C3v	ClO3-	chlorate anion
+C3v	CCl3	Trichloromethyl radical	CCl3-	Trichloromethyl anion
+C3v	NCl3	nitrogen trichloride
+C3v	SiCl3	trichlorosilyl radical
+C3v	PCl3	Phosphorus trichloride
+C3v	CHCl3	Chloroform
+C3v	CDCl3	trichloromethane-d
+C3v	SiHCl3	Trichlorosilane
+C3v	AsF3	Arsenic trifluoride
+C3v	AsCl3	Arsenous trichloride
+C3v	AsF3H+	Arsenic trifluoride, protonated
+C3v	As(CH3)3	trimethyl arsine
+C3v	BrO3-	Bromate anion
+C3v	CBr3	tribromomethyl radical
+C3v	NBr3	Nitrogen Tribromide
+C3v	PBr3	Phosphorus tribromide
+C3v	AsBr3	Arsenic tribromide
+C3v	CHBr3	bromoform
+C3v	SbF3	Antimony Trifluoride
+C3v	SbCl3	Antimony Trichloride
+C3v	NI3	Nitrogen triiodide
+C3v	PI3	Phosphorus triiodide
+C3v	CHI3	Iodoform
+C3v	F3NO	Nitrogen trifluoride oxide
+C3v	CH3CF3	Ethane, 1,1,1-trifluoro-
+C3v	NH3BF3	Amminetrifluoroboron
+C3v	SiH3CCl3	(trichloromethyl)silane
+C3v	F3PO	Phosphoryl fluoride
+C3v	CF3Cl	Methane, chlorotrifluoro-
+C3v	ClFO3	Perchloryl fluoride
+C3v	CFCl3	Trichloromonofluoromethane
+C3v	Cl3PO	Phosphoryl chloride
+C3v	CH3CCl3	Ethane, 1,1,1-trichloro-
+C3v	NH3BCl3	Amminetrichloroboron
+C3v	SiCl3CH3	methyltrichlorosilane
+C3v	CH3CCl(CH3)CH3	Propane, 2-chloro-2-methyl-
+C3v	CF3Br	Bromotrifluoromethane
+C3v	CBrCl3	Methane, bromotrichloro-
+C3v	CFBr3	fluorotribromomethane
+C3v	CBr3Cl	tribromochloromethane
+C3v	CH3CBr3	1,1,1-tribromoethane
+C3v	CF3I	trifluoroiodomethane
+C3v	CCl3I	trichloroiodomethane
+C3v	CBr3I	tribromoiododmethane
+C3v	C6H10	1-Butyne, 3,3-dimethyl-
+C3v	C5H9N	Propanenitrile, 2,2-dimethyl-
+C3v	C3H6O3	1,3,5-Trioxane
+C3v	CF3CN	Acetonitrile, trifluoro-
+C3v	C3H6S3	1,3,5-Trithiane
+C3v	CH(C2H3)3	trivinyl methane
+C3v	CH(CN)3	tricyanomethane
+C3v	CF3CCl3	1,1,1-trifluoro-2,2,2-trichloroethane
+C3v	C10H10	bullvalene
+C4v	B5H9	pentaborane9
+C4v	SF5	Sulfur pentafluoride
+C4v	ClF5	chlorinepentafluoride
+C4v	BrF5	bromine pentafluoride
+C4v	IF5	pentafluoroiodine
+C4v	SF5Cl	sulfur chloropentafluoride
+C4v	Fe(CO)5	Iron pentacarbonyl
+Ci	C2H6+	ethane cation
+Ci	H2NCHCHNH2	diaminoethylene
+Ci	C6H12	(E)-hex-3-ene
+Ci	C4H6O2	2,3-Butanedione
+Ci	C2H6N2O2	(E)-Azodioxymethane
+Ci	CHFClCHClF	ethane, 1,2-dichloro-1,2-difluoro-
+Ci	C4H8Cl2	Butane, 2,3-dichloro-, (r*,s*)-
+Cs	H2O-	water anion
+Cs	HDO	Water-d1
+Cs	SiH5+	Silane, protonated
+Cs	H2S-	Hydrogen sulfide anion
+Cs	B2H6+	Diborane cation
+Cs	C2H	Ethynyl radical	C2H+	Ethynyl cation (conformer 2)	C2H+	Ethynyl cation (conformer 2)
+Cs	HCCH-	acetylene anion
+Cs	C2H3	vinyl	C2H3-	vinyl anion
+Cs	CH3CH	methylmethylene
+Cs	CH3BH2	methylborane
+Cs	C2H5	Ethyl radical	C2H5-	Ethyl anion	C2H5+	Ethyl cation (conformer 2)
+Cs	HCN-	Hydrogen cyanide anion
+Cs	NNH	Dinitrogen monohydride
+Cs	HCNH	methyleneazane	HCNH	methyleneazane (conformer 2)
+Cs	CH2NH	Methanimine	CH2NH+	Methanimine cation
+Cs	CHNH2	aminomethylene	CHNH2+	Aminocarbene cation
+Cs	CH3NH2	methyl amine	CH3NH2+	methyl amine cation
+Cs	N2H5+	protonated hydrazine
+Cs	NH3NH3	Ammonia Dimer
+Cs	BeOH	beryllium monohydroxide
+Cs	HCO	Formyl radical	HCO-	formyl anion
+Cs	COH	Hydroxymethylidyne
+Cs	HNO	Nitrosyl hydride	HNO-	Nitrosyl hydride anion	HNO+	Nitrosyl hydride cation
+Cs	NOH	Hydroxyimidogen	NOH+	O-protonated nitric oxide
+Cs	HO2	Hydroperoxy radical	HO2-	Hydroperoxy anion	HO2+	Hydroperoxy cation	HO2+	Hydroperoxy cation
+Cs	H2CO-	formaldehyde anion
+Cs	HOCH	hydroxycarbene	HOCH	hydroxycarbene (conformer 2)
+Cs	H2NO	nitroxide
+Cs	H2OO	water oxide
+Cs	CH2OH+	hydroxymethyl cation
+Cs	NH2OH	hydroxylamine	NH2OH+	Hydroxylamine cation
+Cs	H3O2+	hydrogen peroxide, protonated
+Cs	CH3OH	Methyl alcohol	CH3OH-	Methyl alcohol anion	CH3OH-	Methyl alcohol anion (conformer 2)	CH3OH+	Methyl alcohol cation
+Cs	NH3OH+	N-protonated hydroxylamine
+Cs	H2OH2O	water dimer
+Cs	CH3OH2+	Methanol, protonated
+Cs	H2ONH3	Water Ammonia Dimer
+Cs	HCF	Fluoromethylene	HCF	Fluoromethylene
+Cs	HOF	Hypofluorous acid
+Cs	F2H+	Fluorine, protonated
+Cs	CH2F	fluoromethyl radical
+Cs	NH2F	monofluoroamine
+Cs	H2F2	Hydrogen fluoride dimer
+Cs	CH3F+	methyl fluoride cation
+Cs	HSiF	fluorosilylene
+Cs	SiH3OH	silanol
+Cs	SiH3NH2	Silane, amino
+Cs	HPO	Hydrogen phosphorus oxide	HPO+	Hydrogen phosphorus oxide cation
+Cs	CH2PH	Phosphaethene
+Cs	H2POH	Phosphinous acid	H2POH	Phosphinous acid (conformer 2)
+Cs	CH3PH2	Methyl phosphine
+Cs	HCS	Thioformyl radical	HCS-	Thioformyl anion	HCS-	Thioformyl anion
+Cs	HNS	Sulfur imide	HNS-	Sulfur imide anion
+Cs	HSO+	Sulfur Monoxide, S-protonated
+Cs	SOH	Sulfur Hydroxide	SOH+	Sulfur Monoxide, protonated
+Cs	HS2	Thiosulfeno radical
+Cs	H2CS-	thioformaldehyde anion
+Cs	H2CSH+	Thioformaldehyde, protonated
+Cs	NH2SH	Thiohydroxylamine	NH2SH	Thiohydroxylamine (conformer 2)
+Cs	CH3SH	Methanethiol	CH3SH+	Methanethiol cation
+Cs	CH3SH2+	protonated methylsulfide
+Cs	HCCl	Chloromethylene	HCCl	Chloromethylene
+Cs	HOCl	hypochlorous acid	HOCl+	hypochlorous acid cation
+Cs	DOCl	Hypochlorous acid-d
+Cs	ClFH+	Chlorine fluoride, F-protonated
+Cs	FClH+	Chlorine fluoride, Cl-protonated
+Cs	HSiCl	Chlorosilylene
+Cs	Cl2H+	Chlorine, protonated
+Cs	NH2Cl	chloramine
+Cs	CH3ClH+	methyl chloride, protonated
+Cs	ZnCH2	Zinc methylene
+Cs	CH3SeH	Methane selenol
+Cs	CHBr	bromomethylene	CHBr	bromomethylene
+Cs	HOBr	Hypobromous acid	HOBr+	Hypobromous acid cation
+Cs	HSiBr	monobromosilylene
+Cs	CH2Cl	chloromethyl radical
+Cs	CH2Br	bromomethyl radical
+Cs	HOI	Hypoiodous acid
+Cs	C3H3-	Propargyl anion
+Cs	C3H3	cyclopropenyl radical
+Cs	C3H5	Allyl radical
+Cs	CH3CHCH	1-propenyl radical
+Cs	CH2CHCH3	Propene
+Cs	CH3CHCH3	Isopropyl radical
+Cs	C3H7+	cyclopropane, protonated
+Cs	LiCN	lithium cyanide
+Cs	HCCN	cyanomethylene
+Cs	HCNN	diazomethyl radical
+Cs	HN3	hydrogen azide	HN3+	Hydrazoic acid cation
+Cs	NH2CN	cyanamide
+Cs	NH2NN+	hydrazoic acid, protonated
+Cs	CH3CN-	acetonitrile anion	CH3CN+	Acetonitrile cation (conformer 2)
+Cs	CHNCH2	2H-Azirine	HCNCH2+	2H-Azirine cation
+Cs	CHNHCH	1H-Azirine
+Cs	H2CCNH	Ethenimine
+Cs	HCCNH2	Ethynamine
+Cs	H2CNCH	methyleneaminomethylene
+Cs	HNCNH2+	diiminomethane, protonated
+Cs	CH3CHN	methylmethaniminyl radical
+Cs	CH2CHNH	vinylazine	CH2CHNH	vinylazine (conformer 2)
+Cs	C2H5N	Aziridine
+Cs	CH2NCH3	N-methylmethanimine
+Cs	CH3CHNH	ethanimine	CH3CHNH	ethanimine (conformer 2)
+Cs	CH3CH2NH2	Ethylamine
+Cs	CH3NHCH3	Dimethylamine
+Cs	NH2CH2NH3+	diaminoethane, protonated
+Cs	CH3CH2NH3+	ethylamine, protonated
+Cs	N2O-	Nitrous oxide anion
+Cs	O3-	Ozone anion
+Cs	HCCO	ketenyl radical
+Cs	HNCO	Isocyanic acid
+Cs	HOCN	cyanic acid
+Cs	HCNO	fulminic acid
+Cs	HOCO	Hydrocarboxyl radical	HOCO	Hydrocarboxyl radical (conformer 2)	HOCO+	Hydrocarboxyl cation
+Cs	HCOO	formate neutral radical
+Cs	NNOH+	Nitrous Oxide, O-protonated
+Cs	HNNO	nitrosoazane	HNNO+	Nitrous oxide, N-protonated
+Cs	HNO2	Nitrous acid	HNO2+	nitrous acid cation
+Cs	O3H+	protonated ozone
+Cs	HCCOH	ethynol
+Cs	HCOOH	Formic acid	HCOOH	Formic acid (conformer 2)
+Cs	H2COO	Dioxymethyl radical	H2COO+	dioxymethyl cation
+Cs	CH2BOH	hydroxy(methylene)borane
+Cs	CH3CO	Acetyl radical	CH3CO-	Acetyl anion
+Cs	CH2CHO	Vinyloxy radical
+Cs	CH2COH+	ketene, protonated
+Cs	CHONH2	formamide
+Cs	CH2NOH	formaldoxime
+Cs	CH3NO	nitrosomethane
+Cs	HOCHNH	hydroxymethylimine	HOCHNH	hydroxymethylimine (conformer 2)	HOCHNH	hydroxymethylimine (conformer 3)
+Cs	CH3OO	methylperoxy radical	CH3OO-	methylperoxy anion	CH3OO-	methylperoxy anion (conformer 2)	CH3OO+	methylperoxy cation	CH3OO+	methylperoxy cation (conformer 2)
+Cs	CH3CHO	Acetaldehyde	CH3CHO+	acetaldehyde cation
+Cs	CH2CHOH	ethenol
+Cs	H2CONH2+	protonated formamide
+Cs	NH2CHOH+	Formamide, O-protonated
+Cs	CH3CH2O	Ethoxy radical
+Cs	CH3CHOH+	acetaldehyde, protonated
+Cs	CH2CH2OH	2-hydroxy ethyl radical
+Cs	C2H4OH+	ethylene oxide, protonated
+Cs	CH3CH2OH	Ethanol
+Cs	CH3OHH2O	methanol water dimer
+Cs	FCO	Carbonyl fluoride
+Cs	FNO	Nitrosyl fluoride
+Cs	FOO	Dioxygen monofluoride radical	FOO+	Fluorine dioxide cation
+Cs	HFCO	formyl fluoride	HFCO+	formyl fluoride cation
+Cs	CHF2	difluoromethyl radical
+Cs	NHF2	difluoramine
+Cs	CH2CHF	Ethene, fluoro-	CH2CHF+	fluoroethene cation
+Cs	C2H5F	fluoroethane
+Cs	NaCN	Sodium Cyanide
+Cs	CH3SiFH2	fluoromethylsilane
+Cs	CH3PHCH3	dimethylphosphine
+Cs	SNO	Nitrogen oxide sulfide
+Cs	NSO	sulfinyl amidogen
+Cs	FNS	Thionitrosyl fluoride
+Cs	FSN	Thiazyl fluoride
+Cs	SF2-	sulfur difluoride anion
+Cs	SSO	Disulfur monoxide
+Cs	CS2H+	Carbon disulfide, protonated
+Cs	HSCN	thiocyanic acid
+Cs	HNCS	Isothiocyanic acid
+Cs	SO2H+	protonated sulfur dioxide
+Cs	HSSSH	trisulfane
+Cs	CHSNH2	thioformamide
+Cs	NHCHSH	Methanimidothioic acid
+Cs	CH2CHSH	Ethenethiol
+Cs	CH3CHS	Thioacetaldehyde
+Cs	CH3CH2SH	ethanethiol
+Cs	SFCl	Sulfur chloride fluoride
+Cs	FClO	chlorosyl fluoride
+Cs	ClCO	carbonyl monochloride
+Cs	CFCl	chlorofluoromethylene
+Cs	ClNO	Nitrosyl chloride
+Cs	ClOO	chloroperoxy radical	ClOO+	chloroperoxy cation
+Cs	ClOF	Chlorine hypofluorite
+Cs	OPCl	Phosphorus oxychloride
+Cs	ClSO	Sulfur chloride oxide
+Cs	ClS2	Sulfur chloride
+Cs	COHCl	Formyl chloride
+Cs	CHFCl+	Chlorofluoromethyl cation
+Cs	HOClO	Chlorous acid
+Cs	NHCl2	dichloroamine
+Cs	CHCl2	dichloromethyl radical
+Cs	CH2FCl	fluorochloromethane
+Cs	C2H3Cl	Ethene, chloro-
+Cs	CH3OCl	methyl hypochlorite
+Cs	CH2CH2Cl	2-chloroethyl radical
+Cs	CH3CH2Cl	Ethyl chloride
+Cs	KCN	Potassium cyanide
+Cs	CuCN	Copper cyanide
+Cs	ZnCN	Zinc monocyanide
+Cs	BrNO	Nitrosyl bromide
+Cs	BrOO	Bromine dioxide
+Cs	BrOCl	Bromine hypochlorite
+Cs	COHBr	Formyl bromide
+Cs	CHBr2	dibromomethyl radical
+Cs	CH2BrF	Methane, bromofluoro-
+Cs	CH2BrCl	Methane, bromochloro-
+Cs	C2H3Br	vinyl bromide
+Cs	C2H5Br	Ethyl bromide
+Cs	INO	Nitrosyl iodide
+Cs	CH2FI	fluoroiodomethane
+Cs	CH2ClI	chloroiodomethane
+Cs	CH2BrI	bromoiodomethane
+Cs	C2H3I	Vinyl iodide
+Cs	C2H5I	Ethyl iodide
+Cs	C2H3CCH	1-Buten-3-yne
+Cs	CHCCH2CH3	1-Butyne
+Cs	CH2CCHCH3	1,2-Butadiene
+Cs	CH3CHCHCH2	methylallyl radical
+Cs	C4H8	methylcyclopropane
+Cs	CH2CH(CH3)2	Isobutyl radical
+Cs	H2CNCN	cyanamide, methylene
+Cs	C3H3N	acrylonitrile	C3H3N+	acrylonitrile cation
+Cs	CH3N3	methyl azide
+Cs	NH2CH2CN	Aminoacetonitrile
+Cs	C2H5CN	ethyl cyanide
+Cs	C3H7N	Cyclopropylamine
+Cs	C3H7N	Azetidine
+Cs	CH3CH(NH2)CH3	2-Propanamine
+Cs	NH2CH2CH2CH3	1-Propanamine
+Cs	C3H7NH3+	n-propylamine, protonated
+Cs	C3O	Tricarbon monoxide
+Cs	HCO3-	bicarbonate anion
+Cs	HNO3	Nitric acid
+Cs	NH2NO2	nitramide
+Cs	HCCCHO	2-propynal
+Cs	C3H2O	Propadienal
+Cs	CH3NCO	methylisocyante
+Cs	C2H3NO	Nitrosoethylene
+Cs	CH3COO-	acetate anion	CH3COO-	acetate anion (conformer 2)
+Cs	CH3NO2	Methane, nitro-	CH3NO2	Methane, nitro- (conformer 2)
+Cs	NH2COOH	Carbamic acid
+Cs	CH3ONO	Methyl nitrite	CH3ONO	Methyl nitrite (conformer 2)
+Cs	CH2CHCHO	Acrolein
+Cs	C3H4O	2-Propyn-1-ol
+Cs	C3H4O	Methylketene
+Cs	C3H4O	allenol
+Cs	NH2CONH2	Urea
+Cs	CH3COOH	Acetic acid
+Cs	CH3OCHO	methyl formate
+Cs	CHOCH2OH	hydroxy acetaldehyde
+Cs	NH3COOH+	protonated Carbamic acid
+Cs	NH2COOH2+	Carbamic acid, O-protonated
+Cs	CH3COCH2	Acetonyl radical
+Cs	CH3CHNOH	Acetaldoxime	CH3CHNOH	Acetaldoxime (conformer 2)
+Cs	HCONHCH3	N-methylformamide	HCONHCH3	N-methylformamide (conformer 3)
+Cs	CH3C(OH)=NH	Ethaninidic acid
+Cs	C2H5OO	ethylperoxy radical
+Cs	CH5N2O+	urea, N-protonated
+Cs	H2NCOHNH2+	urea, protonated
+Cs	CH3COCH3	Acetone	CH3COCH3-	acetone anion
+Cs	C3H6O	2-Propen-1-ol
+Cs	CH3CH2CHO	Propanal
+Cs	C3H6O	Oxetane
+Cs	C3H6O	Acetone enol
+Cs	HOCH2CH2NH2	monoethanolamine
+Cs	C3H7OH	1-Propanol
+Cs	CH3OC2H5	Ethane, methoxy-
+Cs	FONO	Nitrosyl hypofluorite
+Cs	NF3-	Nitrogen trifluoride anion
+Cs	CH3COF	Acetyl fluoride
+Cs	CH2FCHO	Fluoroacetaldehyde
+Cs	CH3CHF2	Ethane, 1,1-difluoro-
+Cs	CH2CHCH2F	Allyl Fluoride
+Cs	CH2CFCH3	2-fluoropropene
+Cs	CH3CHCHF	trans-1-Fluoro-1-propene
+Cs	CH3CHFCH3	2-Fluoropropane
+Cs	CH2FCH2CH3	1-Fluoropropane
+Cs	F2SO	Thionyl Fluoride
+Cs	SF3	Sulfur trifluoride
+Cs	S2F2	Thio-thionyl fluoride
+Cs	H2SO3	Sulfurous acid	H2SO3	Sulfurous acid (conformer 2)
+Cs	C3H6S	Thietane
+Cs	CH3SOCH3	Dimethyl sulfoxide
+Cs	CH3CHSHCH3	2-Propanethiol
+Cs	C3H7SH	1-Propanethiol
+Cs	CH3SCH2CH3	Ethane, (methylthio)-
+Cs	COFCl	Carbonic chloride fluoride
+Cs	ClONO	chlorine nitrite	ClONO	chlorine nitrite (conformer 2)
+Cs	CF2Cl	difluorochloromethyl radical
+Cs	ClO2F	Chloryl fluoride
+Cs	CFCl2	dichlorofluoromethyl radical
+Cs	SOCl2	thionyl chloride
+Cs	SSCl2	Thiothionyl chloride
+Cs	CHF2Cl	difluorochloromethane
+Cs	HClO3	Chloric Acid
+Cs	CHFCl2	fluorodichloromethane
+Cs	CHFCHClz	(Z)-1-Chloro-2-fluoroethene
+Cs	CHFCHCl	(E)-1-chloro-2-fluoroethene
+Cs	C2H2ClF	1-chloro-1-fluoroethylene
+Cs	CH3COCl	Acetyl Chloride
+Cs	CH2ClCHO	chloroacetaldehyde
+Cs	CH2FCH2Cl	Ethane, 1-chloro-2-fluoro-
+Cs	CH3CHCl2	Ethane, 1,1-dichloro-
+Cs	C3H5Cl	1-Propene, 3-chloro-
+Cs	C3H5Cl	1-chloro-1-propene(Z)
+Cs	C3H5Cl	1-chloro-1-propene(E)
+Cs	CH2ClCH2OH	2-Chloroethanol
+Cs	CH3CHClCH3	Propane, 2-chloro-
+Cs	CH2ClCH2CH3	Propane, 1-chloro-
+Cs	SeOCl2	selenium oxychloride
+Cs	BrONO	Bromine nitrite	BrONO	Bromine nitrite (conformer 2)
+Cs	CHBrF2	Methane, bromodifluoro-
+Cs	CHBrCl2	Methane, bromodichloro-
+Cs	CHBr2F	dibromofluoromethane
+Cs	CHClBr2	Methane, dibromochloro-
+Cs	CH2BrCH2Cl	1-bromo-2-chloroethane
+Cs	CH3CHBrCH3	i-propyl bromide
+Cs	CH3CH2CH2Br	n-propyl bromide
+Cs	CHF2I	difluoroiodomethane
+Cs	CHCl2I	dichloroiodomethane
+Cs	C5H6	1-Buten-3-yne, 2-methyl-
+Cs	C5H6	3-Penten-1-yne, (Z)-
+Cs	C5H6	3-Penten-1-yne, (E)-
+Cs	C5H6	Bicyclo[2.1.0]pent-2-ene
+Cs	C5H6	Cyclopropylacetylene
+Cs	C5H8	1,3-Butadiene, 2-methyl-
+Cs	C5H8	Cyclopentene
+Cs	C5H8	Bicyclo[2.1.0]pentane
+Cs	C5H8	1-pentyne
+Cs	CH3CCCH2CH3	2-Pentyne
+Cs	C5H8	Ethenylcyclopropane
+Cs	C5H8	Cyclobutane, methylene-
+Cs	C5H8	1,3-Pentadiene, (Z)-
+Cs	C5H8	1,3-Pentadiene, (E)-
+Cs	C5H10	2-Butene, 2-methyl-
+Cs	C5H10	2-Pentene, (E)-
+Cs	CH2N4	1H-Tetrazole
+Cs	C3H4N2	1H-Pyrazole
+Cs	C3H4N2	1H-Imidazole
+Cs	C3H4N2	4H-Imidazole
+Cs	CH2CHCH2CN	Allylcyanide
+Cs	C4H5N	(E)-2-Butenenitrile
+Cs	C4H5N	(Z)-2-Butenenitrile
+Cs	C4H5N	Cyclopropanecarbonitrile
+Cs	C4H5N	3H-pyrrole
+Cs	C4H5N	2H-pyrrole
+Cs	C4H6N+	pyrrole, beta-protonated
+Cs	C4H6N+	pyrrole, alpha-protonated
+Cs	C3H6N2	3-Aminopropionitrile
+Cs	CH3CH(CH3)CN	Propanenitrile, 2-methyl-
+Cs	CH3CH2CH2CN	Butanenitrile
+Cs	C4H9N	Pyrrolidine
+Cs	C4H9N	Cyclobutylamine
+Cs	NH(C2H5)2	diethylamine
+Cs	N2O3	Dinitrogen trioxide
+Cs	C3H2O2	Propiolic acid
+Cs	CHOCOOH	oxo acetic acid
+Cs	CHOOCHO	diformyl ether
+Cs	C3H3NO	Isoxazole
+Cs	C3H3NO	Oxazole
+Cs	CH3C(O)OO	acetyl peroxy radical
+Cs	CH3NO3	Methyl nitrate
+Cs	CH3COCCH	3-butyn-2-one
+Cs	C3H4O2	β–Propiolactone
+Cs	C3H4O2	Methyl glyoxal
+Cs	C3H4O2	2-Propenoic acid
+Cs	C3H4O2	propenalol
+Cs	HOCH2COOH	Hydroxyacetic acid
+Cs	C2H4O3	1,2,3-trioxolane
+Cs	CH3OCH2CN	Methoxyacetonitrile
+Cs	H2NCH2COOH	Glycine
+Cs	CHOCHCHCH3	2-Butenal
+Cs	C4H6O	cis-2-butenal
+Cs	CH3CH2COOH	Propanoic Acid
+Cs	CH3COOCH3	methyl acetate
+Cs	HCOOC2H5	Ethyl formate
+Cs	C2H6N2O	Urea, methyl-
+Cs	C3H6O2	1,3-Dioxolane
+Cs	C3H7NO	dimethylformamide	C3H7NO	dimethylformamide (conformer 3)
+Cs	CHOCH(CH3)CH3	Propanal, 2-methyl-
+Cs	CH3COCH2CH3	2-Butanone
+Cs	C4H8O	Furan, tetrahydro-
+Cs	CHOCH2CH2CH3	Butanal
+Cs	C4H8O	Cyclobutanol
+Cs	C4H10O	1-Butanol
+Cs	C4H10O	Ethanol, 1,1-dimethyl-
+Cs	C4H10O	Methyl propyl ether
+Cs	FNO3	Fluorine nitrate
+Cs	C2HF3	Trifluoroethylene	C2HF3+	Trifluoroethylene cation
+Cs	CF3OH	trifluoromethanol
+Cs	CHF2CH2F	Ethane, 1,1,2-trifluoro
+Cs	PF3CH2	phosphorane, trifluoromethylene-
+Cs	CF3PH2	phosphine, (trifluoromethyl)-
+Cs	HSO4-	bisulfate anion
+Cs	C3H3NS	Thiazole
+Cs	CH3SO2NH2	methanesulfonamide
+Cs	C(CH3)3SH	2-Propanethiol, 2-methyl-
+Cs	C4H9SH	1-Butanethiol
+Cs	ClONO2	Chlorine nitrate
+Cs	ClOF3	Chlorine trifluoride oxide
+Cs	HClO4	perchloric acid
+Cs	CHClCCl2	Trichloroethylene
+Cs	CH2ClCCCl	1,3-dichloropropyne
+Cs	CHCl2CCH	3,3-dichloropropyne
+Cs	CH3CF2Cl	1-Chloro-1,1-Difluoroethane
+Cs	CH3CFCl2	1,1-Dichloro-1-fluoroethane
+Cs	CH2CClCHCH2	1,3-Butadiene, 2-chloro-
+Cs	CH2ClCHCHCH3	2-Butene, 1-chloro-
+Cs	CH2CClCH2CH3	1-Butene, 2-chloro-
+Cs	CH3CClCHCH3	2-Butene, 2-chloro-, (Z)-
+Cs	CH3CClCHCH3	2-Butene, 2-chloro-, (E)-
+Cs	CHClCHCH2CH3	(Z)-1-Chloro-1-butene
+Cs	CH2ClCH2CH2CH3	Butane, 1-chloro-
+Cs	CaCO3	Calcium Carbonate
+Cs	BrONO2	Bromine nitrate
+Cs	CBrClF2	Methane, bromochlorodifluoro-
+Cs	CBrCl2F	bromodichlorofluoromethane
+Cs	CBr2ClF	dibromochlorofluoromethane
+Cs	CHBrCF2	1-Bromo-2,2-difluoroethylene
+Cs	C6H10	Bicyclo[3.1.0]hexane
+Cs	C6H10	1-Hexyne
+Cs	C6H10	2-Hexyne
+Cs	C6H10	2,4-Hexadiene, (E,Z)-
+Cs	C6H10	2,4-Hexadiene, (Z,Z)-
+Cs	C6H10	1,3-Hexadiene, (Z)-
+Cs	C6H10	1,3-Hexadiene, (E)-
+Cs	C6H12	2,3-dimethylbut-1-ene
+Cs	C6H12	(1r,3r)-1,3-dimethylcyclobutane
+Cs	C6H12	(E)-2-Hexene
+Cs	C6H12	(Z)-hex-2-ene
+Cs	C6H12	cis-1,2-dimethylcyclobutane
+Cs	C4H6(CH3)2	1,1-dimethylcyclobutane
+Cs	C6H14	Pentane, 3-methyl-
+Cs	C2H4N4	1H-Tetrazole, 5-methyl-
+Cs	C2H4N4	1H-Tetrazole, 1-methyl-
+Cs	C5H5N	E-2,4-pentadienenitrile
+Cs	C5H5N	Bicyclo[1.1.0]butane-1-carbonitrile
+Cs	C5H7N	Cyclobutanecarbonitrile
+Cs	C5H7N	(E)-2-Pentenenitrile
+Cs	C5H9N	Pentanenitrile
+Cs	C5H11N	Piperidine	C5H11N	Piperidine (conformer 2)
+Cs	C5H11N	Cyclopentanamine
+Cs	C4H12N2	2-Methyl-1,2-propanediamine
+Cs	C2H3NO3	Oxamic acid	C2H3NO3	Oxamic acid (conformer 2)
+Cs	C4H4O2	2(5H)-Furanone
+Cs	C5H6O	2-methylfuran
+Cs	C5H6O	Pentadienal
+Cs	C5H6O	3-Methylfuran
+Cs	C4H6O2	Crotonic Acid
+Cs	C4H7NO	Oxazole, 4,5-dihydro-2-methyl-
+Cs	C4H7NO	Ethoxyacetonitrile
+Cs	HCONH2CN2H4	formamide aminomethanimine dimer
+Cs	C3H7ONO	Propyl nitrite
+Cs	C5H8O	Methyl cyclopropyl ketone
+Cs	C4H8O2	Ethyl acetate	C4H8O2	Ethyl acetate (conformer 2)
+Cs	C4H8O2	1,3-Dioxane
+Cs	C5H10O	2-Pentanone
+Cs	C5H10O	Pentanal
+Cs	C5H10O	2H-Pyran, tetrahydro-
+Cs	C5H10O	Oxetane, 3,3-dimethyl-
+Cs	C4H10O2	1,1-Dimethoxyethane
+Cs	C4H11NO	Diethylhydroxylamine
+Cs	C5H12O	1-Pentanol
+Cs	C5H12O	1-Butanol, 3-methyl-
+Cs	C5H12O	Butane, 1-methoxy-
+Cs	C5H12O	Propane, 1-ethoxy-
+Cs	C5H12O	Propane, 2-methoxy-2-methyl-
+Cs	CF3CN+	Acetonitrile, trifluoro- cation
+Cs	CF3OF	Trifluoromethylhypofluorite
+Cs	CF3CHO	trifluoroacetaldehyde
+Cs	CF3CH2F	1,1,1,2-tetrafluoroethane
+Cs	CF3COOH	trifluoroacetic acid
+Cs	SF5	Sulfur pentafluoride
+Cs	C3H4O2S	2H-Thiete-1,1-dioxide
+Cs	C5H6S	Thiophene, 2-methyl-
+Cs	C5H6S	Thiophene, 3-methyl-
+Cs	C4H6OS	Vinyl sulfoxide
+Cs	C5H10S	2H-Thiopyran, tetrahydro-
+Cs	C5H10S	3-Ethylthio-1-propene
+Cs	C5H12S	1-Pentanethiol
+Cs	C5H12S	1-Butanethiol, 3-methyl-
+Cs	C5H12S	Butane, 1-(methylthio)-
+Cs	C5H12S	1-Propanethiol, 2,2-dimethyl-
+Cs	C5H12S	2-Butanethiol, 2-methyl-
+Cs	C5H12S	Ethyl propyl sulfide
+Cs	C5H12S	Propane, 2-(ethylthio)-
+Cs	C5H12S	Propane, 2-methyl-2-(methylthio)-
+Cs	C2ClF3	Ethene, chlorotrifluoro-
+Cs	C2FCl3	fluorotrichloroethene
+Cs	CCl3CHO	trichloroacetaldehyde
+Cs	CF3CH2Cl	2,2,2-Trifluoroethyl chloride
+Cs	CHCl2CHF2	1,1-dichloro-2,2-difluoroethane
+Cs	C4H3ClO	Furan, 2-chloro
+Cs	C4H3ClO	Furan,3-chloro
+Cs	C3H5Cl3	Propane, 1,2,3-trichloro-
+Cs	C4H9ClO	1-Chloro-2-ethoxyethane
+Cs	C5H11Cl	Pentane, 1-chloro-
+Cs	CH2BrCBr3	1,1,1,2-tetrabromo ethane
+Cs	C7H7	cycloheptatrienyl radical
+Cs	C6H5CH3	toluene
+Cs	C7H8	cycloheptatriene
+Cs	C7H10	Norbornene
+Cs	HN=C=C(CN)2	Dicyanoketenimine
+Cs	C6H7N	2-Methylpyridine
+Cs	C6H5NH2	aniline
+Cs	N2O5	Dinitrogen pentoxide
+Cs	C5H4O2	furfural	C5H4O2	furfural (conformer 2)
+Cs	C5H5NO	3-Pyridinol
+Cs	C5H5NO	2-Pyridinol
+Cs	C5H5NO	4-Pyridinol
+Cs	C5H5NO	3(2H)-Pyridinone
+Cs	C5H5NO	3(6H)-Pyridinone
+Cs	C5H5NO	3(4H)-Pyridinone
+Cs	C5H5NO	2(5H)-Pyridinone
+Cs	C5H5NO	4(3H)-Pryidinone
+Cs	C5H5NO	2(1H)-Pyridinone
+Cs	C6H5OH	phenol
+Cs	C6H6O	2,5-Cyclohexadienone
+Cs	C6H6O	2,4-Cyclohexadienone
+Cs	C6H10O	cyclohexanone
+Cs	C6H12O	hexanal
+Cs	CF3COO-	trifluoro acetate anion
+Cs	CF3COF	trifluoroacetyl fluoride
+Cs	CF3CHF2	pentafluoroethane
+Cs	C6H5SH	Benzenethiol
+Cs	CF3COCl	trifluoroacetyl chloride
+Cs	CF3CHCl2	1,1-Dichloro-2,2,2-trifluoroethane
+Cs	CHCl2CClF2	Ethane, 1,2,2-trichloro-1,1-difluoro-
+Cs	CCl3CHCl2	pentachloroethane
+Cs	C6H5CHCH2	Styrene
+Cs	C6H5CH2CH3	Ethylbenzene
+Cs	CH3C6H4CH3	meta-xylene
+Cs	C8H16	cyclooctane
+Cs	C4H4N2O2	Uracil
+Cs	C6H5NO	nitrosobenzene
+Cs	C6H5CHO	benzaldehyde
+Cs	C6H5OCH3	Anisole
+Cs	C6H12O2	Hexanoic acid
+Cs	CF3CF2Cl	pentafluorochloroethane
+Cs	CF3CFCl2	1,1-Dichlorotetrafluoroethane
+Cs	C9H8	Indene
+Cs	C9H12	n-propyl benzene
+Cs	C5H4N4	purine
+Cs	C8H7N	Indole
+Cs	C6H5COOH	benzoic acid
+Cs	CH3COC6H5	acetophenone
+Cs	C8H18O	1-Octanol
+Cs	C3F6	hexafluoropropene
+Cs	C10H8	Azulene
+Cs	SF5CF3	Sulfur, pentafluoro(trifluoromethyl)-
+D∞h	H2	Hydrogen diatomic	H2-	hydrogen diatomic anion	H2+	Hydrogen cation
+D∞h	D2	Deuterium diatomic
+D∞h	He2+	helium diatomic cation
+D∞h	BeH2	beryllium dihydride	BeH2+	Beryllium dihydride cation (conformer 2)
+D∞h	BH2+	Boron dihydride cation
+D∞h	CH2	Methylene	CH2+	methylene cation (conformer 2)
+D∞h	MgH2	magnesium dihydride
+D∞h	AlH2+	aluminum dihydride cation
+D∞h	CaH2	Calcium Hydride
+D∞h	ZnH2	Zinc hydride
+D∞h	Li2	Lithium diatomic	Li2	Lithium diatomic	Li2-	lithium diatomic anion	Li2+	lithium diatomic cation
+D∞h	Be2	Beryllium diatomic	Be2	Beryllium diatomic	Be2-	Beryllium diatomic anion	Be2+	Beryllium diatomic cation
+D∞h	B2	Boron diatomic	B2	Boron diatomic	B2	Boron diatomic	B2-	Boron diatomic anion	B2+	Boron diatomic cation
+D∞h	HBBH	Diborane(2)
+D∞h	C2	Carbon diatomic	C2	Carbon diatomic	C2	Carbon diatomic	C2	Carbon diatomic	C2-	carbon diatomic anion	C2+	carbon diatomic cation	C2+	carbon diatomic cation
+D∞h	C2H2	Acetylene	HCCH-	acetylene anion	C2H2+	acetylene cation
+D∞h	N2	Nitrogen diatomic	N2	Nitrogen diatomic	N2-	nitrogen diatomic anion	N2+	diatomic nitrogen cation
+D∞h	O2	Oxygen diatomic	O2	Oxygen diatomic	O2	Oxygen diatomic	O2	Oxygen diatomic	O2-	oxygen diatomic anion	O2+	diatomic oxygen cation	O2--	dioxygen dianion
+D∞h	F2	Fluorine diatomic	F2-	flourine diatomic anion	F2+	flourine diatomic cation
+D∞h	FHF	Hydrogen difluoride	FHF-	Hydrogen difluoride anion
+D∞h	Ne2	Neon diatomic	Ne2+	Neon diatomic cation
+D∞h	Na2	Sodium diatomic	Na2-	sodium diatomic anion	Na2+	sodium diatomic cation
+D∞h	Mg2	Magnesium diatomic	Mg2-	magnesium diatomic anion	Mg2+	magnesium diatomic cation
+D∞h	Al2	Aluminum diatomic	Al2	Aluminum diatomic	Al2	Aluminum diatomic	Al2-	aluminum diatomic anion	Al2+	aluminum diatomic cation
+D∞h	Si2	Silicon diatomic	Si2	Silicon diatomic	Si2-	silcon diatomic anion	Si2+	silcon diatomic cation
+D∞h	Si2H2	disilyne
+D∞h	P2	Phosphorus diatomic	P2-	phosphorus diatomic anion	P2+	phosphorus diatomic cation
+D∞h	S2	Sulfur diatomic	S2	Sulfur diatomic	S2-	sulfur diatomic anion	S2+	sulfur diatomic cation
+D∞h	Cl2	Chlorine diatomic	Cl2-	chlorine diatomic anion	Cl2+	chlorine diatomic cation
+D∞h	Ar2	Argon diatomic	Ar2+	Argon diatomic cation
+D∞h	K2	Potassium diatomic
+D∞h	Ca2	Calcium diatomic
+D∞h	Cu2	Copper diatomic	Cu2	Copper diatomic
+D∞h	Ga2	Gallium diatomic
+D∞h	Ge2	Germanium diatomic	Ge2	Germanium diatomic
+D∞h	As2	Arsenic diatomic
+D∞h	Se2	Selenium diatomic	Se2	Selenium diatomic	Se2-	selenium diatomic anion	Se2+	selenium diatomic cation
+D∞h	Br2	Bromine diatomic	Br2-	bromine diatomic anion	Br2+	bromine diatomic cation
+D∞h	Te2	Tellurium diatomic
+D∞h	I2	Iodine diatomic	I2+	Iodine diatomic cation
+D∞h	C3	carbon trimer	C3+	carbon trimer cation
+D∞h	NCN	Cyanoimidogen	NCN	Cyanoimidogen
+D∞h	N3	azide radical	N3-	azide anion	N3+	azide cation
+D∞h	Li2O	dilithium oxide	Li2O+	dilithium oxide cation
+D∞h	BO2	Boron dioxide	BO2-	Boron dioxide anion	BO2+	Boron dioxide cation	BO2+	Boron dioxide cation
+D∞h	CO2	Carbon dioxide	CO2-	Carbon dioxide anion (conformer 2)	CO2+	Carbon dioxide cation
+D∞h	NO2+	Nitrogen dioxide cation
+D∞h	Be(OH)2	Beryllium hydroxide
+D∞h	BeF2	Beryllium fluoride
+D∞h	F3-	trifluoride anion
+D∞h	Na2O	disodium monoxide
+D∞h	MgF2	Magnesium fluoride
+D∞h	Mg(OH)2	Magnesium dihydroxide
+D∞h	SiO2	silicon dioxide
+D∞h	PO2+	Phosphorus dioxide cation
+D∞h	Li2S	dilithium sulfide
+D∞h	SF2-	sulfur difluoride anion
+D∞h	CS2	Carbon disulfide	CS2+	Carbon disulfide cation
+D∞h	Na2S	Sodium sulfide
+D∞h	SiS2	Silicon disulfide
+D∞h	BeCl2	Beryllium chloride
+D∞h	MgCl2	Magnesium dichloride
+D∞h	Cl3-	trichloride anion
+D∞h	CaCl2	Calcium Chloride
+D∞h	CuF2	Copper difluoride
+D∞h	ZnF2	Zinc difluoride
+D∞h	ZnCl2	Zinc dichloride
+D∞h	GeO2	Germanium dioxide
+D∞h	GeS2	Germanium disulfide
+D∞h	CSe2	Carbon diselenide
+D∞h	BeBr2	Beryllium bromide
+D∞h	CaBr2	Calcium dibromide
+D∞h	Br3-	tribromide anion
+D∞h	KrF2	Krypton difluoride
+D∞h	I3-	triiodide
+D∞h	XeF2	Xenon difluoride
+D∞h	C4	Carbon tetramer	C4	Carbon tetramer	C4+	Carbon tetramer cation
+D∞h	C4H2	Diacetylene	C4H2+	diacetlyene cation
+D∞h	C2N2	Cyanogen	C2N2+	Cyanogen cation
+D∞h	B2O2	Diboron dioxide
+D∞h	C2F2	difluoroacetylene
+D∞h	C2Cl2	dichloroacetylene	C2Cl2+	dichloroacetylene cation
+D∞h	C3O2	Carbon suboxide	C3O2+	Carbon suboxide cation
+D∞h	B2O3	diboron trioxide
+D∞h	C6H2	hexatriyne
+D∞h	C4N2	2-Butynedinitrile
+D∞h	C4F2	difluorobutadiyne
+D2	C2H4+	Ethylene cation
+D2	C6H12	2,3-dimethyl-but-2-ene
+D2	B2F4	Diboron tetrafluoride
+D2	C12H10	biphenyl
+D2d	BH4	borohydride
+D2d	CH4+	Methane cation
+D2d	B2H4	Diborane(4) D2d
+D2d	CH2CCH2	allene
+D2d	C4H8	cyclobutane
+D2d	NH2CCNH2	Diaminoacetylene
+D2d	S4	Sulfur tetramer
+D2d	C5H4	pentatetraene
+D2d	C5H8	Spiropentane
+D2d	C2O4--	oxalate anion	C2O4--	oxalate anion (conformer 2)
+D2d	B2F4	Diboron tetrafluoride
+D2d	B2Cl4	Diboron tetrachloride
+D2d	F2CCCF2	tetrafluoroallene
+D2d	C8H8	cyclooctatetraene
+D2d	S4N4	Tetrasulfur tetranitride
+D2d	C9H8	spiro[4.4]nona-1,3,6,8-tetraene
+D2h	B2H6	Diborane
+D2h	C2H4	Ethylene	C2H4-	Ethylene anion	C2H4+	Ethylene cation
+D2h	Al2H6	dialane
+D2h	Ga2H6	digallane
+D2h	C4H4	cyclobutadiene
+D2h	H2CCCCH2	Butatriene
+D2h	Li2O2	dilithium dioxide
+D2h	C2H4O2	1,3-dioxetane
+D2h	Li2F2	Lithium fluoride dimer
+D2h	Na2O2	disodium dioxide
+D2h	Na2F2	Sodium Fluoride Dimer
+D2h	S2N2	Disulfur dinitride
+D2h	S4	Sulfur tetramer
+D2h	Na2Cl2	Disodium dichloride
+D2h	K2O2	dipotassium dioxide
+D2h	C6H8	1,4-Cyclohexadiene
+D2h	C6H8	Bicyclo[2.2.0]hex-1(4)-ene
+D2h	C2H2N4	sym-tetrazine
+D2h	C4H4N2	Pyrazine
+D2h	N2O4	Dinitrogen tetroxide
+D2h	B2F4	Diboron tetrafluoride
+D2h	C2F4	Tetrafluoroethylene	C2F4+	Tetrafluoroethylene cation
+D2h	C2Cl4	Tetrachloroethylene
+D2h	C2Br4	tetrabromoethene
+D2h	C6H4O2	parabenzoquinone
+D2h	C6H4F2	1,4-difluorobenzene
+D2h	Al2Cl6	Aluminum, di-μ-chlorotetrachlorodi-
+D2h	C6H4Cl2	1,4-dichlorobenzene
+D2h	C10H8	naphthalene
+D2h	C6N4	Tetracyanoethylene	C6N4-	tetracyanoethylene anion
+D2h	C12H8	biphenylene
+D2h	C14H10	Anthracene
+D2h	C16H10	Pyrene
+D2h	C18H12	Tetracene
+D3	CH6N3+	guanidinium
+D3	C6H6	2,4-Hexadiyne
+D3	C8H14	Bicyclo[2.2.2]octane
+D3	C6H12N2	Triethylenediamine
+D3d	C2H6	Ethane	C2H6+	ethane cation (conformer 3)
+D3d	C2H7+	Ethane, protonated
+D3d	Si2H6	disilane
+D3d	Zn(CH3)2	dimethyl zinc
+D3d	C6H6	2,4-Hexadiyne
+D3d	C6H12	Cyclohexane
+D3d	(CH3)3CC(CH3)3	tetramethylbutane
+D3d	C2F6	hexafluoroethane
+D3d	C2Cl6	hexachloroethane
+D3d	C6H12O6	Inositol
+D3h	H3+	hydrogen trimer cation
+D3h	BH3	boron trihydride	BH3-	boron trihydride anion	BH3+	boron trihydride cation
+D3h	CH3	Methyl radical	CH3+	methyl cation
+D3h	NH3+	ammonia cation
+D3h	AlH3	aluminum trihydride	AlH3-	aluminum trihydride anion	AlH3+	aluminum trihydride cation
+D3h	SiH3+	Silyl cation
+D3h	ScH3	Scandium trihydride
+D3h	GaH3	Gallium trihydride
+D3h	GeH3+	germyl cation
+D3h	C2H6	Ethane
+D3h	Li3+	Lithium trimer cation
+D3h	C3H3	cyclopropenyl radical	C3H3+	cyclopropenyl cation
+D3h	C3H6	Cyclopropane
+D3h	Zn(CH3)2	dimethyl zinc
+D3h	CH3CCCH3	2-Butyne
+D3h	Li3N	trilithium nitride
+D3h	CH6N3+	guanidinium
+D3h	CO3--	carbonate
+D3h	NO3	Nitrogen trioxide	NO3-	nitrate anion	NO3+	nitrogen trioxide cation (conformer 2)
+D3h	BF3	Borane, trifluoro-	BF3-	Borane, trifluoro- anion	BF3+	boron trifluoride cation
+D3h	CF3+	Trifluoromethyl cation
+D3h	AlF3	Aluminum trifluoride
+D3h	SiF3+	Silicon trifluoride cation
+D3h	SO3	Sulfur trioxide	SO3-	Sulfur trioxide anion	SO3-	Sulfur trioxide anion (conformer 2)	SO3+	Sulfur trioxide cation
+D3h	CS3--	Carbonotrithioate
+D3h	ClF3	Chlorine trifluoride
+D3h	BCl3	Borane, trichloro-	BCl3+	Boron Trichloride cation
+D3h	CCl3+	Trichloromethyl cation
+D3h	AlCl3	Aluminum trichloride
+D3h	SiCl3+	trichlorosilyl cation
+D3h	ScF3	Scandium trifluoride
+D3h	GaF3	Gallium trifluoride
+D3h	GaCl3	Gallium trichloride
+D3h	SeO3	selenium trioxide
+D3h	BBr3	Boron tribromide
+D3h	AlBr3	Aluminum Bromide
+D3h	TeO3	Tellurium trioxide
+D3h	C5H6	Propellane
+D3h	C5H8	Bicyclo[1.1.1]pentane
+D3h	C6H6	Prismane
+D3h	C6H6	2,4-Hexadiyne
+D3h	C6H6	Trimethylenecycopropane
+D3h	C3H3N3	1,3,5-Triazine
+D3h	B3N3H6	borazine
+D3h	SiF5-	silicon pentafluoride anion
+D3h	PF5	Phosphorus pentafluoride
+D3h	N3P3	1,3,5,2,4,6-Triazatriphosphorine
+D3h	SF5+	pentafluoro sulfur cation
+D3h	ClF5	chlorinepentafluoride
+D3h	PCl5	Phosphorus pentachloride
+D3h	AsF5	Arsenic pentafluoride
+D3h	SbCl5	Antimony pentachloride
+D3h	C8H14	Bicyclo[2.2.2]octane
+D3h	C6H12N2	Triethylenediamine
+D3h	C3H3N3O3	cyanuric acid
+D3h	C3Cl3N3	1,3,5-Triazine, 2,4,6-trichloro-
+D3h	Fe(CO)5	Iron pentacarbonyl
+D4d	S8	Octasulfur
+D4d	S2F10	disulphur decafluoride
+D4h	C4H4	cyclobutadiene
+D4h	XeF4	Xenon tetrafluoride
+D4h	C4O4--	squarate dianion
+D4h	C4F4	tetrafluorcyclobutadiene
+D5d	Fe(C5H5)2	ferrocene
+D5h	C5H5	cyclopentadienyl radical
+D5h	C5H5-	cylopentadienyl anion
+D5h	IF7	Iodine heptafluoride
+D5h	Fe(C5H5)2	ferrocene
+D6h	C6H6	Benzene	C6H6+	Benzene cation
+D6h	C6F6	hexafluorobenzene
+D6h	C24H12	Coronene
+D7h	C7H7+	cycloheptatrienyl cation
+Ih	B12H12--	Dodecahydrododecaborate(2-)
+Ih	C60	Buckminsterfullerene
+Kh	H	Hydrogen atom	H-	Hydrogen atom anion	H+	Hydrogen atom cation
+Kh	D	Deuterium atom	D-	Deuterium atom anion	D+	Deuterium atom cation
+Kh	He	Helium atom	He-	Helium atom anion	He+	Helium atom cation
+Kh	Li	Lithium atom	Li-	Lithium atom anion	Li+	Lithium atom cation
+Kh	Be	Beryllium atom	Be-	Beryllium atom anion	Be+	Beryllium atom cation
+Kh	B	Boron atom	B	Boron atom	B-	Boron atom anion	B-	Boron atom anion	B+	Boron atom cation
+Kh	C	Carbon atom	C	Carbon atom	C-	Carbon atom anion	C-	Carbon atom anion	C+	Carbon atom cation
+Kh	N	Nitrogen atom	N	Nitrogen atom	N-	Nitrogen atom anion	N+	Nitrogen atom cation
+Kh	O	Oxygen atom	O-	Oxygen atom anion	O+	Oxygen atom cation
+Kh	F	Fluorine atom	F-	Fluorine atom anion	F+	Fluorine atom cation	F+	Fluorine atom cation
+Kh	Ne	Neon atom	Ne	Neon atom	Ne-	Neon atom anion	Ne+	Neon atom cation
+Kh	Na	Sodium atom	Na-	Sodium atom anion	Na+	Sodium atom cation
+Kh	Mg	Magnesium atom	Mg-	Magnesium atom anion	Mg+	Magnesium atom cation
+Kh	Al	Aluminum atom	Al-	Aluminum atom anion	Al-	Aluminum atom anion	Al+	Aluminum atom cation
+Kh	Si	Silicon atom	Si	Silicon atom	Si-	Silicon atom anion	Si+	Silicon atom cation
+Kh	P	Phosphorus atom	P-	Phosphorus atom anion	P+	Phosphorus atom cation
+Kh	S	Sulfur atom	S	Sulfur atom	S-	Sulfur atom anion	S+	Sulfur atom cation
+Kh	Cl	Chlorine atom	Cl-	Chlorine atom anion	Cl-	Chlorine atom anion	Cl+	Chlorine atom cation	Cl+	Chlorine atom cation
+Kh	Ar	Argon atom	Ar-	Argon atom anion	Ar+	Argon atom cation
+Kh	K	Potassium atom	K-	Potassium atom anion	K+	Potassium atom cation
+Kh	Ca	Calcium atom	Ca-	Calcium atom anion	Ca+	Calcium atom cation
+Kh	Sc	Scandium atom	Sc	Scandium atom	Sc+	Scandium cation
+Kh	Ti	Titanium atom	Ti-	Titanium atom anion	Ti+	Titanium atom cation
+Kh	V	Vanadium atom	V+	Vanadium atom cation
+Kh	Cr	Chromium atom
+Kh	Mn	Manganese atom
+Kh	Fe	Iron atom
+Kh	Co	Cobalt atom
+Kh	Ni	Nickel atom
+Kh	Cu	Copper atom	Cu-	Copper atom anion	Cu+	Copper atom cation
+Kh	Zn	Zinc atom	Zn-	Zinc atom anion	Zn+	Zinc atom cation
+Kh	Ga	Gallium atom	Ga-	Gallium atom anion	Ga+	Gallium atom cation
+Kh	Ge	Germanium atom	Ge-	Germanium anion	Ge+	Germanium cation
+Kh	As	Arsenic atomic	As-	Arsenic anion	As+	Arsenic cation
+Kh	Se	Selenium atom	Se-	Selenium atom anion	Se+	Selenium atom cation
+Kh	Br	Bromine atom	Br-	Bromine atom anion	Br+	Bromine atom cation
+Kh	Kr	Krypton atom	Kr+	Krypton cation
+Kh	Sn	Tin atom
+Kh	Te	Tellurium atom
+Kh	I	Iodine atom	I-
+Kh	Xe	Xenon atom
+Oh	Sn+	Tin cation
+Oh	Sb	Antimony atom
+Oh	PF6-	Hexafluorophosphate ion
+Oh	SF6	Sulfur Hexafluoride
+Oh	SeF6	Selenium hexafluoride
+Oh	C8H8	cubane
+Td	BH4-	borohydride anion
+Td	CH4	Methane	CH4-
+Td	CD4	methane-d4
+Td	NH4	Ammonium radical
+Td	AlH4-	Aluminum tetrahydride anion
+Td	SiH4	Silane
+Td	PH4+	phosphonium cation
+Td	GeH4	Germane
+Td	AsH4+	Arsonium
+Td	SnH4	Stannane
+Td	C4H4	Tetrahedrane
+Td	P4	Phosphorus tetramer
+Td	As4	Arsenic tetramer
+Td	C5H12	Propane, 2,2-dimethyl-
+Td	NC4H12+	tetramethyl ammonium cation
+Td	BF4-	tetrafluoroboron anion
+Td	CF4	Carbon tetrafluoride
+Td	SiF4	Silicon tetrafluoride
+Td	Si(CH3)4	tetramethylsilane
+Td	PO4---	phosphate
+Td	SO4--	sulfate
+Td	ClO4-	perchlorate anion
+Td	CCl4	Carbon tetrachloride
+Td	SiCl4	Silane, tetrachloro-
+Td	TiF4	Titanium tetrafluoride
+Td	TiCl4	Titanium tetrachloride
+Td	GeF4	Germanium tetrafluoride
+Td	GeCl4	Germanium Tetrachloride
+Td	CBr4	Carbon tetrabromide
+Td	SiBr4	Silicon tetrabromide
+Td	GeBr4	Germanium tetrabromide
+Td	CI4	tetraiodomethane
+Td	SiI4	silicon tetraiodide
+Td	C(CN)4	tetracyanomethane
+Td	C10H16	adamantane

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "project ppchem ... "
+version = ""
+description = ""
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Thomas Christianson", email = "" },
+  { name = "Igor Gonteri", email = "" }
+  { name = "Arthur Humery", email = "arthur.humery@epfl.ch"}
+  ]
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",]
+
+[project.urls]
+Homepage = "https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git"
