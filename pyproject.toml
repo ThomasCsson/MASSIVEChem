@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 dynamic = ["version"]
-name = "ChemInterface"
+name = "ChemInterface_ppchem"
 version = "1.0"
 description = "..."
 readme = {file = "README.txt", content-type = "text/markdown"}
