@@ -2,30 +2,27 @@ from rdkit import Chem
 from bokeh.plotting import figure, show
 import numpy as np
 from rdkit.Chem import Draw
+from rdkit import Chem
+from PIL import Image
+from io import BytesIO
 
 
 
 def validate_smiles(smiles):
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
-        return False
+        print("Invalid SMILES input.")
+        exit()
     return True
 
 input_mol = input('SMILES: ')
 
 
-# Validate the input SMILES string
-if not validate_smiles(input_mol):
-    print("Invalid SMILES input.")
-    exit()
 mol = Chem.MolFromSmiles(input_mol)
 
 image = Draw.MolToImage(mol)
 image.show()
 
-from rdkit import Chem
-from PIL import Image
-from io import BytesIO
 
 # Function to generate RDKit molecule image and save to file
 def save_molecule_image_to_file(mol, file_path):
