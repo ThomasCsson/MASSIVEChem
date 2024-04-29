@@ -1,4 +1,4 @@
-# - Cheminterface package for applied mass spectrometry -
+# - ChemInterface package for applied mass spectrometry -
 #### Project in practical programming in chemistry course
 ###EPFL CH-200
 
