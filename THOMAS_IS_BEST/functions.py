@@ -384,8 +384,8 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p.line(mass_range, intensity, legend_label="Intensity", line_width=1)
 
     # Show the plot
-     
-    return p 
+    show(p)
+    return  
 
 
 mol_smi = input('Enter SMILEs: ')
