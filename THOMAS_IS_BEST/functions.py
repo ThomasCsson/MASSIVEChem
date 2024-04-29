@@ -13,7 +13,7 @@ from bokeh.models.tickers import FixedTicker
 def list_generator():
     #Turn data of (Symbol | Mass | Probability) into lists 
 
-    df = pd.read_csv('Thomas/abundance.txt'
+    df = pd.read_csv('THOMAS_IS_BEST/abundance.txt'
                     , sep='\t'
                     , header=None
                     , names=['Atom', 'Mass', 'Percentage'])
