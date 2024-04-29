@@ -177,12 +177,12 @@ def main_function (mol):
     
 
     if has_N:
-        x_axis_final.append(x_axis_final[index] - 0.006)  #Add values 
-        y_axis_final.append(0.035*count_N*maximum)  #Add values 3.5% major peak
+        x_axis_final.append(x_axis_final[index] - 0.006)  
+        y_axis_final.append(0.0035*count_N*maximum)  
     
     if has_S:
-        x_axis_final.append(x_axis_final[index]-0.004)  #Add values
-        y_axis_final.append(0.008*count_S*maximum)  #Add values 0.8% major peak
+        x_axis_final.append(x_axis_final[index]-0.004)  
+        y_axis_final.append(0.008*count_S*maximum)  
 
 
     '''HERE, IF YOU WERE TO 'return x_axis_final, y_axis_final', THE OUTPUT IS TWO LISTS, THE FIRST OF THE VALUES OF THE X AXIS (COMBINED MASSES) AND THE SECOND OF THE VALUES ON Y '''
@@ -215,7 +215,7 @@ def main_function (mol):
         y_axis_final_use.pop(index)
 
 
-    #plotting with pyplot
+    #plotting with matpotlib
     plt.scatter(x_axis_final,y_axis_final)
     plt.show()
 
@@ -225,11 +225,11 @@ def main_function (mol):
     #plotting with bokeh
 
 
-    x, y = x_final_final, y_final_final
+    x, y = x_axis_final, y_axis_final
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x = x,y = y))
+    fig.add_trace(go.Scatter(x = x,y = y, mode = 'markers'))
 
-    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y), max(y)], type="linear"),dragmode='zoom',)
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y)-1, max(y)], type="linear"),dragmode='zoom',)
 
 
     fig.show()
@@ -238,7 +238,7 @@ def main_function (mol):
 
 
 
-    return 
+    return x_axis_final, y_axis_final
 
 print(main_function(mol))
 
