@@ -10,7 +10,7 @@ from bokeh.models import WheelPanTool, WheelZoomTool
 from bokeh.models.tickers import FixedTicker
 
 
-def list_generator():
+def data_list_generator():
     #Turn data of (Symbol | Mass | Probability) into lists 
 
     df = pd.read_csv('THOMAS_IS_BEST/abundance.txt'
@@ -60,19 +60,29 @@ def SMILEs_interpreter(mol_smi):
     
     return mol
 
-
-def main_function (mol):
+def molecule_list_generator(mol):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
+    return list_atoms
+
+
+def ionisation_method (list_atoms):
+    '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
+    if 'H' in list_atoms:
+
+        #Check that there is in fact a proton to remove
+        list_atoms.remove('H')
+    return list_atoms
+
+
+
+
+def main_function (list_atoms):
+    
 
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
     
-    if 'H' in list_atoms:
-        #Check that there is in fact a proton to remove
-        list_atoms.remove('H')
-
-
 
     #check for sulphur and nitrogen
 
@@ -215,7 +225,12 @@ def pyplot_plotter (x_axis_final, y_axis_final):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x = x,y = y, mode = 'markers'))
 
-    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y)-1, max(y)], type="linear"),dragmode='zoom',)
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), 
+                                type="linear"),
+                                yaxis=dict(range=[min(y)-1, max(y)], 
+                                type="linear"),
+                                dragmode='zoom',
+                                )
 
 
     fig.show()
@@ -261,24 +276,10 @@ def bokeh_plotter(x_axis_final, y_axis_final):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 mol_smi = input('Enter SMILEs: ')
 mol = SMILEs_interpreter(mol_smi)
-mass, abundance, isotopes = list_generator()
-xvalues, yvalues = main_function(mol)
+mass, abundance, isotopes = data_list_generator()
+list_atoms_pre = molecule_list_generator(mol) 
+list_atoms = ionisation_method(list_atoms_pre)
+xvalues, yvalues = main_function(list_atoms)
 print(bokeh_plotter(xvalues,yvalues))
-
-
