@@ -58,6 +58,9 @@ mol_smi = input('Enter SMILEs: ')
 mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 mol = Chem.AddHs(mol_without_Hs)
 
+image = Draw.MolToImage(mol)
+image.show()
+
 
 
 #Timing element (not very useful but its pretty so it's staying)
