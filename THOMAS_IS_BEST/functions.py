@@ -83,9 +83,10 @@ def SMILEs_interpreter(mol_smi):
     #Checks that the SMILEs input is correct
 
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
-    
+
     if mol_without_Hs is None:
         print("Invalid SMILEs input.")
+        print('Please try again with a different SMILEs.')
         exit()
 
     mol = Chem.AddHs(mol_without_Hs)
@@ -366,12 +367,12 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     ticked_peaks = []
     for i in range(len(x_axis_final)):
         if y_axis_final[i]>0.0001:
-            ticked_peaks.append(x_axis_final[i])
+            ticked_peaks.append(round(x_axis_final[i],4))
 
     print(ticked_peaks)
 
     # Create a new plot with a title and axis labels
-    p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
+    p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity [AU]')
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
     p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
