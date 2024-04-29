@@ -21,17 +21,18 @@ for peak_position, peak_intensity in zip(Peak_positions, Peak_intensities):
     intensity += peak_shape
 
 
-ticked_peaked = []
-for i in peak_position:
-    if i > 10**(-5):
-       ticked_peaked.append(i)
-print(ticked_peaked)
+ticked_peaks = []
+for i in range(len(Peak_intensities)):
+    if Peak_intensities[i]>0.00001:
+        ticked_peaks.append(Peak_intensities[i])
+    
+print(ticked_peaks)
 
 # Create a new plot with a title and axis labels
 p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
 p = figure(width=700 , title= f'Mass spectrum of molecule')
 p.height = 500
-p.xaxis.ticker = FixedTicker(ticks= ticked_peaked)
+p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
 p.toolbar.autohide = True
 p.add_tools(WheelPanTool(dimension="height"))
 p.add_tools(WheelZoomTool(dimensions="height"))
