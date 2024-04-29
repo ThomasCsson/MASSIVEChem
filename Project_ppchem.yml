@@ -83,4 +83,4 @@ dependencies:
       - tzdata==2024.1
       - urllib3==2.2.1
       - xyzservices==2024.4.0
-prefix: C:\Users\maintenant Pret\anaconda3\envs\ppchemproject
+
