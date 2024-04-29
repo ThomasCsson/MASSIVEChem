@@ -10,7 +10,7 @@ description = "..."
 readme = {file = "README.txt", content-type = "text/markdown"}
 requires-python = ">=3.8"
 license = "MIT"
-keywords = [
+keywords == [
   "unsaturation", 
   "Mass spectroscopy"
   ]
