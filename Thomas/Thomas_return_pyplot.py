@@ -238,7 +238,7 @@ def main_function (mol):
 
 
 
-    return 
+    return x_axis_final, y_axis_final
 
 print(main_function(mol))
 
