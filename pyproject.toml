@@ -10,12 +10,12 @@ description = "..."
 readme = {file = "README.txt", content-type = "text/markdown"}
 requires-python = ">=3.8"
 license = "MIT"
+keywords = ["unsaturation", "Mass spectroscopy"]
 authors = [
-  {name = "Thomas Christianson", email = "thomas.christiansson@epfl.ch"},
-  {name = "Igor Gonteri", email = "igor.gonteri@epfl.ch"},
-  {name = "Arthur Humery", email = "arthur.humery@epfl.ch"}
-  ] 
-
+  { name = "Thomas Christianson", email = "thomas.christiansson@epfl.ch" },
+  { name = "Igor Gonteri", email = "igor.gonteri@epfl.ch" },
+  { name = "Arthur Humery", email = "arthur.humery@epfl.ch" }
+]
 dependencies = [
   "blas==1.0=mkl",
   "bzip2==1.0.8=h2bbff1b_5",
@@ -40,14 +40,14 @@ dependencies = [
   "wheel==0.41.2=py310haa95532_0",
   "xz==5.4.6=h8cc25b3_0",
   "zlib==1.2.13=h8cc25b3_0"
-  ]
-
+]
 license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent"]
+    "Operating System :: OS Independent"
+]
 
 [project.urls]
 Homepage = "https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git"
