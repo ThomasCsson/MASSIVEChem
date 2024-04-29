@@ -4,9 +4,13 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 import time
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from bokeh.plotting import figure, show
+from bokeh.models import WheelPanTool, WheelZoomTool
+from bokeh.models.tickers import FixedTicker
+
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
@@ -221,7 +225,7 @@ def main_function (mol):
     
 
 
-    #plotting with bokeh
+    #plotting with pyplot
 
 
     x, y = x_axis_final, y_axis_final
@@ -232,6 +236,46 @@ def main_function (mol):
 
 
     fig.show()
+
+
+    
+    #precision parameter
+    x = 0.004
+
+    mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
+
+    intensity = np.zeros_like(mass_range)
+
+    for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
+
+        peak_shape = peak_intensity * np.exp(-((mass_range - peak_position) ** 2) / (2 * x ** 2))  # Gaussian example
+
+        intensity += peak_shape
+
+
+    ticked_peaks = []
+    for i in range(len(x_axis_final)):
+        if y_axis_final[i]>0.0001:
+            ticked_peaks.append(x_axis_final[i])
+        
+    print(ticked_peaks)
+
+    # Create a new plot with a title and axis labels
+    p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
+    p = figure(width=700 , title= f'Mass spectrum of molecule')
+    p.height = 500
+    p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
+    p.toolbar.autohide = True
+    p.add_tools(WheelPanTool(dimension="height"))
+    p.add_tools(WheelZoomTool(dimensions="height"))
+
+    # Add a line renderer with legend and line thickness
+    p.line(mass_range, intensity, legend_label="Intensity", line_width=1)
+
+    # Show the plot
+    show(p)
+
+
 
 
 
