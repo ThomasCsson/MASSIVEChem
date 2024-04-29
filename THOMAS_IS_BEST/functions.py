@@ -144,11 +144,7 @@ def main_function (list_atoms):
     (the mass in list 1 at index i is associated to the probability at index i in list 2)
     '''
     #---------------------------------------------------------------------------------------------#
-
-    
-
-    '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
-    
+    render_imprecise_list = False
 
     #check for sulphur and nitrogen
 
@@ -208,7 +204,17 @@ def main_function (list_atoms):
                 index = isotopes.index(list_atoms[0])
                 new_mass = list_output[i][0] + mass_copy[index]
                 new_proba = list_output[i][1] * abundance_copy[index]
-                list_output_new.append([new_mass,new_proba])
+
+
+                #removes any molecule who's probability is below 0.0001
+
+                if render_imprecise_list: #only removes low-probability arrangements if render_imprecise_list arg is True
+                    if new_proba>0.0001:
+                        list_output_new.append([new_mass,new_proba])
+
+                else:
+                    list_output_new.append([new_mass,new_proba])
+
                 mass_copy.pop(index)
                 abundance_copy.pop(index)
                 isotopes_copy.pop(index)
@@ -369,10 +375,9 @@ def bokeh_plotter(x_axis_final, y_axis_final):
         if y_axis_final[i]>0.0001:
             ticked_peaks.append(round(x_axis_final[i],4))
 
-    print(ticked_peaks)
 
     # Create a new plot with a title and axis labels
-    p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity [AU]')
+    p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [m/z]', y_axis_label='Intensity [AU]')
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
     p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
@@ -385,7 +390,8 @@ def bokeh_plotter(x_axis_final, y_axis_final):
 
     # Show the plot
     show(p)
-    return  
+    print('')
+    return  (f'Computation complete.')
 
 
 mol_smi = input('Enter SMILEs: ')
