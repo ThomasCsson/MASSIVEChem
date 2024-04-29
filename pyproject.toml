@@ -12,7 +12,7 @@ license = "MIT"
 keywords = []
 authors = [
   { name = "Thomas Christianson", email = "thomas.christiansson@epfl.ch" },
-  { name = "Igor Gonteri", email = "" }
+  { name = "Igor Gonteri", email = "igor.gonteri@eplf.ch" }
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch"}
   ]
 dependencies = []
