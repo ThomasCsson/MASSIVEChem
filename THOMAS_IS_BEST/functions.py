@@ -313,9 +313,9 @@ def pyplot_plotter (x_axis_final, y_axis_final):
     2. list of the probabilities of apparation of each of the molecules 
     (the mass in list 1 at index i is associated to the probability at index i in list 2) 
     
-    Output: none
+    Output: p (plot of mass spectrum on bokeh)
 
-    Functionality: plots graph with plotly (html format)
+    Functionality: none
     '''
     #---------------------------------------------------------------------------------------------#
 
@@ -384,13 +384,12 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p.line(mass_range, intensity, legend_label="Intensity", line_width=1)
 
     # Show the plot
-    show(p) 
-    return 
-
-
+     
+    return p 
 
 
 mol_smi = input('Enter SMILEs: ')
+
 mol = SMILEs_interpreter(mol_smi)
 mass, abundance, isotopes = data_list_generator()
 list_atoms_pre = molecule_list_generator(mol) 
