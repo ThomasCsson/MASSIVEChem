@@ -7,9 +7,9 @@ from bokeh.plotting import row
 input_mol = input('SMILES: ')
 
 # Function to generate RDKit molecule image and save to file
-def save_molecule_image_to_file(smi, file_path, show_Hs=False, show_3D = False):
+def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
     # Generate the image from the molecule
-    mol = Chem.MolFromSmiles(smi)
+    mol = Chem.MolFromSmiles(mol_smi)
 
     # Adds the hydrogens to the molecule if specified
     if show_Hs:
@@ -17,7 +17,7 @@ def save_molecule_image_to_file(smi, file_path, show_Hs=False, show_3D = False):
 
     # Show the molecule in 3D if specified
     if show_3D:
-        mol_3D = AllChem.EmbedMolecule(mol)
+        mol = AllChem.EmbedMolecule(mol)
 
     image = Draw.MolToImage(mol)
 
