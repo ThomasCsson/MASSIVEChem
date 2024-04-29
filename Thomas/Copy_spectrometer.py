@@ -177,7 +177,7 @@ def main_function (mol):
     #graphing
     end_time = time.time()
     print(f'Runtime: {end_time-start_time}s')
-    
+
     plt.plot(x_final_final,y_final_final,marker = ' ')
 
     plt.show()
@@ -185,9 +185,3 @@ def main_function (mol):
     return x_axis_final,y_axis_final
 
 print(main_function(mol))
-
-
-
-
-
-print(f'Runtime: {end_time-start_time}s')
