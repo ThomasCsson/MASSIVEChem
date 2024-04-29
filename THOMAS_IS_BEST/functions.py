@@ -81,12 +81,13 @@ def SMILEs_interpreter(mol_smi):
     #---------------------------------------------------------------------------------------------#
 
     #Checks that the SMILEs input is correct
+
+    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
     
     if mol_without_Hs is None:
         print("Invalid SMILEs input.")
         exit()
 
-    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
     mol = Chem.AddHs(mol_without_Hs)
 
     return mol
