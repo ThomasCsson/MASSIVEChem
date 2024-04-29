@@ -3,20 +3,23 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "project ppchem ... "
-version = ""
-description = ""
-readme = "README.md"
+dynamic = ["version"]
+name = "ChemInterface"
+version = "1.0"
+description = "..."
+readme = {file = "README.txt", content-type = "text/markdown"}
 requires-python = ">=3.8"
 license = "MIT"
-keywords = []
+keywords = [...]
 authors = [
   { name = "Thomas Christianson", email = "thomas.christiansson@epfl.ch" },
   { name = "Igor Gonteri", email = "igor.gonteri@eplf.ch" }
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch"}
   ]
-dependencies = []
+dependencies = [...]
+license = {file = "LICENSE"}
 classifiers = [
+    "Development Status ::  - Alpha",
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",]
