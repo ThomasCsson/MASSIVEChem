@@ -53,8 +53,7 @@ isotopes = df['Atom'].tolist()
 mol_smi = input('Enter SMILEs: ')
 mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 mol = Chem.AddHs(mol_without_Hs)
-img = Draw.MolToImage(mol)
-img.show()
+
 
 
 #Timing element (not very useful but its pretty so it's staying)
@@ -78,11 +77,19 @@ def main_function (mol):
     #check for sulphur and nitrogen
 
     has_N = False
+    count_N = 0
     has_S = False
+    count_S = 0
     if 'N' in list_atoms:
         has_N = True
+        count_N = list_atoms.count('N')
     elif 'S' in list_atoms:
         has_S = True
+        count_S = list_atoms.count('S')
+
+
+
+    
 
     print(list_atoms)
 
@@ -158,15 +165,25 @@ def main_function (mol):
 
 
     #if there is any, add peaks corresponding to Sulphur/Nitrogen presence
-    if has_N:
-        x_axis_final.append()  #Add values
-        y_axis_final.append()  #Add values
-    
-    if has_S:
-        x_axis_final.append()  #Add values
-        y_axis_final.append()  #Add values
+    maximum = max(y_axis_final)
+    maximum_2 = 0
+    minimum = min(y_axis_final)
+    for i in range (len(y_axis_final)):
+        if y_axis_final[i]>maximum_2 and y_axis_final[i]< maximum:
+            maximum_2 = y_axis_final[i]
+    index = y_axis_final.index(maximum_2)
 
     
+    
+
+    if has_N:
+        x_axis_final.append(x_axis_final[index] - 0.006)  #Add values 
+        y_axis_final.append(0.035*count_N*maximum)  #Add values 3.5% major peak
+    
+    if has_S:
+        x_axis_final.append(x_axis_final[index]-0.004)  #Add values
+        y_axis_final.append(0.008*count_S*maximum)  #Add values 0.8% major peak
+
 
     '''HERE, IF YOU WERE TO 'return x_axis_final, y_axis_final', THE OUTPUT IS TWO LISTS, THE FIRST OF THE VALUES OF THE X AXIS (COMBINED MASSES) AND THE SECOND OF THE VALUES ON Y '''
     
@@ -199,6 +216,8 @@ def main_function (mol):
 
 
     #plotting with pyplot
+    plt.scatter(x_axis_final,y_axis_final)
+    plt.show()
 
     
 
@@ -219,7 +238,7 @@ def main_function (mol):
 
 
 
-    return x_axis_final,y_axis_final
+    return 
 
 print(main_function(mol))
 
