@@ -1,0 +1,6 @@
+rdkit
+pandas
+matplotlib
+bokeh
+numpy
+plotly

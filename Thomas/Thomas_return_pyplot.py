@@ -4,11 +4,15 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 import time
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from bokeh.plotting import figure, show
+from bokeh.models import WheelPanTool, WheelZoomTool
+from bokeh.models.tickers import FixedTicker
 
-#Turn data (of Symbol | Mass | Probability) into lists 
+
+#Turn data of (Symbol | Mass | Probability) into lists 
 
 df = pd.read_csv('Thomas/abundance.txt'
                  , sep='\t'
@@ -53,8 +57,10 @@ isotopes = df['Atom'].tolist()
 mol_smi = input('Enter SMILEs: ')
 mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 mol = Chem.AddHs(mol_without_Hs)
-img = Draw.MolToImage(mol)
-img.show()
+
+image = Draw.MolToImage(mol)
+image.show()
+
 
 
 #Timing element (not very useful but its pretty so it's staying)
@@ -75,14 +81,24 @@ def main_function (mol):
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
 
+
+
     #check for sulphur and nitrogen
 
     has_N = False
+    count_N = 0
     has_S = False
+    count_S = 0
     if 'N' in list_atoms:
         has_N = True
+        count_N = list_atoms.count('N')
     elif 'S' in list_atoms:
         has_S = True
+        count_S = list_atoms.count('S')
+
+
+
+    
 
     print(list_atoms)
 
@@ -133,7 +149,7 @@ def main_function (mol):
         list_output = list_output_new
         list_atoms.pop(0)
 
-    print(list_output)
+
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
 
     x_axis, y_axis = [],[]
@@ -141,7 +157,7 @@ def main_function (mol):
     for j in range (len(list_output)):
         x_axis.append(list_output[j][0])
         y_axis.append(list_output[j][1])
-    
+
 
     #Compression of lists x_axis & y_axis into x_axis_final & y_axis_final so that peaks corresponding to same mass will be represented together 
     
@@ -158,15 +174,24 @@ def main_function (mol):
 
 
     #if there is any, add peaks corresponding to Sulphur/Nitrogen presence
-    if has_N:
-        x_axis_final.append()  #Add values
-        y_axis_final.append()  #Add values
-    
-    if has_S:
-        x_axis_final.append()  #Add values
-        y_axis_final.append()  #Add values
+    maximum = max(y_axis_final)
+    maximum_2 = 0
+    for i in range (len(y_axis_final)):
+        if y_axis_final[i]>maximum_2 and y_axis_final[i]< maximum:
+            maximum_2 = y_axis_final[i]
+    index = y_axis_final.index(maximum_2)
 
     
+    
+
+    if has_N:
+        x_axis_final.append(x_axis_final[index] - 0.006)  
+        y_axis_final.append(0.0035*count_N*maximum)  
+    
+    if has_S:
+        x_axis_final.append(x_axis_final[index]-0.004)  
+        y_axis_final.append(0.008*count_S*maximum)  
+
 
     '''HERE, IF YOU WERE TO 'return x_axis_final, y_axis_final', THE OUTPUT IS TWO LISTS, THE FIRST OF THE VALUES OF THE X AXIS (COMBINED MASSES) AND THE SECOND OF THE VALUES ON Y '''
     
@@ -198,24 +223,70 @@ def main_function (mol):
         y_axis_final_use.pop(index)
 
 
-    #plotting with pyplot
+    #plotting with matpotlib
+    plt.scatter(x_axis_final,y_axis_final)
+    plt.show()
 
     
 
 
-    #plotting with bokeh
+    #plotting with pyplot
 
-    x, y = x_final_final, y_final_final
 
-    p = figure(title="Simple Line Graph", x_axis_label='Mass of compound [g/mol]', y_axis_label='Abundance [%]')
-    p.line(x,y,legend_label="Line", line_width=2)
+    x, y = x_axis_final, y_axis_final
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x = x,y = y, mode = 'markers'))
+
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y)-1, max(y)], type="linear"),dragmode='zoom',)
+
+
+    fig.show()
+
+
+    
+    #precision parameter
+    x = 0.004
+
+    mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
+
+    intensity = np.zeros_like(mass_range)
+
+    for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
+
+        peak_shape = peak_intensity * np.exp(-((mass_range - peak_position) ** 2) / (2 * x ** 2))  # Gaussian example
+
+        intensity += peak_shape
+
+
+    ticked_peaks = []
+    for i in range(len(x_axis_final)):
+        if y_axis_final[i]>0.0001:
+            ticked_peaks.append(x_axis_final[i])
+
+    print(ticked_peaks)
+
+    # Create a new plot with a title and axis labels
+    p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
+    p = figure(width=700 , title= f'Mass spectrum of molecule')
+    p.height = 500
+    p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
+    p.toolbar.autohide = True
+    p.add_tools(WheelPanTool(dimension="height"))
+    p.add_tools(WheelZoomTool(dimensions="height"))
+
+    # Add a line renderer with legend and line thickness
+    p.line(mass_range, intensity, legend_label="Intensity", line_width=1)
+
+    # Show the plot
     show(p)
 
 
 
 
 
-    return x_axis_final,y_axis_final
+
+
+    return 
 
 print(main_function(mol))
 
