@@ -11,7 +11,7 @@ requires-python = ">=3.8"
 license = "MIT"
 keywords = []
 authors = [
-  { name = "Thomas Christianson", email = "" },
+  { name = "Thomas Christianson", email = "thomas.christiansson@epfl.ch" },
   { name = "Igor Gonteri", email = "" }
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch"}
   ]
