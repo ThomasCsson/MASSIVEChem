@@ -24,6 +24,7 @@ pip install bokeh
 pip install rdkit
 pip install numpy
 pip install pandas
+pip install plotly
 ```
 Specifically, from these packages, the following subpackages are required:
 ```bash
