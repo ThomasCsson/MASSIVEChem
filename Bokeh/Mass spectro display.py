@@ -22,9 +22,9 @@ for peak_position, peak_intensity in zip(Peak_positions, Peak_intensities):
 
 
 ticked_peaks = []
-for i in range(len(Peak_intensities)):
-    if Peak_intensities[i]>0.00001:
-        ticked_peaks.append(Peak_intensities[i])
+for i in range(len(Peak_positions)):
+    if Peak_intensities[i]>0.0001:
+        ticked_peaks.append(Peak_positions[i])
     
 print(ticked_peaks)
 
