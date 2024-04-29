@@ -28,6 +28,7 @@ dependencies:
   - pip:
       - annotated-types==0.6.0
       - attrs==23.2.0
+      - bokeh==3.4.1
       - certifi==2024.2.2
       - charset-normalizer==3.3.2
       - click==8.1.7
@@ -51,6 +52,7 @@ dependencies:
       - packaging==24.0
       - pandas==2.2.2
       - pillow==10.3.0
+      - plotly==5.21.0
       - pydantic==2.6.4
       - pydantic-core==2.16.3
       - pydantic-settings==2.2.1
@@ -71,11 +73,14 @@ dependencies:
       - seaborn==0.13.2
       - six==1.16.0
       - sympy==1.12
+      - tenacity==8.2.3
       - tokenizers==0.15.2
       - torch==2.0.1
+      - tornado==6.4
       - tqdm==4.66.2
       - transformers==4.39.3
       - typing-extensions==4.11.0
       - tzdata==2024.1
       - urllib3==2.2.1
-prefix: C:\Users\maintenant Pret\anaconda3\envs\ppchemproject
+      - xyzservices==2024.4.0
+

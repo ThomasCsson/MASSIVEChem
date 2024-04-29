@@ -1,3 +1,5 @@
+#Imports
+
 from rdkit import Chem
 from rdkit.Chem import Draw
 import time
@@ -10,7 +12,22 @@ from bokeh.models import WheelPanTool, WheelZoomTool
 from bokeh.models.tickers import FixedTicker
 
 
-def list_generator():
+def data_list_generator():
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    data_list_generator ()
+
+    Input: none
+
+    Output: three lists:
+    1. mass: [mass1, mass2, mass3,...]  
+    2. abundance: [ab1, ab2, ab3,...]
+    3. isotopes: [iso1, iso2, iso3,...]
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+
     #Turn data of (Symbol | Mass | Probability) into lists 
 
     df = pd.read_csv('THOMAS_IS_BEST/abundance.txt'
@@ -52,6 +69,16 @@ def list_generator():
     return mass, abundance, isotopes
 
 def SMILEs_interpreter(mol_smi):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    SMILEs_interpreter(mol_smi)
+
+    Input: molecule under SMILEs representation
+    
+    Output: molecule under MOL representation
+    '''
+    #---------------------------------------------------------------------------------------------#
+
     #Turn SMILEs representation into list of atomic symbols
 
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
@@ -60,19 +87,62 @@ def SMILEs_interpreter(mol_smi):
     
     return mol
 
+def molecule_list_generator(mol):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    molecule_list_generator(mol)
+    
+    Input: molecule under MOL representation
+    
+    Output: list containing the atomic symbol of each atom in the input molecule
+    '''
+    #---------------------------------------------------------------------------------------------#
 
-def main_function (mol):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
+    return list_atoms
+
+
+def ionisation_method (list_atoms):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    ionisation_method (list_atoms)
+    
+    Input: list of atomic symbols of atoms in a given molecule
+    
+    Output: corrected list of atoms (i.e. list of atoms that enter spectrometry apparatus)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
+    if 'H' in list_atoms:
+
+        #Check that there is in fact a proton to remove
+        list_atoms.remove('H')
+    return list_atoms
+
+
+
+
+def main_function (list_atoms):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    main_function(list_atoms)
+    
+    Input: list of atoms that enter the apparatus
+    
+    Output: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes
+    2. list of the probabilities of apparation of each of the molecules 
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    
 
     '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
     
-    if 'H' in list_atoms:
-        #Check that there is in fact a proton to remove
-        list_atoms.remove('H')
-
-
 
     #check for sulphur and nitrogen
 
@@ -185,6 +255,22 @@ def main_function (mol):
     return x_axis_final, y_axis_final
 
 def matplotlib_plotter(x_axis_final, y_axis_final):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    matplotlib_plotter(x_axis_final, y_axis_final)
+    
+    Input: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes
+    2. list of the probabilities of apparation of each of the molecules 
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    
+    Output: none
+
+    Functionality: plots a graph made of dots with matplotlib
+    '''
+    #---------------------------------------------------------------------------------------------#
+
     max_x = max(x_axis_final)
     min_x = min(x_axis_final)
     diff = (max_x-min_x)
@@ -211,17 +297,54 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
     return
 
 def pyplot_plotter (x_axis_final, y_axis_final):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    pyplot_plotter (x_axis_final, y_axis_final)
+    
+    Input: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes
+    2. list of the probabilities of apparation of each of the molecules 
+    (the mass in list 1 at index i is associated to the probability at index i in list 2) 
+    
+    Output: none
+
+    Functionality: plots graph with plotly (html format)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
     x, y = x_axis_final, y_axis_final
     fig = go.Figure()
     fig.add_trace(go.Scatter(x = x,y = y, mode = 'markers'))
 
-    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y)-1, max(y)], type="linear"),dragmode='zoom',)
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), 
+                                type="linear"),
+                                yaxis=dict(range=[min(y)-1, max(y)], 
+                                type="linear"),
+                                dragmode='zoom',
+                                )
 
 
     fig.show()
     return 
 
 def bokeh_plotter(x_axis_final, y_axis_final):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    bokeh_plotter(x_axis_final, y_axis_final)
+    
+    Input: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes
+    2. list of the probabilities of apparation of each of the molecules 
+    (the mass in list 1 at index i is associated to the probability at index i in list 2) 
+    
+    Output: none
+
+    Functionality: plots graph with bokeh (html format)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
     x = 0.004
 
     mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
@@ -261,24 +384,10 @@ def bokeh_plotter(x_axis_final, y_axis_final):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 mol_smi = input('Enter SMILEs: ')
 mol = SMILEs_interpreter(mol_smi)
-mass, abundance, isotopes = list_generator()
-xvalues, yvalues = main_function(mol)
+mass, abundance, isotopes = data_list_generator()
+list_atoms_pre = molecule_list_generator(mol) 
+list_atoms = ionisation_method(list_atoms_pre)
+xvalues, yvalues = main_function(list_atoms)
 print(bokeh_plotter(xvalues,yvalues))
-
-
