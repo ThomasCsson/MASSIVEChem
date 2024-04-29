@@ -57,8 +57,7 @@ def SMILEs_interpreter(mol_smi):
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
     mol = Chem.AddHs(mol_without_Hs)
 
-    image = Draw.MolToImage(mol)
-    image.show()
+    
     return mol
 
 
@@ -260,8 +259,24 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     return 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 mol_smi = input('Enter SMILEs: ')
 mol = SMILEs_interpreter(mol_smi)
 mass, abundance, isotopes = list_generator()
 xvalues, yvalues = main_function(mol)
-print(bokeh_plotter(xvalues,yvalues))
+print(matplotlib_plotter(xvalues,yvalues))
