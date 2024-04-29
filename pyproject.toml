@@ -16,7 +16,7 @@ authors = [
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch" }
 ]
 dependencies = [
-  "blas==1.0=mkl",
+  "blas==1.0",
   "bzip2==1.0.8=h2bbff1b_5",
   "ca-certificates==2024.3.11=haa95532_0",
   "intel-openmp==2023.1.0=h59b6b97_46320",
