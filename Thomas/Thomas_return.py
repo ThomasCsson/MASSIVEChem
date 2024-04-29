@@ -205,11 +205,15 @@ def main_function (mol):
 
     #plotting with bokeh
 
-    x, y = x_final_final, y_final_final
 
-    p = figure(title="Simple Line Graph", x_axis_label='Mass of compound [g/mol]', y_axis_label='Abundance [%]')
-    p.line(x,y,legend_label="Line", line_width=2)
-    show(p)
+    x, y = x_final_final, y_final_final
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x = x,y = y))
+
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), type="linear"),yaxis=dict(range=[min(y), max(y)], type="linear"),dragmode='zoom',)
+
+
+    fig.show()
 
 
 
