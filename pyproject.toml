@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "ChemInterface_ppchem"
 version = "1.0"
 description = "..."
-readme = {file = "README.txt", content-type = "text/markdown"}
+readme = "README.md"
 requires-python = ">=3.8"
 license = "MIT"
 keywords = ["unsaturation", "Mass spectroscopy"]
