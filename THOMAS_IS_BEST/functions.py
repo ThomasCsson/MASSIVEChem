@@ -144,7 +144,7 @@ def main_function (list_atoms):
     (the mass in list 1 at index i is associated to the probability at index i in list 2)
     '''
     #---------------------------------------------------------------------------------------------#
-    render_imprecise_list = False
+    render_imprecise_list = True #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
 
     #check for sulphur and nitrogen
 

@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 
 #Turn data (of Symbol | Mass | Probability) into lists 
 
-df = pd.read_csv('Thomas/abundance.txt'
+df = pd.read_csv('THOMAS_IS_BEST/abundance.txt.txt'
                  , sep='\t'
                  , header=None
                  , names=['Atom', 'Mass', 'Percentage'])
