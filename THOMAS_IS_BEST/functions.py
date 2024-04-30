@@ -359,7 +359,7 @@ def bokeh_plotter(x_axis_final, y_axis_final):
 
     x = 0.004
 
-    mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 100000)
+    mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
 
     intensity = np.zeros_like(mass_range)
 
