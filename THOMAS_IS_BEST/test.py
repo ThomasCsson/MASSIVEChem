@@ -1,31 +1,10 @@
-from bokeh.io import curdoc
-from bokeh.layouts import column
-from bokeh.models import TextInput, Button, Paragraph
-from bokeh.plotting import figure
+list = [0,1,2,3,4,5,6,7,8,9,10]
+new_list = []
 
-# Function to update the result
-def update():
-    # Get the input value and multiply by 2
-    try:
-        result = float(input_field.value) * 2
-        result_paragraph.text = f"Result: {result}"
-    except ValueError:
-        result_paragraph.text = "Please enter a valid number."
+remove = True
 
-# Create TextInput for user input
-input_field = TextInput(value="1", title="Enter a number:")
+for i in range (len(list)):
+    if list[i]>4 and remove:
+        new_list.append(list[i])
 
-# Create Button to trigger update
-update_button = Button(label="Update")
-
-# Bind update function to button click event
-update_button.on_click(update)
-
-# Create Paragraph to display result
-result_paragraph = Paragraph(text="Result: ")
-
-# Create a layout for the application
-layout = column(input_field, update_button, result_paragraph)
-
-# Add layout to current document
-curdoc().add_root(layout)
+print(new_list)
