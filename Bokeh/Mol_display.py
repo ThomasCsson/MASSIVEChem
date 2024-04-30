@@ -53,5 +53,19 @@ def final_layout(p1, p2):
     show(layout)
 
 
+def subgroup_nmr_value (mol_smi, dict_functional_groups):
 
+    list_contained_subgroups, list_contained_subgroups_values = [],[]
+    mol = Chem.MolFromSmiles(mol_smi)
+    for SMILES, value in dict_functional_groups.items():
+        substruct = Chem.MolFromSmiles(SMILES)
+        if mol.HasSubstructMatch(substruct):
+            list_contained_subgroups.append(SMILES)
+            list_contained_subgroups_values.append(value)
+            indices = mol.GetSubstructMatch(substruct)
+            print(indices)
+        else:
+            list_contained_subgroups.append(f'NOT {SMILES}')
+
+    return list_contained_subgroups,list_contained_subgroups_values
 
