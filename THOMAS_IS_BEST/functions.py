@@ -30,7 +30,7 @@ def data_list_generator():
 
     #Turn data of (Symbol | Mass | Probability) into lists 
 
-    df = pd.read_csv('THOMAS_IS_BEST/abundance.txt'
+    df = pd.read_csv('/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/THOMAS_IS_BEST/abundance.txt'
                     , sep='\t'
                     , header=None
                     , names=['Atom', 'Mass', 'Percentage'])
@@ -342,6 +342,8 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
     fig.show()
     return 
+def lorentzian(x, eps):
+    return 1.0 / (np.pi * eps * (1 + (x / eps) ** 2))
 
 def bokeh_plotter(x_axis_final, y_axis_final):
 
@@ -360,17 +362,17 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    x = 0.004
+    eps = 10**(-4)
 
     mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
 
     intensity = np.zeros_like(mass_range)
 
     for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
-        
-        peak_shape = peak_intensity * np.exp(-((mass_range - peak_position) ** 2) / (2 * x ** 2))  # Gaussian example
+        peak_shape = peak_intensity * lorentzian(mass_range - peak_position, eps)  # Lorentzian example
 
         intensity += peak_shape
+
 
 
     ticked_peaks = []

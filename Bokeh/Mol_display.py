@@ -81,11 +81,11 @@ a = 1.0
 x1,x2=-0.1+a,0.1+a
 
 def delta(x,eps):
-    return  1.0/(2.0*eps*np.cosh(x/eps)**2)
+    return   1.0/(np.pi*eps*(1+x**2/eps**2))
 delta=np.vectorize(delta)
 # plotting delta functions for different eps values
-eps=0.0002
-x=np.linspace(-100,100,1000)
+eps=10**(-10)
+x=np.linspace(-0.01,0.01,1000)
 y=delta(x,eps)
 
 
