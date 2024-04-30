@@ -7,7 +7,7 @@ This repository provides the user a package which will display an interactive in
 Developpers:
 - Thomas Christianson, genius coder and CTO of SwissChemInfoTech, https://github.com/ThomasCsson
 - Igor Gonteri, brilliant back-end developper and founder of AppliedOrbitals.Org, https://github.com/igorgonteri
-- Arthur Humery, leading expert amongst the new generation of Computational Chemical Programmers and CEO of the United Kingdom of Great Brutain and Northern Ireland, https://github.com/Arthurhmy
+- Arthur Humery, leading expert amongst the new generation of Computational Chemical Programmers and CEO of the United Kingdom of Great Britain and Northern Ireland, https://github.com/Arthurhmy
 
 **What is mass spectrometry ?**
    - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their structure and composition.
