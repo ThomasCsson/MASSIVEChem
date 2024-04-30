@@ -1,10 +1,7 @@
-list = [0,1,2,3,4,5,6,7,8,9,10]
-new_list = []
+list = [0.123,1.234,2.2585,3.2745,4.357875,5.35764,6,7,8,9,10]
+new = []
 
-remove = True
+for i in range(len(list)):
+    new.append(round(list[i],2))
 
-for i in range (len(list)):
-    if list[i]>4 and remove:
-        new_list.append(list[i])
-
-print(new_list)
+print(new)
