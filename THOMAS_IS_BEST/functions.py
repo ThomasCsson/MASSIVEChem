@@ -80,11 +80,12 @@ def SMILEs_interpreter(mol_smi):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    #Checks that the SMILEs input is correct
+    #Checks that the SMILEs input is correct/allowed
 
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
+        print('')
         print("Invalid SMILEs input.")
         print('Please try again with a different SMILEs.')
         exit()
@@ -127,6 +128,8 @@ def ionisation_method (list_atoms):
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
     return list_atoms
+
+
 
 
 
