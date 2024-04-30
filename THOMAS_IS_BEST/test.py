@@ -1,7 +1,15 @@
-list = [0.123,1.234,2.2585,3.2745,4.357875,5.35764,6,7,8,9,10]
-new = []
 
-for i in range(len(list)):
-    new.append(round(list[i],2))
+list_atoms = ['C','C','N','N','N']
 
-print(new)
+has_N = False
+count_N = 0
+has_S = False
+count_S = 0
+if 'N' in list_atoms and list_atoms.count('N')%2 == 1:
+    has_N = True
+    count_N = list_atoms.count('N')
+elif 'S' in list_atoms and list_atoms.count('S')%2 == 1:
+    has_S = True
+    count_S = list_atoms.count('S')
+
+print(has_N,has_S,count_N,count_S)
