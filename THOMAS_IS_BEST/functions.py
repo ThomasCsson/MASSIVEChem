@@ -228,10 +228,11 @@ def main_function (list_atoms, imprecision_True_False):
     x_axis, y_axis = [],[]
     x_axis_final, y_axis_final = [],[]
     for j in range (len(list_output)):
-        x_axis.append(list_output[j][0])
-        '''y_axis.append(list_output[j][1])''' #Adds the true value
-        y_axis.append(round(list_output[j][1],2)) # Adds rounded value (should help with Python-limitations that render a diff of magnitude 10^(-7) to combinatorics
-
+        '''x_axis.append(list_output[j][0])'''
+        x_axis.append(round(list_output[j][0],3)) # Adds rounded value (should help with Python-limitations that render a diff of magnitude 10^(-7) to combinatorics
+        
+        y_axis.append(list_output[j][1]) #Adds the true value
+        
 
     #Compression of lists x_axis & y_axis into x_axis_final & y_axis_final so that peaks corresponding to same mass will be represented together 
     
@@ -265,6 +266,7 @@ def main_function (list_atoms, imprecision_True_False):
     if has_S:
         x_axis_final.append(x_axis_final[index]-0.004)  
         y_axis_final.append(0.008*count_S*maximum)  
+
     return x_axis_final, y_axis_final
 
 def matplotlib_plotter(x_axis_final, y_axis_final):
@@ -394,15 +396,21 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     print('')
     return  (f'Computation complete.')
 
+print('')
 
 mol_smi = input('Enter SMILEs: ')
+
 start_time = time.time()
+
 mol = SMILEs_interpreter(mol_smi)
 mass, abundance, isotopes = data_list_generator()
 list_atoms_pre = molecule_list_generator(mol) 
 list_atoms = ionisation_method(list_atoms_pre)
 xvalues, yvalues = main_function(list_atoms, True)
+
 end_time = time.time()
+
 duration = end_time-start_time
+
 print(bokeh_plotter(xvalues,yvalues))
 print(f'Process took: {duration} s')
