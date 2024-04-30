@@ -266,6 +266,9 @@ def main_function (list_atoms, imprecision_True_False):
 
     return x_axis_final, y_axis_final
 
+def peak_merger (x_axis_final, y_axis_final):
+    return
+
 def matplotlib_plotter(x_axis_final, y_axis_final):
 
     #---------------------------------------------------------------------------------------------#
@@ -381,7 +384,7 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
     p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
-    p.toolbar.autohide = True
+    p.toolbar.autohide = False
     p.add_tools(WheelPanTool(dimension="height"))
     p.add_tools(WheelZoomTool(dimensions="height"))
 
