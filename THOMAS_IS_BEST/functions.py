@@ -80,11 +80,12 @@ def SMILEs_interpreter(mol_smi):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    #Checks that the SMILEs input is correct
+    #Checks that the SMILEs input is correct/allowed
 
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
+        print('')
         print("Invalid SMILEs input.")
         print('Please try again with a different SMILEs.')
         exit()
@@ -131,6 +132,8 @@ def ionisation_method (list_atoms):
 
 
 
+
+
 def main_function (list_atoms, imprecision_True_False):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -152,16 +155,13 @@ def main_function (list_atoms, imprecision_True_False):
     count_N = 0
     has_S = False
     count_S = 0
-    if 'N' in list_atoms:
+    if 'N' in list_atoms and list_atoms.count('N')%2 == 1:
         has_N = True
         count_N = list_atoms.count('N')
-    elif 'S' in list_atoms:
+    elif 'S' in list_atoms and list_atoms.count('S')%2 == 1:
         has_S = True
         count_S = list_atoms.count('S')
 
-
-
-    
 
     print(list_atoms)
 
@@ -268,6 +268,9 @@ def main_function (list_atoms, imprecision_True_False):
         y_axis_final.append(0.008*count_S*maximum)  
 
     return x_axis_final, y_axis_final
+
+def peak_merger (x_axis_final, y_axis_final):
+    return
 
 def matplotlib_plotter(x_axis_final, y_axis_final):
 
@@ -386,7 +389,7 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
     p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
-    p.toolbar.autohide = True
+    p.toolbar.autohide = False
     p.add_tools(WheelPanTool(dimension="height"))
     p.add_tools(WheelZoomTool(dimensions="height"))
 

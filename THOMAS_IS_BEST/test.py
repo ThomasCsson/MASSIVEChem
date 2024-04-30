@@ -1,7 +1,18 @@
-list = [0.123,1.234,2.2585,3.2745,4.357875,5.35764,6,7,8,9,10]
-new = []
 
-for i in range(len(list)):
-    new.append(round(list[i],2))
+x = [1.2,1.4,1,1.8,2,2.4]
+y = [2,2,2,2,2,2]
 
-print(new)
+def peak_merger (x_axis_final, y_axis_final):
+    x_out , y_out = [],[]
+    for i in range (len(x_axis_final)):
+        for j in range(i,len(x_axis_final)):
+            if x_axis_final[i] < x_axis_final[j]+0.2 and x_axis_final[i] > x_axis_final[j]-0.2:
+                x_out.append(x_axis_final[i])
+                y_out.append(y_axis_final[i]+y_axis_final[j])
+        
+            
+    return x_axis_final, y_axis_final
+
+
+print(peak_merger(x,y))
+
