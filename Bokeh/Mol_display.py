@@ -3,6 +3,8 @@ from bokeh.plotting import figure, show
 from rdkit.Chem import Draw, AllChem
 from rdkit import Chem
 from bokeh.plotting import row
+import numpy as np
+import matplotlib as plt
 
 
 input_mol = input('SMILES: ')
@@ -57,15 +59,42 @@ def subgroup_nmr_value (mol_smi, dict_functional_groups):
 
     list_contained_subgroups, list_contained_subgroups_values = [],[]
     mol = Chem.MolFromSmiles(mol_smi)
+
     for SMILES, value in dict_functional_groups.items():
         substruct = Chem.MolFromSmiles(SMILES)
+
         if mol.HasSubstructMatch(substruct):
+
             list_contained_subgroups.append(SMILES)
             list_contained_subgroups_values.append(value)
             indices = mol.GetSubstructMatch(substruct)
             print(indices)
+
         else:
+
             list_contained_subgroups.append(f'NOT {SMILES}')
 
     return list_contained_subgroups,list_contained_subgroups_values
 
+
+a = 1.0
+x1,x2=-0.1+a,0.1+a
+
+def delta(x,eps):
+    return  1.0/(2.0*eps*np.cosh(x/eps)**2)
+delta=np.vectorize(delta)
+# plotting delta functions for different eps values
+eps=0.0002
+x=np.linspace(-100,100,1000)
+y=delta(x,eps)
+
+
+# Create a new plot with a title and axis labels
+p = figure(title="Sharp delta Distribution", x_axis_label='x', y_axis_label='Probability Density')
+
+
+
+# Add a line renderer
+p.line(x, y, line_width=2)
+
+show(p)

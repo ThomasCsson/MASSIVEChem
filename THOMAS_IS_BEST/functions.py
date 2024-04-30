@@ -365,7 +365,7 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     intensity = np.zeros_like(mass_range)
 
     for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
-
+        
         peak_shape = peak_intensity * np.exp(-((mass_range - peak_position) ** 2) / (2 * x ** 2))  # Gaussian example
 
         intensity += peak_shape
