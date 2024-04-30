@@ -2,7 +2,7 @@
 #### Project in practical programming in chemistry course
 #### EPFL CH-200
 
-This repository provides the user a package which will display an interactive interface where the user will be able to input the SMILES of a molecule. The interface will be able to give specific information about the molecule such as its molecular mass, its organic functional groups or its degree of insaturation. The most important part of the package will provide a way to simulate the mass spectrometry of the given molecule. 
+This repository provides the user with a package which will display an interactive interface where the user will be able to input the SMILEs of a molecule. The interface will be able to give specific information about the molecule such as its molecular mass, its organic functional groups or its degree of insaturation. The most important part of the package will provide a way to simulate the mass spectrum of the given molecule. 
 
 Developpers:
 - Thomas Christianson, genius coder and CTO of SwissChemInfoTech, https://github.com/ThomasCsson
