@@ -269,7 +269,26 @@ def main_function (list_atoms, imprecision_True_False):
 
     return x_axis_final, y_axis_final
 
+
 def list_sorter (x_in, y_in):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    list_sorter (x_in, y_in)
+    
+    Input: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes
+    2. list of the probabilities of apparation of each of the molecules 
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    
+    Output: two lists:
+    1. (x_out): sorted list
+    2. (y_out): sorted list
+
+    Functionality: sorts lists to have sorted list in x
+    '''
+    #---------------------------------------------------------------------------------------------#
+
     x_out, y_out = [],[]
     print(len(x_in))
     while len(x_in)>0:
@@ -336,14 +355,25 @@ def pyplot_plotter (x_axis_final, y_axis_final):
     Functionality: none
     '''
     #---------------------------------------------------------------------------------------------#
+    x_axis, y_axis = [min(x_axis_final)-1],[0]
+    max_x = max(x_axis_final)
+    for i in range (len(x_axis_final)):
+        x_axis.append(x_axis_final[i]-0.0000003)
+        x_axis.append(x_axis_final[i])
+        x_axis.append(x_axis_final[i]+0.0000003)
+        y_axis.append(0)
+        y_axis.append(y_axis_final[i])
+        y_axis.append(0)
+    x_axis.append(max_x+1)
+    y_axis.append(0)
 
-    x, y = x_axis_final, y_axis_final
+    x, y = x_axis, y_axis
     fig = go.Figure()
     fig.add_trace(go.Scatter(x = x,y = y, mode = 'lines'))
 
     fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), 
                                 type="linear"),
-                                yaxis=dict(range=[min(y)-1, max(y)], 
+                                yaxis=dict(range=[min(y)-0.1, max(y)+0.1], 
                                 type="linear"),
                                 dragmode='zoom',
                                 )
@@ -421,7 +451,6 @@ list_atoms_pre = molecule_list_generator(mol)
 list_atoms = ionisation_method(list_atoms_pre)
 xvalues_pre, yvalues_pre = main_function(list_atoms, True)
 xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
-xvalues, yvalues = matplotlib_plotter(xvalues, yvalues)
 
 end_time = time.time()
 
