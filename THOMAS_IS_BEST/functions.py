@@ -291,7 +291,7 @@ def list_sorter (x_in, y_in):
     #---------------------------------------------------------------------------------------------#
     
     x_out, y_out = [],[]
-    print(len(x_in))
+
     while len(x_in)>0:
         min_x = min(x_in)
         index_min = x_in.index(min_x)
@@ -299,7 +299,7 @@ def list_sorter (x_in, y_in):
         y_out.append(y_in[index_min])
         x_in.pop(index_min)
         y_in.pop(index_min)
-    print(len(x_out))
+
     return x_out, y_out
 
 def delta_function_plotter(x_in, y_in):
@@ -457,7 +457,7 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p.add_tools(WheelZoomTool(dimensions="height"))
 
     # Add a line renderer with legend and line thickness
-    '''p.line(mass_range, intensity, legend_label="Intensity", line_width=1)'''
+    '''p.line(mass_range, intensity, legend_label="Intensity", line_width=5)'''
     p.line(x_axis_final, y_axis_final, legend_label = "Intensity", line_width=1)
 
     # Show the plot
