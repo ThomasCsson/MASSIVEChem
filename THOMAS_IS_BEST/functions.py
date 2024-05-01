@@ -307,9 +307,9 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
 
     x_axis, y_axis = [],[]
     for i in range (len(x_axis_final)):
-        x_axis.append(x_axis_final[i]-0.003)
+        x_axis.append(x_axis_final[i]-0.0000003)
         x_axis.append(x_axis_final[i])
-        x_axis.append(x_axis_final[i]+0.003)
+        x_axis.append(x_axis_final[i]+0.0000003)
         y_axis.append(0)
         y_axis.append(y_axis_final[i])
         y_axis.append(0)
@@ -317,8 +317,8 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
 
     #plotting with matpotlib
     plt.plot(x_axis,y_axis)
-    plt.show()
-    return
+    
+    return x_axis, y_axis
 
 def pyplot_plotter (x_axis_final, y_axis_final):
 
@@ -339,7 +339,7 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
     x, y = x_axis_final, y_axis_final
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x = x,y = y, mode = 'markers'))
+    fig.add_trace(go.Scatter(x = x,y = y, mode = 'lines'))
 
     fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), 
                                 type="linear"),
@@ -351,6 +351,8 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
     fig.show()
     return 
+
+
 def lorentzian(x, eps):
     return 1.0 / (np.pi * eps * (1 + (x / eps) ** 2))
 
@@ -419,10 +421,11 @@ list_atoms_pre = molecule_list_generator(mol)
 list_atoms = ionisation_method(list_atoms_pre)
 xvalues_pre, yvalues_pre = main_function(list_atoms, True)
 xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
+xvalues, yvalues = matplotlib_plotter(xvalues, yvalues)
 
 end_time = time.time()
 
 duration = end_time-start_time
 
-print(matplotlib_plotter(xvalues,yvalues))
+print(pyplot_plotter(xvalues,yvalues))
 print(f'Process took: {duration} s')
