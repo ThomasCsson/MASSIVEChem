@@ -351,16 +351,10 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
     fig.show()
     return 
-<<<<<<< HEAD
-def lorentzian(x, peak_position, eps):
-    lorentzian_peak = 1.0 / (np.pi * eps * (1 + ((x - peak_position) / eps) ** 2))
-    return lorentzian_peak / np.max(lorentzian_peak)
-=======
 
 
 def lorentzian(x, eps):
     return 1.0 / (np.pi * eps * (1 + (x / eps) ** 2))
->>>>>>> 80212740316dfa27a0b41b48e7d765d636ce97f5
 
 def bokeh_plotter(x_axis_final, y_axis_final):
 
@@ -379,14 +373,15 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    eps = 10**(-20)
+    eps = 10**(-4)
 
     mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
 
     intensity = np.zeros_like(mass_range)
 
     for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
-        peak_shape = peak_intensity * lorentzian(mass_range, peak_position, eps)
+        peak_shape = peak_intensity * lorentzian(mass_range - peak_position, eps)  # Lorentzian example
+
         intensity += peak_shape
 
 
