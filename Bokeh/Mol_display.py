@@ -55,7 +55,7 @@ def final_layout(p1, p2):
     show(layout)
 
 
-def subgroup_nmr_value (mol_smi, dict_functional_groups):
+def subgroup_value (mol_smi, dict_functional_groups):
 
     list_contained_subgroups, list_contained_subgroups_values = [],[]
     mol = Chem.MolFromSmiles(mol_smi)
