@@ -1,5 +1,5 @@
 
-x = [1.2,1.4,1,1.8,2,2.4]
+x = [1,1.3,1.7,2.1,.5,2.6]
 y = [2,2,1,2,2,2]
 
 
@@ -21,7 +21,7 @@ def list_sorter (x_in, y_in):
 def peak_merger(x_in, y_in):
     x_out, y_out = [x_in[0]],[y_in[0]]
 
-    for i in range(len(x_in)):    
+    for i in range(1,len(x_in)):    
         if x_in [i] > x_in[i-1]-0.3 and x_in[i]< x_in [i-1]+0.3:
             x_out.pop(i-1)
             x_out.append((x[i]+ x[i-1])/2)
@@ -33,10 +33,11 @@ def peak_merger(x_in, y_in):
 
     return x_out, y_out
 
-print(peak_merger(x,y))
+print(x,y)
+print(len(x))
 
 
 
-
-print(peak_merger(x,y))
-
+x_out, y_out = peak_merger(x,y)
+print(x_out,y_out)
+print(len(x_out))

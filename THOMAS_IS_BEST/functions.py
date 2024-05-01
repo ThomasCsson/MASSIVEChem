@@ -30,7 +30,7 @@ def data_list_generator():
 
     #Turn data of (Symbol | Mass | Probability) into lists 
 
-    df = pd.read_csv('/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/THOMAS_IS_BEST/abundance.txt'
+    df = pd.read_csv('THOMAS_IS_BEST/abundance.txt'
                     , sep='\t'
                     , header=None
                     , names=['Atom', 'Mass', 'Percentage'])
@@ -305,28 +305,18 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    max_x = max(x_axis_final)
-    min_x = min(x_axis_final)
-    diff = (max_x-min_x)
-    x_axis_final_use = x_axis_final.copy()
-    y_axis_final_use = y_axis_final.copy()
-
-    for i in range(int(-(100*diff)/10),int(11*(100*diff)/10)):
-        x_axis_final_use.append(i/100 + min_x)
-        y_axis_final_use.append(0)
-    x_final_final = []
-    y_final_final = []
-    while len(x_axis_final_use)>1 :
-        minx = min(x_axis_final_use)
-        index = x_axis_final_use.index(minx)
-        x_final_final.append(minx)
-        y_final_final.append(y_axis_final_use[index])
-        x_axis_final_use.pop(index)
-        y_axis_final_use.pop(index)
-
+    x_axis, y_axis = [],[]
+    for i in range (len(x_axis_final)):
+        x_axis.append(x_axis_final[i]-0.003)
+        x_axis.append(x_axis_final[i])
+        x_axis.append(x_axis_final[i]+0.003)
+        y_axis.append(0)
+        y_axis.append(y_axis_final[i])
+        y_axis.append(0)
+        
 
     #plotting with matpotlib
-    plt.scatter(x_axis_final,y_axis_final)
+    plt.plot(x_axis,y_axis)
     plt.show()
     return
 
@@ -434,5 +424,5 @@ end_time = time.time()
 
 duration = end_time-start_time
 
-print(bokeh_plotter(xvalues,yvalues))
+print(matplotlib_plotter(xvalues,yvalues))
 print(f'Process took: {duration} s')
