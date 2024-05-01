@@ -307,9 +307,9 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
 
     x_axis, y_axis = [],[]
     for i in range (len(x_axis_final)):
-        x_axis.append(x_axis_final[i]-0.0000003)
+        x_axis.append(x_axis_final[i]-10**(-10))
         x_axis.append(x_axis_final[i])
-        x_axis.append(x_axis_final[i]+0.0000003)
+        x_axis.append(x_axis_final[i]+10**(-10))
         y_axis.append(0)
         y_axis.append(y_axis_final[i])
         y_axis.append(0)
