@@ -269,6 +269,22 @@ def main_function (list_atoms, imprecision_True_False):
 
     return x_axis_final, y_axis_final
 
+def list_sorter (x_in, y_in):
+    x_out, y_out = [],[]
+    print(len(x_in))
+    while len(x_in)>0:
+        min_x = min(x_in)
+        index_min = x_in.index(min_x)
+        x_out.append(min_x)
+        y_out.append(y_in[index_min])
+        x_in.pop(index_min)
+        y_in.pop(index_min)
+    print(len(x_out))
+    return x_out, y_out
+    
+
+
+
 def peak_merger (x_axis_final, y_axis_final):
     return
 
@@ -411,7 +427,8 @@ mol = SMILEs_interpreter(mol_smi)
 mass, abundance, isotopes = data_list_generator()
 list_atoms_pre = molecule_list_generator(mol) 
 list_atoms = ionisation_method(list_atoms_pre)
-xvalues, yvalues = main_function(list_atoms, True)
+xvalues_pre, yvalues_pre = main_function(list_atoms, True)
+xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
 
 end_time = time.time()
 
