@@ -1,42 +1,68 @@
+#Imports
 
-x = [1,1.3,1.7,2.1,.5,2.6]
-y = [2,2,1,2,2,2]
-
-
-
-
-def list_sorter (x_in, y_in):
-    x_out, y_out = [],[]
-    print(len(x_in))
-    while len(x_in)>0:
-        min_x = min(x_in)
-        index_min = x_in.index(min_x)
-        x_out.append(min_x)
-        y_out.append(y_in[index_min])
-        x_in.pop(index_min)
-        y_in.pop(index_min)
-    print(len(x_out))
-    return x_out, y_out
-
-def peak_merger(x_in, y_in):
-    x_out, y_out = [x_in[0]],[y_in[0]]
-
-    for i in range(1,len(x_in)):    
-        if x_in [i] > x_in[i-1]-0.3 and x_in[i]< x_in [i-1]+0.3:
-            x_out.pop(i-1)
-            x_out.append((x[i]+ x[i-1])/2)
-            y_out.pop(i-1)
-            y_out.append(y_in[i]+y_in[i-1])
-        else:
-            x_out.append(x_in[i])
-            y_out.append(y_in[i])
-
-    return x_out, y_out
-
-print(x,y)
-print(len(x))
+from rdkit import Chem
+from rdkit.Chem import Draw
+import time
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+from bokeh.plotting import figure, show
+from bokeh.models import WheelPanTool, WheelZoomTool
+from bokeh.models.tickers import FixedTicker
 
 
-x_out, y_out = peak_merger(x,y)
-print(x_out,y_out)
-print(len(x_out))
+
+
+def bokeh_plotter(x_axis_final, y_axis_final):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    bokeh_plotter(x_axis_final, y_axis_final)
+    
+    Input: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes
+    2. list of the probabilities of apparation of each of the molecules 
+    (the mass in list 1 at index i is associated to the probability at index i in list 2) 
+    
+    Output: none
+
+    Functionality: plots graph with bokeh (html format)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    eps = 10**(-20)
+
+    mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
+
+    intensity = np.zeros_like(mass_range)
+
+    for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
+        peak_shape = peak_intensity * lorentzian(mass_range, peak_position, eps)
+        intensity += peak_shape
+
+
+
+    ticked_peaks = []
+    for i in range(len(x_axis_final)):
+        if y_axis_final[i]>0.0001:
+            ticked_peaks.append(round(x_axis_final[i],4))
+
+
+    # Create a new plot with a title and axis labels
+    p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [m/z]', y_axis_label='Intensity [AU]')
+    p = figure(width=700 , title= f'Mass spectrum of molecule')
+    p.height = 500
+    p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
+    p.toolbar.autohide = False
+    p.add_tools(WheelPanTool(dimension="height"))
+    p.add_tools(WheelZoomTool(dimensions="height"))
+
+    # Add a line renderer with legend and line thickness
+    '''p.line(mass_range, intensity, legend_label="Intensity", line_width=1)'''
+    p.line(x_axis_final, y_axis_final, legend_label = "Intensity", line_width=1)
+
+    # Show the plot
+    show(p)
+    print('')
+    return  (f'Computation complete.')
