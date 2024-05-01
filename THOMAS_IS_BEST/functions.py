@@ -69,6 +69,8 @@ def data_list_generator():
 
     return mass, abundance, isotopes
 
+
+
 def SMILEs_interpreter(mol_smi):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -111,6 +113,7 @@ def molecule_list_generator(mol):
     return list_atoms
 
 
+
 def ionisation_method (list_atoms):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -128,9 +131,6 @@ def ionisation_method (list_atoms):
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
     return list_atoms
-
-
-
 
 
 
@@ -269,7 +269,27 @@ def main_function (list_atoms, imprecision_True_False):
 
     return x_axis_final, y_axis_final
 
+
+
 def list_sorter (x_in, y_in):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    delta_function_plotter(x_in, y_in)
+    
+    Input: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes
+    2. list of the probabilities of apparation of each of the molecules
+    
+    Output: two lists:
+    1. ordered list of the masses (of individual molecules) of each possible combination of isotopes
+    2. ordered list of the probabilities of apparation of each of the molecules
+
+    (ordered to have increasing values along x)
+    
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    '''
+    #---------------------------------------------------------------------------------------------#
+    
     x_out, y_out = [],[]
     print(len(x_in))
     while len(x_in)>0:
@@ -281,6 +301,39 @@ def list_sorter (x_in, y_in):
         y_in.pop(index_min)
     print(len(x_out))
     return x_out, y_out
+
+def delta_function_plotter(x_in, y_in):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    delta_function_plotter(x_in, y_in)
+    
+    Input: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes (ordered)
+    2. list of the probabilities of apparation of each of the molecules (ordered)
+    
+    Output: two lists:
+    1. list of the masses (of individual molecules) of each possible combination of isotopes (ordered) with values of 0 (y_axis) added on eiter side of the "peak"
+    2. list of the probabilities of apparation of each of the molecules (ordered)
+    
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    min_x , max_x = min(x_in), max(x_in)
+
+    x_axis, y_axis = [min_x-1],[0]
+    for i in range (len(x_in)):
+        x_axis.append(x_in[i]-10**(-10))
+        x_axis.append(x_in[i])
+        x_axis.append(x_in[i]+10**(-10))
+        y_axis.append(0)
+        y_axis.append(y_in[i])
+        y_axis.append(0)
+
+    x_axis.append(max_x+1)
+    y_axis.append(0)
+
+    return x_axis, y_axis
     
 
 
@@ -305,7 +358,9 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    x_axis, y_axis = [],[]
+    min_x = min(x_axis)
+    max_x = max(x_axis)
+    x_axis, y_axis = [min_x-1],[0]
     for i in range (len(x_axis_final)):
         x_axis.append(x_axis_final[i]-10**(-10))
         x_axis.append(x_axis_final[i])
@@ -313,6 +368,8 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
         y_axis.append(0)
         y_axis.append(y_axis_final[i])
         y_axis.append(0)
+    x_axis.append(max_x+1)
+    y_axis.append(0)
         
 
     #plotting with matpotlib
@@ -343,7 +400,7 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
     fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), 
                                 type="linear"),
-                                yaxis=dict(range=[min(y)-1, max(y)], 
+                                yaxis=dict(range=[min(y)-0.1, max(y)], 
                                 type="linear"),
                                 dragmode='zoom',
                                 )
@@ -400,7 +457,8 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p.add_tools(WheelZoomTool(dimensions="height"))
 
     # Add a line renderer with legend and line thickness
-    p.line(mass_range, intensity, legend_label="Intensity", line_width=1)
+    '''p.line(mass_range, intensity, legend_label="Intensity", line_width=1)'''
+    p.line(x_axis_final, y_axis_final, legend_label = "Intensity", line_width=1)
 
     # Show the plot
     show(p)
@@ -419,11 +477,11 @@ list_atoms_pre = molecule_list_generator(mol)
 list_atoms = ionisation_method(list_atoms_pre)
 xvalues_pre, yvalues_pre = main_function(list_atoms, True)
 xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
-xvalues, yvalues = matplotlib_plotter(xvalues, yvalues)
+x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
 
 end_time = time.time()
 
 duration = end_time-start_time
-
-print(pyplot_plotter(xvalues,yvalues))
+print(pyplot_plotter(x_axis, y_axis))
+print(bokeh_plotter(x_axis,y_axis))
 print(f'Process took: {duration} s')
