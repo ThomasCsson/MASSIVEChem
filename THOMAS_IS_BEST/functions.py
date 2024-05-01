@@ -408,6 +408,9 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
     fig.show()
     return 
+
+
+
 def lorentzian(x, peak_position, eps):
     lorentzian_peak = 1.0 / (np.pi * eps * (1 + ((x - peak_position) / eps) ** 2))
     return lorentzian_peak / np.max(lorentzian_peak)
