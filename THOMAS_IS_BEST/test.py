@@ -37,7 +37,6 @@ print(x,y)
 print(len(x))
 
 
-
 x_out, y_out = peak_merger(x,y)
 print(x_out,y_out)
 print(len(x_out))
