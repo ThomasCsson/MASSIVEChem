@@ -37,7 +37,6 @@ functional_groups_smiles = {
     'Sulfoxide': 'CS(=O)C',
     'Sulfone': 'CS(=O)(=O)C',
     'Sulfonic acid': 'CS(=O)(=O)O',
-    'Sulfanote ester': 'CS(=O)(=O)OC',
     'Thioester': 'C(=O)SC',
     'Phosphine': 'CP',
     'Phosphate ester': 'COP(=O)(O)O',
@@ -151,27 +150,63 @@ def check_functional_groups(molecule, functional_groups):
             if group == 'Ester':
                 groups_to_remove.append('Carboxylic acid')
                 groups_to_remove.append('Ether')
+                groups_to_remove.append('Aldehyde')
             if group == 'Ether':
                 groups_to_remove.append('Alcohol')
             if group == 'Imine':
                 groups_to_remove.append('Amine')
+            if group == 'Imide':
+                groups_to_remove.append('Amine')
+                groups_to_remove.append('Amide')
             if group == 'Amide':
                 groups_to_remove.append('Aldehyde')
+                groups_to_remove.append('Amine')
             if group == 'Acyl Chloride':
                 groups_to_remove.append('Aldehyde')
+                groups_to_remove.append('Chloride')
             if group == 'Thioester':
                 groups_to_remove.append('Ester')
-            if group == 'Sulfide':
+                groups_to_remove.append('Thiol')
+                groups_to_remove.append('Sulfides')
+            if group == 'Amino acid':
+                groups_to_remove.append('Alcohol')
+                groups_to_remove.append('Aldehyde')
+            if group == 'Sulfides':
                 groups_to_remove.append('Thiol')
             if group == 'Azide':
                 groups_to_remove.append('Amine')
+            if group == 'Disulfide':
+                groups_to_remove.append('Thiol')
+            if group == 'Nitro':
+                groups_to_remove.append('Amine')
+            if group == 'Sulfone':
+                groups_to_remove.append('Sulfides')
+                groups_to_remove.append('Sulfoxide')
+            if group == 'Sulfonic acid':
+                groups_to_remove.append('Thiol')
+
     # Remove related functional groups after checking all groups
     print(found_groups)
     for group in groups_to_remove:
-        found_groups.remove(group)
+        if group not in found_groups:
+            pass
+        else:
+            found_groups.remove(group)
     return found_groups
 
 print(check_functional_groups(input_mol,functional_groups_smiles))
 
 
+"""
+Carboxylic Acid
+['Alcohol', 'Aldehyde', 'Carboxylic Acid']
+['Alcohol', 'Aldehyde', 'Carboxylic Acid']
+Ester
+['Alcohol', 'Aldehyde', 'Carboxylic Acid', 'Ester', 'Ether']
+['Carboxylic Acid', 'Ester']
+Anhydride
+['Alcohol', 'Aldehyde', 'Carboxylic Acid', 'Ester', 'Ether', 'Anhydride']
+['Carboxylic Acid', 'Ester', 'Anhydride']
 
+
+"""
