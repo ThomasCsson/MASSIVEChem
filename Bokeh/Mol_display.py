@@ -3,11 +3,49 @@ from bokeh.plotting import figure, show
 from rdkit.Chem import Draw, AllChem
 from rdkit import Chem
 from bokeh.plotting import row
-import numpy as np
-import matplotlib as plt
+
 
 
 input_mol = input('SMILES: ')
+
+functional_groups_smiles = {
+    'Alcohol': 'CO',
+    'Aldehyde': 'CC=O',
+    'Ketone': 'CC(=O)C',
+    'Carboxylic Acid': 'CC(=O)O',
+    'Ester': 'CC(=O)OC',
+    'Ether': 'COC',
+    'Amide': 'CC(=O)N',
+    'Amine': 'CN',
+    'Nitrile': 'C#N',
+    'Chloride': 'CCl',
+    'Bromide': 'CBr',
+    'Fluoride': 'CF',
+    'Iodide': 'CI',
+    'Alkene': 'C=C',
+    'Alkyne': 'C#C',
+    'Imine': 'C=NC',
+    'Amino acid': 'CC(N)C(=O)O',
+    'Thiol': 'CS',
+    'Sulfides': 'CSC',
+    'Acyl Chloride': 'CC(=O)Cl',
+    'Anhydride': 'CC(=O)OC(=O)C',
+    'Nitro': 'C[N+](=O)[O-]',
+    'Enamine': 'C=CN',
+    'Imide': 'C(=O)NC(=O)C',
+    'Azide': 'CNNN',
+    'Enol': 'C=C(O)C',
+    'Hemiacetal': 'CC(O)(O)C',
+    'Carbonate': 'OC(=O)O',
+    'Disulfide': 'CSSC',
+    'Sulfoxide': 'CS(=O)C',
+    'Sulfone': 'CS(=O)(=O)C',
+    'Sulfonic acid': 'CS(=O)(=O)O',
+    'Thioester': 'C(=O)SC',
+    'Phosphine': 'CP',
+    'Phosphate ester': 'COP(=O)(O)O',
+    'Benzene ring': 'C1=CC=CC=C1'
+}
 
 # Function to generate RDKit molecule image and save to file
 def save_molecule_image_to_file(smi, file_path, show_Hs=False, show_3D = False):
@@ -20,7 +58,7 @@ def save_molecule_image_to_file(smi, file_path, show_Hs=False, show_3D = False):
 
     # Show the molecule in 3D if specified
     if show_3D:
-        mol_3D = AllChem.EmbedMolecule(mol)
+        mol = AllChem.EmbedMolecule(mol)
 
     image = Draw.MolToImage(mol)
 

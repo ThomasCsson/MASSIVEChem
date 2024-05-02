@@ -77,6 +77,9 @@ p1.add_tools(WheelPanTool(dimension="height"))
 p1.add_tools(WheelZoomTool(dimensions="height"))
 p1.line(x_out, y_out, line_width=1)
 p1.xaxis.major_label_orientation = "vertical"
+
+
+
 def overview_plot(Mass_range, intensity, p1):
     p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
     p2 = figure(width=300, title=f'Mass spectrum of molecule')
