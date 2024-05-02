@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3db71e35-f220-4cca-b219-bdd216a9a24a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional_group_finder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bokeh/BOKEH_try.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/BOKEH_try.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bokeh/BOKEH_try.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/BOKEH_try.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/BOKEH_try.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/BOKEH_try.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/Double plot bokeh.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/Double plot bokeh.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/Double plot bokeh.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/Double plot bokeh.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bokeh/Mol_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/Mol_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/interactive_gaussian_plot.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Mass Spectrometry",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">

@@ -5,6 +5,7 @@ from bokeh.plotting import figure, output_file, show
 from bokeh.layouts import column
 from bokeh.models import WheelZoomTool, PanTool
 import numpy as np
+from bokeh.layouts import row
 
 output_file("callback.html")
 
@@ -95,11 +96,27 @@ text_input.js_on_change("value", CustomJS(code="""
     console.log('text_input: value=' + this.value, this.toString())
 """))
 
+image_url = "/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Bokeh/molecule_image.png"
 
-layout = column(slider, plot, checkbox_button_group, dropdown, cube, range_slider, text_input)
+
+p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
 
 
+p.xgrid.grid_line_color = None
+p.ygrid.grid_line_color = None
+p.xaxis.visible = False
+p.yaxis.visible = False
+
+from bokeh.layouts import gridplot
+
+# Place plots in a grid layout
+layout = row(plot, p)
+
+# Show the layout
 show(layout)
+
+
 
 
 
@@ -157,8 +174,22 @@ mu_input.on_change('value', update_plot)
 sigma_input.on_change('value', update_plot)
 
 # Create a layout with the plot, TextInput widgets, and information
-layout = column(p, button, info, mu_input, sigma_input)
+
+image_url = "/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Bokeh/molecule_image.png"
 
 
+plot = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+plot.image_url(url=[image_url], x=0, y=1, w=1, h=1)
+
+
+plot.xgrid.grid_line_color = None
+plot.ygrid.grid_line_color = None
+plot.xaxis.visible = False
+plot.yaxis.visible = False
+
+
+
+
+layout = column(p, button, info, mu_input, sigma_input, plot)
 show(layout)
 

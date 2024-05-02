@@ -1,61 +1,3 @@
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-
-import pandas as pd
-
-# read in volcano database data
-df = pd.read_csv(
-    "https://raw.githubusercontent.com/plotly/datasets/master/volcano_db.csv",
-    encoding="iso-8859-1",
-)
-
-# frequency of Country
-freq = df
-freq = freq.Country.value_counts().reset_index().rename(columns={"index": "x"})
-
-# read in 3d volcano surface data
-df_v = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/volcano.csv")
-
-# Initialize figure with subplots
-fig = make_subplots(
-    rows=2, cols=2,
-    column_widths=[0.6, 0.4],
-    row_heights=[0.4, 0.6],
-    specs=[[{"type": "scattergeo", "rowspan": 2}, {"type": "bar"}],
-           [            None                    , {"type": "surface"}]])
-
-# Add scattergeo globe map of volcano locations
-fig.add_trace(
-    go.Scattergeo(lat=df["Latitude"],
-                  lon=df["Longitude"],
-                  mode="markers",
-                  hoverinfo="text",
-                  showlegend=False,
-                  marker=dict(color="crimson", size=4, opacity=0.8)),
-    row=1, col=1
-)
-
-# Add locations bar chart
-fig.add_trace(
-    go.Bar(x=freq["x"][0:10],y=freq["Country"][0:10], marker=dict(color="crimson"), showlegend=False),
-    row=1, col=2
-)
-
-# Add 3d surface of volcano
-fig.add_trace(
-    go.Surface(z=df_v.values.tolist(), showscale=False),
-    row=2, col=2
-)
-
-# Update geo subplot properties
-fig.update_geos(
-    projection_type="orthographic",
-    landcolor="white",
-    oceancolor="MidnightBlue",
-    showocean=True,
-    lakecolor="LightBlue"
-)
-
 #Imports
 
 from rdkit import Chem
@@ -127,8 +69,6 @@ def data_list_generator():
 
     return mass, abundance, isotopes
 
-
-
 def SMILEs_interpreter(mol_smi):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -171,7 +111,6 @@ def molecule_list_generator(mol):
     return list_atoms
 
 
-
 def ionisation_method (list_atoms):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -189,6 +128,9 @@ def ionisation_method (list_atoms):
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
     return list_atoms
+
+
+
 
 
 
@@ -328,28 +270,27 @@ def main_function (list_atoms, imprecision_True_False):
     return x_axis_final, y_axis_final
 
 
-
 def list_sorter (x_in, y_in):
+
     #---------------------------------------------------------------------------------------------#
     '''
-    delta_function_plotter(x_in, y_in)
+    list_sorter (x_in, y_in)
     
     Input: two lists:
     1. list of the masses (of individual molecules) of each possible combination of isotopes
-    2. list of the probabilities of apparation of each of the molecules
+    2. list of the probabilities of apparation of each of the molecules 
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
     
     Output: two lists:
-    1. ordered list of the masses (of individual molecules) of each possible combination of isotopes
-    2. ordered list of the probabilities of apparation of each of the molecules
+    1. (x_out): sorted list
+    2. (y_out): sorted list
 
-    (ordered to have increasing values along x)
-    
-    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    Functionality: sorts lists to have sorted list in x
     '''
     #---------------------------------------------------------------------------------------------#
-    
-    x_out, y_out = [],[]
 
+    x_out, y_out = [],[]
+    print(len(x_in))
     while len(x_in)>0:
         min_x = min(x_in)
         index_min = x_in.index(min_x)
@@ -357,41 +298,8 @@ def list_sorter (x_in, y_in):
         y_out.append(y_in[index_min])
         x_in.pop(index_min)
         y_in.pop(index_min)
-
+    print(len(x_out))
     return x_out, y_out
-
-def delta_function_plotter(x_in, y_in):
-    #---------------------------------------------------------------------------------------------#
-    '''
-    delta_function_plotter(x_in, y_in)
-    
-    Input: two lists:
-    1. list of the masses (of individual molecules) of each possible combination of isotopes (ordered)
-    2. list of the probabilities of apparation of each of the molecules (ordered)
-    
-    Output: two lists:
-    1. list of the masses (of individual molecules) of each possible combination of isotopes (ordered) with values of 0 (y_axis) added on eiter side of the "peak"
-    2. list of the probabilities of apparation of each of the molecules (ordered)
-    
-    (the mass in list 1 at index i is associated to the probability at index i in list 2)
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-    min_x , max_x = min(x_in), max(x_in)
-
-    x_axis, y_axis = [min_x-1],[0]
-    for i in range (len(x_in)):
-        x_axis.append(x_in[i]-10**(-10))
-        x_axis.append(x_in[i])
-        x_axis.append(x_in[i]+10**(-10))
-        y_axis.append(0)
-        y_axis.append(y_in[i])
-        y_axis.append(0)
-
-    x_axis.append(max_x+1)
-    y_axis.append(0)
-
-    return x_axis, y_axis
     
 
 
@@ -416,18 +324,14 @@ def matplotlib_plotter(x_axis_final, y_axis_final):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    min_x = min(x_axis)
-    max_x = max(x_axis)
-    x_axis, y_axis = [min_x-1],[0]
+    x_axis, y_axis = [],[]
     for i in range (len(x_axis_final)):
-        x_axis.append(x_axis_final[i]-10**(-10))
+        x_axis.append(x_axis_final[i]-0.0000003)
         x_axis.append(x_axis_final[i])
-        x_axis.append(x_axis_final[i]+10**(-10))
+        x_axis.append(x_axis_final[i]+0.0000003)
         y_axis.append(0)
         y_axis.append(y_axis_final[i])
         y_axis.append(0)
-    x_axis.append(max_x+1)
-    y_axis.append(0)
         
 
     #plotting with matpotlib
@@ -451,69 +355,36 @@ def pyplot_plotter (x_axis_final, y_axis_final):
     Functionality: none
     '''
     #---------------------------------------------------------------------------------------------#
+    x_axis, y_axis = [min(x_axis_final)-1],[0]
+    max_x = max(x_axis_final)
+    for i in range (len(x_axis_final)):
+        x_axis.append(x_axis_final[i]-0.0000003)
+        x_axis.append(x_axis_final[i])
+        x_axis.append(x_axis_final[i]+0.0000003)
+        y_axis.append(0)
+        y_axis.append(y_axis_final[i])
+        y_axis.append(0)
+    x_axis.append(max_x+1)
+    y_axis.append(0)
 
-import plotly.graph_objects as go
-
-def pyplot_plotter(x_axis_final, y_axis_final):
-    # Your existing code to create the main graph
-    x, y = x_axis_final, y_axis_final
+    x, y = x_axis, y_axis
     fig = go.Figure()
+    fig.add_trace(go.Scatter(x = x,y = y, mode = 'lines'))
 
-    # Adding the main graph
-    fig.add_trace(go.Scatter(x=x, y=y, mode='lines'))
+    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), 
+                                type="linear"),
+                                yaxis=dict(range=[min(y)-0.1, max(y)+0.1], 
+                                type="linear"),
+                                dragmode='zoom',
+                                )
 
-    # Adding annotations to the peaks
-    for peak in x:
-        if x.index(peak) > 0 and x.index(peak) < len(x) - 1:
-            if peak > 0.001:
-                fig.add_annotation(x=peak, y=0,
-                                text=round(peak, 3),
-                                showarrow=True, arrowhead=1, ax=0, ay=30)
-    for peak in x:
-        if x.index(peak) > 0 and x.index(peak) < len(x) - 1:
-            if y_axis_final[x_axis_final.index(peak)] > 0.001:
-                fig.add_annotation(x=peak, y=y_axis_final[x_axis_final.index(peak)],
-                                text=round(y_axis_final[x_axis_final.index(peak)], 3),
-                                showarrow=True, arrowhead=1, ax=0, ay=-30)
 
-    # Updating layout for the main graph
-    fig.update_layout(title='Mass spectrum of input molecule',
-                    xaxis_title='[m/z]',
-                    yaxis_title='Abundance',
-                    xaxis=dict(range=[min(x), max(x)], type="linear"),
-                    yaxis=dict(range=[min(y) - 0.1, max(y) + 0.1], type="linear"),
-                    )
-
-    # Adding a second subplot for the un-zoomed graph
-    fig.add_trace(go.Scatter(x=x, y=y, mode='lines', showlegend=False, xaxis='x2', yaxis='y2'))
-
-    # Updating layout to position the second subplot to the right
-    fig.update_layout(
-        xaxis2=dict(domain=[0.7, 1], anchor='y2'),
-        yaxis2=dict(domain=[0.7, 1], anchor='x2'),
-        xaxis_title='[m/z]',
-        yaxis_title='Abundance'
-    )
-
-    # Callback to synchronize zooming between the two graphs
-    def update_layout(fig, relayoutData):
-        if 'xaxis.range[0]' in relayoutData or 'xaxis.range[1]' in relayoutData:
-            fig.update_layout(xaxis2=dict(range=relayoutData['xaxis.range']))
-
-    fig.update_layout(
-        xaxis=dict(domain=[0, 0.7], anchor='y'),
-        yaxis=dict(domain=[0, 1], anchor='x'),
-        xaxis2=dict(domain=[0.7, 1], anchor='y2'),
-        yaxis2=dict(domain=[0.7, 1], anchor='x2')
-    )
     fig.show()
     return 
 
 
-
-def lorentzian(x, peak_position, eps):
-    lorentzian_peak = 1.0 / (np.pi * eps * (1 + ((x - peak_position) / eps) ** 2))
-    return lorentzian_peak / np.max(lorentzian_peak)
+def lorentzian(x, eps):
+    return 1.0 / (np.pi * eps * (1 + (x / eps) ** 2))
 
 def bokeh_plotter(x_axis_final, y_axis_final):
 
@@ -532,14 +403,15 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     '''
     #---------------------------------------------------------------------------------------------#
 
-    eps = 10**(-20)
+    eps = 10**(-4)
 
     mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
 
     intensity = np.zeros_like(mass_range)
 
     for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
-        peak_shape = peak_intensity * lorentzian(mass_range, peak_position, eps)
+        peak_shape = peak_intensity * lorentzian(mass_range - peak_position, eps)  # Lorentzian example
+
         intensity += peak_shape
 
 
@@ -555,13 +427,12 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
     p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
-    p.toolbar.autohide = True
+    p.toolbar.autohide = False
     p.add_tools(WheelPanTool(dimension="height"))
     p.add_tools(WheelZoomTool(dimensions="height"))
 
     # Add a line renderer with legend and line thickness
-    '''p.line(mass_range, intensity, legend_label="Intensity", line_width=5)'''
-    p.line(x_axis_final, y_axis_final, legend_label = "Intensity", line_width=1)
+    p.line(mass_range, intensity, legend_label="Intensity", line_width=1)
 
     # Show the plot
     show(p)
@@ -580,12 +451,10 @@ list_atoms_pre = molecule_list_generator(mol)
 list_atoms = ionisation_method(list_atoms_pre)
 xvalues_pre, yvalues_pre = main_function(list_atoms, True)
 xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
-x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
 
 end_time = time.time()
 
 duration = end_time-start_time
-print(pyplot_plotter(x_axis, y_axis))
-print(bokeh_plotter(x_axis,y_axis))
 
+print(pyplot_plotter(xvalues,yvalues))
 print(f'Process took: {duration} s')
