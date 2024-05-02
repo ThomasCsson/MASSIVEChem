@@ -410,8 +410,7 @@ def pyplot_plotter (x_axis_final, y_axis_final):
                 fig.add_annotation(x=peak, y=y_axis_final[x_axis_final.index(peak)],
                         text=round(y_axis_final[x_axis_final.index(peak)],3), 
                         showarrow=True, arrowhead=1, ax=0, ay=-30)
-    
-
+                
 
     fig.update_layout(title = 'Mass spectrum of input molecule',
                     xaxis_title = '[m/z]',
@@ -419,6 +418,19 @@ def pyplot_plotter (x_axis_final, y_axis_final):
                     xaxis=dict(range=[min(x), max(x)], type="linear"),
                     yaxis=dict(range=[min(y)-0.1, max(y)+0.1], type="linear"),
                     )
+    
+
+    fig.add_trace(go.Scatter(x=x, y=y, mode='lines', showlegend=False, xaxis='x2', yaxis='y2'))
+
+
+    fig.update_layout(
+        xaxis2=dict(domain=[0.7, 1], anchor='y2'),
+        yaxis2=dict(domain=[0.7, 1], anchor='x2'),
+        xaxis_title='[m/z]',
+        yaxis_title='Abundance')
+    
+
+
 
 
     fig.show()
