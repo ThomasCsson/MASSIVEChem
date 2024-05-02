@@ -36,27 +36,68 @@ functional_groups_smiles = {
     'Disulfide': 'CSSC',
     'Sulfoxide': 'CS(=O)C',
     'Sulfone': 'CS(=O)(=O)C',
-    'Sulfonic acid': 'CS(=O)(=O)O',
+    'Sulfonic  acid': 'CS(=O)(=O)O',
     'Thioester': 'C(=O)SC',
     'Phosphine': 'CP',
     'Phosphate': 'COP(=O)(O)O',
     'Benzene': 'C1=CC=CC=C1'
 }
 
+functional_groups_smarts ={
+    'Alcohol': '[#6]-[#8]',
+    'Aldehyde': '[#6]-[#6]=[#8]',
+    'Ketone': '[#6]-[#6](=[#8])-[#6]',
+    'Carboxylic Acid': '[#6]-[#6](=[#8])-[#8]',
+    'Ester': '[#6]-[#6](=[#8])-[#8]-[#6]',
+    'Ether': '[#6]-[#8]-[#6]',
+    'Amide': '[#6]-[#6](=[#8])-[#7]',
+    'Amine': '[#6]-[#7]',
+    'Nitrile': '[#6]#[#7]',
+    'Chloride': '[#6]-[#17]',
+    'Bromide': '[#6]-[#35]',
+    'Fluoride': '[#6]-[#9]',
+    'Iodide': '[#6]-[#53]',
+    'Alkene': '[#6]=[#6]',
+    'Alkyne': '[#6]#[#6]',
+    'Imine': '[#6]=[#7]-[#6]',
+    'Amino acid': '[#6]-[#6](-[#7])-[#6](=[#8])-[#8]',
+    'Thiol': '[#6]-[#16]',
+    'Sulfides': '[#6]-[#16]-[#6]',
+    'Acyl Chloride': '[#6]-[#6](=[#8])-[#17]',
+    'Anhydride': '[#6]-[#6](=[#8])-[#8]-[#6](=[#8])-[#6]',
+    'Nitro': '[#6]-[#7+](=[#8])-[#8-]',
+    'Enamine': '[#6]=[#6]-[#7]',
+    'Imide': '[#6](=[#8])-[#7]-[#6](=[#8])-[#6]',
+    'Azide': '[#6]-[#7]-[#7]-[#7]',
+    'Enol': '[#6]=[#6](-[#8])-[#6]',
+    'Hemiacetal': '[#6]-[#6](-[#8])(-[#8])-[#6]',
+    'Carbonate': '[#8]-[#6](=[#8])-[#8]',
+    'Disulfide': '[#6]-[#16]-[#16]-[#6]',
+    'Sulfoxide': '[#6]-[#16](=[#8])-[#6]',
+    'Sulfone': '[#6]-[#16](=[#8])(=[#8])-[#6]',
+    'Sulfonic  acid': '[#6]-[#16](=[#8])(=[#8])-[#8]',
+    'Thioester': '[#6](=[#8])-[#16]-[#6]',
+    'Phosphine': '[#6]-[#15]',
+    'Phosphate': '[#6]-[#8]-[#15](=[#8])(-[#8])-[#8]',
+    'Benzene': '[#6]1:[#6]:[#6]:[#6]:[#6]:[#6]:1'
+}
+
+
+
 def subgroup_value(mol_smi, dict_functional_groups):
     list_contained_subgroups, list_contained_subgroups_values = [], []
     mol = Chem.MolFromSmiles(mol_smi)
 
-    for SMILES, value in dict_functional_groups.items():
-        substruct = Chem.MolFromSmiles(dict_functional_groups[SMILES])  # Get the SMILES string from the dictionary
+    for SMARTS, value in dict_functional_groups.items():
+        substruct = Chem.MolFromSmarts(dict_functional_groups[SMARTS])  # Get the SMILES string from the dictionary
 
         if mol.HasSubstructMatch(substruct):
-            list_contained_subgroups.append(SMILES)
+            list_contained_subgroups.append(SMARTS)
             list_contained_subgroups_values.append(value)
             indices = mol.GetSubstructMatch(substruct)
             print(indices)
         else:
-            list_contained_subgroups.append(f'NOT {SMILES}')
+            list_contained_subgroups.append(f'NOT {SMARTS}')
 
     print(list_contained_subgroups)
 
@@ -137,12 +178,12 @@ def check_functional_groups(molecule, functional_groups):
     if mol is None:
         return found_groups
     groups_to_remove = []
-    for group, smiles in functional_groups.items():
-        pattern = Chem.MolFromSmiles(smiles)
+    for group, smarts in functional_groups.items():
+        pattern = Chem.MolFromSmarts(smarts)
         if mol.HasSubstructMatch(pattern):
             found_groups.append(group)
             # Add related functional groups to remove list
-            if group == 'Ketone':
+            """if group == 'Ketone':
                 groups_to_remove.append('Aldehyde')
             if group == 'Carboxylic acid':
                 groups_to_remove.append('Aldehyde')
@@ -191,22 +232,72 @@ def check_functional_groups(molecule, functional_groups):
         if group not in found_groups:
             pass
         else:
-            found_groups.remove(group)
+            found_groups.remove(group)"""
     return found_groups
 
-print(check_functional_groups(input_mol,functional_groups_smiles))
+for name ,mol2 in functional_groups_smiles.items():
+    print(name,mol2)
+    print(check_functional_groups(mol2,functional_groups_smarts))
 
 
+def smiles_to_smarts(dict):
+    dict2 = {}
+    for x,y in dict.items():
+        mol = Chem.MolFromSmiles(y)
+        smart = Chem.MolToSmarts(mol)
+        dict2[x] = smart
+    return dict2
+
+print(smiles_to_smarts(functional_groups_smiles))
 """
-Carboxylic Acid
-['Alcohol', 'Aldehyde', 'Carboxylic Acid']
-['Alcohol', 'Aldehyde', 'Carboxylic Acid']
-Ester
-['Alcohol', 'Aldehyde', 'Carboxylic Acid', 'Ester', 'Ether']
-['Carboxylic Acid', 'Ester']
-Anhydride
-['Alcohol', 'Aldehyde', 'Carboxylic Acid', 'Ester', 'Ether', 'Anhydride']
-['Carboxylic Acid', 'Ester', 'Anhydride']
+
+Aldehyde CC=O
+[]
+
+Carboxylic Acid CC(=O)O
+['Alcohol', 'Carboxylic Acid']
+Ester CC(=O)OC
+['Ester', 'Ether']
+
+Amide CC(=O)N
+['Amide', 'Amine']
+Nitrile C#N
+[]
+Imine C=NC
+[]
+Amino acid CC(N)C(=O)O
+['Alcohol', 'Carboxylic Acid', 'Amine']
 
 
+Acyl Chloride CC(=O)Cl
+['Chloride', 'Acyl Chloride']
+Anhydride CC(=O)OC(=O)C
+['Ester', 'Ether']
+Nitro C[N+](=O)[O-]
+[]
+Enamine C=CN
+['Amine', 'Alkene', 'Enamine']
+Imide C(=O)NC(=O)C
+[]
+Azide CNNN
+[]
+
+Hemiacetal CC(O)(O)C
+['Alcohol']
+Carbonate OC(=O)O
+['Alcohol']
+
+Sulfoxide CS(=O)C
+[]
+Sulfone CS(=O)(=O)C
+[]
+Sulfonic  acid CS(=O)(=O)O
+[]
+Thioester C(=O)SC
+['Sulfides']
+Phosphine CP
+[]
+Phosphate COP(=O)(O)O
+[]
 """
+
