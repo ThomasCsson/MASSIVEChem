@@ -42,14 +42,22 @@ Peak_intensities = [1.7233190184375e-26, 5.743535068615782e-22, 7.65689805114065
 # precision parameter
 x = 0.004
 
-mass_range = np.linspace(min(Peak_positions) - 1, max(Peak_positions) + 1, 1000)
 
-intensity = np.zeros_like(mass_range)
 
-for peak_position, peak_intensity in zip(Peak_positions, Peak_intensities):
-    peak_shape = peak_intensity * np.exp(-((mass_range - peak_position) ** 2) / (2 * x ** 2))  # Gaussian example
+x_in = Peak_positions
+y_in = Peak_intensities
+x_out, y_out = [],[]
 
-    intensity += peak_shape
+for i in range (len(x_in)):
+    if y_in[i]>0.0001:
+        x_out.append(x_in[i]-0.000001)
+        x_out.append(x_in[i])
+        x_out.append(x_in[i]+0.000001)
+        y_out.append(0)
+        y_out.append(y_in[i])
+        y_out.append(0)
+
+
 
 ticked_peaks = []
 for i in range(len(Peak_positions)):
@@ -59,22 +67,22 @@ for i in range(len(Peak_positions)):
 print(ticked_peaks)
 
 # Create a new plot with a title and axis labels
-p1 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
+
 p1 = figure(width=700, title=f'Mass spectrum of molecule')
-p1 = figure(x_axis_label = 'Mass')
-p1 = figure(y_axis_label = 'Mass')
+p1 = figure(x_axis_label = '[m/z]')
+p1 = figure(y_axis_label = 'abundance')
 p1.height = 500
 p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
 p1.add_tools(WheelPanTool(dimension="height"))
 p1.add_tools(WheelZoomTool(dimensions="height"))
-p1.line(mass_range, intensity, legend_label="Intensity", line_width=1)
+p1.line(x_out, y_out, line_width=1)
 p1.xaxis.major_label_orientation = "vertical"
 def overview_plot(Mass_range, intensity, p1):
     p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
     p2 = figure(width=300, title=f'Mass spectrum of molecule')
     p2 = figure(toolbar_location=None)
     p2.height = 300
-    p2.line(mass_range, intensity, legend_label="Intensity", line_width=1)
+    p2.line(x_out, intensity, legend_label="Intensity", line_width=1)
 
     box = BoxAnnotation(left=0, right=0, bottom=0, top=0,
     fill_alpha=0.1, line_color='black', fill_color='black')
@@ -96,6 +104,6 @@ def overview_plot(Mass_range, intensity, p1):
 
     return p2
 
-layout = row(p1, overview_plot(mass_range, intensity, p1))
+layout = row(p1, overview_plot(x_out, y_out, p1))
 show(layout)
 

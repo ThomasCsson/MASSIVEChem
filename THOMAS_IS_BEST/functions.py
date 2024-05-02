@@ -492,6 +492,17 @@ def plotly_test(x_in, y_in):
 
 print('')
 
+
+
+
+
+
+
+
+
+
+
+
 mol_smi = input('Enter SMILEs: ')
 
 start_time = time.time()
@@ -507,7 +518,7 @@ x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
 end_time = time.time()
 
 duration = end_time-start_time
-print(bokeh_plotter(x_axis, y_axis))
-'''print(bokeh_plotter(x_axis,y_axis))'''
+print(pyplot_plotter(x_axis, y_axis))
 print(f'Computation complete')
 print(f'Process took: {duration} s')
+
