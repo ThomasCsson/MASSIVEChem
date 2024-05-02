@@ -3,8 +3,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.models.widgets import DataTable, TableColumn
 from bokeh.models import HTMLTemplateFormatter
 
-groups = ['Sulfone', 'Benzene', 'Imide']
-
+groups = ['Sulfone', 'Benzene', 'Imide', 'Alcohol', 'Aldehyde', 'Ketone']  # Example with more than 3 groups
 functional_groups_images = {
     'Alcohol': '/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Bokeh/Functional groups images/Alcohol_image.png',
     'Aldehyde': '/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Bokeh/Functional groups images/Aldehyde_image.png',
@@ -42,7 +41,6 @@ functional_groups_images = {
 }
 
 def functional_group_display(groups,functional_groups_images):
-
     present_group_images = []
     for x in groups:
         present_group_images.append(functional_groups_images[x])
@@ -60,11 +58,18 @@ def functional_group_display(groups,functional_groups_images):
 
     columns = [
         TableColumn(field="groups", title="Functional Groups"),
-        TableColumn(field="images", title="Images", width=100, formatter=HTMLTemplateFormatter(template=template))
+        TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))
     ]
 
-    data_table = DataTable(source=source, columns=columns, width=400, height=200,row_height=60)
+    # Calculate the width and height of the table based on the number of groups
+    num_groups = len(groups)
+    # Adjust these values as needed
+    table_height = min(200 + num_groups * 60, 800)   # Adjust these values as needed
+
+    data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
     return data_table
 
 show(functional_group_display(groups,functional_groups_images))
+
+
