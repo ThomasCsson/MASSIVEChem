@@ -340,8 +340,6 @@ def delta_function_plotter(x_in, y_in):
 
 
 
-def peak_merger (x_axis_final, y_axis_final):
-    return
 
 def matplotlib_plotter(x_axis_final, y_axis_final):
 
@@ -436,10 +434,6 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
 
 
-def lorentzian(x, peak_position, eps):
-    lorentzian_peak = 1.0 / (np.pi * eps * (1 + ((x - peak_position) / eps) ** 2))
-    return lorentzian_peak / np.max(lorentzian_peak)
-
 def bokeh_plotter(x_axis_final, y_axis_final):
 
     #---------------------------------------------------------------------------------------------#
@@ -456,14 +450,10 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     Functionality: plots graph with bokeh (html format)
     '''
     #---------------------------------------------------------------------------------------------#
-
     ticked_peaks = []
     for i in range(len(x_axis_final)):
         if y_axis_final[i]>0.0001:
             ticked_peaks.append(round(x_axis_final[i],4))
-
-
-    # Create a new plot with a title and axis labels
     p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [m/z]', y_axis_label='Intensity [AU]')
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
@@ -471,12 +461,8 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p.toolbar.autohide = True
     p.add_tools(WheelPanTool(dimension="height"))
     p.add_tools(WheelZoomTool(dimensions="height"))
-
     p.line(x_axis_final, y_axis_final, legend_label = "Intensity", line_width=1)
-
-    # Show the plot
     show(p)
-    print('')
     return  
 
 

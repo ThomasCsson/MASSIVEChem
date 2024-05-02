@@ -27,7 +27,7 @@ def save_molecule_image_to_file(smi, file_path, show_Hs=False, show_3D = False):
     # Save the image to a file
     image.save(file_path)
 
-output_file_path = "molecule_image.png"
+output_file_path = "Bokeh/molecule_image.png"
 save_molecule_image_to_file(input_mol, output_file_path, False, False)
 
 def mol_web_show(image_url):
@@ -46,7 +46,7 @@ def mol_web_show(image_url):
 
 
 
-image_url = "/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Bokeh/molecule_image.png"
+image_url = "Bokeh/molecule_image.png"
 
 show(mol_web_show(image_url))
 
