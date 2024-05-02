@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ChemInterface_ppchem"
-version = "2.1"
+version = "2.2"
 description = "..."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -16,6 +16,12 @@ authors = [
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch" }
 ]
 dependencies = [
+  "numpy",
+  "rdkit",
+  "pandas",
+  "matplotlib",
+  "bokeh",
+  "plotly"
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
