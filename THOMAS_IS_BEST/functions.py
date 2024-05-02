@@ -30,7 +30,7 @@ def data_list_generator():
 
     #Turn data of (Symbol | Mass | Probability) into lists 
 
-    df = pd.read_csv('THOMAS_IS_BEST/abundance.txt'
+    df = pd.read_csv('data/abundance.txt'
                     , sep='\t'
                     , header=None
                     , names=['Atom', 'Mass', 'Percentage'])
