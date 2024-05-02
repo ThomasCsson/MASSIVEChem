@@ -3,7 +3,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.models.widgets import DataTable, TableColumn
 from bokeh.models import HTMLTemplateFormatter
 
-groups = ['Sulfone', 'Amino acid']
+groups = ['Sulfone', 'Benzene', 'Imide']
 
 functional_groups_images = {
     'Alcohol': '/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Bokeh/Functional groups images/Alcohol_image.png',

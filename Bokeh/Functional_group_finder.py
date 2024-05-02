@@ -81,97 +81,6 @@ functional_groups_smarts ={
     'Phosphate': '[#6]-[#8]-[#15](=[#8])(-[#8])-[#8]',
     'Benzene': '[#6]1:[#6]:[#6]:[#6]:[#6]:[#6]:1'
 }
-
-
-
-def subgroup_value(mol_smi, dict_functional_groups):
-    list_contained_subgroups, list_contained_subgroups_values = [], []
-    mol = Chem.MolFromSmiles(mol_smi)
-
-    for SMARTS, value in dict_functional_groups.items():
-        substruct = Chem.MolFromSmarts(dict_functional_groups[SMARTS])  # Get the SMILES string from the dictionary
-
-        if mol.HasSubstructMatch(substruct):
-            list_contained_subgroups.append(SMARTS)
-            list_contained_subgroups_values.append(value)
-            indices = mol.GetSubstructMatch(substruct)
-            print(indices)
-        else:
-            list_contained_subgroups.append(f'NOT {SMARTS}')
-
-    print(list_contained_subgroups)
-
-    if 'Aldehyde' and 'Ketone' in list_contained_subgroups:
-        mol_aldehyde = Chem.MolFromSmiles('CC=O')
-        mol_ketone = Chem.MolFromSmiles('C(=O)C')
-
-        list_aldehyde_index = mol.GetSubstructMatch(mol_aldehyde)
-        list_ketone_index = mol.GetSubstructMatch(mol_ketone)
-
-        for x in list_aldehyde_index:
-            if x in list_ketone_index:
-                list_contained_subgroups[1] = 'NOT aldehyde'
-
-    if 'Carboxylic acid' and 'Aldehyde' and 'Alcohol' in list_contained_subgroups:
-
-        mol_acid = Chem.MolFromSmiles('CC(=O)O')
-        mol_aldehyde = Chem.MolFromSmiles('CC=O')
-        mol_alcohol = Chem.MolFromSmiles('CO')
-
-        list_aldehyde_index = mol.GetSubstructMatch(mol_aldehyde)
-        list_acid_index = mol.GetSubstructMatch(mol_acid)
-        list_alcohol_index = mol.GetSubstructMatch(mol_alcohol)
-
-        for x in list_acid_index:
-            if x in list_aldehyde_index:
-                list_contained_subgroups[1] = 'NOT Aldehyde'
-            if x in list_alcohol_index:
-                list_contained_subgroups[0] = 'NOT Alcohol'
-
-    if 'Carboxylic acid' and 'Ester' and 'Ether' in list_contained_subgroups:
-
-        mol_acid = Chem.MolFromSmiles('CC(=O)O')
-        mol_ester = Chem.MolFromSmiles('CC(=O)OC')
-        mol_ether = Chem.MolFromSmiles('COC')
-
-        list_acid_index = mol.GetSubstructMatch(mol_acid)
-        list_ester_index = mol.GetSubstructMatch(mol_ester)
-        list_ether_index = mol.GetSubstructMatch(mol_ether)
-
-        for x in list_ester_index:
-            if x in list_acid_index:
-                list_contained_subgroups[3] = 'NOT Carboxylic Acid'
-            if x in list_ether_index:
-                list_contained_subgroups[5] = 'NOT Ether'
-
-    if 'Ether' and 'Alcohol' in list_contained_subgroups:
-        mol_alcohol = Chem.MolFromSmiles('CO')
-        mol_ether = Chem.MolFromSmiles('COC')
-
-        list_alcohol_index = mol.GetSubstructMatch(mol_alcohol)
-        list_ether_index = mol.GetSubstructMatch(mol_ether)
-
-        for x in list_ether_index:
-            if x in list_alcohol_index:
-                list_contained_subgroups[0] = 'NOT Alcohol'
-
-    """if 'Amide' and 'Aldehyde' in list_contained_subgroups:
-    if 'Acyl Chloride' and 'Aldehyde' in list_contained_subgroups:
-        
-    if 'Thioester' and 'Ester':
-    
-    if 'Imine' and 'Amine' in list_contained_subgroups:
-    
-    iif 'Thio' and 'Sulfide in list_contained_subgroups:
-    
-    if 'Azide' and amine in list_contained_subgroups: """
-
-    return list_contained_subgroups, list_contained_subgroups_values
-
-
-print(subgroup_value(input_mol,functional_groups_smiles))
-
-
 def check_functional_groups(molecule, functional_groups):
     found_groups = []
     mol = Chem.MolFromSmiles(molecule)
@@ -248,56 +157,8 @@ def smiles_to_smarts(dict):
         dict2[x] = smart
     return dict2
 
-print(smiles_to_smarts(functional_groups_smiles))
 """
 
-Aldehyde CC=O
-[]
 
-Carboxylic Acid CC(=O)O
-['Alcohol', 'Carboxylic Acid']
-Ester CC(=O)OC
-['Ester', 'Ether']
-
-Amide CC(=O)N
-['Amide', 'Amine']
-Nitrile C#N
-[]
-Imine C=NC
-[]
-Amino acid CC(N)C(=O)O
-['Alcohol', 'Carboxylic Acid', 'Amine']
-
-
-Acyl Chloride CC(=O)Cl
-['Chloride', 'Acyl Chloride']
-Anhydride CC(=O)OC(=O)C
-['Ester', 'Ether']
-Nitro C[N+](=O)[O-]
-[]
-Enamine C=CN
-['Amine', 'Alkene', 'Enamine']
-Imide C(=O)NC(=O)C
-[]
-Azide CNNN
-[]
-
-Hemiacetal CC(O)(O)C
-['Alcohol']
-Carbonate OC(=O)O
-['Alcohol']
-
-Sulfoxide CS(=O)C
-[]
-Sulfone CS(=O)(=O)C
-[]
-Sulfonic  acid CS(=O)(=O)O
-[]
-Thioester C(=O)SC
-['Sulfides']
-Phosphine CP
-[]
-Phosphate COP(=O)(O)O
-[]
 """
 
