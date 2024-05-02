@@ -41,8 +41,8 @@ functional_groups_images = {
     'Benzene': '/Users/igorgonteri/Documents/GitHub/ppchem-project-Christiansson-Gonteri-Humery/Bokeh/Functional groups images/Benzene_image.png'
 }
 
-
 def functional_group_display(groups,functional_groups_images):
+
     present_group_images = []
     for x in groups:
         present_group_images.append(functional_groups_images[x])
