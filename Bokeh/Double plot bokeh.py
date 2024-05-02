@@ -61,6 +61,8 @@ print(ticked_peaks)
 # Create a new plot with a title and axis labels
 p1 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
 p1 = figure(width=700, title=f'Mass spectrum of molecule')
+p1 = figure(x_axis_label = 'Mass')
+p1 = figure(y_axis_label = 'Mass')
 p1.height = 500
 p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
 p1.add_tools(WheelPanTool(dimension="height"))

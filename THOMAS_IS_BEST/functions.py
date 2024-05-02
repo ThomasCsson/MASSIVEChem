@@ -7,9 +7,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 from bokeh.plotting import figure, show
 from bokeh.models import WheelPanTool, WheelZoomTool
 from bokeh.models.tickers import FixedTicker
+from PIL import Image
 
 
 def data_list_generator():
@@ -30,7 +32,7 @@ def data_list_generator():
 
     #Turn data of (Symbol | Mass | Probability) into lists 
 
-    df = pd.read_csv('THOMAS_IS_BEST/abundance.txt'
+    df = pd.read_csv('data/abundance.txt'
                     , sep='\t'
                     , header=None
                     , names=['Atom', 'Mass', 'Percentage'])
@@ -338,8 +340,6 @@ def delta_function_plotter(x_in, y_in):
 
 
 
-def peak_merger (x_axis_final, y_axis_final):
-    return
 
 def matplotlib_plotter(x_axis_final, y_axis_final):
 
@@ -429,18 +429,10 @@ def pyplot_plotter (x_axis_final, y_axis_final):
         xaxis_title='[m/z]',
         yaxis_title='Abundance')
     
-
-
-
-
     fig.show()
     return 
 
 
-
-def lorentzian(x, peak_position, eps):
-    lorentzian_peak = 1.0 / (np.pi * eps * (1 + ((x - peak_position) / eps) ** 2))
-    return lorentzian_peak / np.max(lorentzian_peak)
 
 def bokeh_plotter(x_axis_final, y_axis_final):
 
@@ -458,26 +450,10 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     Functionality: plots graph with bokeh (html format)
     '''
     #---------------------------------------------------------------------------------------------#
-
-    eps = 10**(-20)
-
-    mass_range = np.linspace(min(x_axis_final)-1, max(x_axis_final)+1, 1000)
-
-    intensity = np.zeros_like(mass_range)
-
-    for peak_position, peak_intensity in zip(x_axis_final, y_axis_final):
-        peak_shape = peak_intensity * lorentzian(mass_range, peak_position, eps)
-        intensity += peak_shape
-
-
-
     ticked_peaks = []
     for i in range(len(x_axis_final)):
         if y_axis_final[i]>0.0001:
             ticked_peaks.append(round(x_axis_final[i],4))
-
-
-    # Create a new plot with a title and axis labels
     p = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [m/z]', y_axis_label='Intensity [AU]')
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
@@ -485,15 +461,34 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p.toolbar.autohide = True
     p.add_tools(WheelPanTool(dimension="height"))
     p.add_tools(WheelZoomTool(dimensions="height"))
-
-    # Add a line renderer with legend and line thickness
-    '''p.line(mass_range, intensity, legend_label="Intensity", line_width=5)'''
     p.line(x_axis_final, y_axis_final, legend_label = "Intensity", line_width=1)
-
-    # Show the plot
     show(p)
-    print('')
-    return  (f'Computation complete.')
+    return  
+
+
+def plotly_test(x_in, y_in):
+
+
+    fig = make_subplots(
+    rows=2, cols=2,
+    specs=[[{}, {}],
+           [{"colspan": 2}, None]],
+    subplot_titles=("First Subplot","Second Subplot", "Third Subplot"))
+
+
+    image = Draw.MolToImage(Chem.MolFromSmiles('C=O'))
+
+    fig.add_trace(go.image(z = image),row = 1, col = 1)
+
+    fig.add_trace(go.Scatter(x=x_in, y=y_in, mode = 'lines'),
+                    row=1, col=2)
+    fig.add_trace(go.Scatter(x=x_in, y=y_in, mode = 'lines'),
+                    row=2, col=1)
+
+    fig.update_layout(showlegend=False, title_text="Specs with Subplot Title")
+    fig.show()
+
+    return
 
 print('')
 
@@ -512,7 +507,7 @@ x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
 end_time = time.time()
 
 duration = end_time-start_time
-print(pyplot_plotter(x_axis, y_axis))
-print(bokeh_plotter(x_axis,y_axis))
-
+print(bokeh_plotter(x_axis, y_axis))
+'''print(bokeh_plotter(x_axis,y_axis))'''
+print(f'Computation complete')
 print(f'Process took: {duration} s')
