@@ -500,24 +500,39 @@ print('')
 
 
 
-
+#Actually makes code run
 
 
 mol_smi = input('Enter SMILEs: ')
 
 start_time = time.time()
 
+#Input: give SMILEs
 mol = SMILEs_interpreter(mol_smi)
+
+#Generate the data from data/abundance.txt
 mass, abundance, isotopes = data_list_generator()
+
+#Generate a list of the atoms in molecule
 list_atoms_pre = molecule_list_generator(mol) 
+
+#Generate the list of atoms left in molecule after ionisation (dependent on method used)
 list_atoms = ionisation_method(list_atoms_pre)
+
+#Output two lists, possible molecule masses & their associated probabilities
 xvalues_pre, yvalues_pre = main_function(list_atoms, True)
+
+#Sort the two previous lists so that the valus on x are in order (lowest to highest)
 xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
+
+#Keeps two lists but adds zeros on y next to each point on x
 x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
 
 end_time = time.time()
 
 duration = end_time-start_time
+
+#Plotter
 print(pyplot_plotter(x_axis, y_axis))
 print(f'Computation complete')
 print(f'Process took: {duration} s')
