@@ -90,7 +90,35 @@ def check_functional_groups(molecule, functional_groups):
     for group, smarts in functional_groups.items():
         pattern = Chem.MolFromSmarts(smarts)
         if mol.HasSubstructMatch(pattern):
-            found_groups.append(group)
+            if group == 'Alcohol':
+                if mol.GetSubstructMatch(pattern) == mol.GetSubstructMatch(Chem.MolFromSmiles('CC(=O)O')):
+                    pass
+                if mol.GetSubstructMatch(pattern) == mol.GetSubstructMatch(Chem.MolFromSmiles('COC')):
+                    pass
+                if mol.GetSubstructMatch(pattern) == mol.GetSubstructMatch(Chem.MolFromSmiles('CC(N)C(=O)O')):
+                    pass
+                else:
+                    found_groups.append(group)
+
+            if group == 'Aldehyde':
+                if mol.GetSubstructMatch(pattern) == mol.GetSubstructMatch(Chem.MolFromSmiles('CC(=O)C')):
+                    pass
+                if mol.GetSubstructMatch(pattern) == mol.GetSubstructMatch(Chem.MolFromSmiles('CC(=O)O')):
+                    pass
+                if  mol.GetSubstructMatch(pattern) == mol.GetSubstructMatch(Chem.MolFromSmiles('CC(=O)OC')):
+                    pass
+                else:
+                    found_groups.append(group)
+            if group == 'Carboxylic acid':
+                if mol.GetSubstructMatch(pattern) == mol.GetSubstructMatch(Chem.MolFromSmiles('CC(=O)OC')):
+                    pass
+                else:
+                    found_groups.append(group)
+            if group == 'Ether':
+                pass
+            else:
+                found_groups.append(group)
+            print(found_groups)
             # Add related functional groups to remove list
             """if group == 'Ketone':
                 groups_to_remove.append('Aldehyde')
@@ -144,9 +172,8 @@ def check_functional_groups(molecule, functional_groups):
             found_groups.remove(group)"""
     return found_groups
 
-for name ,mol2 in functional_groups_smiles.items():
-    print(name,mol2)
-    print(check_functional_groups(mol2,functional_groups_smarts))
+
+    print(check_functional_groups(input_mol,functional_groups_smarts))
 
 
 def smiles_to_smarts(dict):
