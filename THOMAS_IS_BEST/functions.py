@@ -398,12 +398,27 @@ def pyplot_plotter (x_axis_final, y_axis_final):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x = x,y = y, mode = 'lines'))
 
-    fig.update_layout(xaxis=dict(rangeslider=dict(visible=True), 
-                                type="linear"),
-                                yaxis=dict(range=[min(y)-0.1, max(y)], 
-                                type="linear"),
-                                dragmode='zoom',
-                                )
+    for peak in x:
+        if x.index(peak) > 0 and x.index(peak) < len(x)-1:
+            if peak >0.001:
+                fig.add_annotation(x=peak,y = 0,
+                        text=round(peak,3), 
+                        showarrow=True, arrowhead=1, ax=0, ay=30)
+    for peak in x:
+        if x.index(peak) > 0 and x.index(peak) < len(x)-1:
+            if y_axis_final[x_axis_final.index(peak)] >0.001:
+                fig.add_annotation(x=peak, y=y_axis_final[x_axis_final.index(peak)],
+                        text=round(y_axis_final[x_axis_final.index(peak)],3), 
+                        showarrow=True, arrowhead=1, ax=0, ay=-30)
+    
+
+
+    fig.update_layout(title = 'Mass spectrum of input molecule',
+                    xaxis_title = '[m/z]',
+                    yaxis_title = 'Abundance',   
+                    xaxis=dict(range=[min(x), max(x)], type="linear"),
+                    yaxis=dict(range=[min(y)-0.1, max(y)+0.1], type="linear"),
+                    )
 
 
     fig.show()
@@ -455,7 +470,7 @@ def bokeh_plotter(x_axis_final, y_axis_final):
     p = figure(width=700 , title= f'Mass spectrum of molecule')
     p.height = 500
     p.xaxis.ticker = FixedTicker(ticks= ticked_peaks)
-    p.toolbar.autohide = False
+    p.toolbar.autohide = True
     p.add_tools(WheelPanTool(dimension="height"))
     p.add_tools(WheelZoomTool(dimensions="height"))
 
@@ -487,4 +502,5 @@ end_time = time.time()
 duration = end_time-start_time
 print(pyplot_plotter(x_axis, y_axis))
 print(bokeh_plotter(x_axis,y_axis))
+
 print(f'Process took: {duration} s')
