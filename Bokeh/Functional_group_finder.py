@@ -39,8 +39,8 @@ functional_groups_smiles = {
     'Sulfonic acid': 'CS(=O)(=O)O',
     'Thioester': 'C(=O)SC',
     'Phosphine': 'CP',
-    'Phosphate ester': 'COP(=O)(O)O',
-    'Benzene ring': 'C1=CC=CC=C1'
+    'Phosphate': 'COP(=O)(O)O',
+    'Benzene': 'C1=CC=CC=C1'
 }
 
 def subgroup_value(mol_smi, dict_functional_groups):

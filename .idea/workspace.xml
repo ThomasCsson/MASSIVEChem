@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3db71e35-f220-4cca-b219-bdd216a9a24a" name="Changes" comment="" />
+    <list default="true" id="3db71e35-f220-4cca-b219-bdd216a9a24a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Acid_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Acyl_chloride_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Alcohol_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Aldehyde_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Alkene_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Alkyne_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Amide_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Amine_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Amino_acid_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Anhydride_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Azide_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Benzene_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Carbonate_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Disulfide_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Enamine_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Enol_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Ester_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Ether_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Halogen_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Hemiacetal_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Imide_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Imine_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Ketone_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Nitrile_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Nitro_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Phosphate_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Phosphine_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Sulfides_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Sulfone_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Sulfonic_acid_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Sulfoxide_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Thio_ether_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Thioester_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional groups images/Thiol_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional_group_display.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bokeh/Functional_group_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/Double plot bokeh.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/Double plot bokeh.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/Functional_group_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/Functional_group_finder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/Mol_display.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/Mol_display.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/Mol_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/Mol_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bokeh/molecule_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/Bokeh/molecule_image.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
