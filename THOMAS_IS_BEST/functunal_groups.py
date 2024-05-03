@@ -42,9 +42,30 @@ functional_groups_smiles = {
 
 mol_smi = input('SMILEs: ')
 mol = Chem.MolFromSmiles(mol_smi)
+list_name = []
+list_index = []
 
-pattern = 'C=O'
-pat = Chem.MolFromSmiles(pattern)
 
-list = (mol.GetSubstructMatch(pat))
-print(list[0])
+
+
+for name, smiles in functional_groups_smiles.items():
+    print(smiles)
+    pattern = Chem.MolFromSmiles(smiles)
+
+    if mol.HasSubstructMatch(pattern):
+        print('found')
+        indexes = mol.GetSubstructMatch(pattern)
+        list_index.append(indexes)
+        list_name.append(name)
+
+#list name
+# list indexes
+list_indexes_copy = list_index.copy()
+list_name_copy = list_name.copy()
+
+for i in range(len(list_index)):
+    True
+
+print(list_index)
+            
+    
