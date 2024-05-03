@@ -1,14 +1,15 @@
 from rdkit import Chem
 
-functional_groups_smiles = {
-    'Alcohol': 'CO',
-    'Aldehyde': 'CC=O',
+
+functional_groups_smarts = {
+    'Alcohol': 'C[Oh1]',
+    'Aldehyde': 'C[Ch1]=O',
     'Ketone': 'CC(=O)C',
-    'Carboxylic Acid': 'CC(=O)O',
+    'Carboxylic Acid': 'CC(=O)[Oh1]',
     'Ester': 'CC(=O)OC',
     'Ether': 'COC',
     'Amide': 'CC(=O)N',
-    'Amine': 'CN',
+    'Amine': 'C[Nh2]',
     'Nitrile': 'C#N',
     'Chloride': 'CCl',
     'Bromide': 'CBr',
@@ -18,7 +19,7 @@ functional_groups_smiles = {
     'Alkyne': 'C#C',
     'Imine': 'C=NC',
     'Amino acid': 'CC(N)C(=O)O',
-    'Thiol': 'CS',
+    'Thiol': 'C[Sh1]',
     'Sulfides': 'CSC',
     'Acyl Chloride': 'CC(=O)Cl',
     'Anhydride': 'CC(=O)OC(=O)C',
@@ -26,7 +27,7 @@ functional_groups_smiles = {
     'Enamine': 'C=CN',
     'Imide': 'C(=O)NC(=O)C',
     'Azide': 'CNNN',
-    'Enol': 'C=C(O)C',
+    'Enol': 'C=C([Oh1])C',
     'Hemiacetal': 'CC(O)(O)C',
     'Carbonate': 'OC(=O)O',
     'Disulfide': 'CSSC',
@@ -40,32 +41,18 @@ functional_groups_smiles = {
 }
 
 
-mol_smi = input('SMILEs: ')
-mol = Chem.MolFromSmiles(mol_smi)
-list_name = []
-list_index = []
-
-
-
-
-for name, smiles in functional_groups_smiles.items():
-    print(smiles)
-    pattern = Chem.MolFromSmiles(smiles)
-
-    if mol.HasSubstructMatch(pattern):
-        print('found')
-        indexes = mol.GetSubstructMatch(pattern)
-        list_index.append(indexes)
-        list_name.append(name)
-
-#list name
-# list indexes
-list_indexes_copy = list_index.copy()
-list_name_copy = list_name.copy()
-
-for i in range(len(list_index)):
-    True
-
-print(list_index)
-            
+for name, smarts in functional_groups_smarts.items():
+    try:
+        mol = Chem.MolFromSmarts(smarts)
+    except:
+        print(f"Invalid SMARTS pattern for {name}: {smarts}")
+        continue
+    for name2, smarts2 in functional_groups_smarts.items():
+        try:
+            mol2 = Chem.MolFromSmarts(smarts2)
+        except:
+            print(f"Invalid SMARTS pattern for {name2}: {smarts2}")
+            continue
+        if mol.HasSubstructMatch(mol2):
+            print(name, name2)
     

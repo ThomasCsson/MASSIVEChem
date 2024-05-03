@@ -431,6 +431,70 @@ def pyplot_plotter (x_axis_final, y_axis_final):
     
     fig.show()
     return 
+def test(x,y):
+    
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x = x,y = y, mode = 'lines'))
+    initial_zoomed_x = x[5:15]  # Adjust the initial range as needed
+    initial_zoomed_y = y[5:15]  # Adjust the initial range as needed
+
+    # Add trace for the initial zoomed-in region
+    fig.add_trace(go.Scatter(x=initial_zoomed_x, y=initial_zoomed_y, mode='lines', showlegend=False, xaxis='x2', yaxis='y2'))
+
+    # Update layout for the main plot
+    fig.update_layout(
+        xaxis2=dict(domain=[0.7, 1], anchor='y2'),
+        yaxis2=dict(domain=[0.7, 1], anchor='x2'),
+        xaxis_title='[m/z]',
+        yaxis_title='Abundance'
+    )
+
+    # Add rectangle to the smaller graph to indicate the initial zoomed-in region
+    fig.add_shape(
+        type="rect",
+        xref="x2",
+        yref="y2",
+        x0=initial_zoomed_x[0],  # Initial coordinates based on the initial zoomed-in region
+        y0=min(initial_zoomed_y),
+        x1=initial_zoomed_x[-1],
+        y1=max(initial_zoomed_y),
+        line=dict(color="rgba(0,0,0,0.5)", width=2),
+        fillcolor="rgba(0,0,0,0.1)",
+        visible=True,  # Initially visible
+        layer="below"
+    )
+
+    # Define a function to update the zoomed-in region in the smaller graph based on the main graph's zoom level
+    def update_zoomed_region(layout, x_range, y_range):
+        fig.layout.shapes[0].x0 = x_range[0]
+        fig.layout.shapes[0].x1 = x_range[1]
+        fig.layout.shapes[0].y0 = y_range[0]
+        fig.layout.shapes[0].y1 = y_range[1]
+
+    # Define the callback for relayout event
+    fig.update_layout(
+        xaxis=dict(domain=[0, 0.65]),
+        yaxis=dict(domain=[0, 0.65]),
+        xaxis2=dict(domain=[0.7, 1], anchor='y2'),
+        yaxis2=dict(domain=[0.7, 1], anchor='x2'),
+        xaxis_title='[m/z]',
+        yaxis_title='Abundance',
+        dragmode='zoom',
+        autosize=True,
+        margin=dict(l=0, r=0, t=0, b=0),
+        showlegend=False,
+        plot_bgcolor='white'
+    )
+
+    fig.update_xaxes(matches='x')
+    fig.update_yaxes(matches='y')
+
+    # Add event handler for relayout event
+    fig.update_layout(
+        scene=dict(onclick=lambda eventdata: update_zoomed_region(fig.layout, eventdata['xaxis.range'], eventdata['yaxis.range']))
+    )
+
+    fig.show()
 
 
 
@@ -533,7 +597,7 @@ end_time = time.time()
 duration = end_time-start_time
 
 #Plotter
-print(pyplot_plotter(x_axis, y_axis))
+print(test(x_axis, y_axis))
 print(f'Computation complete')
 print(f'Process took: {duration} s')
 

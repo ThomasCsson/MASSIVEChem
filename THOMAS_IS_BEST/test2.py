@@ -1,6 +1,14 @@
-list_in = [(1, 2), (1, 2, 3)]
-list_of_lists = [list(tupple) for tupple in list_in]
+from rdkit import Chem
+from rdkit.Chem import Draw
+input = Chem.MolFromSmiles('CSC')
 
 
-print(tuple(list_of_lists[0]))
+
+pat = Chem.MolFromSmarts("C[Sh1]")
+
+
+print(input.HasSubstructMatch(pat))
+
+
+    
         
