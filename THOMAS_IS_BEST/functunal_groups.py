@@ -9,6 +9,7 @@ functional_groups_smiles = {
     'Ether': 'COC',
     'Amide': 'CC(=O)N',
     'Amine': 'CN',
+    'Nitrile': 'C#N',
     'Chloride': 'CCl',
     'Bromide': 'CBr',
     'Fluoride': 'CF',
