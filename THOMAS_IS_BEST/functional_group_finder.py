@@ -2,7 +2,18 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 def functional_group_finder(mol_smi):
 
-    mol_in = Chem.MolFromSmiles(mol_smi)
+    #---------------------------------------------------------------------------------------------#
+    '''
+    functional_group_finder(mol_smi)
+    
+    Input: molecule under SMILEs representation
+    
+    Output: list containing every functionl group contained (if a functional group is contained twice in the molecule, it will appear twice in this list)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+
+    functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
     functional_groups_smarts = {
         'Alcohol': 'C[Oh1+0]',
         'Aldehyde': 'C[Ch1]=O',
@@ -45,23 +56,12 @@ def functional_group_finder(mol_smi):
         'Phosphate': '*OP(=O)(O)O',
         'Benzene': 'c1ccccc1'
     }
-
-    '''mol = Chem.MolFromSmarts('C[Ch1]=O')
-    mol1 = Chem.MolFromSmiles('CCC(=O)C')
-    print(mol1.HasSubstructMatch(mol))'''
-
-    
-    
-    functional_groups_contained = []
-
     for name, smarts in functional_groups_smarts.items():
         functional_group = Chem.MolFromSmarts(smarts)
         if mol_in.HasSubstructMatch(functional_group):
             for _ in range(len(mol_in.GetSubstructMatches(functional_group))):
                 functional_groups_contained.append(name)
             
-    print(functional_groups_contained)
-
     if 'Carboxylic Acid' in functional_groups_contained:
         functional_groups_contained.remove('Alcohol')
     if 'Ester' in functional_groups_contained:
@@ -103,6 +103,7 @@ def functional_group_finder(mol_smi):
     if 'Disulfide' in functional_groups_contained:
         functional_groups_contained.remove('Sulfide')
         functional_groups_contained.remove('Sulfide')
+    
     return functional_groups_contained
 
 
