@@ -105,7 +105,7 @@ def functional_group_finder(mol_smi):
         functional_groups_contained.remove('Sulfide')
     if 'Amine2' in functional_groups_contained:
         functional_groups_contained.remove('Amine2')
-        functional_groups_contained.add('Amine')
+        functional_groups_contained.append('Amine')
     
     return functional_groups_contained
 
