@@ -11,7 +11,7 @@ from plotly.subplots import make_subplots
 from bokeh.plotting import figure, show
 from bokeh.models import WheelPanTool, WheelZoomTool
 from bokeh.models.tickers import FixedTicker
-from PIL import Image
+
 
 
 def data_list_generator():
@@ -672,7 +672,7 @@ end_time = time.time()
 duration = end_time-start_time
 
 #Plotter
-print(test(x_axis, y_axis))
+print(pyplot_plotter(x_axis, y_axis))
 print(f'Computation complete')
 print(f'Process took: {duration} s')
 
