@@ -152,30 +152,4 @@ for mol,smile in functional_groups_smiles.items():
     print(check_functional_groups(smile,functional_groups_smarts))
 
 
-# Import necessary libraries
-from rdkit import Chem
-from rdkit.Chem import AllChem
-import numpy as np
 
-
-# Function to convert SMILES to molecular fingerprints
-def smiles_to_fingerprint(smiles):
-    mol = Chem.MolFromSmiles(smiles)
-    fp = AllChem.GetMorganFingerprintAsBitVect(mol, 2, nBits=1024)
-    return np.array(fp)
-
-# Function to predict functional groups
-def predict_functional_groups(smiles, model):
-    fingerprint = smiles_to_fingerprint(smiles)
-    prediction = model.predict(np.expand_dims(fingerprint, axis=0))
-    # Process prediction and return functional groups
-    return prediction
-
-# Load pre-trained deep learning model
-# Replace 'model_path' with the path to your pre-trained model
-model = tf.keras.models.load_model('model_path')
-
-# Example usage
-input_smiles = "CCO"
-functional_groups = predict_functional_groups(input_smiles, model)
-print("Predicted functional groups:", functional_groups)
