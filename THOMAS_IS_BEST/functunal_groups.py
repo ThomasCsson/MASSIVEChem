@@ -40,19 +40,16 @@ functional_groups_smarts = {
     'Benzene': 'C1=CC=CC=C1'
 }
 
+mol = Chem.MolFromSmarts('CCO')
+pat = Chem.MolFromSmarts('C[Oh1]')
+print(mol.HasSubstructMatch(pat))
 
-for name, smarts in functional_groups_smarts.items():
-    try:
-        mol = Chem.MolFromSmarts(smarts)
-    except:
-        print(f"Invalid SMARTS pattern for {name}: {smarts}")
-        continue
+
+'''for name, smarts in functional_groups_smarts.items():
     for name2, smarts2 in functional_groups_smarts.items():
-        try:
-            mol2 = Chem.MolFromSmarts(smarts2)
-        except:
-            print(f"Invalid SMARTS pattern for {name2}: {smarts2}")
-            continue
+        mol = Chem.MolFromSmarts(smarts)
+        mol2 = Chem.MolFromSmarts(smarts2)
         if mol.HasSubstructMatch(mol2):
-            print(name, name2)
+            print(name, name2)'''
+            
     
