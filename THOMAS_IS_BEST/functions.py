@@ -680,3 +680,5 @@ print(pyplot_plotter(x_axis, y_axis))
 print(f'Computation complete')
 print(f'Process took: {duration} s')
 
+
+print('Bruno')
