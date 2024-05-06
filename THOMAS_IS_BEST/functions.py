@@ -223,6 +223,7 @@ def main_function (list_atoms, imprecision_True_False):
                 
         list_output = list_output_new
         list_atoms.pop(0)
+    print(list_output)
 
 
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
