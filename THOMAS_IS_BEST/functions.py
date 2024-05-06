@@ -720,5 +720,6 @@ duration = end_time-start_time
 
 #Plotter
 print(pyplot_plotter(x_axis, y_axis))
+print(functional_group_finder(mol_smi))
 print(f'Computation complete')
 print(f'Process took: {duration} s')
