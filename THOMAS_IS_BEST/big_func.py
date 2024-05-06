@@ -73,7 +73,7 @@ def data_list_generator():
 
 
 
-def SMILEs_interpreter(mol_smi):
+def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     #---------------------------------------------------------------------------------------------#
     '''
     SMILEs_interpreter(mol_smi)
@@ -96,9 +96,7 @@ def SMILEs_interpreter(mol_smi):
 
     mol = Chem.AddHs(mol_without_Hs)
 
-    return mol
 
-def molecule_list_generator(mol):
     #---------------------------------------------------------------------------------------------#
     '''
     molecule_list_generator(mol)
@@ -112,11 +110,7 @@ def molecule_list_generator(mol):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
-    return list_atoms
 
-
-
-def ionisation_method (list_atoms):
     #---------------------------------------------------------------------------------------------#
     '''
     ionisation_method (list_atoms)
@@ -132,11 +126,7 @@ def ionisation_method (list_atoms):
 
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
-    return list_atoms
 
-
-
-def main_function (list_atoms, imprecision_True_False):
     #---------------------------------------------------------------------------------------------#
     '''
     main_function(list_atoms)
@@ -270,11 +260,13 @@ def main_function (list_atoms, imprecision_True_False):
         x_axis_final.append(x_axis_final[index]-0.004)  
         y_axis_final.append(0.008*count_S*maximum)  
 
-    return x_axis_final, y_axis_final
+    
+
+    x_in, y_in = x_axis_final, y_axis_final
 
 
 
-def list_sorter (x_in, y_in):
+
     #---------------------------------------------------------------------------------------------#
     '''
     delta_function_plotter(x_in, y_in)
@@ -303,11 +295,12 @@ def list_sorter (x_in, y_in):
         x_in.pop(index_min)
         y_in.pop(index_min)
 
-    return x_out, y_out
+
+
+    x_in, y_in = x_out, y_out 
 
 
 
-def peak_merger(x_in, y_in, apparatus_resolution):
     #---------------------------------------------------------------------------------------------#
     '''
     delta_function_plotter(x_in, y_in)
@@ -340,11 +333,7 @@ def peak_merger(x_in, y_in, apparatus_resolution):
     x_out.append(x_in[0])
     y_out.append(y_in[0])
 
-    return x_out, y_out
-
-
-
-def delta_function_plotter(x_in, y_in):
+    x_in, y_in = x_out, y_out 
     #---------------------------------------------------------------------------------------------#
     '''
     delta_function_plotter(x_in, y_in)
@@ -690,29 +679,16 @@ mol_smi = input('Enter SMILEs: ')
 
 start_time = time.time()
 
-#Input: give SMILEs
-mol = SMILEs_interpreter(mol_smi)
+
+
 
 #Generate the data from data/abundance.txt
 mass, abundance, isotopes = data_list_generator()
 
-#Generate a list of the atoms in molecule
-list_atoms_pre = molecule_list_generator(mol) 
 
-#Generate the list of atoms left in molecule after ionisation (dependent on method used)
-list_atoms = ionisation_method(list_atoms_pre)
-
-#Output two lists, possible molecule masses & their associated probabilities
-xvalues_pre, yvalues_pre = main_function(list_atoms, True)
-
-#Sort the two previous lists so that the valus on x are in order (lowest to highest)
-xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
-
-#Merge peaks that are within a certain distance [mass/charge] of each other (float value in input of function is that distance)
-xvalues, yvalues = peak_merger(xvalues, yvalues, 0.01) 
 
 #Keeps two lists but adds zeros on y next to each point on x
-x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
+x_axis, y_axis = big_function(mol_smi, True, 0.01)
 
 end_time = time.time()
 
