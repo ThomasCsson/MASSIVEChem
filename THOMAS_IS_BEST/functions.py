@@ -305,6 +305,45 @@ def list_sorter (x_in, y_in):
 
     return x_out, y_out
 
+
+
+def peak_merger(x_in, y_in, apparatus_precision):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    delta_function_plotter(x_in, y_in)
+    
+    Input: two lists + float:
+    1. ordered list of the masses (of individual molecules) of each possible combination of isotopes
+    2. ordered list of the probabilities of apparation of each of the molecules
+    3. apparatus precision (float representation of number which is the limit between two peaks above which they appear merged together)
+    
+    Output: two lists:
+    1. ordered list of the masses with values on y merged together if peaks within precision of apparatus
+    2. ordered list of the probabilities of apparation of each of the molecules
+    
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    x_out, y_out = [],[]
+    while len(x_in)>1:
+        if x_in[0]>x_in[1]-apparatus_precision:
+            y_in[1] = y_in[0] + y_in[1]
+            x_in[1] = (x_in[0] + x_in[1])/2
+            x_in.pop(0)
+            y_in.pop(0)
+        else:
+            x_out.append(x_in[0])
+            y_out.append(y_in[0])
+            x_in.pop(0)
+            y_in.pop(0)
+    x_out.append(x_in[0])
+    y_out.append(y_in[0])
+
+    return x_out, y_out
+
+
+
 def delta_function_plotter(x_in, y_in):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -401,7 +440,7 @@ def pyplot_plotter (x_axis_final, y_axis_final):
 
     for peak in x:
         if x.index(peak) > 0 and x.index(peak) < len(x)-1:
-            if peak >0.001:
+            if y_axis_final[x_axis_final.index(peak)] >0.001:
                 fig.add_annotation(x=peak,y = 0,
                         text=round(peak,3), 
                         showarrow=True, arrowhead=1, ax=0, ay=30)
@@ -668,6 +707,8 @@ xvalues_pre, yvalues_pre = main_function(list_atoms, True)
 
 #Sort the two previous lists so that the valus on x are in order (lowest to highest)
 xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
+
+xvalues, yvalues = peak_merger(xvalues, yvalues, 0.01) 
 
 #Keeps two lists but adds zeros on y next to each point on x
 x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
