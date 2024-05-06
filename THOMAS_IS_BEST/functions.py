@@ -708,6 +708,7 @@ xvalues_pre, yvalues_pre = main_function(list_atoms, True)
 #Sort the two previous lists so that the valus on x are in order (lowest to highest)
 xvalues, yvalues = list_sorter(xvalues_pre, yvalues_pre)
 
+#Merge peaks that are within a certain distance [mass/charge] of each other (float value in input of function is that distance)
 xvalues, yvalues = peak_merger(xvalues, yvalues, 0.01) 
 
 #Keeps two lists but adds zeros on y next to each point on x
