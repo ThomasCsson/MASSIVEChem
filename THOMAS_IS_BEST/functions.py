@@ -579,14 +579,13 @@ def functional_group_finder(mol_smi):
         'Enamine': 'C=C[Nh0]','Enamine2': 'C=C[Nh1]','Enamine3': 'C=C[Nh2]','Imide': 'C(=O)NC(=O)*','Azide': 'CNNN',
         'Enol': 'C=C([Oh1])C','Hemiacetal': 'CC(O)(O)C','Carbonate': '[Oh0]C(=O)[Oh0]','Carbonate2': '[Oh1]C(=O)[Oh1]',
         'Disulfide': 'CSSC','Sulfoxide': 'CS(=O)C','Sulfone': '*[So2](=O)(=O)*','Sulfonic acid': '*S(=O)(=O)[Oh1]',
-        'Thioester': 'C(=O)S*','Phosphine': '*[Po0](*)*','Phosphate': '*OP(=O)(O)O','Benzene': 'c1ccccc1'
+        'Thioester': 'C(=O)S*','Phosphine': '*[Po0](*)*','Phosphate': '*OP(=O)(O)O','Benzene': 'c1ccccc1','Peroxide':'C[Oh0][Oh0]C'
     }
 
     
     for name, smarts in functional_groups_smarts.items():
-        functional_group = Chem.MolFromSmarts(smarts)
-        if mol_in.HasSubstructMatch(functional_group):
-            for _ in range(len(mol_in.GetSubstructMatches(functional_group))):
+        if mol_in.HasSubstructMatch(Chem.MolFromSmarts(smarts)):
+            for _ in range(len(mol_in.GetSubstructMatches(Chem.MolFromSmarts(smarts)))):
                 functional_groups_contained.append(name)
             
     if 'Carboxylic Acid' in functional_groups_contained:
@@ -630,9 +629,14 @@ def functional_group_finder(mol_smi):
     if 'Disulfide' in functional_groups_contained:
         functional_groups_contained.remove('Sulfide')
         functional_groups_contained.remove('Sulfide')
+    if 'Amine2' in functional_groups_contained:
+        functional_groups_contained.remove('Amine2')
+        functional_groups_contained.append('Amine')
+    if 'Peroxide' in functional_groups_contained:
+        functional_groups_contained.remove('Ether')
+        functional_groups_contained.remove('Ether')
     
     return functional_groups_contained
-
 
 
 
