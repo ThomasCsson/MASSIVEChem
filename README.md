@@ -1,7 +1,7 @@
 # - ChemInterface package for applied mass spectrometry -
-#### Project in practical programming in chemistry course
-#### EPFL CH-200
+#### Project in practical programming in chemistry course -- EPFL CH-200
 
+**Package description**
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display the spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
 
 Developpers:
@@ -14,7 +14,11 @@ Developpers:
 
 Let us go through the steps required to use this package.
 
-#### Requirments
+**Usage**
+
+'''Show the most important function and use'''
+
+**Requirments**
 The package runs on python 3.10 but supports python 3.7 through 3.10
 In order to run the package correctly, the following packages need to be installed before running any pip-installed functions using the following command
 
@@ -32,7 +36,7 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 import matplotlib.pyplot as plt
 ```
-#### Installation
+**Installation**
 
 Cheminterface can be installed using pip or conda as
 ```bash
@@ -56,7 +60,7 @@ Then, execute the shell script. The shell scripts require two arguments, python 
 source scripts/install_deepchem_conda.sh 3.10 cpu
 ```
 
-#### Getting started
+**Getting started**
 
 To begin to use the package the following jupyter notebook will give you information about all the package's functions:
 
