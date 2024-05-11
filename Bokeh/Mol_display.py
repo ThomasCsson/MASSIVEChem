@@ -8,49 +8,28 @@ from bokeh.plotting import row
 
 input_mol = input('SMILES: ')
 
-functional_groups_smiles = {
-    'Alcohol': 'CO',
-    'Aldehyde': 'CC=O',
-    'Ketone': 'CC(=O)C',
-    'Carboxylic Acid': 'CC(=O)O',
-    'Ester': 'CC(=O)OC',
-    'Ether': 'COC',
-    'Amide': 'CC(=O)N',
-    'Amine': 'CN',
-    'Nitrile': 'C#N',
-    'Chloride': 'CCl',
-    'Bromide': 'CBr',
-    'Fluoride': 'CF',
-    'Iodide': 'CI',
-    'Alkene': 'C=C',
-    'Alkyne': 'C#C',
-    'Imine': 'C=NC',
-    'Amino acid': 'CC(N)C(=O)O',
-    'Thiol': 'CS',
-    'Sulfides': 'CSC',
-    'Acyl Chloride': 'CC(=O)Cl',
-    'Anhydride': 'CC(=O)OC(=O)C',
-    'Nitro': 'C[N+](=O)[O-]',
-    'Enamine': 'C=CN',
-    'Imide': 'C(=O)NC(=O)C',
-    'Azide': 'CNNN',
-    'Enol': 'C=C(O)C',
-    'Hemiacetal': 'CC(O)(O)C',
-    'Carbonate': 'OC(=O)O',
-    'Disulfide': 'CSSC',
-    'Sulfoxide': 'CS(=O)C',
-    'Sulfone': 'CS(=O)(=O)C',
-    'Sulfonic acid': 'CS(=O)(=O)O',
-    'Thioester': 'C(=O)SC',
-    'Phosphine': 'CP',
-    'Phosphate ester': 'COP(=O)(O)O',
-    'Benzene ring': 'C1=CC=CC=C1'
-}
 
 # Function to generate RDKit molecule image and save to file
-def save_molecule_image_to_file(smi, file_path, show_Hs=False, show_3D = False):
+def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    save_molecule_image_to_file(mol_smi)
+    
+    Input: molecule under SMILEs representation
+    
+    Output: image of the molecule in the molecule_image.png file
+
+    Functionnality: - if show_Hs= True:
+                        shows all the hydrogens of the molecule
+                    - if show_3D= True:
+                        shows the molecule in 3D and the chirality
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+
     # Generate the image from the molecule
-    mol = Chem.MolFromSmiles(smi)
+    mol = Chem.MolFromSmiles(mol_smi)
 
     # Adds the hydrogens to the molecule if specified
     if show_Hs:
@@ -65,10 +44,24 @@ def save_molecule_image_to_file(smi, file_path, show_Hs=False, show_3D = False):
     # Save the image to a file
     image.save(file_path)
 
+    
+
 output_file_path = "Bokeh/molecule_image.png"
 save_molecule_image_to_file(input_mol, output_file_path, False, False)
 
 def mol_web_show(image_url):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    mol_web_show(image_url)
+    
+    Input: path of the molecule image
+    
+    Output: image of the molecule in bokeh
+
+    '''
+    #---------------------------------------------------------------------------------------------#
+
 
     # Creating a Bokeh figure to display the molecule
     p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
@@ -80,15 +73,13 @@ def mol_web_show(image_url):
     p.xaxis.visible = False
     p.yaxis.visible = False
 
+    show(p)
+
     return p
 
+image_url = "molecule_image.png"
+
+mol_web_show(image_url)
 
 
-image_url = "Bokeh/molecule_image.png"
-
-show(mol_web_show(image_url))
-
-def final_layout(p1, p2):
-    layout = row(p1,p2)
-    show(layout)
 
