@@ -991,9 +991,6 @@ save_molecule_image_to_file(mol_smi, output_file_path, False, False)
 image_url = "molecule_image.png"
 mol_web_show(image_url)
 
-end_time = time.time()
-
-duration = end_time-start_time
 
 #Harry Plotter
 '''
