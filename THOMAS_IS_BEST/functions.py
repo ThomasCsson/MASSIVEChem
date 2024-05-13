@@ -886,7 +886,7 @@ def double_plot(x_in,y_in):
     # creates a layout that displays the 2 graphs
 
     layout = row(p1, p2)
-
+    print('here')
     return layout
 
 
@@ -950,6 +950,8 @@ def mol_web_show(image_url):
     p.xaxis.visible = False
     p.yaxis.visible = False
 
+    show(p)
+
     return p
 
 
@@ -984,8 +986,7 @@ xvalues, yvalues = peak_merger(xvalues, yvalues, 0.01)
 
 #Keeps two lists but adds zeros on y next to each point on x
 x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
-
-output_file_path = "THOMAS_IS_BEST/molecule_image.png"
+output_file_path = "molecule_image.png"
 save_molecule_image_to_file(mol_smi, output_file_path, False, False)
 
 image_url = "molecule_image.png"
@@ -995,12 +996,10 @@ mol_web_show(image_url)
 #Harry Plotter
 '''
 print(pyplot_plotter(x_axis, y_axis))'''
-print(double_plot(x_axis,y_axis))
+show(double_plot(x_axis, y_axis))
 '''print(functional_group_finder(mol_smi))
 print(f'Computation complete')
 print(f'Process took: {duration} s')'''
 
-print(functional_group_finder(mol_smi))
-print(SMILEs_interpreter('c1ccccc1CCBr'))
 
 
