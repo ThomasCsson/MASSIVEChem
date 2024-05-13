@@ -1,40 +1,20 @@
-# - MASSiveChem package for applied mass spectrometry -
+# -         MASSiveChem       - 
+# - package for applied mass spectrometry -
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
 ## Package description 
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display the spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
 
 Developpers:
-- Thomas Christianson, https://github.com/ThomasCsson
-- Igor Gonteri, https://github.com/igorgonteri
-- Arthur Humery, https://github.com/Arthurhmy
+- Thomas Viking Christianson, second-year bachelor student at EPFL    https://github.com/ThomasCsson
+- Igor Gonteri, second-year bachelor student at EPFL                  https://github.com/igorgonteri
+- Arthur Humery, second-year bachelor student at EPFL                 https://github.com/Arthurhmy
 
 ### What is mass spectrometry ?
    - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their structure and composition.
 
 Let us go through the steps required to use this package.
 
-## Usage
-
-'''Show the most important function and use'''
-
-## Requirments
-The package runs on python 3.10 but supports python 3.7 through 3.10
-In order to run the package correctly, the following packages need to be installed before running any pip-installed functions using the following command
-
-```bash
-pip install matplotlib
-pip install bokeh
-pip install rdkit
-pip install pandas
-pip install plotly
-```
-Specifically, from these packages, the following subpackages are required:
-```bash
-from rdkit import Chem
-from rdkit.Chem import Draw
-import matplotlib.pyplot as plt
-```
 ## Installation
 
 MASSiveChem can be installed using pip as
@@ -54,6 +34,36 @@ Then, execute the shell script. The shell scripts require two arguments, python 
 ```bash
 source scripts/install_deepchem_conda.sh 3.10 cpu
 ```
+
+## Requirments
+The package runs on python 3.10 but supports python 3.8 through 3.10
+The package requires several other packages to function correctly.
+
+```bash
+matplotlib
+bokeh
+rdkit
+pandas
+```
+If everything runs in order during the installation, the preceding packages should install automatically.
+But check that the following packages are correctly installed using 
+
+```bash
+pip show "name of the package"
+```
+
+If not, install them using the following commands, otherwise the package will not work. 
+
+```bash
+pip install matplotlib
+pip install bokeh
+pip install rdkit
+pip install pandas
+```
+
+## Usage
+
+'''Show the most important function and use'''
 
 ## Getting started
 
