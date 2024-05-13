@@ -676,7 +676,7 @@ def functional_group_finder(mol_smi):
                 functional_groups_contained.append(name)
 
     # exceptions for conflicts during the iteration of functional groups
-            
+
     if 'Carboxylic Acid' in functional_groups_contained:
         functional_groups_contained.remove('Alcohol')
     if 'Ester' in functional_groups_contained:
