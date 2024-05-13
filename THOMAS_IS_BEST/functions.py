@@ -986,6 +986,7 @@ xvalues, yvalues = peak_merger(xvalues, yvalues, 0.01)
 
 #Keeps two lists but adds zeros on y next to each point on x
 x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
+
 output_file_path = "molecule_image.png"
 save_molecule_image_to_file(mol_smi, output_file_path, False, False)
 
