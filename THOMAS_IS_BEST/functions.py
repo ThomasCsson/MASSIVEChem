@@ -735,7 +735,7 @@ mol = SMILEs_interpreter(mol_smi)
 mass, abundance, isotopes = data_list_generator()
 
 #Generate a list of the atoms in molecule
-list_atoms_pre = molecule_list_generator(mol) 
+list_atoms_pre = molecule_list_generator(mol)
 
 #Generate the list of atoms left in molecule after ionisation (dependent on method used)
 list_atoms = ionisation_method(list_atoms_pre)
@@ -757,8 +757,12 @@ end_time = time.time()
 duration = end_time-start_time
 
 #Plotter
-print(pyplot_plotter(x_axis, y_axis))
+'''
+print(pyplot_plotter(x_axis, y_axis))'''
 print(bokeh_plotter(x_axis,y_axis))
-print(functional_group_finder(mol_smi))
+'''print(functional_group_finder(mol_smi))
 print(f'Computation complete')
-print(f'Process took: {duration} s')
+print(f'Process took: {duration} s')'''
+
+print(functional_group_finder(mol_smi))
+print(SMILEs_interpreter('c1ccccc1CCBr'))
