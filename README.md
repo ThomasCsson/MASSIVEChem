@@ -3,18 +3,18 @@
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
 ## Package description 
-MASSiveChem is for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry".
-The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display the spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
+MASSiveChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
+The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
 
 Developpers:
-- Thomas Viking Christianson, second-year bachelor student at EPFL    https://github.com/ThomasCsson
-- Igor Gonteri, second-year bachelor student at EPFL                  https://github.com/igorgonteri
-- Arthur Humery, second-year bachelor student at EPFL                 https://github.com/Arthurhmy
+- Thomas Viking Christiansson, student in chemical engineering at EPFL    https://github.com/ThomasCsson
+- Igor Gonteri, student in chemistry at EPFL                             https://github.com/igorgonteri
+- Arthur Humery, student in chemical engineering at EPFL                https://github.com/Arthurhmy
 
 ### What is mass spectrometry ?
-   - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their structure and composition.
+   - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating pre-charged ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their composition.
 
-Let us go through the steps required to use this package.
+now, let us go through the steps required to use this package !
 
 ## Installation
 
