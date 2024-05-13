@@ -1,6 +1,3 @@
-#noter toute les fonctions utilisées !!
-#(c'est le fichier qui contient tout)
-
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
 
