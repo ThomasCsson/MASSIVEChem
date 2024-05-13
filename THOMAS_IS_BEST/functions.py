@@ -749,6 +749,7 @@ def double_plot(x_in,y_in):
     p1 = figure(width=700, title=f'Mass spectrum of molecule')
     p1 = figure(x_axis_label = '[m/z]')
     p1 = figure(y_axis_label = 'Abundance')
+    p1.xaxis.axis_label = "[m/z]"
     p1.height = 500
     p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
     p1.add_tools(WheelPanTool(dimension="height"))
