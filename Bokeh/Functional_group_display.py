@@ -19,49 +19,50 @@ def functional_group_display(groups_list):
     # dictionnary of the images of all functional groups
 
     functional_groups_images = {
-        'Alcohol': 'Functional groups images/Alcohol_image.png',
-        'Aldehyde': 'Functional groups images/Aldehyde_image.png',
-        'Ketone': 'Functional groups images/Ketone_image.png',
-        'Carboxylic Acid': 'Functional groups images/Acid_image.png',
-        'Ester': 'Functional groups images/Ester_image.png',
-        'Ether': 'Functional groups images/Ether_image.png',
-        'Amide': 'Functional groups images/Amide_image.png',
-        'Amine': 'Functional groups images/Amine_image.png',
-        'Nitrile': 'Functional groups images/Nitrile_image.png',
-        'Chloride': 'Functional groups images/Halogen_image.png',
-        'Alkene': 'Functional groups images/Alkene_image.png',
-        'Alkyne': 'Functional groups images/Alkyne_image.png',
-        'Imine': 'Functional groups images/Imine_image.png',
-        'Amino acid': 'Functional groups images/Amino_acid_image.png',
-        'Proline': 'Functional groups images/Proline_image.png',
-        'Thiol': 'Functional groups images/Thiol_image.png',
-        'Sulfides': 'Functional groups images/Sulfides_image.png',
-        'Acyl Chloride': 'Functional groups images/Acyl_chloride_image.png',
-        'Anhydride': 'Functional groups images/Anhydride_image.png',
-        'Nitro': 'Functional groups images/Nitro_image.png',
-        'Enamine': 'Functional groups images/Enamine_image.png',
-        'Enamine2': 'Functional groups images/Enamine2_image.png',
-        'Enamine3': 'Functional groups images/Enamine3_image.png',
-        'Imide': 'Functional groups images/Imide_image.png',
-        'Azide': 'Functional groups images/Azide_image.png',
-        'Enol': 'Functional groups images/Enol_image.png',
-        'Hemiacetal': 'Functional groups images/Hemiacetal_image.png',
-        'Carbonate': 'Functional groups images/Carbonate_image.png',
-        'Carbonate2': 'Functional groups images/Carbonate2_image.png',
-        'Disulfide': 'Functional groups images/Disulfide_image.png',
-        'Sulfoxide': 'Functional groups images/Sulfoxide_image.png',
-        'Sulfone': 'Functional groups images/Sulfone_image.png',
-        'Sulfonic acid': 'Functional groups images/Sulfonic_acid_image.png',
-        'Thioester': 'Functional groups images/Thioester_image.png',
-        'Phosphine': 'Functional groups images/Phosphine_image.png',
-        'Phosphate ester': 'Functional groups images/Phosphate_image.png',
-        'Benzene': 'Functional groups images/Benzene_image.png',
-        'Peroxide': 'Functional groups images/Peroxide_image.png'
+        'Alcohol': '../data/Functional groups images/Alcohol_image.png',
+        'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
+        'Ketone': '../data/Functional groups images/Ketone_image.png',
+        'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
+        'Ester': '../data/Functional groups images/Ester_image.png',
+        'Ether': '../data/Functional groups images/Ether_image.png',
+        'Amide': '../data/Functional groups images/Amide_image.png',
+        'Amine': '../data/Functional groups images/Amine_image.png',
+        'Nitrile': '../data/Functional groups images/Nitrile_image.png',
+        'Chloride': '../data/Functional groups images/Halogen_image.png',
+        'Alkene': '../data/Functional groups images/Alkene_image.png',
+        'Alkyne': '../data/Functional groups images/Alkyne_image.png',
+        'Imine': '../data/Functional groups images/Imine_image.png',
+        'Amino acid': '../data/Functional groups images/Amino_acid_image.png',
+        'Proline': '../data/Functional groups images/Proline_image.png',
+        'Thiol': '../data/Functional groups images/Thiol_image.png',
+        'Sulfides': '../data/Functional groups images/Sulfides_image.png',
+        'Acyl Chloride': '../data/Functional groups images/Acyl_chloride_image.png',
+        'Anhydride': '../data/Functional groups images/Anhydride_image.png',
+        'Nitro': '../data/Functional groups images/Nitro_image.png',
+        'Enamine': '../data/Functional groups images/Enamine_image.png',
+        'Enamine2': '../data/Functional groups images/Enamine2_image.png',
+        'Enamine3': '../data/Functional groups images/Enamine3_image.png',
+        'Imide': '../data/Functional groups images/Imide_image.png',
+        'Azide': '../data/Functional groups images/Azide_image.png',
+        'Enol': '../data/Functional groups images/Enol_image.png',
+        'Hemiacetal': '../data/Functional groups images/Hemiacetal_image.png',
+        'Carbonate': '../data/Functional groups images/Carbonate_image.png',
+        'Carbonate2': '../data/Functional groups images/Carbonate2_image.png',
+        'Disulfide': '../data/Functional groups images/Disulfide_image.png',
+        'Sulfoxide': '../data/Functional groups images/Sulfoxide_image.png',
+        'Sulfone': '../data/Functional groups images/Sulfone_image.png',
+        'Sulfonic acid': '../data/Functional groups images/Sulfonic_acid_image.png',
+        'Thioester': '../data/Functional groups images/Thioester_image.png',
+        'Phosphine': '../data/Functional groups images/Phosphine_image.png',
+        'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
+        'Benzene': '../data/Functional groups images/Benzene_image.png',
+        'Peroxide': '../data/Functional groups images/Peroxide_image.png'
 }
     
     # creates a dictionnary of the present groups and associated images of the molecule
 
     present_group_images = []
+
     for x in groups_list:
         present_group_images.append(functional_groups_images[x])
     data = dict(
@@ -94,7 +95,7 @@ def functional_group_display(groups_list):
 
 
 
-groups = ['Proline', 'Benzene', 'Aldehyde','Carboxylic Acid','Phosphine']  # Example with more than 3 groups
+groups = ['Alcohol', 'Benzene', 'Aldehyde','Carboxylic Acid','Phosphine']  
 
 
 show(functional_group_display(groups))
