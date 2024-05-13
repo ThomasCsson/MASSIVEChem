@@ -1,4 +1,5 @@
-# -         MASSiveChem       - \n - package for applied mass spectrometry -
+# -         MASSiveChem       - 
+ - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
 ## Package description 
