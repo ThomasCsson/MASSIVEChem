@@ -383,7 +383,7 @@ def delta_function_plotter(x_in, y_in):
         y_axis.append(y_in[i])
         y_axis.append(0)
 
-    x_axis.append(max_x+0.5)
+    x_axis.append(max_x+1)
     y_axis.append(0)
 
     return x_axis, y_axis
@@ -816,8 +816,6 @@ def functional_group_display(groups_list):
 
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
-    show(data_table)
-
     return data_table
 
 
@@ -888,7 +886,6 @@ def double_plot(x_in,y_in):
     # creates a layout that displays the 2 graphs
 
     layout = row(p1, p2)
-    show(layout)
 
     return layout
 
@@ -952,8 +949,6 @@ def mol_web_show(image_url):
     p.ygrid.grid_line_color = None
     p.xaxis.visible = False
     p.yaxis.visible = False
-
-    show(p)
 
     return p
 
