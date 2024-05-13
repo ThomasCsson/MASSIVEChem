@@ -19,6 +19,7 @@ from bokeh.layouts import row
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
+from bokeh.layouts import column
 
 def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
 
@@ -85,6 +86,8 @@ def mol_web_show(image_url):
 
     show(p)
 
+    return p
+
     
 
 mol_smi = input('SMI  ')
@@ -97,3 +100,10 @@ save_molecule_image_to_file(mol_smi, output_file_path, show_Hs=False, show_3D=Fa
 
 # Display the molecule image using Bokeh
 mol_web_show(output_file_path)
+
+
+
+
+def all_in_one(p1,p2):
+    layout = column(p1,p2)
+    return layout
