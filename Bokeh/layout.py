@@ -104,6 +104,7 @@ mol_web_show(output_file_path)
 
 
 
-def all_in_one(p1,p2):
-    layout = column(p1,p2)
+def all_in_one(p1,p2,p3):
+    layout1 = row(p2, p3)
+    layout = column(p1, layout1)
     return layout
