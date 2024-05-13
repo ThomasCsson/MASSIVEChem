@@ -995,7 +995,7 @@ end_time = time.time()
 
 duration = end_time-start_time
 
-#Plotter
+#Harry Plotter
 '''
 print(pyplot_plotter(x_axis, y_axis))'''
 print(double_plot(x_axis,y_axis))
