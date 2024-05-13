@@ -188,8 +188,8 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
             maximum_2 = y_axis_final[i]
     index = y_axis_final.index(maximum_2)
 
-    
-    
+
+ 
 
     if has_N:
         x_axis_final.append(x_axis_final[index] - 0.006)  
@@ -199,7 +199,7 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
         x_axis_final.append(x_axis_final[index]-0.004)  
         y_axis_final.append(0.008*count_S*maximum)  
 
-    
+
 
     x_in, y_in = x_axis_final, y_axis_final
     
@@ -334,17 +334,219 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     image_url = file_path
     # Creating a Bokeh figure to display the molecule
     p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
+    p.image_url(url=[file_path], x=0, y=1, w=1, h=1)
 
     # Hide grid lines and axes
     p.xgrid.grid_line_color = None
     p.ygrid.grid_line_color = None
     p.xaxis.visible = False
     p.yaxis.visible = False
+    #---------------------------------------------------------------------------------------------#
+    '''
+    functional_group_finder(mol_smi)
+    
+    Input: molecule under SMILEs representation
+    
+    Output: list containing every functionl group contained (if a functional group is contained twice in the molecule, it will appear twice in this list)
+    '''
+    #---------------------------------------------------------------------------------------------#
 
-    final = column(layout, p)
+    # initiate variables
+    functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
+
+    # dictionnary of all the considered functional groups to check (some might be missing)
+
+    functional_groups_smarts = {
+        'Alcohol': 'C[Oh1+0]',
+        'Aldehyde': 'C[Ch1]=O',
+        'Ketone': 'CC(=O)C',
+        'Carboxylic Acid': 'CC(=O)[Oh1]',
+        'Ester': 'CC(=O)[Oh0]',
+        'Ether': '*[Oh0]*',
+        'Amide': 'C(=O)N',
+        'Amine': '[C][Nh2]',
+        'Nitrile': 'C#N',
+        'Chloride': 'Cl',
+        'Bromide': 'Br',
+        'Fluoride': 'F',
+        'Iodide': 'I',
+        'Alkene': 'C=C',
+        'Alkyne': 'C#C',
+        'Imine': 'C=N*',
+        'Amino acid': '[Nh2][Ch1*]C(=O)O',
+        'Proline': '[Nh1][Ch1*]C(=O)O',
+        'Thiol': '[Sh1]',
+        'Sulfide': '*[Sh0]*',
+        'Acyl Chloride': 'CC(=O)Cl',
+        'Anhydride': '*[Ch0](=O)O[Ch0](=O)*',
+        'Nitro': 'C[N+](=O)[O-]',
+        'Enamine': 'C=C[Nh0]',
+        'Enamine2': 'C=C[Nh1]',
+        'Enamine3': 'C=C[Nh2]',
+        'Imide': 'C(=O)NC(=O)*',
+        'Azide': 'CNNN',
+        'Enol': 'C=C([Oh1])C',
+        'Hemiacetal': 'CC(O)(O)C',
+        'Carbonate': '[Oh0]C(=O)[Oh0]',
+        'Carbonate2': '[Oh1]C(=O)[Oh1]',
+        'Disulfide': 'CSSC',
+        'Sulfoxide': 'CS(=O)C',
+        'Sulfone': '*[So2](=O)(=O)*',
+        'Sulfonic acid': '*S(=O)(=O)[Oh1]',
+        'Thioester': 'C(=O)S*',
+        'Phosphine': '*[Po0](*)*',
+        'Phosphate': '*OP(=O)(O)O',
+        'Benzene': 'c1ccccc1',
+        'Peroxide':'C[Oh0][Oh0]C'
+    }
+
+    # check that the substructure from functional_groups_smarts are contained in mol_smi
+
+    for name, smarts in functional_groups_smarts.items():
+        if mol_in.HasSubstructMatch(Chem.MolFromSmarts(smarts)):
+            for _ in range(len(mol_in.GetSubstructMatches(Chem.MolFromSmarts(smarts)))):
+                functional_groups_contained.append(name)
+
+    # exceptions for conflicts during the iteration of functional groups
+
+    if 'Carboxylic Acid' in functional_groups_contained:
+        functional_groups_contained.remove('Alcohol')
+    if 'Ester' in functional_groups_contained:
+        functional_groups_contained.remove('Ether')
+    if 'Phosphate' in functional_groups_contained:
+        functional_groups_contained.remove('Ether')
+    if 'Thioester' in functional_groups_contained:
+        functional_groups_contained.remove('Sulfide')
+    if 'Sulfonic acid' in functional_groups_contained:
+        functional_groups_contained.remove('Sulfide')
+    if 'Sulfoxide' in functional_groups_contained:
+        functional_groups_contained.remove('Sulfide')
+    if 'Acyl Chloride' in functional_groups_contained:
+        functional_groups_contained.remove('Chloride')
+    if 'Anhydride' in functional_groups_contained:
+        functional_groups_contained.remove('Ester')
+        functional_groups_contained.remove('Ester')
+    if 'Enamine2' in functional_groups_contained:
+        functional_groups_contained.remove('Enamine2')
+        functional_groups_contained.append('Enamine')
+    if 'Enamine3' in functional_groups_contained:
+        functional_groups_contained.remove('Enamine3')
+        functional_groups_contained.remove('Amine')
+        functional_groups_contained.append('Enamine')
+    if 'Imide' in functional_groups_contained:
+        functional_groups_contained.remove('Amide')
+        functional_groups_contained.remove('Amide')
+    if 'Enol' in functional_groups_contained:
+        functional_groups_contained.remove('Alkene')
+        functional_groups_contained.remove('Alcohol')
+    if 'Hemiacetal' in functional_groups_contained:
+        functional_groups_contained.remove('Alcohol')
+        functional_groups_contained.remove('Alcohol')
+    if 'Carbonate2' in functional_groups_contained:
+        functional_groups_contained.remove('Alcohol')
+        functional_groups_contained.remove('Alcohol')
+        functional_groups_contained.remove('Carbonate2')
+        functional_groups_contained.append('Carbonate')
+    if 'Disulfide' in functional_groups_contained:
+        functional_groups_contained.remove('Sulfide')
+        functional_groups_contained.remove('Sulfide')
+    if 'Amine2' in functional_groups_contained:
+        functional_groups_contained.remove('Amine2')
+        functional_groups_contained.append('Amine')
+    if 'Peroxide' in functional_groups_contained:
+        functional_groups_contained.remove('Ether')
+        functional_groups_contained.remove('Ether')
+    
+    #---------------------------------------------------------------------------------------------#
+    '''
+    functional_group_display(groups_list)
+    
+    Input: list of the groups present in the molecule
+    
+    Output: Bokeh table with the names of the present functional groups as well as an image of each present functional group
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # dictionnary of the images of all functional groups
+
+    functional_groups_images = {
+        'Alcohol': '../data/Functional groups images/Alcohol_image.png',
+        'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
+        'Ketone': '../data/Functional groups images/Ketone_image.png',
+        'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
+        'Ester': '../data/Functional groups images/Ester_image.png',
+        'Ether': '../data/Functional groups images/Ether_image.png',
+        'Amide': '../data/Functional groups images/Amide_image.png',
+        'Amine': '../data/Functional groups images/Amine_image.png',
+        'Nitrile': '../data/Functional groups images/Nitrile_image.png',
+        'Chloride': '../data/Functional groups images/Halogen_image.png',
+        'Alkene': '../data/Functional groups images/Alkene_image.png',
+        'Alkyne': '../data/Functional groups images/Alkyne_image.png',
+        'Imine': '../data/Functional groups images/Imine_image.png',
+        'Amino acid': '../data/Functional groups images/Amino_acid_image.png',
+        'Proline': '../data/Functional groups images/Proline_image.png',
+        'Thiol': '../data/Functional groups images/Thiol_image.png',
+        'Sulfides': '../data/Functional groups images/Sulfides_image.png',
+        'Acyl Chloride': '../data/Functional groups images/Acyl_chloride_image.png',
+        'Anhydride': '../data/Functional groups images/Anhydride_image.png',
+        'Nitro': '../data/Functional groups images/Nitro_image.png',
+        'Enamine': '../data/Functional groups images/Enamine_image.png',
+        'Enamine2': '../data/Functional groups images/Enamine2_image.png',
+        'Enamine3': '../data/Functional groups images/Enamine3_image.png',
+        'Imide': '../data/Functional groups images/Imide_image.png',
+        'Azide': '../data/Functional groups images/Azide_image.png',
+        'Enol': '../data/Functional groups images/Enol_image.png',
+        'Hemiacetal': '../data/Functional groups images/Hemiacetal_image.png',
+        'Carbonate': '../data/Functional groups images/Carbonate_image.png',
+        'Carbonate2': '../data/Functional groups images/Carbonate2_image.png',
+        'Disulfide': '../data/Functional groups images/Disulfide_image.png',
+        'Sulfoxide': '../data/Functional groups images/Sulfoxide_image.png',
+        'Sulfone': '../data/Functional groups images/Sulfone_image.png',
+        'Sulfonic acid': '../data/Functional groups images/Sulfonic_acid_image.png',
+        'Thioester': '../data/Functional groups images/Thioester_image.png',
+        'Phosphine': '../data/Functional groups images/Phosphine_image.png',
+        'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
+        'Benzene': '../data/Functional groups images/Benzene_image.png',
+        'Peroxide': '../data/Functional groups images/Peroxide_image.png'
+}
+    
+    # creates a dictionnary of the present groups and associated images of the molecule
+
+    present_group_images = []
+    groups_list = functional_groups_contained
+    for x in groups_list:
+        present_group_images.append(functional_groups_images[x])
+    data = dict(
+        groups=groups_list,
+        images=[f'<img src="{group_image}" style="width:50px;height:50px;">' for group_image in present_group_images]
+    )
+    source = ColumnDataSource(data)
+
+    #template for the bokeh table
+
+    template = """
+    <div>
+    <%= value %>
+    </div>
+    """
+
+    # initiallizing the bokeh figure using the previous template for each functional group
+
+    columns = [
+        TableColumn(field="groups", title="Functional Groups"),
+        TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))
+    ]
+    num_groups = len(groups_list)
+
+    table_height = min(200 + num_groups * 60, 800)
+
+    data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
+
+    
+    last = row(p, data_table)
+    final = column(layout, last)
     return final
 
 
-show(big_function('CCBr', True, 0.01))
+show(big_function('CCO', True, 0.01))
 
