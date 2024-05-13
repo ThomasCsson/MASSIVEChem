@@ -558,7 +558,7 @@ def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = Fal
 
 
 
-def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
+def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     df = pd.read_csv('data/abundance.txt'
                     , sep='\t'
