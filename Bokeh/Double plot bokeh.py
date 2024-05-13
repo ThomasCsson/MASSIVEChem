@@ -6,11 +6,27 @@ from bokeh.models import WheelPanTool, WheelZoomTool
 from bokeh.models.tickers import FixedTicker
 
 def double_plot(x_in,y_in):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    double_plot(x_in,y_in)
+    
+    Input: list of masses (x_in) and intensities (y_in)
+    
+    Output: 2 Bokeh graphs:
+            - One that shows the mass spectrum of the molecule to which the user can interact
+            -Another that is the same graph but shows where the user is zooming on the first graph
+
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # tells where to put the graduation on the graph
 
     ticked_peaks = []
     for i in range(len(x_in)):
         if y_in[i] > 0.0001:
             ticked_peaks.append(x_in[i])
+
+    #creates the principal graph, mass spectrum of the molecule (interactive)
 
     p1 = figure(width=700, title=f'Mass spectrum of molecule')
     p1 = figure(x_axis_label = '[m/z]')
@@ -22,14 +38,18 @@ def double_plot(x_in,y_in):
     p1.line(x_in, y_in, line_width=1)
     p1.xaxis.major_label_orientation = "vertical"
 
+     #creates the secondary graph, mass spectrum of the molecule (non-interactive)
+
     p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
     p2 = figure(width=300, title=f'Mass spectrum of molecule')
     p2 = figure(toolbar_location=None)
     p2.height = 300
     p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
 
+    #creates a tool in order that the second graph shows where the zoom is on the first one
+
     box = BoxAnnotation(left=0, right=0, bottom=0, top=0,
-    fill_alpha=0.1, line_color='black', fill_color='black')
+    fill_alpha=0.1, line_color='green', fill_color='green')
 
     jscode = """
         box[%r] = cb_obj.start
@@ -44,7 +64,11 @@ def double_plot(x_in,y_in):
     p1.y_range.js_on_change('start', ycb)
     p1.y_range.js_on_change('end', ycb)
 
+    # adds the functionnality to the second figure
+
     p2.add_layout(box)
+
+    # creates a layout that displays the 2 graphs
 
     layout = row(p1, p2)
     show(layout)
