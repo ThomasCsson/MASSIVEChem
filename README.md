@@ -5,9 +5,9 @@
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display the spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
 
 Developpers:
-- Thomas Christianson, genius coder and CTO of SwissChemInfoTech, https://github.com/ThomasCsson
-- Igor Gonteri, brilliant back-end developper and founder of AppliedOrbitals.Org, https://github.com/igorgonteri
-- Arthur Humery, leading expert amongst the new generation of Computational Chemical Programmers and CEO of the United Kingdom of Great Britain and Northern Ireland, https://github.com/Arthurhmy
+- Thomas Christianson, https://github.com/ThomasCsson
+- Igor Gonteri, https://github.com/igorgonteri
+- Arthur Humery, https://github.com/Arthurhmy
 
 ### What is mass spectrometry ?
    - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their structure and composition.
@@ -26,7 +26,6 @@ In order to run the package correctly, the following packages need to be install
 pip install matplotlib
 pip install bokeh
 pip install rdkit
-pip install numpy
 pip install pandas
 pip install plotly
 ```
@@ -38,13 +37,9 @@ import matplotlib.pyplot as plt
 ```
 ## Installation
 
-Cheminterface can be installed using pip or conda as
+MASSiveChem can be installed using pip as
 ```bash
 pip install MASSiveChem
-```
-or
-```bash
-conda install -c conda-forge MASSiveChem
 ```
 The package can also be installed from source by running the following commands
 
