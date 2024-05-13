@@ -22,10 +22,8 @@ def calculate_insaturation(mol_smile):
     # Using the RDKit library, it creates a representation of the molecule, adds hydrogens and then calculates the unsaturation level of the molecule. 
     #The level of unsaturation is determined by counting the number of carbon, nitrogen and halogen atoms, then applying a specific formula. 
     #Finally, the function displays the unsaturation level and the image of the molecule, and indicates the time required to perform the function.
-    start = time.time()
     mol_1 = Chem.MolFromSmiles(mol_smile)
     mol = Chem.AddHs(mol_1)
-
     C, N, HX = 0, 0, 0
     halogens_hydrogen = ['F', 'Cl', 'Br', 'I', 'At', 'H']
     for atom in mol.GetAtoms():
@@ -39,9 +37,8 @@ def calculate_insaturation(mol_smile):
 
     insaturation = C + 1 + (N - HX) / 2
 
-    end = time.time()
+
     print(f'The insaturation of the given molecule is {insaturation}')
-    print(f'This program took {end - start} seconds to complete')
     img = Draw.MolToImage(mol_1)
     img.show()
 
