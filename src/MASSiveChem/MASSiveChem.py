@@ -76,7 +76,7 @@ def data_list_generator():
     mass = df['Mass'].tolist()
 
 
-    #change from elements (not sure) to floats
+    #change from elements to floats
 
     mass = [float(m) for m in mass]
 
@@ -86,7 +86,7 @@ def data_list_generator():
     abundance_percent = df['Percentage'].tolist()
 
 
-    #change from elements (not sure) to floats
+    #change from elements to floats
 
     abundance_percent = [float(ap) for ap in abundance_percent]
 
@@ -176,7 +176,8 @@ def main_function (list_atoms, imprecision_True_False):
     (the mass in list 1 at index i is associated to the probability at index i in list 2)
     '''
     #---------------------------------------------------------------------------------------------#
-    render_imprecise_list = imprecision_True_False #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
+    render_imprecise_list = imprecision_True_False 
+    #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
     #Generate the data from data/abundance.txt
     mass, abundance, isotopes = data_list_generator()
     #check for sulphur and nitrogen
@@ -259,7 +260,6 @@ def main_function (list_atoms, imprecision_True_False):
     x_axis, y_axis = [],[]
     x_axis_final, y_axis_final = [],[]
     for j in range (len(list_output)):
-        '''x_axis.append(list_output[j][0])'''
         x_axis.append(round(list_output[j][0],3)) # Adds rounded value (should help with Python-limitations that render a diff of magnitude 10^(-7) to combinatorics
         
         y_axis.append(list_output[j][1]) #Adds the true value
@@ -286,9 +286,6 @@ def main_function (list_atoms, imprecision_True_False):
         if y_axis_final[i]>maximum_2 and y_axis_final[i]< maximum:
             maximum_2 = y_axis_final[i]
     index = y_axis_final.index(maximum_2)
-
-    
-    
 
     if has_N:
         x_axis_final.append(x_axis_final[index] - 0.006)  
