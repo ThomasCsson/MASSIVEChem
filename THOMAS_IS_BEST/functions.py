@@ -15,7 +15,7 @@ from plotly.subplots import make_subplots
 
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
-from bokeh.layouts import row
+from bokeh.layouts import row, column
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
@@ -754,6 +754,9 @@ def functional_group_display(groups_list):
         'Amine': '../data/Functional groups images/Amine_image.png',
         'Nitrile': '../data/Functional groups images/Nitrile_image.png',
         'Chloride': '../data/Functional groups images/Halogen_image.png',
+        'Bromide': '../data/Functional groups images/Bromide_image.png',
+        'Fluoride': '../data/Functional groups images/Halogen_image.png',
+        'Iodide': '../data/Functional groups images/Halogen_image.png',
         'Alkene': '../data/Functional groups images/Alkene_image.png',
         'Alkyne': '../data/Functional groups images/Alkyne_image.png',
         'Imine': '../data/Functional groups images/Imine_image.png',
@@ -954,6 +957,11 @@ def mol_web_show(image_url):
 
     return p
 
+def all_in_one(p1,p2,p3):
+    layout1 = row(p2, p3)
+    layout = column(p1, layout1)
+    return layout
+
 
 
 #Actually makes code run
@@ -987,11 +995,11 @@ xvalues, yvalues = peak_merger(xvalues, yvalues, 0.01)
 #Keeps two lists but adds zeros on y next to each point on x
 x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
 
-output_file_path = "molecule_image.png"
+output_file_path = "THOMAS_IS_BEST/molecule_image.png"
 save_molecule_image_to_file(mol_smi, output_file_path, False, False)
 
-image_url = "molecule_image.png"
-mol_web_show(image_url)
+image_url =output_file_path
+mol_web_show(output_file_path)
 
 
 #Harry Plotter
