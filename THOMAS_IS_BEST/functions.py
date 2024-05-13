@@ -147,7 +147,7 @@ def ionisation_method (list_atoms):
 
 
 
-def main_function (list_atoms, imprecision_True_False):
+def main_function (list_atoms, imprecision_True_False) -> list [float]:
     #---------------------------------------------------------------------------------------------#
     '''
     main_function(list_atoms)
