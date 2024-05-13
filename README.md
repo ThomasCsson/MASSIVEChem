@@ -44,14 +44,14 @@ bokeh
 rdkit
 pandas
 ```
-
-After installing the package, check that the following packages are correctly installed using 
+If everything runs in order during the installation, the preceding packages should install automatically.
+But check that the following packages are correctly installed using 
 
 ```bash
 pip show "name of the package"
 ```
 
-If not, install them using the following commands  
+If not, install them using the following commands, otherwise the package will not work. 
 
 ```bash
 pip install matplotlib
