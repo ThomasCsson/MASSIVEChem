@@ -5,9 +5,9 @@
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display the spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
 
 Developpers:
-- Thomas Christianson, second-year bachelor student at EPFL https://github.com/ThomasCsson
-- Igor Gonteri, second-year bachelor student at EPFL https://github.com/igorgonteri
-- Arthur Humery, second-year bachelor student at EPFL https://github.com/Arthurhmy
+- Thomas Viking Christianson, second-year bachelor student at EPFL    https://github.com/ThomasCsson
+- Igor Gonteri, second-year bachelor student at EPFL                  https://github.com/igorgonteri
+- Arthur Humery, second-year bachelor student at EPFL                 https://github.com/Arthurhmy
 
 ### What is mass spectrometry ?
    - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their structure and composition.
@@ -35,7 +35,7 @@ source scripts/install_deepchem_conda.sh 3.10 cpu
 ```
 
 ## Requirments
-The package runs on python 3.10 but supports python 3.7 through 3.10
+The package runs on python 3.10 but supports python 3.8 through 3.10
 The package requires several other packages to function correctly.
 
 ```bash
