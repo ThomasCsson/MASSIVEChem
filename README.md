@@ -26,7 +26,6 @@ In order to run the package correctly, the following packages need to be install
 pip install matplotlib
 pip install bokeh
 pip install rdkit
-pip install numpy
 pip install pandas
 pip install plotly
 ```
@@ -38,13 +37,9 @@ import matplotlib.pyplot as plt
 ```
 ## Installation
 
-Cheminterface can be installed using pip or conda as
+MASSiveChem can be installed using pip as
 ```bash
 pip install MASSiveChem
-```
-or
-```bash
-conda install -c conda-forge MASSiveChem
 ```
 The package can also be installed from source by running the following commands
 
