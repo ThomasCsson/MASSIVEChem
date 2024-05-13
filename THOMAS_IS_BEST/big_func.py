@@ -15,7 +15,7 @@ from plotly.subplots import make_subplots
 
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
-from bokeh.layouts import row
+from bokeh.layouts import row, column
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
@@ -307,7 +307,44 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
     layout = row(p1, p2)
 
-    return layout
+    
 
-show(big_function('CCCCBr', True, 0.01))
+    show_Hs= False
+    show_3D = False
+    # Generate the image from the molecule
+    mol = Chem.MolFromSmiles(mol_smi)
+    file_path = 'molecule_image.png'
+    # Adds the hydrogens to the molecule if specified
+    if show_Hs:
+        mol = Chem.AddHs(mol)
+
+    # Show the molecule in 3D if specified
+    if show_3D:
+        mol = AllChem.EmbedMolecule(mol)
+
+    image = Draw.MolToImage(mol)
+
+    # Save the image to a file
+    image.save(file_path)
+
+
+
+
+
+    image_url = file_path
+    # Creating a Bokeh figure to display the molecule
+    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+    p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
+
+    # Hide grid lines and axes
+    p.xgrid.grid_line_color = None
+    p.ygrid.grid_line_color = None
+    p.xaxis.visible = False
+    p.yaxis.visible = False
+
+    final = column(layout, p)
+    return final
+
+
+show(big_function('CCBr', True, 0.01))
 
