@@ -768,7 +768,7 @@ def double_plot(x_in,y_in):
     #creates a tool in order that the second graph shows where the zoom is on the first one
 
     box = BoxAnnotation(left=0, right=0, bottom=0, top=0,
-    fill_alpha=0.1, line_color='red', fill_color='grey')
+    fill_alpha=0.1, line_color='red', fill_color='cornflowerblue')
 
     jscode = """
         box[%r] = cb_obj.start
