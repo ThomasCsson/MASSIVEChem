@@ -3,6 +3,7 @@
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
 ## Package description 
+MASSiveChem is for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry".
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display the spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
 
 Developpers:

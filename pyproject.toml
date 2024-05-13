@@ -11,7 +11,7 @@ requires-python = ">=3.8"
 license = "MIT"
 keywords = ["unsaturation", "Mass spectroscopy"]
 authors = [
-  { name = "Thomas Christianson", email = "thomas.christiansson@epfl.ch" },
+  { name = "Thomas Viking Christiansson", email = "thomas.christiansson@epfl.ch" },
   { name = "Igor Gonteri", email = "igor.gonteri@epfl.ch" },
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch" }
 ]
@@ -32,6 +32,6 @@ classifiers = [
 Homepage = "https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git"
 
 [developers.urls]
-Christianson Thomas Viking = "https://github.com/ThomasCsson"
+Christiansson Thomas Viking = "https://github.com/ThomasCsson"
 Gonteri Igor = "https://github.com/igorgonteri"
 Humery Arthur = "https://github.com/Arthurhmy"
