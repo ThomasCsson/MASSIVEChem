@@ -11,7 +11,6 @@ from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
 
-
 def calculate_insaturation(mol_smile):
     # This function takes as input a string representing the SMILES notation of a molecule. 
     # Using the RDKit library, it creates a representation of the molecule, adds hydrogens and then calculates the unsaturation level of the molecule. 
