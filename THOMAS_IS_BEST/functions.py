@@ -1,7 +1,7 @@
 #Imports
 
 from rdkit import Chem
-from rdkit.Chem import Draw
+from rdkit.Chem import Draw, AllChem
 
 import time
 import pandas as pd
@@ -13,12 +13,13 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from bokeh.plotting import figure, show
+from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import row
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
+
 
 
 
@@ -373,7 +374,7 @@ def delta_function_plotter(x_in, y_in):
 
     min_x , max_x = min(x_in), max(x_in)
 
-    x_axis, y_axis = [min_x-1],[0]
+    x_axis, y_axis = [min_x-0.5],[0]
     for i in range (len(x_in)):
         x_axis.append(x_in[i]-10**(-10))
         x_axis.append(x_in[i])
@@ -382,7 +383,7 @@ def delta_function_plotter(x_in, y_in):
         y_axis.append(y_in[i])
         y_axis.append(0)
 
-    x_axis.append(max_x+1)
+    x_axis.append(max_x+0.5)
     y_axis.append(0)
 
     return x_axis, y_axis
@@ -727,78 +728,9 @@ def functional_group_finder(mol_smi):
     return functional_groups_contained
 
 
-def double_plot(x_in,y_in):
-    #---------------------------------------------------------------------------------------------#
-    '''
-    double_plot(x_in,y_in)
-    
-    Input: list of masses (x_in) and intensities (y_in)
-    
-    Output: 2 Bokeh graphs:
-            - One that shows the mass spectrum of the molecule to which the user can interact
-            -Another that is the same graph but shows where the user is zooming on the first graph
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-    # tells where to put the graduation on the graph
-
-    ticked_peaks = []
-    for i in range(len(x_in)):
-        if y_in[i] > 0.0001:
-            ticked_peaks.append(x_in[i])
-
-    #creates the principal graph, mass spectrum of the molecule (interactive)
-
-    p1 = figure(width=700, title=f'Mass spectrum of molecule')
-    p1 = figure(x_axis_label = '[m/z]')
-    p1 = figure(y_axis_label = 'Abundance')
-    p1.xaxis.axis_label = "[m/z]"
-    p1.height = 500
-    p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
-    p1.add_tools(WheelPanTool(dimension="height"))
-    p1.add_tools(WheelZoomTool(dimensions="height"))
-    p1.line(x_in, y_in, line_width=1)
-    p1.xaxis.major_label_orientation = "horizontal"
-
-     #creates the secondary graph, mass spectrum of the molecule (non-interactive)
-
-    p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
-    p2 = figure(width=300, title=f'Mass spectrum of molecule')
-    p2 = figure(toolbar_location=None)
-    p2.height = 300
-    p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
-
-    #creates a tool in order that the second graph shows where the zoom is on the first one
-
-    box = BoxAnnotation(left=0, right=0, bottom=0, top=0,
-    fill_alpha=0.1, line_color='red', fill_color='cornflowerblue')
-
-    jscode = """
-        box[%r] = cb_obj.start
-        box[%r] = cb_obj.end
-    """
-
-    xcb = CustomJS(args=dict(box=box), code=jscode % ('left', 'right'))
-    ycb = CustomJS(args=dict(box=box), code=jscode % ('bottom', 'top'))
-
-    p1.x_range.js_on_change('start', xcb)
-    p1.x_range.js_on_change('end', xcb)
-    p1.y_range.js_on_change('start', ycb)
-    p1.y_range.js_on_change('end', ycb)
-
-    # adds the functionnality to the second figure
-
-    p2.add_layout(box)
-
-    # creates a layout that displays the 2 graphs
-
-    layout = row(p1, p2)
-    show(layout)
-
-    return layout
-
 
 def functional_group_display(groups_list):
+
     #---------------------------------------------------------------------------------------------#
     '''
     functional_group_display(groups_list)
@@ -884,10 +816,146 @@ def functional_group_display(groups_list):
 
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
+    show(data_table)
+
     return data_table
 
 
+def double_plot(x_in,y_in):
 
+    #---------------------------------------------------------------------------------------------#
+    '''
+    double_plot(x_in,y_in)
+    
+    Input: list of masses (x_in) and intensities (y_in)
+    
+    Output: 2 Bokeh graphs:
+            - One that shows the mass spectrum of the molecule to which the user can interact
+            -Another that is the same graph but shows where the user is zooming on the first graph
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # tells where to put the graduation on the graph
+
+    ticked_peaks = []
+    for i in range(len(x_in)):
+        if y_in[i] > 0.0001:
+            ticked_peaks.append(x_in[i])
+
+    #creates the principal graph, mass spectrum of the molecule (interactive)
+
+    p1 = figure(width=700, title=f'Mass spectrum of molecule')
+    p1 = figure(x_axis_label = '[m/z]')
+    p1 = figure(y_axis_label = 'Abundance')
+    p1.xaxis.axis_label = "[m/z]"
+    p1.height = 500
+    p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
+    p1.add_tools(WheelPanTool(dimension="height"))
+    p1.add_tools(WheelZoomTool(dimensions="height"))
+    p1.line(x_in, y_in, line_width=1)
+    p1.xaxis.major_label_orientation = "horizontal"
+
+     #creates the secondary graph, mass spectrum of the molecule (non-interactive)
+
+    p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
+    p2 = figure(width=300, title=f'Mass spectrum of molecule')
+    p2 = figure(toolbar_location=None)
+    p2.height = 300
+    p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
+
+    #creates a tool in order that the second graph shows where the zoom is on the first one
+
+    box = BoxAnnotation(left=0, right=0, bottom=0, top=0,
+    fill_alpha=0.1, line_color='red', fill_color='cornflowerblue')
+
+    jscode = """
+        box[%r] = cb_obj.start
+        box[%r] = cb_obj.end
+    """
+
+    xcb = CustomJS(args=dict(box=box), code=jscode % ('left', 'right'))
+    ycb = CustomJS(args=dict(box=box), code=jscode % ('bottom', 'top'))
+
+    p1.x_range.js_on_change('start', xcb)
+    p1.x_range.js_on_change('end', xcb)
+    p1.y_range.js_on_change('start', ycb)
+    p1.y_range.js_on_change('end', ycb)
+
+    # adds the functionnality to the second figure
+
+    p2.add_layout(box)
+
+    # creates a layout that displays the 2 graphs
+
+    layout = row(p1, p2)
+    show(layout)
+
+    return layout
+
+
+def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    save_molecule_image_to_file(mol_smi)
+    
+    Input: molecule under SMILEs representation
+    
+    Output: image of the molecule in the molecule_image.png file
+
+    Functionnality: - if show_Hs= True:
+                        shows all the hydrogens of the molecule
+                    - if show_3D= True:
+                        shows the molecule in 3D and the chirality
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+
+    # Generate the image from the molecule
+    mol = Chem.MolFromSmiles(mol_smi)
+
+    # Adds the hydrogens to the molecule if specified
+    if show_Hs:
+        mol = Chem.AddHs(mol)
+
+    # Show the molecule in 3D if specified
+    if show_3D:
+        mol = AllChem.EmbedMolecule(mol)
+
+    image = Draw.MolToImage(mol)
+
+    # Save the image to a file
+    image.save(file_path)
+
+
+
+def mol_web_show(image_url):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    mol_web_show(image_url)
+    
+    Input: path of the molecule image
+    
+    Output: image of the molecule in bokeh
+
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+
+    # Creating a Bokeh figure to display the molecule
+    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+    p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
+
+    # Hide grid lines and axes
+    p.xgrid.grid_line_color = None
+    p.ygrid.grid_line_color = None
+    p.xaxis.visible = False
+    p.yaxis.visible = False
+
+    show(p)
+
+    return p
 
 
 
@@ -922,6 +990,12 @@ xvalues, yvalues = peak_merger(xvalues, yvalues, 0.01)
 #Keeps two lists but adds zeros on y next to each point on x
 x_axis, y_axis = delta_function_plotter(xvalues, yvalues)
 
+output_file_path = "THOMAS_IS_BEST/molecule_image.png"
+save_molecule_image_to_file(mol_smi, output_file_path, False, False)
+
+image_url = "molecule_image.png"
+mol_web_show(image_url)
+
 end_time = time.time()
 
 duration = end_time-start_time
@@ -936,3 +1010,5 @@ print(f'Process took: {duration} s')'''
 
 print(functional_group_finder(mol_smi))
 print(SMILEs_interpreter('c1ccccc1CCBr'))
+
+
