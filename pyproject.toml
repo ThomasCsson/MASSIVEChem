@@ -30,6 +30,3 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git"
-Christiansson Thomas Viking = "https://github.com/ThomasCsson"
-Gonteri Igor = "https://github.com/igorgonteri"
-Humery Arthur = "https://github.com/Arthurhmy"
