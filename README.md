@@ -1,4 +1,4 @@
-# - MASSiveChem package for applied mass spectrometry -
+# -MASSiveChem package for applied mass spectrometry-
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
 ## Package description 
