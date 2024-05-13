@@ -16,7 +16,7 @@ from plotly.subplots import make_subplots
 
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
-from bokeh.layouts import row
+from bokeh.layouts import row, column
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
@@ -560,6 +560,127 @@ def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = Fal
     # Save the image to a file
     image.save(file_path)
 
+def mol_web_show(image_url):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    mol_web_show(image_url)
+    
+    Input: path of the molecule image
+    
+    Output: image of the molecule in bokeh
+
+    '''
+    #---------------------------------------------------------------------------------------------#
 
 
+    # Creating a Bokeh figure to display the molecule
+    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+    p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
 
+    # Hide grid lines and axes
+    p.xgrid.grid_line_color = None
+    p.ygrid.grid_line_color = None
+    p.xaxis.visible = False
+    p.yaxis.visible = False
+
+    show(p)
+
+    return p
+
+def all_in_one(p1,p2,p3):
+    layout1 = row(p2, p3)
+    layout = column(p1, layout1)
+    return layout
+
+def functional_group_display(groups_list):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    functional_group_display(groups_list)
+    
+    Input: list of the groups present in the molecule
+    
+    Output: Bokeh table with the names of the present functional groups as well as an image of each present functional group
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # dictionnary of the images of all functional groups
+
+    functional_groups_images = {
+        'Alcohol': '../data/Functional groups images/Alcohol_image.png',
+        'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
+        'Ketone': '../data/Functional groups images/Ketone_image.png',
+        'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
+        'Ester': '../data/Functional groups images/Ester_image.png',
+        'Ether': '../data/Functional groups images/Ether_image.png',
+        'Amide': '../data/Functional groups images/Amide_image.png',
+        'Amine': '../data/Functional groups images/Amine_image.png',
+        'Nitrile': '../data/Functional groups images/Nitrile_image.png',
+        'Chloride': '../data/Functional groups images/Halogen_image.png',
+        'Bromide': '../data/Functional groups images/Bromide_image.png',
+        'Fluoride': '../data/Functional groups images/Halogen_image.png',
+        'Iodide': '../data/Functional groups images/Halogen_image.png',
+        'Alkene': '../data/Functional groups images/Alkene_image.png',
+        'Alkyne': '../data/Functional groups images/Alkyne_image.png',
+        'Imine': '../data/Functional groups images/Imine_image.png',
+        'Amino acid': '../data/Functional groups images/Amino_acid_image.png',
+        'Proline': '../data/Functional groups images/Proline_image.png',
+        'Thiol': '../data/Functional groups images/Thiol_image.png',
+        'Sulfides': '../data/Functional groups images/Sulfides_image.png',
+        'Acyl Chloride': '../data/Functional groups images/Acyl_chloride_image.png',
+        'Anhydride': '../data/Functional groups images/Anhydride_image.png',
+        'Nitro': '../data/Functional groups images/Nitro_image.png',
+        'Enamine': '../data/Functional groups images/Enamine_image.png',
+        'Enamine2': '../data/Functional groups images/Enamine2_image.png',
+        'Enamine3': '../data/Functional groups images/Enamine3_image.png',
+        'Imide': '../data/Functional groups images/Imide_image.png',
+        'Azide': '../data/Functional groups images/Azide_image.png',
+        'Enol': '../data/Functional groups images/Enol_image.png',
+        'Hemiacetal': '../data/Functional groups images/Hemiacetal_image.png',
+        'Carbonate': '../data/Functional groups images/Carbonate_image.png',
+        'Carbonate2': '../data/Functional groups images/Carbonate2_image.png',
+        'Disulfide': '../data/Functional groups images/Disulfide_image.png',
+        'Sulfoxide': '../data/Functional groups images/Sulfoxide_image.png',
+        'Sulfone': '../data/Functional groups images/Sulfone_image.png',
+        'Sulfonic acid': '../data/Functional groups images/Sulfonic_acid_image.png',
+        'Thioester': '../data/Functional groups images/Thioester_image.png',
+        'Phosphine': '../data/Functional groups images/Phosphine_image.png',
+        'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
+        'Benzene': '../data/Functional groups images/Benzene_image.png',
+        'Peroxide': '../data/Functional groups images/Peroxide_image.png'
+}
+    
+    # creates a dictionnary of the present groups and associated images of the molecule
+
+    present_group_images = []
+
+    for x in groups_list:
+        present_group_images.append(functional_groups_images[x])
+    data = dict(
+        groups=groups_list,
+        images=[f'<img src="{group_image}" style="width:50px;height:50px;">' for group_image in present_group_images]
+    )
+    source = ColumnDataSource(data)
+
+    #template for the bokeh table
+
+    template = """
+    <div>
+    <%= value %>
+    </div>
+    """
+
+    # initiallizing the bokeh figure using the previous template for each functional group
+
+    columns = [
+        TableColumn(field="groups", title="Functional Groups"),
+        TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))
+    ]
+    num_groups = len(groups_list)
+
+    table_height = min(200 + num_groups * 60, 800)
+
+    data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
+
+    return data_table
