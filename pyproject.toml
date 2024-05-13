@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "MASSiveChem"
-version = "2.4"
+version = "2.5"
 description = "..."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -20,7 +20,6 @@ dependencies = [
   "pandas",
   "matplotlib",
   "bokeh",
-  "plotly"
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -31,3 +30,8 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git"
+
+[developers.urls]
+Christianson Thomas Viking = "https://github.com/ThomasCsson"
+Gonteri Igor = "https://github.com/igorgonteri"
+Humery Arthur = "https://github.com/Arthurhmy"

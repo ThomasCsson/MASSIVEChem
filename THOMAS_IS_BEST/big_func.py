@@ -12,9 +12,8 @@ from bokeh.plotting import figure, show
 from bokeh.models import WheelPanTool, WheelZoomTool
 from bokeh.models.tickers import FixedTicker
 
+def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
-
-def data_list_generator():
 
     #---------------------------------------------------------------------------------------------#
     '''
@@ -69,18 +68,13 @@ def data_list_generator():
 
     isotopes = df['Atom'].tolist()
 
-    return mass, abundance, isotopes
-
-
-
-def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     #---------------------------------------------------------------------------------------------#
     '''
     SMILEs_interpreter(mol_smi)
 
     Input: molecule under SMILEs representation
     
-    Output: molecule under MOL representation
+    Output: interface with mass spectrum of the given molecule as well as the contained functional groups
     '''
     #---------------------------------------------------------------------------------------------#
 
@@ -364,6 +358,8 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     x_axis.append(max_x+1)
     y_axis.append(0)
 
+
+    #add graphing
     return x_axis, y_axis
     
 
@@ -677,25 +673,20 @@ def functional_group_finder(mol_smi):
 
 mol_smi = input('Enter SMILEs: ')
 
-start_time = time.time()
+
 
 
 
 
 #Generate the data from data/abundance.txt
-mass, abundance, isotopes = data_list_generator()
+
 
 
 
 #Keeps two lists but adds zeros on y next to each point on x
 x_axis, y_axis = big_function(mol_smi, True, 0.01)
 
-end_time = time.time()
 
-duration = end_time-start_time
 
-#Plotter
-print(pyplot_plotter(x_axis, y_axis))
-print(functional_group_finder(mol_smi))
-print(f'Computation complete')
-print(f'Process took: {duration} s')
+print(x_axis, y_axis)
+
