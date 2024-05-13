@@ -238,9 +238,9 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
     x_axis, y_axis = [min_x-1],[0]
     for i in range (len(x_in)):
-        x_axis.append(x_in[i]-10**(-10))
+        x_axis.append(x_in[i]-10**(-100))
         x_axis.append(x_in[i])
-        x_axis.append(x_in[i]+10**(-10))
+        x_axis.append(x_in[i]+10**(-100))
         y_axis.append(0)
         y_axis.append(y_in[i])
         y_axis.append(0)
@@ -254,7 +254,10 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
     ticked_peaks = []
     for i in range(len(x_in)):
-        if y_in[i] > 0.0001:
+        if imprecision_True_False:    
+            if y_in[i] > 0.0001:
+                ticked_peaks.append(x_in[i])
+        else:
             ticked_peaks.append(x_in[i])
 
     #creates the principal graph, mass spectrum of the molecule (interactive)
@@ -306,5 +309,5 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
     return layout
 
-show(big_function('CCBr',True,0.01))
+show(big_function('CCCCBr', True, 0.01))
 
