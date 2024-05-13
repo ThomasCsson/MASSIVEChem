@@ -1,4 +1,4 @@
-# - ChemInterface package for applied mass spectrometry -
+# - MASSiveChem package for applied mass spectrometry -
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
 ## Package description 
@@ -40,11 +40,11 @@ import matplotlib.pyplot as plt
 
 Cheminterface can be installed using pip or conda as
 ```bash
-pip install Cheminterface
+pip install MASSiveChem
 ```
 or
 ```bash
-conda install -c conda-forge Cheminterface
+conda install -c conda-forge MASSiveChem
 ```
 The package can also be installed from source by running the following commands
 
