@@ -759,13 +759,15 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
 
-    '''In the case of ionisation by proton, we need to add a H+ ion, which is done in the following'''
+    #In the case of ionisation by proton, we need to add a H+ ion, which is done in the following
+
     if 'H' in list_atoms:
 
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
 
-    render_imprecise_list = imprecision_True_False #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
+    render_imprecise_list = imprecision_True_False 
+    #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
 
     #check for sulphur and nitrogen
 
