@@ -85,12 +85,15 @@ def mol_web_show(image_url):
 
     show(p)
 
-    return p
+    
 
-mol_smi = input('SMI')
+mol_smi = input('SMI  ')
 
+# Define the output file path
 output_file_path = "molecule_image.png"
-save_molecule_image_to_file(mol_smi, output_file_path, False, False)
 
-image_url = "molecule_image.png"
-mol_web_show(image_url)
+# Generate and save the molecule image
+save_molecule_image_to_file(mol_smi, output_file_path, show_Hs=False, show_3D=False)
+
+# Display the molecule image using Bokeh
+mol_web_show(output_file_path)
