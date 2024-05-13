@@ -313,7 +313,7 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     show_3D = False
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
-    file_path = 'molecule_image.png'
+    file_path = 'THOMAS_IS_BEST/molecule_image.png'
     # Adds the hydrogens to the molecule if specified
     if show_Hs:
         mol = Chem.AddHs(mol)
@@ -326,6 +326,7 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
     # Save the image to a file
     image.save(file_path)
+    print(file_path)
 
 
 
@@ -334,7 +335,7 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     image_url = file_path
     # Creating a Bokeh figure to display the molecule
     p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=[file_path], x=0, y=1, w=1, h=1)
+    p.image_url(url=['molecule_image.png'], x=0, y=1, w=1, h=1)
 
     # Hide grid lines and axes
     p.xgrid.grid_line_color = None
@@ -509,7 +510,7 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
         'Benzene': '../data/Functional groups images/Benzene_image.png',
         'Peroxide': '../data/Functional groups images/Peroxide_image.png'
 }
-    
+
     # creates a dictionnary of the present groups and associated images of the molecule
 
     present_group_images = []
@@ -542,11 +543,11 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
-    
+
     last = row(p, data_table)
     final = column(layout, last)
     return final
 
 
-show(big_function('CCO', True, 0.01))
+show(big_function('COC', True, 0.01))
 
