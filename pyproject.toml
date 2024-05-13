@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ChemInterface_ppchem"
-version = "2.2"
+name = "MASSiveChem"
+version = "2.3"
 description = "..."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -16,7 +16,6 @@ authors = [
   { name = "Arthur Humery", email = "arthur.humery@epfl.ch" }
 ]
 dependencies = [
-  "numpy",
   "rdkit",
   "pandas",
   "matplotlib",
