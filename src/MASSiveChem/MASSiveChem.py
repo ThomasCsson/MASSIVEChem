@@ -1081,3 +1081,5 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     last = row(p, data_table)
     final = column(layout, last)
     return final
+
+#end
