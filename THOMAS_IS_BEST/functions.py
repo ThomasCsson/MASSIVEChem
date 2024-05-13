@@ -383,7 +383,7 @@ def delta_function_plotter(x_in, y_in):
         y_axis.append(y_in[i])
         y_axis.append(0)
 
-    x_axis.append(max_x+1)
+    x_axis.append(max_x+0.5)
     y_axis.append(0)
 
     return x_axis, y_axis
