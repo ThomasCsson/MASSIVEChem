@@ -1,9 +1,9 @@
-# -         MASSiveChem       - 
+# -         MASSIVEChem       - 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
 ## Package description 
-MASSiveChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
+MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
 
 Developpers:
@@ -14,17 +14,17 @@ Developpers:
 ### What is mass spectrometry ?
    - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating pre-charged ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their composition.
 
-now, let us go through the steps required to use this package !
+Now, let us go through the steps required to use this package !
 
 ## Installation
 
-MASSiveChem can be installed using pip as
+MASSIVEChem can be installed using pip as
 ```bash
-pip install MASSiveChem
+pip install MASSIVEChem
 ```
 The package can also be installed from source by running the following commands
 
-First clone the repository from github
+First, clone the repository from github
 
 ```bash
 git clone https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git
@@ -56,7 +56,6 @@ pip show "name of the package"
 If not, install them using the following commands, otherwise the package will not work. 
 
 ```bash
-pip install matplotlib
 pip install bokeh
 pip install rdkit
 pip install pandas

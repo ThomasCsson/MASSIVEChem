@@ -11,7 +11,7 @@ from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
 
-def calculate_insaturation(mol_smile):
+def calculate_insaturation(mol_smile) -> int:
     # This function takes as input a string representing the SMILES notation of a molecule. 
     # Using the RDKit library, it creates a representation of the molecule, adds hydrogens and then calculates the unsaturation level of the molecule. 
     # The level of unsaturation is determined by counting the number of carbon, nitrogen and halogen atoms, then applying a specific formula. 
@@ -121,7 +121,7 @@ def SMILEs_interpreter(mol_smi):
 
     return mol
 
-def molecule_list_generator(mol):
+def molecule_list_generator(mol) -> list[str]:
     #---------------------------------------------------------------------------------------------#
     '''
     molecule_list_generator(mol)
@@ -137,7 +137,7 @@ def molecule_list_generator(mol):
         list_atoms.append(atom.GetSymbol())
     return list_atoms
 
-def ionisation_method (list_atoms):
+def ionisation_method (list_atoms) -> list[str]:
     #---------------------------------------------------------------------------------------------#
     '''
     ionisation_method (list_atoms)
@@ -155,7 +155,7 @@ def ionisation_method (list_atoms):
         list_atoms.remove('H')
     return list_atoms
 
-def main_function (list_atoms, imprecision_True_False):
+def main_function (list_atoms, imprecision_True_False) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
     main_function(list_atoms)
@@ -289,7 +289,7 @@ def main_function (list_atoms, imprecision_True_False):
 
     return x_axis_final, y_axis_final
 
-def peak_merger(x_in, y_in, apparatus_resolution):
+def peak_merger(x_in, y_in, apparatus_resolution) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
     delta_function_plotter(x_in, y_in)
@@ -324,7 +324,7 @@ def peak_merger(x_in, y_in, apparatus_resolution):
 
     return x_out, y_out
 
-def delta_function_plotter(x_in, y_in):
+def delta_function_plotter(x_in, y_in) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
     delta_function_plotter(x_in, y_in)
@@ -427,7 +427,7 @@ def double_plot(x_in,y_in):
 
     return layout
 
-def functional_group_finder(mol_smi):
+def functional_group_finder(mol_smi) -> list[str]:
 
     #---------------------------------------------------------------------------------------------#
     '''
@@ -707,6 +707,15 @@ def functional_group_display(groups_list):
     return data_table
 
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    spectrum(mol_smi, imprecision_True_False, apparatus_resolution)
+    
+    Input: molecule under SMILEs representation
+    
+    Output: webpage with mass spectrum and images relating to molecule
+    '''
+    #---------------------------------------------------------------------------------------------#
 
     df = pd.read_csv('data/abundance.txt'
                     , sep='\t'
@@ -1234,3 +1243,5 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     last = row(p, data_table)
     final = column(layout, last)
     return final
+
+#end
