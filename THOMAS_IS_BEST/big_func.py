@@ -233,7 +233,7 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
 
     min_x , max_x = min(x_in), max(x_in)
 
-    x_axis, y_axis = [min_x-1],[0]
+    x_axis, y_axis = [min_x-0.2],[0]
     for i in range (len(x_in)):
         x_axis.append(x_in[i]-10**(-100))
         x_axis.append(x_in[i])
@@ -242,7 +242,7 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
         y_axis.append(y_in[i])
         y_axis.append(0)
 
-    x_axis.append(max_x+1)
+    x_axis.append(max_x+0.2)
     y_axis.append(0)
 
 
@@ -260,9 +260,9 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     #creates the principal graph, mass spectrum of the molecule (interactive)
 
     p1 = figure(width=700, title=f'Mass spectrum of molecule')
-    p1 = figure(x_axis_label = '[m/z]')
-    p1 = figure(y_axis_label = 'Abundance')
-    p1.xaxis.axis_label = "[m/z]"
+    p1 = figure(x_axis_label = 'Mass to charge ratio [Th]')
+    p1 = figure(y_axis_label = 'Abundance [AU]')
+    p1.xaxis.axis_label = "Mass to charge ratio [Th]"
     p1.height = 500
     p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
     p1.add_tools(WheelPanTool(dimension="height"))
@@ -546,5 +546,5 @@ def big_function (mol_smi, imprecision_True_False, apparatus_resolution):
     return final
 
 
-show(big_function('COC', True, 0.01))
+show(big_function('COCCC(=O)CCO', True, 0.01))
 
