@@ -56,7 +56,6 @@ pip show "name of the package"
 If not, install them using the following commands, otherwise the package will not work. 
 
 ```bash
-pip install matplotlib
 pip install bokeh
 pip install rdkit
 pip install pandas
