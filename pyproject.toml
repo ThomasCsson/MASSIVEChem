@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "MASSiveChem"
+name = "MASSIVEChem"
 version = "2.5"
 description = "..."
 readme = "README.md"
