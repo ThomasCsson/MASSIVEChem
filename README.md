@@ -31,7 +31,7 @@ cd MASSIVEChem
 ```
 Then, install the package using : 
 ```bash
-pip install -e
+pip install -e . 
 ```
 
 ## Requirments
