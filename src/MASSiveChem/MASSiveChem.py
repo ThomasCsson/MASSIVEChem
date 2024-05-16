@@ -138,7 +138,6 @@ def molecule_list_generator(mol) -> list[str]:
         list_atoms.append(atom.GetSymbol())
     return list_atoms
 
-
 def ionisation_method (list_atoms) -> list[str]:
     #---------------------------------------------------------------------------------------------#
     '''
@@ -157,8 +156,7 @@ def ionisation_method (list_atoms) -> list[str]:
         list_atoms.remove('H')
     return list_atoms
 
-
-def spectrum(list_atoms, imprecision_True_False) -> list[float]:
+def main_function(list_atoms, imprecision_True_False) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
     main_function(list_atoms)
@@ -292,7 +290,6 @@ def spectrum(list_atoms, imprecision_True_False) -> list[float]:
 
     return x_axis_final, y_axis_final
 
-
 def peak_merger(x_in, y_in, apparatus_resolution) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
@@ -328,7 +325,6 @@ def peak_merger(x_in, y_in, apparatus_resolution) -> list[float]:
 
     return x_out, y_out
 
-
 def delta_function_plotter(x_in, y_in) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
@@ -361,7 +357,6 @@ def delta_function_plotter(x_in, y_in) -> list[float]:
     y_axis.append(0)
 
     return x_axis, y_axis
-
 
 def double_plot(x_in,y_in):
 
@@ -432,7 +427,6 @@ def double_plot(x_in,y_in):
     layout = column(p1, p2)
 
     return layout
-
 
 def functional_group_finder(mol_smi) -> list[str]:
 
@@ -598,8 +592,6 @@ def empty_file_path(search_directory='.'):
     
     return None
 
-
-
 def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
 
     #---------------------------------------------------------------------------------------------#
@@ -633,7 +625,6 @@ def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = Fal
 
     # Save the image to a file
     image.save(file_path)
-
 
 def mol_web_show(image_url):
 
@@ -755,7 +746,6 @@ def functional_group_display(groups_list):
 
     return data_table
 
-
 def delete_mol_image_file():
 
     #---------------------------------------------------------------------------------------------#
@@ -807,7 +797,6 @@ def all_in_one(p1,p2,p3):
     layout = row(p1, layout1)
 
     return layout
-
 
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     #---------------------------------------------------------------------------------------------#
