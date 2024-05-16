@@ -123,4 +123,4 @@ def functional_group_finder(mol_smi):
     return functional_groups_contained
 
 
-print(functional_group_finder('CCNCCN'))
+print(functional_group_finder('CC'))
