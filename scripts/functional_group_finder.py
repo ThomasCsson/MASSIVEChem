@@ -1,5 +1,5 @@
 from rdkit import Chem
-from rdkit.Chem import Draw
+
 def functional_group_finder(mol_smi):
 
     #---------------------------------------------------------------------------------------------#
@@ -70,8 +70,6 @@ def functional_group_finder(mol_smi):
 
     # exceptions for conflicts during the iteration of functional groups
 
-    if 'Ester' and 'Anhydride' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
     if 'Carboxylic Acid' in functional_groups_contained:
         functional_groups_contained.remove('Alcohol')
     if 'Ester' in functional_groups_contained:
@@ -122,9 +120,6 @@ def functional_group_finder(mol_smi):
     
     return functional_groups_contained
 
-
-<<<<<<< HEAD
-
 import unittest
 
 class TestFunctionalGroupFinder(unittest.TestCase):
@@ -156,10 +151,11 @@ class TestFunctionalGroupFinder(unittest.TestCase):
         # Test the function with a molecule containing duplicate functional groups
         mol_smi = "CCOCC(=O)OCCC(=O)OC(=O)C"
         functional_groups = functional_group_finder(mol_smi)
-        self.assertEqual(functional_groups, ['Ether', 'Ester', 'Anhydryde'])
+        self.assertEqual(functional_groups, ['Ester', 'Ether', 'Anhydride'])
 
 if __name__ == '__main__':
     unittest.main()
-=======
-print(functional_group_finder('CCCC(=O)OCCC(=O)O'))
->>>>>>> b878f9398c1dbb1cf1a7b59c79fd9441e9f76da2
+
+
+
+
