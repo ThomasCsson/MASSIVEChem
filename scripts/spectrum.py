@@ -391,7 +391,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         'Ester': 'CC(=O)[Oh0]',
         'Ether': '*[Oh0]*',
         'Amide': 'C(=O)N',
-        'Amine': '[C][Nh2]',
+        'Amine': '[C][N]',
         'Nitrile': 'C#N',
         'Chloride': 'Cl',
         'Bromide': 'Br',
@@ -479,9 +479,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     if 'Disulfide' in functional_groups_contained:
         functional_groups_contained.remove('Sulfide')
         functional_groups_contained.remove('Sulfide')
-    if 'Amine2' in functional_groups_contained:
-        functional_groups_contained.remove('Amine2')
-        functional_groups_contained.append('Amine')
+    if 'Amine' in functional_groups_contained:
+        functional_groups_contained.remove('Amine')
     if 'Peroxide' in functional_groups_contained:
         functional_groups_contained.remove('Ether')
         functional_groups_contained.remove('Ether')
