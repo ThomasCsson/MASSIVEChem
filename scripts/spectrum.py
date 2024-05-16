@@ -182,27 +182,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
 
 
-    #if there is any, add peaks corresponding to Sulphur/Nitrogen presence
-    maximum = max(y_axis_final)
-    maximum_2 = 0
-    for i in range (len(y_axis_final)):
-        if y_axis_final[i]>maximum_2 and y_axis_final[i]< maximum:
-            maximum_2 = y_axis_final[i]
-    index = y_axis_final.index(maximum_2)
-
-
- 
-
-    if has_N:
-        x_axis_final.append(x_axis_final[index] - 0.006)  
-        y_axis_final.append(0.0035*count_N*maximum)  
     
-    if has_S:
-        x_axis_final.append(x_axis_final[index]-0.004)  
-        y_axis_final.append(0.008*count_S*maximum)  
-
-
-
     x_in, y_in = x_axis_final, y_axis_final
     
     x_out, y_out = [],[]
@@ -218,7 +198,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
 
     x_in, y_in = x_out, y_out 
-
+#resolution
     x_out, y_out = [],[]
     while len(x_in)>1:
         if x_in[0]>x_in[1]-apparatus_resolution:
@@ -233,6 +213,37 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
             y_in.pop(0)
     x_out.append(x_in[0])
     y_out.append(y_in[0])
+
+
+    x_in = x_out
+    y_in = y_out
+    maximum = max(y_in)
+    maximum_2 = 0
+    for i in range (len(y_in)):
+        if y_in[i]>maximum_2 and y_in[i]< maximum:
+            maximum_2 = y_in[i]
+    index = y_in.index(maximum_2)
+
+
+ 
+
+    if has_N:
+        x_in.append(x_in[index] - 0.006)  
+        y_in.append(0.0035*count_N*maximum)  
+    
+    if has_S:
+        x_in.append(x_axis_final[index]-0.004)  
+        y_in.append(0.008*count_S*maximum)
+
+    x_out, y_out = [],[]
+
+    while len(x_in)>0:
+        min_x = min(x_in)
+        index_min = x_in.index(min_x)
+        x_out.append(min_x)
+        y_out.append(y_in[index_min])
+        x_in.pop(index_min)
+        y_in.pop(index_min)
 
     x_in, y_in = x_out, y_out 
 
@@ -263,6 +274,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
             ticked_peaks.append(x_in[i])
 
     #creates the principal graph, mass spectrum of the molecule (interactive)
+
     p1 = figure(width=700, title=f'Mass spectrum of molecule')
     p1 = figure(x_axis_label = '[m/z]')
     p1 = figure(y_axis_label = 'Abundance')
@@ -275,6 +287,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p1.xaxis.major_label_orientation = "horizontal"
 
      #creates the secondary graph, mass spectrum of the molecule (non-interactive)
+
     p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
     p2 = figure(width=250, title=f'Mass spectrum of molecule')
     p2 = figure(toolbar_location=None)
@@ -282,6 +295,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
 
     #creates a tool in order that the second graph shows where the zoom is on the first one
+
     box = BoxAnnotation(left=0, right=0, bottom=0, top=0,
     fill_alpha=0.1, line_color='red', fill_color='cornflowerblue')
 
@@ -299,9 +313,11 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p1.y_range.js_on_change('end', ycb)
 
     # adds the functionnality to the second figure
+
     p2.add_layout(box)
 
     # creates a layout that displays the 2 graphs
+
     layout = column(p1, p2)
 
 
@@ -496,7 +512,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     # dictionnary of the images of all functional groups
 
     functional_groups_images = {
-        'Alcohol': '../data/Functional groups images/Alcohol_image.png',
+        'Alcohol': '../Functional groups images/Alcohol_image.png',
         'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
         'Ketone': '../data/Functional groups images/Ketone_image.png',
         'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
@@ -576,4 +592,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('[H][C@]12SC(C)(C)[C@@H](N1C(=O)[C@H]2NC(=O)Cc1ccccc1)C(O)=O',True,0.01))
+show(spectrum('CCN',True,0.01))
