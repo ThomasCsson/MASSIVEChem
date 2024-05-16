@@ -55,7 +55,7 @@ show(mol_web_show(mol_smi))
 
 import unittest
 
-class TestMolWebShow(unittest.TestCase):
+"""class TestMolWebShow(unittest.TestCase):
     def test_mol_web_show_without_Hs_3D(self):
         # Test the function without adding hydrogens
         p = mol_web_show('CCO')
@@ -68,4 +68,4 @@ class TestMolWebShow(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()"""

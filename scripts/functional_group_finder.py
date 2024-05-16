@@ -1,5 +1,5 @@
 from rdkit import Chem
-from rdkit.Chem import Draw
+
 def functional_group_finder(mol_smi):
 
     #---------------------------------------------------------------------------------------------#
@@ -70,8 +70,6 @@ def functional_group_finder(mol_smi):
 
     # exceptions for conflicts during the iteration of functional groups
 
-    if 'Ester' and 'Anhydride' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
     if 'Carboxylic Acid' in functional_groups_contained:
         functional_groups_contained.remove('Alcohol')
     if 'Ester' in functional_groups_contained:
@@ -122,5 +120,44 @@ def functional_group_finder(mol_smi):
     
     return functional_groups_contained
 
+import unittest
 
-print(functional_group_finder('CC'))
+class TestFunctionalGroupFinder(unittest.TestCase):
+    def test_functional_group_finder_empty(self):
+        # Test the function with an empty SMILES string
+        mol_smi = ""
+        functional_groups = functional_group_finder(mol_smi)
+        self.assertEqual(functional_groups, [])
+
+    def test_functional_group_finder_no_functional_groups(self):
+        # Test the function with a molecule without any functional groups
+        mol_smi = "CC"
+        functional_groups = functional_group_finder(mol_smi)
+        self.assertEqual(functional_groups, [])
+
+    def test_functional_group_finder_single_functional_group(self):
+        # Test the function with a molecule containing a single functional group
+        mol_smi = "CCO"
+        functional_groups = functional_group_finder(mol_smi)
+        self.assertEqual(functional_groups, ['Alcohol'])
+
+    def test_functional_group_finder_multiple_functional_groups(self):
+        # Test the function with a molecule containing multiple functional groups
+        mol_smi = "CCOCC(=O)OC"
+        functional_groups = functional_group_finder(mol_smi)
+        self.assertEqual(functional_groups, ['Ester', 'Ether'])
+
+    def test_functional_group_finder_duplicate_functional_groups(self):
+        # Test the function with a molecule containing duplicate functional groups
+        mol_smi = "CCOCC(=O)OCCC(=O)OC(=O)C"
+        functional_groups = functional_group_finder(mol_smi)
+        self.assertEqual(functional_groups, ['Ester', 'Ether', 'Anhydride'])
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+
+
+print(functional_group_finder('CCCC(=O)OCCC(=O)O'))
