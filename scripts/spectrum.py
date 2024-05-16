@@ -236,7 +236,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     min_x , max_x = min(x_in), max(x_in)
 
-    x_axis, y_axis = [min_x-1],[0]
+    x_axis, y_axis = [min_x-0.2],[0]
     for i in range (len(x_in)):
         x_axis.append(x_in[i]-10**(-100))
         x_axis.append(x_in[i])
@@ -245,7 +245,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         y_axis.append(y_in[i])
         y_axis.append(0)
 
-    x_axis.append(max_x+1)
+    x_axis.append(max_x+0.2)
     y_axis.append(0)
 
 
