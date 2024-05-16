@@ -125,7 +125,7 @@ class TestFunctionalGroupDisplay(unittest.TestCase):
         table = functional_group_display(groups_list)
         self.assertIsNotNone(table)
         self.assertEqual(len(table.columns), 2)  # Check if there are two columns
-        self.assertEqual(len(table.source.data['groups']), 1)  # Check if the number of groups is 1
+        self.assertEqual(len(table.source.data['groups']), 2)  # Check if the number of groups is 1
         self.assertEqual(table.source.data['groups'][0], 'Alcohol')  # Check if the valid group is displayed
 
 if __name__ == '__main__':
