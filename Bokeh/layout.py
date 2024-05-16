@@ -36,8 +36,8 @@ def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = Fal
     # Save the image to a file
     image.save(file_path)
 
-filepath = 'Bokeh/molecule_image.png'
-mol = 'CCCCC'
+filepath = './molecule_image_5.png'
+mol = 'CCC(=O)OCC(=O)OO'
 
 save_molecule_image_to_file(mol, filepath)
 
