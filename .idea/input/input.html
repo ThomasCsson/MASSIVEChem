@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div id="db08e755-f950-4be2-b1d0-c57de9ab2596" data-root-id="p1006" style="display: contents;"></div>
+  
+    <script type="application/json" id="ef4ccee3-388b-4e04-ba30-6730b6643755">
+      {"e1b12158-06ea-448c-b80b-b0132ec69432":{"version":"3.4.1","title":"Bokeh Application","roots":[{"type":"object","name":"Column","id":"p1006","attributes":{"children":[{"type":"object","name":"Row","id":"p1004","attributes":{"children":[{"type":"object","name":"Button","id":"p1002","attributes":{"button_type":"success","js_event_callbacks":{"type":"map","entries":[["button_click",[{"type":"object","name":"CustomJS","id":"p1001","attributes":{"code":"\n    // Call the Python function to retrieve custom information\n    var custom_info = Bokeh.index[model_id].get_model_by_name('custom_info');\n    custom_info.text = \"Unsaturation: \" + calculate_insaturation(mol_smi);\n    "}}]]]},"label":"Update Information"}}]}},{"type":"object","name":"Row","id":"p1005","attributes":{"children":[{"type":"object","name":"Div","id":"p1003","attributes":{"name":"unsaturation","text":"Custom information will be displayed here."}}]}}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('ef4ccee3-388b-4e04-ba30-6730b6643755').textContent;
+              const render_items = [{"docid":"e1b12158-06ea-448c-b80b-b0132ec69432","roots":{"p1006":"db08e755-f950-4be2-b1d0-c57de9ab2596"},"root_ids":["p1006"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>
