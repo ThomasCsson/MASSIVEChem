@@ -593,4 +593,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCN',True,0.01))
+show(spectrum('CCSCC',True,0.01))
