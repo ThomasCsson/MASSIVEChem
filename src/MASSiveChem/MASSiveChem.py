@@ -3,6 +3,8 @@ from rdkit.Chem import Draw, AllChem
 
 import pandas as pd
 
+import os
+
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import row, column
@@ -543,6 +545,53 @@ def functional_group_finder(mol_smi) -> list[str]:
     
     return functional_groups_contained
 
+
+def empty_file_path(search_directory='.'):
+
+     #---------------------------------------------------------------------------------------------#
+    '''
+    empty_file_path()
+    
+    Input: search_directory, which specifies to check in the current directory
+    
+    Output: - creates a new file called molecule_image_5.png to store an image later
+            - returns the relative path to the file
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # name of the file name to create
+    filename = 'molecule_image_5.png'
+
+    #finds the current directory
+    current_directory = os.getcwd()
+
+    #creates a file path to the current directory
+    filepath = os.path.join(current_directory, filename)
+
+    #checks if the file already exists
+    if not os.path.exists(filepath):
+
+        #if no, creates the path
+        with open(filepath, 'a'):
+            pass
+    else:
+
+        #else pass
+        pass
+    
+    
+    for root, dirs, files in os.walk(search_directory):
+
+        #checks all the file names in the directory
+        if filename in files:
+
+            #return file path
+            return os.path.join(root, filename)
+    
+    return None
+
+
+
 def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
 
     #---------------------------------------------------------------------------------------------#
@@ -605,10 +654,6 @@ def mol_web_show(image_url):
 
     return p
 
-def all_in_one(p1,p2,p3):
-    layout1 = row(p2, p3)
-    layout = column(p1, layout1)
-    return layout
 
 def functional_group_display(groups_list):
 
@@ -701,6 +746,59 @@ def functional_group_display(groups_list):
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
     return data_table
+
+def delete_mol_image_file():
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    delete_mol_image_file()
+    
+    Input: None
+    
+    Output: Deletes the creates file to store the image : molecule_image_5.png
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # file path to delete
+    filepath = 'molecule_image_5.png'
+
+    #checks if the file exists
+    if os.path.exists(filepath):
+
+        #if yes, deletes the file
+        os.remove(filepath)
+
+        print(f"File '{filepath}' has been deleted.")
+    
+    else:
+
+        print(f"File '{filepath}' does not exist.")
+
+
+def all_in_one(p1,p2,p3):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    all_in_one(p1,p2,p3)
+    
+    Input: 3 bokeh plots
+            Usually used in this package:
+                    - p1 : bokeh double plot of mass spectrometry
+                    - p2 : image of the molecule
+                    - p3 : table of functional groups
+    
+    Output: bokeh page with all 3 graphs well arranged
+
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    #creates a layout in column with p2 and p3
+    layout1 = column(p2, p3)
+
+    #creates the final layout in row with layout1 and p1
+    layout = row(p1, layout1)
+
+    return layout
 
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     #---------------------------------------------------------------------------------------------#
