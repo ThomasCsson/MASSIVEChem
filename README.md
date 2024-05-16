@@ -62,7 +62,15 @@ pip install pandas
 
 ## Usage
 
-'''Show the most important function and use'''
+The principal function of this package takes the SMILEs of a molecule as an input and displays the mass spectrometry of the molecule as well as the molecule itself and  the functional groups it contains.
+
+To make the function run, do the following command:
+```bash
+import MASSIVEChem as ms
+from ms.MASSIVEChem import spectrum
+from bokeh.plotting import show
+
+mol_smi = ''
 
 ## Getting started
 
