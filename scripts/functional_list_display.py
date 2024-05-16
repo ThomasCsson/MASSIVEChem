@@ -1,5 +1,6 @@
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
 from bokeh.models.widgets import DataTable, TableColumn
+from bokeh.plotting import show
 
 def functional_group_display(groups_list):
 
@@ -27,8 +28,8 @@ def functional_group_display(groups_list):
         'Nitrile': '../data/Functional groups images/Nitrile_image.png',
         'Chloride': '../data/Functional groups images/Halogen_image.png',
         'Bromide': '../data/Functional groups images/Bromide_image.png',
-        'Fluoride': '../data/Functional groups images/Halogen_image.png',
-        'Iodide': '../data/Functional groups images/Halogen_image.png',
+        'Fluoride': '../data/Functional groups images/Fluoride_image.png',
+        'Iodide': '../data/Functional groups images/Iodide_image.png',
         'Alkene': '../data/Functional groups images/Alkene_image.png',
         'Alkyne': '../data/Functional groups images/Alkyne_image.png',
         'Imine': '../data/Functional groups images/Imine_image.png',
@@ -64,7 +65,11 @@ def functional_group_display(groups_list):
     present_group_images = []
 
     for x in groups_list:
-        present_group_images.append(functional_groups_images[x])
+        if x in functional_groups_images.keys():
+            present_group_images.append(functional_groups_images[x])
+        else:
+            pass
+
     data = dict(
         groups=groups_list,
         images=[f'<img src="{group_image}" style="width:50px;height:50px;">' for group_image in present_group_images]
@@ -92,3 +97,37 @@ def functional_group_display(groups_list):
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
     return data_table
+
+show(functional_group_display(['Alcohol', 'InvalidGroup']))
+
+import unittest
+
+class TestFunctionalGroupDisplay(unittest.TestCase):
+    def test_functional_group_display(self):
+        # Test the function with a list of functional groups
+        groups_list = ['Alcohol', 'Aldehyde', 'Ketone']
+        table = functional_group_display(groups_list)
+        self.assertIsNotNone(table)
+        self.assertEqual(len(table.columns), 2)  # Check if there are two columns
+        self.assertEqual(table.columns[0].field, "groups")  # Check if the first column is for functional groups
+        self.assertEqual(table.columns[1].field, "images")  # Check if the second column is for images
+
+    def test_functional_group_display_empty_list(self):
+        # Test the function with an empty list
+        table = functional_group_display([])
+        self.assertIsNotNone(table)
+        self.assertEqual(len(table.columns), 2)  # Check if there are two columns
+        self.assertEqual(len(table.source.data['groups']), 0)  # Check if the number of groups is 0
+
+    def test_functional_group_display_invalid_group(self):
+        # Test the function with an invalid group
+        groups_list = ['Alcohol', 'InvalidGroup']
+        table = functional_group_display(groups_list)
+        self.assertIsNotNone(table)
+        self.assertEqual(len(table.columns), 2)  # Check if there are two columns
+        self.assertEqual(len(table.source.data['groups']), 1)  # Check if the number of groups is 1
+        self.assertEqual(table.source.data['groups'][0], 'Alcohol')  # Check if the valid group is displayed
+
+if __name__ == '__main__':
+    unittest.main()
+

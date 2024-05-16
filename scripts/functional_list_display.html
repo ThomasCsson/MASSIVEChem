@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div id="d1295c0a-f4a3-42b1-a9d8-41ac61db6f9f" data-root-id="p1011" style="display: contents;"></div>
+  
+    <script type="application/json" id="b01a678c-be7c-4dfc-8f58-2abd206296f4">
+      {"e01a4a38-420d-4277-ab47-16be9df1b972":{"version":"3.4.1","title":"Bokeh Application","roots":[{"type":"object","name":"DataTable","id":"p1011","attributes":{"width":250,"height":320,"source":{"type":"object","name":"ColumnDataSource","id":"p1001","attributes":{"selected":{"type":"object","name":"Selection","id":"p1002","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1003"},"data":{"type":"map","entries":[["groups",["Alcohol","InvalidGroup"]],["images",["&lt;img src=\"../data/Functional groups images/Alcohol_image.png\" style=\"width:50px;height:50px;\"&gt;"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1015","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1016"}}},"columns":[{"type":"object","name":"TableColumn","id":"p1004","attributes":{"field":"groups","title":"Functional Groups","formatter":{"type":"object","name":"StringFormatter","id":"p1005"},"editor":{"type":"object","name":"StringEditor","id":"p1006"}}},{"type":"object","name":"TableColumn","id":"p1008","attributes":{"field":"images","title":"Images","width":200,"formatter":{"type":"object","name":"HTMLTemplateFormatter","id":"p1007","attributes":{"template":"\n    &lt;div&gt;\n    &lt;%= value %&gt;\n    &lt;/div&gt;\n    "}},"editor":{"type":"object","name":"StringEditor","id":"p1010"}}}],"row_height":60}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('b01a678c-be7c-4dfc-8f58-2abd206296f4').textContent;
+              const render_items = [{"docid":"e01a4a38-420d-4277-ab47-16be9df1b972","roots":{"p1011":"d1295c0a-f4a3-42b1-a9d8-41ac61db6f9f"},"root_ids":["p1011"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>

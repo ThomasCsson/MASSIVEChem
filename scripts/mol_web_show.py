@@ -3,7 +3,7 @@ from rdkit.Chem import Draw, AllChem
 from bokeh.plotting import figure, show
 import os
 
-def mol_web_show(mol_smi,show_Hs= False, show_3D= False):
+def mol_web_show(mol_smi,show_Hs= False):
         # name of the file name to create
     filename = 'molecule_image.png'
 
@@ -30,10 +30,6 @@ def mol_web_show(mol_smi,show_Hs= False, show_3D= False):
     if show_Hs:
         mol = Chem.AddHs(mol)
 
-    # Show the molecule in 3D if specified
-    if show_3D:
-        mol = AllChem.EmbedMolecule(mol)
-
     image = Draw.MolToImage(mol)
 
     # Save the image to a file
@@ -55,3 +51,21 @@ def mol_web_show(mol_smi,show_Hs= False, show_3D= False):
 
 mol_smi = input('MOL:  ')
 show(mol_web_show(mol_smi))
+
+
+import unittest
+
+class TestMolWebShow(unittest.TestCase):
+    def test_mol_web_show_without_Hs_3D(self):
+        # Test the function without adding hydrogens
+        p = mol_web_show('CCO')
+        self.assertIsNotNone(p)
+
+    def test_mol_web_show_with_Hs(self):
+        # Test the function with adding hydrogens
+        p = mol_web_show('CCO', show_Hs=True)
+        self.assertIsNotNone(p)
+
+
+if __name__ == '__main__':
+    unittest.main()
