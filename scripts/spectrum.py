@@ -219,21 +219,13 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     x_in = x_out
     y_in = y_out
     maximum = max(y_in)
-    maximum_2 = 0
-    for i in range (len(y_in)):
-        if y_in[i]>maximum_2 and y_in[i]< maximum:
-            maximum_2 = y_in[i]
-    index = y_in.index(maximum_2)
-
-
- 
 
     if has_N:
-        x_in.append(x_in[index] - 0.006)  
+        x_in.append(x_in[1] - 0.006)  
         y_in.append(0.0035*count_N*maximum)  
     
     if has_S:
-        x_in.append(x_in[index]-0.004)  
+        x_in.append(x_in[1]-0.004)  
         y_in.append(0.008*count_S*maximum)
 
     x_out, y_out = [],[]
@@ -384,16 +376,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p.ygrid.grid_line_color = None
     p.xaxis.visible = False
     p.yaxis.visible = False
-    #---------------------------------------------------------------------------------------------#
-    '''
-    functional_group_finder(mol_smi)
-    
-    Input: molecule under SMILEs representation
-    
-    Output: list containing every functionl group contained (if a functional group is contained twice in the molecule, it will appear twice in this list)
-    '''
-    #---------------------------------------------------------------------------------------------#
 
+    # initiate variables
     # initiate variables
     functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
 
@@ -419,7 +403,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         'Amino acid': '[Nh2][Ch1*]C(=O)O',
         'Proline': '[Nh1][Ch1*]C(=O)O',
         'Thiol': '[Sh1]',
-        'Sulfide': '*[S]*',
+        'Sulfide': '*[Sh0]*',
         'Acyl Chloride': 'CC(=O)Cl',
         'Anhydride': '*[Ch0](=O)O[Ch0](=O)*',
         'Nitro': 'C[N+](=O)[O-]',
@@ -452,6 +436,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     # exceptions for conflicts during the iteration of functional groups
 
+    if 'Ester' and 'Anhydride' in functional_groups_contained:
+        functional_groups_contained.remove('Ether')
     if 'Carboxylic Acid' in functional_groups_contained:
         functional_groups_contained.remove('Alcohol')
     if 'Ester' in functional_groups_contained:
@@ -593,4 +579,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCS', True, 0.01))
+show(spectrum('CCSCCNCC(=O)OCC=O', True, 0.01))
