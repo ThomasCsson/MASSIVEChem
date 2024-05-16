@@ -461,9 +461,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     #---------------------------------------------------------------------------------------------#
     '''
     functional_group_display(groups_list)
-    
+
     Input: list of the groups present in the molecule
-    
+
     Output: Bokeh table with the names of the present functional groups as well as an image of each present functional group
     '''
     #---------------------------------------------------------------------------------------------#
