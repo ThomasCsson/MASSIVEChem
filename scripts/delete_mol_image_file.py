@@ -8,12 +8,12 @@ def delete_mol_image_file():
     
     Input: None
     
-    Output: Deletes the creates file to store the image : molecule_image_5.png
+    Output: Deletes the creates file to store the image : molecule_image.png
     '''
     #---------------------------------------------------------------------------------------------#
 
     # file path to delete
-    filepath = 'molecule_image_5.png'
+    filepath = 'molecule_image.png'
 
     #checks if the file exists
     if os.path.exists(filepath):
