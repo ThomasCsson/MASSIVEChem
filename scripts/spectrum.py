@@ -17,7 +17,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     '''
     spectrum(mol_smi, imprecision_True_False, apparatus_resolution)
     
-    Input: molecule under SMILEs representation
+    Input: molecule under SMILEs representation (string), True or False (True gives a less precise spectrum, but is actually able to run in adequate time), apparatus resolution (typically, a value of 0.01 is used here)
     
     Output: webpage with mass spectrum and images relating to molecule
     '''
@@ -263,7 +263,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
             ticked_peaks.append(x_in[i])
 
     #creates the principal graph, mass spectrum of the molecule (interactive)
-
     p1 = figure(width=700, title=f'Mass spectrum of molecule')
     p1 = figure(x_axis_label = '[m/z]')
     p1 = figure(y_axis_label = 'Abundance')
@@ -276,7 +275,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p1.xaxis.major_label_orientation = "horizontal"
 
      #creates the secondary graph, mass spectrum of the molecule (non-interactive)
-
     p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
     p2 = figure(width=250, title=f'Mass spectrum of molecule')
     p2 = figure(toolbar_location=None)
@@ -284,7 +282,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
 
     #creates a tool in order that the second graph shows where the zoom is on the first one
-
     box = BoxAnnotation(left=0, right=0, bottom=0, top=0,
     fill_alpha=0.1, line_color='red', fill_color='cornflowerblue')
 
@@ -302,11 +299,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p1.y_range.js_on_change('end', ycb)
 
     # adds the functionnality to the second figure
-
     p2.add_layout(box)
 
     # creates a layout that displays the 2 graphs
-
     layout = column(p1, p2)
 
 
@@ -501,7 +496,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     # dictionnary of the images of all functional groups
 
     functional_groups_images = {
-        'Alcohol': '../Functional groups images/Alcohol_image.png',
+        'Alcohol': '../data/Functional groups images/Alcohol_image.png',
         'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
         'Ketone': '../data/Functional groups images/Ketone_image.png',
         'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
@@ -581,4 +576,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCO',True,0.001))
+show(spectrum('CCO',True,0.01))
