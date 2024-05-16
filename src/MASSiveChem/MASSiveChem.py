@@ -545,7 +545,6 @@ def functional_group_finder(mol_smi) -> list[str]:
     
     return functional_groups_contained
 
-
 def empty_file_path(search_directory='.'):
 
      #---------------------------------------------------------------------------------------------#
@@ -589,8 +588,6 @@ def empty_file_path(search_directory='.'):
             return os.path.join(root, filename)
     
     return None
-
-
 
 def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
 
@@ -653,7 +650,6 @@ def mol_web_show(image_url):
     show(p)
 
     return p
-
 
 def functional_group_display(groups_list):
 
@@ -773,7 +769,6 @@ def delete_mol_image_file():
     else:
 
         print(f"File '{filepath}' does not exist.")
-
 
 def all_in_one(p1,p2,p3):
 
