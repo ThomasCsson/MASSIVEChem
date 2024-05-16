@@ -182,27 +182,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
 
 
-    #if there is any, add peaks corresponding to Sulphur/Nitrogen presence
-    maximum = max(y_axis_final)
-    maximum_2 = 0
-    for i in range (len(y_axis_final)):
-        if y_axis_final[i]>maximum_2 and y_axis_final[i]< maximum:
-            maximum_2 = y_axis_final[i]
-    index = y_axis_final.index(maximum_2)
-
-
- 
-
-    if has_N:
-        x_axis_final.append(x_axis_final[index] - 0.006)  
-        y_axis_final.append(0.0035*count_N*maximum)  
     
-    if has_S:
-        x_axis_final.append(x_axis_final[index]-0.004)  
-        y_axis_final.append(0.008*count_S*maximum)  
-
-
-
     x_in, y_in = x_axis_final, y_axis_final
     
     x_out, y_out = [],[]
@@ -218,7 +198,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
 
     x_in, y_in = x_out, y_out 
-
+#resolution
     x_out, y_out = [],[]
     while len(x_in)>1:
         if x_in[0]>x_in[1]-apparatus_resolution:
@@ -233,6 +213,37 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
             y_in.pop(0)
     x_out.append(x_in[0])
     y_out.append(y_in[0])
+
+
+    x_in = x_out
+    y_in = y_out
+    maximum = max(y_in)
+    maximum_2 = 0
+    for i in range (len(y_in)):
+        if y_in[i]>maximum_2 and y_in[i]< maximum:
+            maximum_2 = y_in[i]
+    index = y_in.index(maximum_2)
+
+
+ 
+
+    if has_N:
+        x_in.append(x_in[index] - 0.006)  
+        y_in.append(0.0035*count_N*maximum)  
+    
+    if has_S:
+        x_in.append(x_axis_final[index]-0.004)  
+        y_in.append(0.008*count_S*maximum)
+
+    x_out, y_out = [],[]
+
+    while len(x_in)>0:
+        min_x = min(x_in)
+        index_min = x_in.index(min_x)
+        x_out.append(min_x)
+        y_out.append(y_in[index_min])
+        x_in.pop(index_min)
+        y_in.pop(index_min)
 
     x_in, y_in = x_out, y_out 
 
@@ -581,5 +592,5 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCO',True,0.01))
+show(spectrum('CCN',True,0.01))
 show(spectrum())
