@@ -419,7 +419,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         'Amino acid': '[Nh2][Ch1*]C(=O)O',
         'Proline': '[Nh1][Ch1*]C(=O)O',
         'Thiol': '[Sh1]',
-        'Sulfide': '*[Sh0]*',
+        'Sulfide': '*[S]*',
         'Acyl Chloride': 'CC(=O)Cl',
         'Anhydride': '*[Ch0](=O)O[Ch0](=O)*',
         'Nitro': 'C[N+](=O)[O-]',
@@ -593,4 +593,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCSCC',True,0.01))
+show(spectrum('CCS', True, 0.01))
