@@ -37,7 +37,6 @@ def calculate_insaturation(mol_smile) -> int:
     img = Draw.MolToImage(mol_1)
     img.show()
 
-
 def data_list_generator():
 
     #---------------------------------------------------------------------------------------------#
@@ -95,7 +94,6 @@ def data_list_generator():
 
     return mass, abundance, isotopes
 
-
 def SMILEs_interpreter(mol_smi):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -120,7 +118,6 @@ def SMILEs_interpreter(mol_smi):
     mol = Chem.AddHs(mol_without_Hs)
 
     return mol
-
 
 def molecule_list_generator(mol) -> list[str]:
     #---------------------------------------------------------------------------------------------#
