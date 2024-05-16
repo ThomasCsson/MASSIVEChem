@@ -305,7 +305,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     # creates a layout that displays the 2 graphs
 
-    layout = row(p1, p2)
+    layout = column(p1, p2)
 
     
 
@@ -547,8 +547,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
 
-    last = row(p, data_table)
-    final = column(layout, last)
+    last = column(p, data_table)
+    final = row(layout, last)
     return final
 
 show(spectrum('CCBr',True,0.001))
