@@ -481,6 +481,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         'Amine': '../data/Functional groups images/Amine_image.png',
         'Nitrile': '../data/Functional groups images/Nitrile_image.png',
         'Chloride': '../data/Functional groups images/Halogen_image.png',
+        'Bromide': '../data/Functional groups images/Bromide_image.png',
+        'Fluoride': '../data/Functional groups images/Halogen_image.png',
+        'Iodide': '../data/Functional groups images/Halogen_image.png',
         'Alkene': '../data/Functional groups images/Alkene_image.png',
         'Alkyne': '../data/Functional groups images/Alkyne_image.png',
         'Imine': '../data/Functional groups images/Imine_image.png',
@@ -547,3 +550,5 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     last = row(p, data_table)
     final = column(layout, last)
     return final
+
+show(spectrum('CCBr',True,0.001))
