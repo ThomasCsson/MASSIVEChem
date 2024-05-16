@@ -39,6 +39,8 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 
+include = ["data/abundance.txt"] 
+
 [project.urls]
 Homepage = "https://github.com/ThomasCsson/MASSIVEChem.git"
 GitHub_Thomas_Christiansson = "https://github.com/ThomasCsson"
