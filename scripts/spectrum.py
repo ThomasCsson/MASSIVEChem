@@ -17,7 +17,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     '''
     spectrum(mol_smi, imprecision_True_False, apparatus_resolution)
     
-    Input: molecule under SMILEs representation
+    Input: molecule under SMILEs representation (string), True or False (True gives a less precise spectrum, but is actually able to run in adequate time), apparatus resolution (typically, a value of 0.01 is used here)
     
     Output: webpage with mass spectrum and images relating to molecule
     '''
@@ -576,4 +576,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCCOCO',True,0.001))
+show(spectrum('CCO',True,0.01))

@@ -37,7 +37,6 @@ def calculate_insaturation(mol_smile) -> int:
     img = Draw.MolToImage(mol_1)
     img.show()
 
-
 def data_list_generator():
 
     #---------------------------------------------------------------------------------------------#
@@ -95,7 +94,6 @@ def data_list_generator():
 
     return mass, abundance, isotopes
 
-
 def SMILEs_interpreter(mol_smi):
     #---------------------------------------------------------------------------------------------#
     '''
@@ -120,7 +118,6 @@ def SMILEs_interpreter(mol_smi):
     mol = Chem.AddHs(mol_without_Hs)
 
     return mol
-
 
 def molecule_list_generator(mol) -> list[str]:
     #---------------------------------------------------------------------------------------------#
@@ -710,7 +707,7 @@ def functional_group_display(groups_list):
         'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
         'Benzene': '../data/Functional groups images/Benzene_image.png',
         'Peroxide': '../data/Functional groups images/Peroxide_image.png'
-}
+        }
     
     # creates a dictionnary of the present groups and associated images of the molecule
 
@@ -1116,10 +1113,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     image.save(file_path)
     print(file_path)
 
-
-
-
-
     image_url = file_path
     # Creating a Bokeh figure to display the molecule
     p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
@@ -1130,6 +1123,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     p.ygrid.grid_line_color = None
     p.xaxis.visible = False
     p.yaxis.visible = False
+
     #---------------------------------------------------------------------------------------------#
     '''
     functional_group_finder(mol_smi)
@@ -1296,8 +1290,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         'Phosphine': '../data/Functional groups images/Phosphine_image.png',
         'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
         'Benzene': '../data/Functional groups images/Benzene_image.png',
-        'Peroxide': '../data/Functional groups images/Peroxide_image.png'
-}
+        'Peroxide': '../data/Functional groups images/Peroxide_image.png'}
 
     # creates a dictionnary of the present groups and associated images of the molecule
 
