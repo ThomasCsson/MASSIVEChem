@@ -34,3 +34,9 @@ def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = Fal
 
     # Save the image to a file
     image.save(file_path)
+
+
+mol_smi = input('MOL SMI:  ')
+
+
+save_molecule_image_to_file(mol_smi,'./molecule_image.png')
