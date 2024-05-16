@@ -201,6 +201,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 #resolution
     x_out, y_out = [],[]
     while len(x_in)>1:
+        
         if x_in[0]>x_in[1]-apparatus_resolution:
             y_in[1] = y_in[0] + y_in[1]
             x_in[1] = (x_in[0] + x_in[1])/2
@@ -232,7 +233,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         y_in.append(0.0035*count_N*maximum)  
     
     if has_S:
-        x_in.append(x_axis_final[index]-0.004)  
+        x_in.append(x_in[index]-0.004)  
         y_in.append(0.008*count_S*maximum)
 
     x_out, y_out = [],[]
@@ -268,7 +269,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     ticked_peaks = []
     for i in range(len(x_in)):
         if imprecision_True_False:    
-            if y_in[i] > 0.0001:
+            if y_in[i] > 0.001:
                 ticked_peaks.append(x_in[i])
         else:
             ticked_peaks.append(x_in[i])
@@ -373,7 +374,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
 
 
-    
+
     # Creating a Bokeh figure to display the molecule
     p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
     p.image_url(url=[filepath], x=0, y=1, w=1, h=1)
@@ -531,7 +532,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         'Amino acid': '../data/Functional groups images/Amino_acid_image.png',
         'Proline': '../data/Functional groups images/Proline_image.png',
         'Thiol': '../data/Functional groups images/Thiol_image.png',
-        'Sulfides': '../data/Functional groups images/Sulfides_image.png',
+        'Sulfide': '../data/Functional groups images/Sulfides_image.png',
         'Acyl Chloride': '../data/Functional groups images/Acyl_chloride_image.png',
         'Anhydride': '../data/Functional groups images/Anhydride_image.png',
         'Nitro': '../data/Functional groups images/Nitro_image.png',
@@ -592,4 +593,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCN',True,0.01))
+show(spectrum('CCSCC',True,0.01))
