@@ -334,7 +334,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     image_url = file_path
     # Creating a Bokeh figure to display the molecule
-    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+    p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
     p.image_url(url=['molecule_image.png'], x=0, y=1, w=1, h=1)
 
     # Hide grid lines and axes
