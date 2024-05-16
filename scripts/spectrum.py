@@ -236,7 +236,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     min_x , max_x = min(x_in), max(x_in)
 
-    x_axis, y_axis = [min_x-1],[0]
+    x_axis, y_axis = [min_x-0.2],[0]
     for i in range (len(x_in)):
         x_axis.append(x_in[i]-10**(-100))
         x_axis.append(x_in[i])
@@ -245,7 +245,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         y_axis.append(y_in[i])
         y_axis.append(0)
 
-    x_axis.append(max_x+1)
+    x_axis.append(max_x+0.2)
     y_axis.append(0)
 
 
@@ -276,9 +276,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
      #creates the secondary graph, mass spectrum of the molecule (non-interactive)
 
     p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
-    p2 = figure(width=300, title=f'Mass spectrum of molecule')
+    p2 = figure(width=250, title=f'Mass spectrum of molecule')
     p2 = figure(toolbar_location=None)
-    p2.height = 300
+    p2.height = 250
     p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
 
     #creates a tool in order that the second graph shows where the zoom is on the first one
@@ -305,7 +305,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     # creates a layout that displays the 2 graphs
 
-    layout = row(p1, p2)
+    layout = column(p1, p2)
 
     
 
@@ -334,7 +334,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     image_url = file_path
     # Creating a Bokeh figure to display the molecule
-    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+    p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
     p.image_url(url=['molecule_image.png'], x=0, y=1, w=1, h=1)
 
     # Hide grid lines and axes
@@ -547,8 +547,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
 
-    last = row(p, data_table)
-    final = column(layout, last)
+    last = column(p, data_table)
+    final = row(layout, last)
     return final
 
 show(spectrum('CCBr',True,0.001))

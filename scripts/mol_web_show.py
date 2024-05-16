@@ -1,4 +1,4 @@
-from bokeh.plotting import figure
+from bokeh.plotting import figure, show
 
 def mol_web_show(image_url):
 
@@ -25,3 +25,5 @@ def mol_web_show(image_url):
     p.yaxis.visible = False
 
     return p
+
+show(mol_web_show('./molecule_image.png'))

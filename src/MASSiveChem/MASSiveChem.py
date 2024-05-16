@@ -429,7 +429,7 @@ def double_plot(x_in,y_in):
 
     # creates a layout that displays the 2 graphs
 
-    layout = row(p1, p2)
+    layout = column(p1, p2)
 
     return layout
 
@@ -554,7 +554,6 @@ def functional_group_finder(mol_smi) -> list[str]:
     
     return functional_groups_contained
 
-
 def empty_file_path(search_directory='.'):
 
      #---------------------------------------------------------------------------------------------#
@@ -598,6 +597,7 @@ def empty_file_path(search_directory='.'):
             return os.path.join(root, filename)
     
     return None
+
 
 
 def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
@@ -662,7 +662,6 @@ def mol_web_show(image_url):
     show(p)
 
     return p
-
 
 def functional_group_display(groups_list):
 
@@ -783,7 +782,6 @@ def delete_mol_image_file():
     else:
 
         print(f"File '{filepath}' does not exist.")
-
 
 def all_in_one(p1,p2,p3):
 
@@ -1106,7 +1104,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     # creates a layout that displays the 2 graphs
 
-    layout = row(p1, p2)
+    layout = column(p1, p2)
 
     
 
@@ -1345,8 +1343,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
 
-    last = row(p, data_table)
-    final = column(layout, last)
+    last = column(p, data_table)
+    final = row(layout, last)
     return final
 
 #end

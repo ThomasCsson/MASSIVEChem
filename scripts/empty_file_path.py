@@ -45,3 +45,4 @@ def empty_file_path(search_directory='.'):
     return None
 
 
+print(empty_file_path())
