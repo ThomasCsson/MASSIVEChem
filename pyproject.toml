@@ -5,11 +5,12 @@ build-backend = "hatchling.build"
 [project]
 name = "MASSIVEChem"
 version = "3.0"
-description = "..."
+description = "MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
+The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an unsaturation calculator."
 readme = "README.md"
 requires-python = ">=3.8"
 license = "MIT"
-keywords = ["unsaturation", "Mass spectroscopy"]
+keywords = ["Mass spectroscopy", "unsaturation","functional group", "spectroscopy", "spectrometry" ]
 authors = [
   { name = "Thomas Viking Christiansson", email = "thomas.christiansson@epfl.ch" },
   { name = "Igor Gonteri", email = "igor.gonteri@epfl.ch" },
@@ -29,4 +30,7 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git"
+Homepage = "https://github.com/ThomasCsson/MASSIVEChem.git"
+GitHub_Thomas = "https://github.com/ThomasCsson"
+GitHub_Igor = "https://github.com/igorgonteri"
+GitHub_Arthur = "https://github.com/Arthurhmy"

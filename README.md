@@ -4,7 +4,7 @@
 
 ## Package description 
 MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
-The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an instauration calculator.
+The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an unsaturation calculator.
 
 Developpers:
 - Thomas Viking Christiansson, student in chemical engineering at EPFL    https://github.com/ThomasCsson
@@ -24,16 +24,14 @@ pip install MASSIVEChem
 ```
 The package can also be installed from source by running the following commands
 
-First, clone the repository from github
-
+First, clone the repository from github and go in the folder. 
 ```bash
-git clone https://github.com/ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery.git
-cd ThomasCsson/ppchem-project-Christiansson-Gonteri-Humery
+git clone https://github.com/ThomasCsson/MASSIVEChem.git
+cd MASSIVEChem
 ```
-Then, execute the shell script. The shell scripts require two arguments, python version and gpu/cpu.
-
+Then, install the package using : 
 ```bash
-source scripts/install_deepchem_conda.sh 3.10 cpu
+pip install -e
 ```
 
 ## Requirments
@@ -47,7 +45,7 @@ rdkit
 pandas
 ```
 If everything runs in order during the installation, the preceding packages should install automatically.
-But check that the following packages are correctly installed using 
+But check that these packages are correctly installed using 
 
 ```bash
 pip show "name of the package"
@@ -56,6 +54,7 @@ pip show "name of the package"
 If not, install them using the following commands, otherwise the package will not work. 
 
 ```bash
+pip install matplotlib
 pip install bokeh
 pip install rdkit
 pip install pandas
