@@ -501,7 +501,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     # dictionnary of the images of all functional groups
 
     functional_groups_images = {
-        'Alcohol': '../data/Functional groups images/Alcohol_image.png',
+        'Alcohol': '../Functional groups images/Alcohol_image.png',
         'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
         'Ketone': '../data/Functional groups images/Ketone_image.png',
         'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
