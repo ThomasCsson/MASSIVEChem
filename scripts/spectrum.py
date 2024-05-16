@@ -3,6 +3,8 @@ from rdkit.Chem import Draw, AllChem
 
 import pandas as pd
 
+import os
+
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import row, column
@@ -10,7 +12,7 @@ from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
 
-def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
+def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_directory='.'):
     #---------------------------------------------------------------------------------------------#
     '''
     spectrum(mol_smi, imprecision_True_False, apparatus_resolution)
@@ -307,13 +309,41 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     layout = column(p1, p2)
 
+
+
+        # name of the file name to create
+    filename = 'molecule_image.png'
+
+    #finds the current directory
+    current_directory = os.getcwd()
+
+    #creates a file path to the current directory
+    filepath = os.path.join(current_directory, filename)
+
+    #checks if the file already exists
+    if not os.path.exists(filepath):
+
+        #if no, creates the path
+        with open(filepath, 'a'):
+            pass
+    else:
+
+        #else pass
+        pass
     
+    for root, dirs, files in os.walk(search_directory):
+
+    #checks all the file names in the directory
+        if filename in files:
+
+            #return file path
+            file_mol = os.path.join(root, filename)
 
     show_Hs= False
     show_3D = False
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
-    file_path = 'THOMAS_IS_BEST/molecule_image.png'
+    file_path = file_mol
     # Adds the hydrogens to the molecule if specified
     if show_Hs:
         mol = Chem.AddHs(mol)
@@ -325,17 +355,17 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     image = Draw.MolToImage(mol)
 
     # Save the image to a file
-    image.save(file_path)
-    print(file_path)
+    image.save(filepath)
+    print(filepath)
 
 
 
 
 
-    image_url = file_path
+    
     # Creating a Bokeh figure to display the molecule
     p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=['molecule_image.png'], x=0, y=1, w=1, h=1)
+    p.image_url(url=[filepath], x=0, y=1, w=1, h=1)
 
     # Hide grid lines and axes
     p.xgrid.grid_line_color = None
@@ -481,9 +511,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         'Amine': '../data/Functional groups images/Amine_image.png',
         'Nitrile': '../data/Functional groups images/Nitrile_image.png',
         'Chloride': '../data/Functional groups images/Halogen_image.png',
-        'Bromide': '../data/Functional groups images/Bromide_image.png',
-        'Fluoride': '../data/Functional groups images/Halogen_image.png',
-        'Iodide': '../data/Functional groups images/Halogen_image.png',
+        'Bromide': './data/Functional groups images/Bromide_image.png',
+        'Fluoride': '../data/Functional groups images/Fluoride_image.png',
+        'Iodide': '../data/Functional groups images/Iodide_image.png',
         'Alkene': '../data/Functional groups images/Alkene_image.png',
         'Alkyne': '../data/Functional groups images/Alkyne_image.png',
         'Imine': '../data/Functional groups images/Imine_image.png',
@@ -551,4 +581,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(layout, last)
     return final
 
-show(spectrum('CCBr',True,0.001))
+show(spectrum('CCO',True,0.001))
