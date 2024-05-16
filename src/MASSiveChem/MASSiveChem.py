@@ -158,7 +158,7 @@ def ionisation_method (list_atoms) -> list[str]:
     return list_atoms
 
 
-def spectrum(list_atoms, imprecision_True_False) -> list[float]:
+def main_function(list_atoms, imprecision_True_False) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
     main_function(list_atoms)
