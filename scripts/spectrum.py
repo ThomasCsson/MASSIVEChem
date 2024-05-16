@@ -506,7 +506,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         'Amine': '../data/Functional groups images/Amine_image.png',
         'Nitrile': '../data/Functional groups images/Nitrile_image.png',
         'Chloride': '../data/Functional groups images/Halogen_image.png',
-        'Bromide': './data/Functional groups images/Bromide_image.png',
+        'Bromide': '../data/Functional groups images/Bromide_image.png',
         'Fluoride': '../data/Functional groups images/Fluoride_image.png',
         'Iodide': '../data/Functional groups images/Iodide_image.png',
         'Alkene': '../data/Functional groups images/Alkene_image.png',
@@ -576,4 +576,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCO',True,0.01))
+show(spectrum('[H][C@]12SC(C)(C)[C@@H](N1C(=O)[C@H]2NC(=O)Cc1ccccc1)C(O)=O',True,0.01))
