@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "MASSIVEChem"
 version = "3.1"
-description = "MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
+description = "MASSIVEChem, which stands for ""Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry"", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an unsaturation calculator."
 readme = "README.md"
 requires-python = ">=3.8"
