@@ -276,9 +276,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
      #creates the secondary graph, mass spectrum of the molecule (non-interactive)
 
     p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
-    p2 = figure(width=300, title=f'Mass spectrum of molecule')
+    p2 = figure(width=250, title=f'Mass spectrum of molecule')
     p2 = figure(toolbar_location=None)
-    p2.height = 300
+    p2.height = 250
     p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
 
     #creates a tool in order that the second graph shows where the zoom is on the first one
