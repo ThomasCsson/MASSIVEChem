@@ -554,13 +554,13 @@ def empty_file_path(search_directory='.'):
     
     Input: search_directory, which specifies to check in the current directory
     
-    Output: - creates a new file called molecule_image_5.png to store an image later
+    Output: - creates a new file called molecule_image.png to store an image later
             - returns the relative path to the file
     '''
     #---------------------------------------------------------------------------------------------#
 
     # name of the file name to create
-    filename = 'molecule_image_5.png'
+    filename = 'molecule_image.png'
 
     #finds the current directory
     current_directory = os.getcwd()
@@ -755,12 +755,12 @@ def delete_mol_image_file():
     
     Input: None
     
-    Output: Deletes the creates file to store the image : molecule_image_5.png
+    Output: Deletes the creates file to store the image : molecule_image.png
     '''
     #---------------------------------------------------------------------------------------------#
 
     # file path to delete
-    filepath = 'molecule_image_5.png'
+    filepath = 'molecule_image.png'
 
     #checks if the file exists
     if os.path.exists(filepath):
