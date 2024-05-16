@@ -25,7 +25,7 @@ def functional_group_finder(mol_smi):
         'Ester': 'CC(=O)[Oh0]',
         'Ether': '*[Oh0]*',
         'Amide': 'C(=O)N',
-        'Amine': '[C][Nh2]',
+        'Amine': '[C][N]',
         'Nitrile': 'C#N',
         'Chloride': 'Cl',
         'Bromide': 'Br',
@@ -113,14 +113,14 @@ def functional_group_finder(mol_smi):
     if 'Disulfide' in functional_groups_contained:
         functional_groups_contained.remove('Sulfide')
         functional_groups_contained.remove('Sulfide')
-    if 'Amine2' in functional_groups_contained:
-        functional_groups_contained.remove('Amine2')
-        functional_groups_contained.append('Amine')
+    if 'Amine' in functional_groups_contained:
+        functional_groups_contained.remove('Amine')
     if 'Peroxide' in functional_groups_contained:
         functional_groups_contained.remove('Ether')
         functional_groups_contained.remove('Ether')
     
+    
     return functional_groups_contained
 
 
-print(functional_group_finder('CCCC(=O)OCCC(=O)O'))
+print(functional_group_finder('CCNCCN'))
