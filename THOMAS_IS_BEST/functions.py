@@ -8,6 +8,8 @@ import pandas as pd
 
 import numpy as np
 
+import os
+
 import matplotlib.pyplot as plt
 
 import plotly.graph_objects as go
@@ -888,9 +890,55 @@ def double_plot(x_in,y_in):
 
     # creates a layout that displays the 2 graphs
 
-    layout = row(p1, p2)
+    layout = column(p1, p2)
     print('here')
     return layout
+
+
+
+def empty_file_path(search_directory='.'):
+
+     #---------------------------------------------------------------------------------------------#
+    '''
+    empty_file_path()
+    
+    Input: search_directory, which specifies to check in the current directory
+    
+    Output: - creates a new file called molecule_image_5.png to store an image later
+            - returns the relative path to the file
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # name of the file name to create
+    filename = 'molecule_image_5.png'
+
+    #finds the current directory
+    current_directory = os.getcwd()
+
+    #creates a file path to the current directory
+    filepath = os.path.join(current_directory, filename)
+
+    #checks if the file already exists
+    if not os.path.exists(filepath):
+
+        #if no, creates the path
+        with open(filepath, 'a'):
+            pass
+    else:
+
+        #else pass
+        pass
+    
+    
+    for root, dirs, files in os.walk(search_directory):
+
+        #checks all the file names in the directory
+        if filename in files:
+
+            #return file path
+            return os.path.join(root, filename)
+    
+    return None
 
 
 def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
@@ -944,7 +992,7 @@ def mol_web_show(image_url):
 
 
     # Creating a Bokeh figure to display the molecule
-    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+    p = figure(width=300, height=300,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
     p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
 
     # Hide grid lines and axes
@@ -957,9 +1005,58 @@ def mol_web_show(image_url):
 
     return p
 
+def delete_mol_image_file():
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    delete_mol_image_file()
+    
+    Input: None
+    
+    Output: Deletes the creates file to store the image : molecule_image_5.png
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # file path to delete
+    filepath = 'molecule_image_5.png'
+
+    #checks if the file exists
+    if os.path.exists(filepath):
+
+        #if yes, deletes the file
+        os.remove(filepath)
+
+        print(f"File '{filepath}' has been deleted.")
+    
+    else:
+
+        print(f"File '{filepath}' does not exist.")
+
+
+
 def all_in_one(p1,p2,p3):
-    layout1 = row(p2, p3)
-    layout = column(p1, layout1)
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    all_in_one(p1,p2,p3)
+    
+    Input: 3 bokeh plots
+            Usually used in this package:
+                    - p1 : bokeh double plot of mass spectrometry
+                    - p2 : image of the molecule
+                    - p3 : table of functional groups
+    
+    Output: bokeh page with all 3 graphs well arranged
+
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    #creates a layout in column with p2 and p3
+    layout1 = column(p2, p3)
+
+    #creates the final layout in row with layout1 and p1
+    layout = row(p1, layout1)
+
     return layout
 
 
