@@ -435,12 +435,12 @@ def pyplot_plotter (x_axis_final, y_axis_final):
     #---------------------------------------------------------------------------------------------#
     '''
     pyplot_plotter (x_axis_final, y_axis_final)
-    
+
     Input: two lists:
     1. list of the masses (of individual molecules) of each possible combination of isotopes
     2. list of the probabilities of apparation of each of the molecules 
     (the mass in list 1 at index i is associated to the probability at index i in list 2) 
-    
+
     Output: p (plot of mass spectrum on bokeh)
 
     Functionality: none
@@ -1100,12 +1100,9 @@ mol_web_show(output_file_path)
 
 
 #Harry Plotter
-'''
-print(pyplot_plotter(x_axis, y_axis))'''
-show(double_plot(x_axis, y_axis))
-'''print(functional_group_finder(mol_smi))
-print(f'Computation complete')
-print(f'Process took: {duration} s')'''
 
 
 
+
+
+print(functional_group_finder('COCC(=O)O'))
