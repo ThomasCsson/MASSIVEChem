@@ -151,7 +151,7 @@ def ionisation_method (list_atoms) -> list[str]:
         list_atoms.remove('H')
     return list_atoms
 
-def main_function (list_atoms, imprecision_True_False) -> list[float]:
+def spectrum(list_atoms, imprecision_True_False) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
     main_function(list_atoms)
