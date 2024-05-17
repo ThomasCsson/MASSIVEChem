@@ -77,8 +77,7 @@ def get_image(variable_list):
             image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
             present_group_images_base64.append(image_base64)
 
-    print(present_group_images_base64)  # Check if images are generated correctly
-
+    
     data = dict(
         groups=variable_list,
         images=present_group_images_base64
