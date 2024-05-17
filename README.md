@@ -96,7 +96,7 @@ show(spectrum(mol_smi, True, apparatus_resolution))
 ```
 The output of this command will be:
 
-![spectrum]
+![spectrum](Spectrum_image.png)
 ## Getting started
 
 To begin to use the package the following jupyter notebook will give you information about all the package's functions:
