@@ -71,55 +71,71 @@ def functional_group_finder(mol_smi):
     # exceptions for conflicts during the iteration of functional groups
     for functional_group in functional_groups_contained:
         if functional_group == 'Carboxylic Acid':
-            functional_groups_contained.remove('Alcohol')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
         elif 'Ester' == functional_group:
-            functional_groups_contained.remove('Ether')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
         elif 'Phosphate' == functional_group:
-            functional_groups_contained.remove('Ether')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
         elif 'Thioester' == functional_group:
-            functional_groups_contained.remove('Sulfide')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
         elif 'Sulfonic acid' == functional_group:
-            functional_groups_contained.remove('Sulfide')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
         elif 'Sulfoxide' == functional_group:
-            functional_groups_contained.remove('Sulfide')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
         elif 'Acyl Chloride' == functional_group:
-            functional_groups_contained.remove('Chloride')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Chloride')
         elif 'Anhydride' == functional_group:
-            functional_groups_contained.remove('Ester')
-            functional_groups_contained.remove('Ester')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ester')
+                functional_groups_contained.remove('Ester')
+                functional_groups_contained.append('Ether')
         elif 'Enamine2' == functional_group:
-            functional_groups_contained.remove('Enamine2')
-            functional_groups_contained.append('Enamine')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Enamine2')
+                functional_groups_contained.append('Enamine')
         elif 'Enamine3' == functional_group:
-            functional_groups_contained.remove('Enamine3')
-            functional_groups_contained.remove('Amine')
-            functional_groups_contained.append('Enamine')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Enamine3')
+                functional_groups_contained.remove('Amine')
+                functional_groups_contained.append('Enamine')
         elif 'Imide' == functional_group:
-            functional_groups_contained.remove('Amide')
-            functional_groups_contained.remove('Amide')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Amide')
+                functional_groups_contained.remove('Amide')
         elif 'Enol' == functional_group:
-            functional_groups_contained.remove('Alkene')
-            functional_groups_contained.remove('Alcohol')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alkene')
+                functional_groups_contained.remove('Alcohol')
         elif 'Hemiacetal' == functional_group:
-            functional_groups_contained.remove('Alcohol')
-            functional_groups_contained.remove('Alcohol')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Alcohol')
         elif 'Carbonate2' == functional_group:
-            functional_groups_contained.remove('Alcohol')
-            functional_groups_contained.remove('Alcohol')
-            functional_groups_contained.remove('Carbonate2')
-            functional_groups_contained.append('Carbonate')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Carbonate2')
+                functional_groups_contained.append('Carbonate')
         elif 'Disulfide' == functional_group:
-            functional_groups_contained.remove('Sulfide')
-            functional_groups_contained.remove('Sulfide')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+                functional_groups_contained.remove('Sulfide')
         elif 'Amine' == functional_group:
-            functional_groups_contained.remove('Amine')
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Amine')
         elif 'Peroxide' == functional_group:
-            functional_groups_contained.remove('Ether')
-            functional_groups_contained.remove('Ether')
-        elif 'Amide' == functional_group:
-            functional_groups_contained.remove('Amine')
-    
-    
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+                functional_groups_contained.remove('Ether')
+
+
     return functional_groups_contained
 
 print(functional_group_finder('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'))
