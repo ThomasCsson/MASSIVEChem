@@ -22,9 +22,9 @@ MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investiga
 The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an unsaturation calculator.
 
 Developpers:
-- Thomas Viking Christiansson, student in chemical engineering at EPFL    https://github.com/ThomasCsson
-- Igor Gonteri, student in chemistry at EPFL                             https://github.com/igorgonteri
-- Arthur Humery, student in chemical engineering at EPFL                https://github.com/Arthurhmy
+- Thomas Viking Christiansson, student in chemical engineering at EPFL    [![jhc github](https://img.shields.io/badge/GitHub-jhrcook-181717.svg?style=flat&logo=github)](https://github.com/ThomasCsson)
+- Igor Gonteri, student in chemistry at EPFL                             [![jhc github](https://img.shields.io/badge/GitHub-jhrcook-181717.svg?style=flat&logo=github)](https://github.com/igorgonteri)
+- Arthur Humery, student in chemical engineering at EPFL                [![jhc github](https://img.shields.io/badge/GitHub-jhrcook-181717.svg?style=flat&logo=github)](https://github.com/Arthurhmy)
 
 ### What is mass spectrometry ?
    - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating pre-charged ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their composition.
