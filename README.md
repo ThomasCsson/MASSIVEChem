@@ -14,14 +14,14 @@
 ![GitHub3](https://img.shields.io/badge/License-3-purple.svg)
 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
-#### Project in practical programming in chemistry course -- EPFL CH-200
+#### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
 ## Package description
 ![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)
 ![GitHub4](http://ForTheBadge.com/images/badges/made-with-python.svg)
 
-MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
-The aim of this package is to provide the user functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an unsaturation calculator.
+MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable python package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
+The aim of this package is to provide the user with functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an unsaturation calculator.
 
 Developpers:
 - Thomas Viking Christiansson, student in chemical engineering at EPFL    [![jhc github](https://img.shields.io/badge/GitHub-ThomasCsson-181717.svg?style=flat&logo=github)](https://github.com/ThomasCsson)
@@ -31,7 +31,7 @@ Developpers:
 ### What is mass spectrometry ?
    - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating pre-charged ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their composition.
 
-Now, let us go through the steps required to use this package !
+Now, let us go through the steps required to use this package!
 
 ## Installation
 ![Thomas2](https://img.shields.io/badge/pypi-3775A9?style=for-the-badge&logo=pypi&logoColor=white)
