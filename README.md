@@ -4,12 +4,15 @@
 ![Thomas4](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Thomas6](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=purple)
 
+
+
+# -         MASSIVEChem       - 
+
 ![GitHub2](https://img.shields.io/badge/Maintained%3F-yes-turquoise.svg)
 [![python](https://img.shields.io/badge/Python-3.10-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
 ![GitHub3](https://img.shields.io/badge/Contributors-3-green.svg)
 ![GitHub3](https://img.shields.io/badge/License-3-purple.svg)
 
-# -         MASSIVEChem       - 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
