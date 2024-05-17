@@ -51,8 +51,16 @@ cd MASSIVEChem
 ```
 Then, install the package using : 
 ```bash
-pip install -e . 
+pip install -e .
 ```
+
+
+
+Instalation by pip-installation
+```bash
+pip install git+https://github.com/ThomasCsson/MASSIVEChem
+```
+
 
 ## Requirments
 The package runs on python 3.10 but supports python 3.8 through 3.10
