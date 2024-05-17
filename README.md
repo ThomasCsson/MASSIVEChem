@@ -40,6 +40,12 @@ MASSIVEChem can be installed using pip as
 ```bash
 pip install MASSIVEChem
 ```
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+Alternatively, the package can be directly installed from the GitHub repository via pip using the following command in the terminal
+```bash
+pip install git+https://github.com/ThomasCsson/MASSIVEChem
+```
+
 ![Thomas1](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
 The package can also be installed from source by running the following commands
@@ -56,10 +62,8 @@ pip install -e .
 
 
 
-Instalation by pip-installation
-```bash
-pip install git+https://github.com/ThomasCsson/MASSIVEChem
-```
+
+
 
 
 ## Requirments
