@@ -1,6 +1,6 @@
 ![logo](IMG_2856.jpg)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ThomasCsson/MASSIVEChem)
-![Thomas3](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+[![Thomas3](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org/)
 ![Thomas4](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Thomas6](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=purple)
 
@@ -10,8 +10,8 @@
 
 ![GitHub2](https://img.shields.io/badge/Maintained%3F-yes-turquoise.svg)
 [![python](https://img.shields.io/badge/Python-3.10-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
-![GitHub3](https://img.shields.io/badge/Contributors-3-green.svg)
-![GitHub3](https://img.shields.io/badge/License-3-purple.svg)
+[![GitHub3](https://img.shields.io/badge/Contributors-3-green.svg)](https://github.com/ThomasCsson/MASSIVEChem/graphs/contributors)
+[![GitHub3](https://img.shields.io/badge/License-3-purple.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/LICENSE.txt)
 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
@@ -34,13 +34,13 @@ Developpers:
 Now, let us go through the steps required to use this package!
 
 ## Installation
-![Thomas2](https://img.shields.io/badge/pypi-3775A9?style=for-the-badge&logo=pypi&logoColor=white)
+[![Thomas2](https://img.shields.io/badge/pypi-3775A9?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/MASSIVEChem/)
 
 MASSIVEChem can be installed using pip as
 ```bash
 pip install MASSIVEChem
 ```
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ThomasCsson/MASSIVEChem?tab=readme-ov-file)
 
 Alternatively, the package can be directly installed from the GitHub repository via pip using the following command in the terminal
 ```bash
