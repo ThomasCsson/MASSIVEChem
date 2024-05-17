@@ -69,53 +69,53 @@ def functional_group_finder(mol_smi):
                 functional_groups_contained.append(name)
 
     # exceptions for conflicts during the iteration of functional groups
-
-    if 'Carboxylic Acid' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-    if 'Ester' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-    if 'Phosphate' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-    if 'Thioester' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Sulfonic acid' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Sulfoxide' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Acyl Chloride' in functional_groups_contained:
-        functional_groups_contained.remove('Chloride')
-    if 'Anhydride' in functional_groups_contained:
-        functional_groups_contained.remove('Ester')
-        functional_groups_contained.remove('Ester')
-    if 'Enamine2' in functional_groups_contained:
-        functional_groups_contained.remove('Enamine2')
-        functional_groups_contained.append('Enamine')
-    if 'Enamine3' in functional_groups_contained:
-        functional_groups_contained.remove('Enamine3')
-        functional_groups_contained.remove('Amine')
-        functional_groups_contained.append('Enamine')
-    if 'Imide' in functional_groups_contained:
-        functional_groups_contained.remove('Amide')
-        functional_groups_contained.remove('Amide')
-    if 'Enol' in functional_groups_contained:
-        functional_groups_contained.remove('Alkene')
-        functional_groups_contained.remove('Alcohol')
-    if 'Hemiacetal' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Alcohol')
-    if 'Carbonate2' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Carbonate2')
-        functional_groups_contained.append('Carbonate')
-    if 'Disulfide' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-        functional_groups_contained.remove('Sulfide')
-    if 'Amine' in functional_groups_contained:
-        functional_groups_contained.remove('Amine')
-    if 'Peroxide' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-        functional_groups_contained.remove('Ether')
+    for functional_group in functional_groups_contained:
+        if functional_group == 'Carboxylic Acid':
+            functional_groups_contained.remove('Alcohol')
+        elif 'Ester' == functional_group:
+            functional_groups_contained.remove('Ether')
+        elif 'Phosphate' == functional_group:
+            functional_groups_contained.remove('Ether')
+        elif 'Thioester' == functional_group:
+            functional_groups_contained.remove('Sulfide')
+        elif 'Sulfonic acid' == functional_group:
+            functional_groups_contained.remove('Sulfide')
+        elif 'Sulfoxide' == functional_group:
+            functional_groups_contained.remove('Sulfide')
+        elif 'Acyl Chloride' == functional_group:
+            functional_groups_contained.remove('Chloride')
+        elif 'Anhydride' == functional_group:
+            functional_groups_contained.remove('Ester')
+            functional_groups_contained.remove('Ester')
+        elif 'Enamine2' == functional_group:
+            functional_groups_contained.remove('Enamine2')
+            functional_groups_contained.append('Enamine')
+        elif 'Enamine3' == functional_group:
+            functional_groups_contained.remove('Enamine3')
+            functional_groups_contained.remove('Amine')
+            functional_groups_contained.append('Enamine')
+        elif 'Imide' == functional_group:
+            functional_groups_contained.remove('Amide')
+            functional_groups_contained.remove('Amide')
+        elif 'Enol' == functional_group:
+            functional_groups_contained.remove('Alkene')
+            functional_groups_contained.remove('Alcohol')
+        elif 'Hemiacetal' == functional_group:
+            functional_groups_contained.remove('Alcohol')
+            functional_groups_contained.remove('Alcohol')
+        elif 'Carbonate2' == functional_group:
+            functional_groups_contained.remove('Alcohol')
+            functional_groups_contained.remove('Alcohol')
+            functional_groups_contained.remove('Carbonate2')
+            functional_groups_contained.append('Carbonate')
+        elif 'Disulfide' == functional_group:
+            functional_groups_contained.remove('Sulfide')
+            functional_groups_contained.remove('Sulfide')
+        elif 'Amine' == functional_group:
+            functional_groups_contained.remove('Amine')
+        elif 'Peroxide' == functional_group:
+            functional_groups_contained.remove('Ether')
+            functional_groups_contained.remove('Ether')
     
     
     return functional_groups_contained

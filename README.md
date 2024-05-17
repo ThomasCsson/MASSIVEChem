@@ -2,13 +2,17 @@
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![Thomas3](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 ![Thomas4](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![Thomas5](	https://img.shields.io/badge/Electron-2B2E3A?style=for-the-badge&logo=electron&logoColor=9FEAF9)
-![Thomas6](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
-![Thomas7](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)
-![GitHub2](https://img.shields.io/badge/Maintained%3F-yes-orange.svg)
-[![python](https://img.shields.io/badge/Python-3.10-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
+![Thomas6](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=purple)
+
+
 
 # -         MASSIVEChem       - 
+
+![GitHub2](https://img.shields.io/badge/Maintained%3F-yes-turquoise.svg)
+[![python](https://img.shields.io/badge/Python-3.10-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
+![GitHub3](https://img.shields.io/badge/Contributors-3-green.svg)
+![GitHub3](https://img.shields.io/badge/License-3-purple.svg)
+
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project in practical programming in chemistry course -- EPFL CH-200
 
@@ -54,12 +58,11 @@ pip install -e .
 The package runs on python 3.10 but supports python 3.8 through 3.10
 The package requires several other packages to function correctly.
 
-```bash
 matplotlib
 bokeh
 rdkit
 pandas
-```
+
 If everything runs in order during the installation, the preceding packages should install automatically.
 But check that these packages are correctly installed using 
 
@@ -80,7 +83,9 @@ pip install pandas
 
 The principal function of this package takes the SMILEs of a molecule as an input and displays the mass spectrometry of the molecule as well as the molecule itself and  the functional groups it contains.
 
-An example on how to make the function work is shown below for penicilin:
+An example on how to make the function work is shown below for benzylpenicilin:
+
+The ionization method is set to monodeprotonation and the resolution of the apparatus is 0.01 Th
 
 ```bash
 import MASSIVEChem as ms
@@ -88,11 +93,15 @@ from ms.MASSIVEChem import spectrum
 from bokeh.plotting import show
 
 mol_smi = 'CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'
+apparatus_resolution = 0.01
 
-show(spectrum(mol_smi))
+show(spectrum(mol_smi, True, apparatus_resolution))
 ```
+The output of this command will be:
 
+![spectrum](Spectrum_image.png)
 ## Getting started
+[![jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
 
 To begin to use the package the following jupyter notebook will give you information about all the package's functions:
 
