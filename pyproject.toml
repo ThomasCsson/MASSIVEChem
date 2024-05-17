@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "MASSIVEChem"
-version = "3.5"
+version = "3.6"
 description = "MASSIVEChem is a pip-installable package for analytical chemistry. It simulates molecule mass spectra and graphically displays them. It includes tools like a functional group finder and unsaturation calculator to aid chemical analysis."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -40,7 +40,7 @@ classifiers = [
 ]
 
 [tool.poetry.files]
-include = ["data/abundance.txt","data/Functional groups images"]
+include = ["src/MASSIVEChem/data/abundance.txt","src/MASSIVEChem/data/Functional groups images"]
 
 
 [project.urls]
