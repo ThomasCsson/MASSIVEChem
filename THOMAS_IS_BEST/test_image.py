@@ -106,5 +106,5 @@ def get_image(variable_list):
     return data_table
 
 
-groups = ['Aldehyde','Sulfide']
+groups = ['Aldehyde','Bromide']
 show(get_image(groups))
