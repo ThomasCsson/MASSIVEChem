@@ -5,7 +5,7 @@
 ![Thomas6](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=purple)
 
 ![GitHub2](https://img.shields.io/badge/Maintained%3F-yes-turquoise.svg)
-[![python](https://img.shields.io/badge/Python-3.10-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
+[![python](https://img.shields.io/badge/Python-3.9-3.11-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
 
 # -         MASSIVEChem       - 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
@@ -53,12 +53,11 @@ pip install -e .
 The package runs on python 3.10 but supports python 3.8 through 3.10
 The package requires several other packages to function correctly.
 
-```bash
 matplotlib
 bokeh
 rdkit
 pandas
-```
+
 If everything runs in order during the installation, the preceding packages should install automatically.
 But check that these packages are correctly installed using 
 
@@ -97,6 +96,7 @@ The output of this command will be:
 
 ![spectrum](Spectrum_image.png)
 ## Getting started
+[![jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
 
 To begin to use the package the following jupyter notebook will give you information about all the package's functions:
 
