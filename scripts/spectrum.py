@@ -272,6 +272,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     p1 = figure(x_axis_label = '[m/z]')
     p1 = figure(y_axis_label = 'Abundance')
     p1.xaxis.axis_label = "[m/z]"
+    p1.title = 'Mass spectrum of molecule'
     p1.height = 500
     p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
     p1.add_tools(WheelPanTool(dimension="height"))
@@ -481,6 +482,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         functional_groups_contained.remove('Sulfide')
     if 'Amine' in functional_groups_contained:
         functional_groups_contained.remove('Amine')
+    if 'Amide' in functional_groups_contained:
+        functional_groups_contained.remove('Amine')
+        functional_groups_contained.remove('Amine')
     if 'Peroxide' in functional_groups_contained:
         functional_groups_contained.remove('Ether')
         functional_groups_contained.remove('Ether')
@@ -578,4 +582,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CCSCCNCC(=O)OCC=O', True, 0.01))
+show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', True, 0.01))
