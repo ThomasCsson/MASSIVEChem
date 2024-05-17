@@ -3,6 +3,8 @@ from rdkit.Chem import Draw, AllChem
 
 import pandas as pd
 
+import base64
+
 import os
 
 from bokeh.plotting import figure, show, row
@@ -545,85 +547,7 @@ def functional_group_finder(mol_smi) -> list[str]:
     
     return functional_groups_contained
 
-def empty_file_path(search_directory='.'):
 
-     #---------------------------------------------------------------------------------------------#
-    '''
-    empty_file_path()
-    
-    Input: search_directory, which specifies to check in the current directory
-    
-    Output: - creates a new file called molecule_image.png to store an image later
-            - returns the relative path to the file
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-    # name of the file name to create
-    filename = 'molecule_image.png'
-
-    #finds the current directory
-    current_directory = os.getcwd()
-
-    #creates a file path to the current directory
-    filepath = os.path.join(current_directory, filename)
-
-    #checks if the file already exists
-    if not os.path.exists(filepath):
-
-        #if no, creates the path
-        with open(filepath, 'a'):
-            pass
-    else:
-
-        #else pass
-        pass
-    
-    
-    for root, dirs, files in os.walk(search_directory):
-
-        #checks all the file names in the directory
-        if filename in files:
-
-            #return file path
-            return os.path.join(root, filename)
-    
-    return None
-
-def save_molecule_image_to_file(mol_smi, file_path, show_Hs=False, show_3D = False):
-
-    #---------------------------------------------------------------------------------------------#
-    '''
-    save_molecule_image_to_file(mol_smi)
-    
-    Input: molecule under SMILEs representation
-    
-    Output: image of the molecule in the molecule_image.png file
-
-    Functionnality: - if show_Hs= True:
-                        shows all the hydrogens of the molecule
-                    - if show_3D= True:
-                        shows the molecule in 3D and the chirality
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-
-    # Generate the image from the molecule
-    mol = Chem.MolFromSmiles(mol_smi)
-
-    # Adds the hydrogens to the molecule if specified
-    if show_Hs:
-        mol = Chem.AddHs(mol)
-
-    # Show the molecule in 3D if specified
-    if show_3D:
-        mol = AllChem.EmbedMolecule(mol)
-
-    image = Draw.MolToImage(mol)
-
-    # Save the image to a file
-    image.save(file_path)
-
-def mol_web_show(image_url):
 
     #---------------------------------------------------------------------------------------------#
     '''
@@ -651,97 +575,180 @@ def mol_web_show(image_url):
 
     return p
 
-def functional_group_display(groups_list):
+def functional_group_display(contained_functional_groups):
 
     #---------------------------------------------------------------------------------------------#
     '''
-    functional_group_display(groups_list)
+    functional_group_display(contained_functional_groups)
     
-    Input: list of the groups present in the molecule
-    
-    Output: Bokeh table with the names of the present functional groups as well as an image of each present functional group
+    Input: list of all contained functional groups in the molecule
+
+    Output: bokeh table with the contained functional groups and their image
     '''
     #---------------------------------------------------------------------------------------------#
 
-    # dictionnary of the images of all functional groups
+    #dictionnary with functional groups and associated SMARTs
+    functional_groups_smarts = {
+        'Alcohol': 'C[Oh1+0]',
+        'Aldehyde': 'C[Ch1]=O',
+        'Ketone': 'CC(=O)C',
+        'Carboxylic Acid': 'CC(=O)[Oh1]',
+        'Ester': 'CC(=O)[Oh0]',
+        'Ether': '*[Oh0]*',
+        'Amide': 'C(=O)N',
+        'Amine': '[C][N]',
+        'Nitrile': 'C#N',
+        'Chloride': 'Cl',
+        'Bromide': 'Br',
+        'Fluoride': 'F',
+        'Iodide': 'I',
+        'Alkene': 'C=C',
+        'Alkyne': 'C#C',
+        'Imine': 'C=N*',
+        'Amino acid': '[Nh2][Ch1*]C(=O)O',
+        'Proline': '[Nh1][Ch1*]C(=O)O',
+        'Thiol': '[Sh1]',
+        'Sulfide': '*[Sh0]*',
+        'Acyl Chloride': 'CC(=O)Cl',
+        'Anhydride': '*[Ch0](=O)O[Ch0](=O)*',
+        'Nitro': 'C[N+](=O)[O-]',
+        'Enamine': 'C=C[Nh0]',
+        'Enamine2': 'C=C[Nh1]',
+        'Enamine3': 'C=C[Nh2]',
+        'Imide': 'C(=O)NC(=O)*',
+        'Azide': 'CNNN',
+        'Enol': 'C=C([Oh1])C',
+        'Hemiacetal': 'CC(O)(O)C',
+        'Carbonate': '[Oh0]C(=O)[Oh0]',
+        'Carbonate2': '[Oh1]C(=O)[Oh1]',
+        'Disulfide': 'CSSC',
+        'Sulfoxide': 'CS(=O)C',
+        'Sulfone': '*[So2](=O)(=O)*',
+        'Sulfonic acid': '*S(=O)(=O)[Oh1]',
+        'Thioester': 'C(=O)S*',
+        'Phosphine': '*[Po0](*)*',
+        'Phosphate': '*OP(=O)(O)O',
+        'Benzene': 'c1ccccc1',
+        'Peroxide':'C[Oh0][Oh0]C'
+    }
 
-    functional_groups_images = {
-        'Alcohol': '../data/Functional groups images/Alcohol_image.png',
-        'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
-        'Ketone': '../data/Functional groups images/Ketone_image.png',
-        'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
-        'Ester': '../data/Functional groups images/Ester_image.png',
-        'Ether': '../data/Functional groups images/Ether_image.png',
-        'Amide': '../data/Functional groups images/Amide_image.png',
-        'Amine': '../data/Functional groups images/Amine_image.png',
-        'Nitrile': '../data/Functional groups images/Nitrile_image.png',
-        'Chloride': '../data/Functional groups images/Halogen_image.png',
-        'Bromide': '../data/Functional groups images/Bromide_image.png',
-        'Fluoride': '../data/Functional groups images/Fluoride_image.png',
-        'Iodide': '../data/Functional groups images/Iodide_image.png',
-        'Alkene': '../data/Functional groups images/Alkene_image.png',
-        'Alkyne': '../data/Functional groups images/Alkyne_image.png',
-        'Imine': '../data/Functional groups images/Imine_image.png',
-        'Amino acid': '../data/Functional groups images/Amino_acid_image.png',
-        'Proline': '../data/Functional groups images/Proline_image.png',
-        'Thiol': '../data/Functional groups images/Thiol_image.png',
-        'Sulfides': '../data/Functional groups images/Sulfides_image.png',
-        'Acyl Chloride': '../data/Functional groups images/Acyl_chloride_image.png',
-        'Anhydride': '../data/Functional groups images/Anhydride_image.png',
-        'Nitro': '../data/Functional groups images/Nitro_image.png',
-        'Enamine': '../data/Functional groups images/Enamine_image.png',
-        'Enamine2': '../data/Functional groups images/Enamine2_image.png',
-        'Enamine3': '../data/Functional groups images/Enamine3_image.png',
-        'Imide': '../data/Functional groups images/Imide_image.png',
-        'Azide': '../data/Functional groups images/Azide_image.png',
-        'Enol': '../data/Functional groups images/Enol_image.png',
-        'Hemiacetal': '../data/Functional groups images/Hemiacetal_image.png',
-        'Carbonate': '../data/Functional groups images/Carbonate_image.png',
-        'Carbonate2': '../data/Functional groups images/Carbonate2_image.png',
-        'Disulfide': '../data/Functional groups images/Disulfide_image.png',
-        'Sulfoxide': '../data/Functional groups images/Sulfoxide_image.png',
-        'Sulfone': '../data/Functional groups images/Sulfone_image.png',
-        'Sulfonic acid': '../data/Functional groups images/Sulfonic_acid_image.png',
-        'Thioester': '../data/Functional groups images/Thioester_image.png',
-        'Phosphine': '../data/Functional groups images/Phosphine_image.png',
-        'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
-        'Benzene': '../data/Functional groups images/Benzene_image.png',
-        'Peroxide': '../data/Functional groups images/Peroxide_image.png'
-}
+    #initiate empty variables
+    present_group_smarts = []    
+    present_group_images_base64 = []
     
-    # creates a dictionnary of the present groups and associated images of the molecule
+    #appends the smarts of the contained functional groups
+    for i,j in functional_groups_smarts.items():
+        for x in contained_functional_groups:
+            if x == i:
+                present_group_smarts.append(j)
 
-    present_group_images = []
+    #converts the smarts to images in base64 format
+    for x in present_group_smarts:
 
-    for x in groups_list:
-        present_group_images.append(functional_groups_images[x])
+        #converts SMARTs to SMILEs for the images to be nicer
+        mol_x = Chem.MolFromSmarts(x)
+        mol_smi = Chem.MolToSmiles(mol_x)
+        mol = Chem.MolFromSmiles(mol_smi)
+
+        if mol:
+
+            #creates the image
+            image = Draw.MolToImage(mol)
+
+            # Convert the image to base64 format
+            buffered = BytesIO()
+            image.save(buffered, format="PNG")
+            image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+            #appends the image to an empty dictionnary
+            present_group_images_base64.append(image_base64)
+
+    #creates a dictionnary that links the name of the functional group to its image
     data = dict(
-        groups=groups_list,
-        images=[f'<img src="{group_image}" style="width:50px;height:50px;">' for group_image in present_group_images]
+        groups=contained_functional_groups,
+        images=present_group_images_base64
     )
     source = ColumnDataSource(data)
 
-    #template for the bokeh table
-
+    #template for the bokeh table that read the base64 format 
     template = """
     <div>
-    <%= value %>
+        <img src="data:image/png;base64, <%= value %>" style="width:50px;height:50px;">
     </div>
     """
 
     # initiallizing the bokeh figure using the previous template for each functional group
-
     columns = [
         TableColumn(field="groups", title="Functional Groups"),
         TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))
     ]
-    num_groups = len(groups_list)
+    num_groups = len(contained_functional_groups)
 
     table_height = min(200 + num_groups * 60, 800)
 
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
     return data_table
+
+def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
+
+    #---------------------------------------------------------------------------------------------#
+    '''
+    mol_web_show(mol_smi, show_Hs=False, show_3D = False)
+    
+    Input: SMILEs of a molecule. Also specify if want the function to show the hydrogens explicitely or the 3D
+    
+    Output: image of the molecule as a bokeh plot
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # name of the file name to create
+    filename = 'molecule_image.png'
+
+    #finds the current directory
+    current_directory = os.getcwd()
+
+    #creates a file path to the current directory
+    filepath = os.path.join(current_directory, filename)
+
+    #checks if the file already exists
+    if not os.path.exists(filepath):
+
+        #if no, creates the path
+        with open(filepath, 'a'):
+            pass
+    else:
+
+        #else pass
+        pass
+
+    # Generate the image from the molecule
+    mol = Chem.MolFromSmiles(mol_smi)
+
+    # Adds the hydrogens to the molecule if specified
+    if show_Hs:
+        mol = Chem.AddHs(mol)
+
+    # Show the molecule in 3D if specified
+    if show_3D:
+        mol = AllChem.EmbedMolecule(mol)
+
+    image = Draw.MolToImage(mol)
+
+    # Save the image to a file
+    image.save(filepath)
+
+    # Creating a Bokeh figure to display the molecule
+    p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
+    p.image_url(url=[filepath], x=0, y=1, w=1, h=1)
+
+    # Hide grid lines and axes
+    p.xgrid.grid_line_color = None
+    p.ygrid.grid_line_color = None
+    p.xaxis.visible = False
+    p.yaxis.visible = False
+
+    return p
 
 def delete_mol_image_file():
 
