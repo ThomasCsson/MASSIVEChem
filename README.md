@@ -5,7 +5,7 @@
 ![Thomas6](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=purple)
 
 ![GitHub2](https://img.shields.io/badge/Maintained%3F-yes-turquoise.svg)
-[![python](https://img.shields.io/badge/Python-3.9-3.11-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
+[![python](https://img.shields.io/badge/Python-3.10-3776AB.svg?style=flat&logo=python&logoColor=orange)](https://www.python.org)
 
 # -         MASSIVEChem       - 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
