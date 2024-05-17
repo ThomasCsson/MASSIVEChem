@@ -31,11 +31,15 @@ Now, let us go through the steps required to use this package !
 
 ## Installation
 ![Thomas2](https://img.shields.io/badge/pypi-3775A9?style=for-the-badge&logo=pypi&logoColor=white)
+
+
 MASSIVEChem can be installed using pip as
 ```bash
 pip install MASSIVEChem
 ```
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
+
 The package can also be installed from source by running the following commands
 
 First, clone the repository from github and go in the folder. 
