@@ -1,4 +1,4 @@
-![banner](IMG_2856.jpg)
+<img src="IMG_2856.jpg" alt="Diagram" width="400" height="300">
 
 # -         MASSIVEChem       - 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
