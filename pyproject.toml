@@ -40,7 +40,7 @@ classifiers = [
 ]
 
 [tool.poetry.files]
-include = ["src/MASSIVEChem/data/abundance.txt","src/MASSIVEChem/data/Functional groups images"]
+include = ["src/MASSiveChem/data/abundance.txt","src/MASSiveChem/data/Functional groups images"]
 
 
 [project.urls]
