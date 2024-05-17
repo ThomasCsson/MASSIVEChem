@@ -455,9 +455,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Sulfide')
                 functional_groups_contained.remove('Sulfide')
-        elif 'Amine' == functional_group:
-            for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Amine')
         elif 'Peroxide' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Ether')
@@ -547,4 +544,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', True, 0.01))
+show(spectrum('NCCN', True, 0.01))
