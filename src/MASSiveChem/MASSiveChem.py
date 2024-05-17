@@ -153,7 +153,7 @@ def ionisation_method (list_atoms) -> list[str]:
         list_atoms.remove('H')
     return list_atoms
 
-def main_function(list_atoms, imprecision_True_False) -> list[float]:
+def spectrum(list_atoms, imprecision_True_False) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
     main_function(list_atoms)
@@ -677,8 +677,8 @@ def functional_group_display(groups_list):
         'Nitrile': '../data/Functional groups images/Nitrile_image.png',
         'Chloride': '../data/Functional groups images/Halogen_image.png',
         'Bromide': '../data/Functional groups images/Bromide_image.png',
-        'Fluoride': '../data/Functional groups images/Halogen_image.png',
-        'Iodide': '../data/Functional groups images/Halogen_image.png',
+        'Fluoride': '../data/Functional groups images/Fluoride_image.png',
+        'Iodide': '../data/Functional groups images/Iodide_image.png',
         'Alkene': '../data/Functional groups images/Alkene_image.png',
         'Alkyne': '../data/Functional groups images/Alkyne_image.png',
         'Imine': '../data/Functional groups images/Imine_image.png',
@@ -707,7 +707,7 @@ def functional_group_display(groups_list):
         'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
         'Benzene': '../data/Functional groups images/Benzene_image.png',
         'Peroxide': '../data/Functional groups images/Peroxide_image.png'
-        }
+}
     
     # creates a dictionnary of the present groups and associated images of the molecule
 
@@ -1113,6 +1113,10 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     image.save(file_path)
     print(file_path)
 
+
+
+
+
     image_url = file_path
     # Creating a Bokeh figure to display the molecule
     p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
@@ -1123,7 +1127,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     p.ygrid.grid_line_color = None
     p.xaxis.visible = False
     p.yaxis.visible = False
-
     #---------------------------------------------------------------------------------------------#
     '''
     functional_group_finder(mol_smi)
@@ -1290,7 +1293,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         'Phosphine': '../data/Functional groups images/Phosphine_image.png',
         'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
         'Benzene': '../data/Functional groups images/Benzene_image.png',
-        'Peroxide': '../data/Functional groups images/Peroxide_image.png'}
+        'Peroxide': '../data/Functional groups images/Peroxide_image.png'
+}
 
     # creates a dictionnary of the present groups and associated images of the molecule
 
