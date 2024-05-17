@@ -1,8 +1,0 @@
-SPECTRA: Spectral Analysis and Computation Toolkit for Research Applications
-
-
-QUARK: Quantitative Analysis in Research for Knowledge
-IONIQ:Intelligent Observational Notations In Quantitative Mass Spectrometry
-PEAKS: Profiling Experimental Analysis and Knowledge System
-MASSiveChem: Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry
-SPECTRAscopic: Spectrometry Analysis System for Precision Investigation and Characterization
