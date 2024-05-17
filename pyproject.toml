@@ -40,7 +40,8 @@ classifiers = [
 ]
 
 [tool.poetry.files]
-include = ["data/abundance.txt"]
+include = ["data/abundance.txt","data/Functional groups images"]
+
 
 [project.urls]
 Homepage = "https://github.com/ThomasCsson/MASSIVEChem.git"
