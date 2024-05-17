@@ -80,7 +80,9 @@ pip install pandas
 
 The principal function of this package takes the SMILEs of a molecule as an input and displays the mass spectrometry of the molecule as well as the molecule itself and  the functional groups it contains.
 
-An example on how to make the function work is shown below for benzylpenicilin. The ionization method is set to monodeprotonation and the resolution of the apparatus is 0.01 Th:
+An example on how to make the function work is shown below for benzylpenicilin:
+
+The ionization method is set to monodeprotonation and the resolution of the apparatus is 0.01 Th
 
 ```bash
 import MASSIVEChem as ms
