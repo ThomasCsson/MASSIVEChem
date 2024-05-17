@@ -7,6 +7,12 @@
 ![Thomas6](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
 ![Thomas7](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![GitHub2](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+![GitHub2](http://ForTheBadge.com/images/badges/built-with-science.svg)
+![GitHub2](http://ForTheBadge.com/images/badges/made-with-python.svg)
+![GitHub2](https://img.shields.io/github/stars/{ThomasCsson}/{MASSIVEChem}.svg)
+![GitHub2](
+![GitHub2](
 # -         MASSIVEChem       - 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project in practical programming in chemistry course -- EPFL CH-200
