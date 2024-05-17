@@ -14,7 +14,7 @@
 ![GitHub3](https://img.shields.io/badge/License-3-purple.svg)
 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
-#### Project in practical programming in chemistry course -- EPFL CH-200
+#### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
 ## Package description
 ![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)
