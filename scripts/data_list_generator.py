@@ -56,3 +56,5 @@ def data_list_generator():
     isotopes = df['Atom'].tolist()
 
     return mass, abundance, isotopes
+
+print(data_list_generator())

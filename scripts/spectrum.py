@@ -501,17 +501,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Ether')
                 functional_groups_contained.remove('Ether')
-    
-    
-    #---------------------------------------------------------------------------------------------#
-    '''
-    functional_group_display(groups_list)
 
-    Input: list of the groups present in the molecule
-
-    Output: Bokeh table with the names of the present functional groups as well as an image of each present functional group
-    '''
-    #---------------------------------------------------------------------------------------------#
 
     # dictionnary of the images of all functional groups
 
