@@ -11,6 +11,7 @@
 ![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)
 ![GitHub4](http://ForTheBadge.com/images/badges/made-with-python.svg)
 ![GitHub5](https://img.shields.io/github/stars/{ThomasCsson}/{MASSIVEChem}.svg)
+![GitHub6](https://badge-size.herokuapp.com/{ThomasCsson}/{MASSIVEChem}/{main}/{scripts})
 
 # -         MASSIVEChem       - 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
