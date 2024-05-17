@@ -1,0 +1,10 @@
+import base64
+
+# Encoding the image
+with open("data/Functional groups images/Acid_image.png", "rb") as image_file:
+    encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+
+
+# Save the encoded string to a Python file
+with open("THOMAS_IS_BEST/encoded_image.py", "w") as py_file:
+    py_file.write(f'image_data = "{encoded_string}"')
