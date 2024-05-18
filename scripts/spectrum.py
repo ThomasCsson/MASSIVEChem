@@ -12,6 +12,7 @@ from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
 
+
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_directory='.'):
 
     #lists of the data to facilitise the pip-installability of the package
