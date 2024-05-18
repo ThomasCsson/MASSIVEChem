@@ -544,4 +544,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('NCCN', True, 0.01))
+show(spectrum('C=C(C(=O)O)OP(=O)(O)O', True, 0.01))
