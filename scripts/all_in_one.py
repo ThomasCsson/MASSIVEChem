@@ -27,27 +27,70 @@ def all_in_one(p1,p2,p3):
 
 import unittest
 from bokeh.plotting import figure
-from bokeh.layouts import column
+from bokeh.models import ColumnDataSource
+from bokeh.layouts import column, row
+from bokeh.models.widgets import DataTable, TableColumn
 
-class TestAllInOne(unittest.TestCase):
-    def test_all_in_one(self):
-        # Create sample plots for testing with some content added to them
-        p1 = figure()
-        p1.circle([1, 2, 3], [4, 5, 6], size=10, color="navy", alpha=0.5)
+def all_in_one(p1, p2, p3):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    all_in_one(p1,p2,p3)
+    
+    Input: 3 bokeh plots
+            Usually used in this package:
+                    - p1 : bokeh double plot of mass spectrometry
+                    - p2 : image of the molecule
+                    - p3 : table of functional groups
+    
+    Output: bokeh page with all 3 graphs well arranged
 
-        p2 = figure()
-        p2.line([1, 2, 3], [4, 5, 6], line_width=2)
+    '''
+    #---------------------------------------------------------------------------------------------#
 
-        p3 = figure()
-        p3.square([1, 2, 3], [4, 5, 6], size=10, color="olive", alpha=0.5)
+    #creates a layout in column with p2 and p3
+    layout1 = column(p2, p3)
 
-        # Call the function
-        layout = all_in_one(p1, p2, p3)
+    #creates the final layout in row with layout1 and p1
+    layout = row(p1, layout1)
 
-        # Assertions
-        self.assertIsInstance(layout, column)  # Assuming Bokeh's column layout is used
-        self.assertEqual(len(layout.children), 2)  # Assuming there are two plots in the column layout
-        self.assertEqual(len(layout.children[1].children), 2)  # Assuming there are two plots in the second column layout
+    return layout
 
-if __name__ == '__main__':
+
+class TestAllInOneFunction(unittest.TestCase):
+    def setUp(self):
+        # Create sample bokeh plots
+        self.p1 = figure(title="Mass Spectrometry")
+        self.p2 = figure(title="Molecule Image")
+        self.p3 = figure(title="Functional Groups Table")
+
+        # Add some dummy data to the figures
+        self.p1.line([1, 2, 3], [4, 5, 6])
+        self.p2.image_url(url=["https://bokeh.org/static/img/logo.png"], x=0, y=1, w=1, h=1)
+        
+        # Create a simple table for p3
+        data = dict(groups=["Alcohol", "Ketone"], images=["<img src='data:image/png;base64,some_base64_string'>", "<img src='data:image/png;base64,some_base64_string'>"])
+        source = ColumnDataSource(data)
+        columns = [
+            TableColumn(field="groups", title="Functional Groups"),
+            TableColumn(field="images", title="Images")
+        ]
+        self.p3 = DataTable(source=source, columns=columns, width=400, height=280)
+
+    def test_output_type(self):
+        layout = all_in_one(self.p1, self.p2, self.p3)
+        self.assertIsInstance(layout, row)
+
+    def test_layout_structure(self):
+        layout = all_in_one(self.p1, self.p2, self.p3)
+        self.assertEqual(len(layout.children), 2)
+        self.assertIsInstance(layout.children[1], column)
+        self.assertEqual(len(layout.children[1].children), 2)
+
+    def test_correct_plots_in_layout(self):
+        layout = all_in_one(self.p1, self.p2, self.p3)
+        self.assertEqual(layout.children[0], self.p1)
+        self.assertEqual(layout.children[1].children[0], self.p2)
+        self.assertEqual(layout.children[1].children[1], self.p3)
+
+if __name__ == "__main__":
     unittest.main()
