@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div id="c7d0e081-7e4f-4c7a-8e15-d1630a43806a" data-root-id="p1010" style="display: contents;"></div>
+  
+    <script type="application/json" id="b5693e04-eb92-428c-a871-876fed0633f9">
+      {"9ddebd34-3180-42be-82d9-f1971d08e4ef":{"version":"3.4.1","title":"Bokeh Application","roots":[{"type":"object","name":"Column","id":"p1010","attributes":{"children":[{"type":"object","name":"Button","id":"p1002","attributes":{"button_type":"success","js_event_callbacks":{"type":"map","entries":[["button_click",[{"type":"object","name":"CustomJS","id":"p1006","attributes":{"args":{"type":"map","entries":[["div",{"type":"object","name":"Div","id":"p1001","attributes":{"styles":{"type":"map","entries":[["background-color","#f0f0f0"],["padding","10px"],["border","2px solid #ccc"],["border-radius","5px"]]}}}],["info","230 g/mol"]]},"code":"\n        div.text = info;\n        div.change.emit();\n    "}}]]]},"label":"Molecular Mass"}},{"type":"object","name":"Button","id":"p1003","attributes":{"button_type":"success","js_event_callbacks":{"type":"map","entries":[["button_click",[{"type":"object","name":"CustomJS","id":"p1007","attributes":{"args":{"type":"map","entries":[["div",{"id":"p1001"}],["info","1 unsaturation"]]},"code":"\n        div.text = info;\n        div.change.emit();\n    "}}]]]},"label":"Unsaturation"}},{"type":"object","name":"Button","id":"p1004","attributes":{"button_type":"success","js_event_callbacks":{"type":"map","entries":[["button_click",[{"type":"object","name":"CustomJS","id":"p1008","attributes":{"args":{"type":"map","entries":[["div",{"id":"p1001"}],["info","13 atoms"]]},"code":"\n        div.text = info;\n        div.change.emit();\n    "}}]]]},"label":"Number of Atoms"}},{"type":"object","name":"Button","id":"p1005","attributes":{"button_type":"success","js_event_callbacks":{"type":"map","entries":[["button_click",[{"type":"object","name":"CustomJS","id":"p1009","attributes":{"args":{"type":"map","entries":[["div",{"id":"p1001"}],["info","C=3 N=2 O=2 H=6vvvvvvvvvvvr4nurtcvhineub fberikvniv bzinebz"]]},"code":"\n        div.text = info;\n        div.change.emit();\n    "}}]]]},"label":"Types of Atoms"}},{"id":"p1001"}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('b5693e04-eb92-428c-a871-876fed0633f9').textContent;
+              const render_items = [{"docid":"9ddebd34-3180-42be-82d9-f1971d08e4ef","roots":{"p1010":"c7d0e081-7e4f-4c7a-8e15-d1630a43806a"},"root_ids":["p1010"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>
