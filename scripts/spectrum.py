@@ -34,31 +34,6 @@ from bokeh.plotting import show
 
 
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_directory='.'):
-
-    C, N, HX, halogens_hydrogen = 0, 0, 0, ['F', 'Cl', 'Br', 'I', 'At', 'H']
-
-    mol = Chem.AddHs(Chem.MolFromSmiles(mol_smi))
-
-    for atom in mol.GetAtoms():
-        if atom.GetSymbol() == 'C':
-            C += 1
-        elif atom.GetSymbol() == 'N':
-            N += 1
-        elif atom.GetSymbol() in halogens_hydrogen:
-            HX += 1
-
-    unsaturation = C + 1 + (N - HX) / 2
-
-    nbr_atoms = mol.GetNumAtoms()
-
-    mol, list_atoms,list_atoms = Chem.MolFromSmiles(mol_smi),[],[]
-    for atom in mol.GetAtoms():
-        list_atoms.append(atom.GetSymbol())
-    for atom in mol.GetAtoms():
-        element = (f'{atom.GetSymbol()} : {list_atoms.count(atom.GetSymbol())}')   
-        if element not in list_atoms:
-            list_atoms.append(element)
-
     #lists of the data to facilitise the pip-installability of the package
 
     mass = [108.904755, 106.90509, 26.981539, 39.962383, 37.96273, 35.967545, 74.92159, 196.96654, 11.009305, 10.012937, 137.90523, 136.9058, 135.90456, 134.90567, 133.90448, 131.90504, 129.90628, 9.012182, 208.98038, 78.918335, 80.91629, 13.003355, 12.0, 45.95369, 43.95548, 42.958767, 41.95862, 39.96259, 47.952534, 110.90418, 109.90301, 107.90418, 115.904755, 113.90336, 112.9044, 111.902756, 141.90924, 139.90543, 137.90599, 135.90714, 36.965904, 34.968853, 58.933197, 53.93888, 52.94065, 51.94051, 49.946045, 132.90543, 62.939598, 157.92441, 155.92528, 163.92917, 162.92873, 161.92679, 160.92693, 159.92519, 169.93546, 167.93237, 166.93205, 165.93028, 163.9292, 161.92877, 152.92122, 150.91985, 18.998404, 57.933277, 56.935394, 53.939613, 70.9247, 68.92558, 157.9241, 156.92395, 155.92212, 154.92262, 153.92087, 151.91978, 159.92705, 75.9214, 73.92118, 72.92346, 71.92208, 69.92425, 2.014, 1.007825, 4.0026, 3.01603, 173.94005, 179.94655, 178.94582, 177.9437, 176.94322, 203.97346, 201.97061, 200.97028, 199.9683, 198.96825, 197.96674, 195.9658, 164.93031, 126.90447, 114.90388, 112.90406, 190.96059, 192.96292, 40.961826, 39.964, 38.963707, 77.9204, 85.910614, 83.91151, 82.91414, 81.91348, 79.91638, 138.90634, 137.9071, 7.016003, 6.015121, 174.94077, 25.982594, 24.985838, 23.985043, 54.938046, 94.90584, 93.90508, 91.90681, 99.90748, 97.9054, 96.90602, 95.90468, 15.000108, 14.003074, 22.989767, 92.90638, 142.9098, 141.90771, 149.92088, 147.91689, 145.91312, 144.91257, 143.91008, 21.991383, 20.993843, 19.992435, 61.928345, 60.931057, 59.930786, 57.935345, 63.927967, 237.0482, 17.99916, 16.99913, 15.994915, 189.95844, 188.95813, 187.95586, 186.95573, 185.95383, 183.95248, 191.96147, 30.973763, 206.97588, 205.97444, 203.97302, 207.97662, 109.90517, 107.90389, 105.90348, 104.90508, 103.90403, 101.90563, 140.90765, 189.95992, 197.96786, 195.96492, 194.96477, 193.96266, 191.96101, 86.90919, 84.9118, 186.95575, 184.95296, 102.9055, 103.905426, 101.90435, 100.90558, 99.90422, 98.90594, 97.90529, 95.9076, 35.96708, 33.967865, 32.971455, 31.97207, 122.90421, 120.903824, 44.95591, 77.917305, 76.919914, 75.91921, 73.92248, 81.916695, 79.91652, 29.97377, 28.976496, 27.976927, 153.92221, 151.91972, 149.91727, 148.91718, 147.91483, 146.9149, 143.912, 123.90527, 121.90344, 119.9022, 118.90331, 117.90161, 116.902954, 115.90175, 114.90335, 113.90279, 111.90482, 87.90562, 86.90888, 85.90926, 83.91343, 180.948, 179.94746, 158.92534, 125.90331, 124.904434, 123.902824, 122.904274, 121.90305, 119.904045, 129.90623, 127.904465, 232.03806, 46.951763, 45.95263, 49.944794, 48.947872, 47.94795, 204.9744, 202.97232, 168.93422, 50.943962, 49.947163, 185.95436, 183.95093, 182.95023, 181.9482, 179.9467, 173.93886, 172.9382, 171.93637, 170.93633, 169.93475, 167.9339, 175.94257, 69.92532, 67.92484, 66.92713, 65.92603, 63.929146, 93.90647, 91.90504, 90.90565, 89.9047, 95.90827]
@@ -566,8 +541,17 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
+    #Create the list (atom symbol : count of this atom in molecule) called atom_string_out
+    mol, atom_string_pre, atom_string_out = Chem.MolFromSmiles(mol_smi),[],[]
 
-    formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in list_atoms]
+    for atom in mol.GetAtoms():
+        atom_string_pre.append(atom.GetSymbol())
+    for atom in mol.GetAtoms():
+        element = (f'{atom.GetSymbol()} : {atom_string_pre.count(atom.GetSymbol())}')   
+        if element not in atom_string_pre:
+            atom_string_out.append(element)
+
+    formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in atom_string_out]
 
     # Join all formatted elements into a single string with a space between them
     atom_string = ' , '.join(formatted_elements)
@@ -581,11 +565,30 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     button3 = Button(label="Number of Atoms", button_type="success")
     button4 = Button(label="Types of Atoms", button_type="success")
     
-    # JavaScript code to update the Div with the input information
+    #Determining molecular weight of the molecule
+    mol_weight = 0
+    
+
+
     callback1 = CustomJS(args=dict(div=info_div, info=f'{mol_weight} g/mol'), code="""
         div.text = info;
         div.change.emit();
     """)
+    #determination of unsaturation of teh molecule
+    C, N, HX, halogens_hydrogen = 0, 0, 0, ['F', 'Cl', 'Br', 'I', 'At', 'H']
+
+    mol = Chem.AddHs(Chem.MolFromSmiles(mol_smi))
+
+    for atom in mol.GetAtoms():
+        if atom.GetSymbol() == 'C':
+            C += 1
+        elif atom.GetSymbol() == 'N':
+            N += 1
+        elif atom.GetSymbol() in halogens_hydrogen:
+            HX += 1
+
+    unsaturation = C + 1 + (N - HX) / 2
+
     if unsaturation == 1:
         info = '1 unsaturation'
     else:
@@ -594,7 +597,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
         div.text = info;
         div.change.emit();
     """)
-    
+    nbr_atoms = mol.GetNumAtoms()
     callback3 = CustomJS(args=dict(div=info_div, info=f'{nbr_atoms} atoms'), code="""
         div.text = info;
         div.change.emit();
