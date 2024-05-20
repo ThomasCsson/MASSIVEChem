@@ -17,8 +17,8 @@
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
 ## Package description
-![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)
-![GitHub4](http://ForTheBadge.com/images/badges/made-with-python.svg)
+[![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://en.wikipedia.org/wiki/Science)
+[![GitHub4](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable python package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
 The aim of this package is to provide the user with functions in order to simulate the mass spectrum of a molecule and to display this spectrum on a graph. The package also provides other features that can facilitate the chemical analysis of a molecule such as a functional group finder and an unsaturation calculator.
