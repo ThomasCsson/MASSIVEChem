@@ -70,7 +70,10 @@ def functional_group_finder(mol_smi):
 
     # exceptions for conflicts during the iteration of functional groups
     for functional_group in functional_groups_contained:
-        if functional_group == 'Carboxylic Acid':
+        if 'Ester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif functional_group == 'Carboxylic Acid':
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Alcohol')
         elif 'Ester' == functional_group:
@@ -127,9 +130,6 @@ def functional_group_finder(mol_smi):
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Sulfide')
                 functional_groups_contained.remove('Sulfide')
-        elif 'Amine' == functional_group:
-            for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Amine')
         elif 'Peroxide' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Ether')
