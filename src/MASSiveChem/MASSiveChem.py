@@ -126,15 +126,24 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
     count_S = 0
 
     if 'N' in list_atoms and list_atoms.count('N')%2 == 1:
-        #in the final spectrum, there will only be a peak corresponding to the presence of an odd number of Nitrogen atoms
+
+        #In the final spectrum, there will only be a peak corresponding to the presence of Nitrogen if there is an odd number of Nitrogen atoms
+        
         has_N = True
         count_N = list_atoms.count('N')
+
+        #The count is needed because the relative height of the final peak will be proportional to the number of Nitrogen atoms in the molecule
+    
     elif 'S' in list_atoms and list_atoms.count('S')%2 == 1:
+
+        #In the final spectrum, there will only be a peak corresponding to the presence of Sulphur if there is an odd number of Sulphur atoms
+        
         has_S = True
         count_S = list_atoms.count('S')
+        
+        #The count is needed because the relative height of the final peak will be proportional to the number of Sulphur atoms in the molecule
 
 
-    print(list_atoms)
 
     list_output = []
     mass_copy = mass.copy()
@@ -142,6 +151,7 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
     isotopes_copy = isotopes.copy()
 
     for i in range (isotopes.count(list_atoms[0])):
+        #This for-loop runs over all isotope types of the atom type in pos 0 in list_atoms (input list)
         
         index = isotopes.index(list_atoms[0])
         list_output.append([mass_copy[index],abundance_copy[index]])
@@ -149,7 +159,7 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
         abundance_copy.pop(index)
         isotopes_copy.pop(index)
 
-    list_atoms = list_atoms[1:]
+    list_atoms = list_atoms[1:] #removes the atom type in pos 0 in list_atoms
 
     while len(list_atoms)>0:
 
@@ -178,11 +188,11 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
 
 
                 #removes any molecule who's probability is below 0.0001
+                #this however is only done if the second argument in the function is 'True
 
-                if render_imprecise_list: #only removes low-probability arrangements if render_imprecise_list arg is True
+                if render_imprecise_list:
                     if new_proba>0.0001:
                         list_output_new.append([new_mass,new_proba])
-
                 else:
                     list_output_new.append([new_mass,new_proba])
 
@@ -1307,4 +1317,3 @@ def atom_present_list(mol_smi):
             list_out_final.append(element)
     return list_out_final
 #end
-print(SMILEs_interpreter('CCMC'))
