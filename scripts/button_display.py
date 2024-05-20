@@ -62,9 +62,9 @@ def button_display(mol_weight, unsat, nbr_atoms, atom_list):
     button4.js_on_click(callback4)
     
     # Create the layout
-    layout = column(button1, button2, button3, button4, info_div)
+    layout2 = column(button1, button2, button3, button4, info_div)
     
-    return layout
+    return layout2
 
 show(button_display(230, 1, 13,['C : 10', 'H : 24']))
 

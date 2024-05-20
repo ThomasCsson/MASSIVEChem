@@ -459,7 +459,7 @@ def functional_group_finder(mol_smi) -> list[str]:
         'Ester': 'CC(=O)[Oh0]',
         'Ether': '*[Oh0]*',
         'Amide': 'C(=O)N',
-        'Amine': '[C][Nh2]',
+        'Amine': '[C][N]',
         'Nitrile': 'C#N',
         'Chloride': 'Cl',
         'Bromide': 'Br',
@@ -503,84 +503,72 @@ def functional_group_finder(mol_smi) -> list[str]:
                 functional_groups_contained.append(name)
 
     # exceptions for conflicts during the iteration of functional groups
-
-    if 'Carboxylic Acid' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-    if 'Ester' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-    if 'Phosphate' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-    if 'Thioester' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Sulfonic acid' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Sulfoxide' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Acyl Chloride' in functional_groups_contained:
-        functional_groups_contained.remove('Chloride')
-    if 'Anhydride' in functional_groups_contained:
-        functional_groups_contained.remove('Ester')
-        functional_groups_contained.remove('Ester')
-    if 'Enamine2' in functional_groups_contained:
-        functional_groups_contained.remove('Enamine2')
-        functional_groups_contained.append('Enamine')
-    if 'Enamine3' in functional_groups_contained:
-        functional_groups_contained.remove('Enamine3')
-        functional_groups_contained.remove('Amine')
-        functional_groups_contained.append('Enamine')
-    if 'Imide' in functional_groups_contained:
-        functional_groups_contained.remove('Amide')
-        functional_groups_contained.remove('Amide')
-    if 'Enol' in functional_groups_contained:
-        functional_groups_contained.remove('Alkene')
-        functional_groups_contained.remove('Alcohol')
-    if 'Hemiacetal' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Alcohol')
-    if 'Carbonate2' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Carbonate2')
-        functional_groups_contained.append('Carbonate')
-    if 'Disulfide' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-        functional_groups_contained.remove('Sulfide')
-    if 'Amine2' in functional_groups_contained:
-        functional_groups_contained.remove('Amine2')
-        functional_groups_contained.append('Amine')
-    if 'Peroxide' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-        functional_groups_contained.remove('Ether')
-    
-    return functional_groups_contained
-
-
-
-    #---------------------------------------------------------------------------------------------#
-    '''
-    mol_web_show(image_url)
-    
-    Input: path of the molecule image
-    
-    Output: image of the molecule in bokeh
-
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-
-    # Creating a Bokeh figure to display the molecule
-    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
-
-    # Hide grid lines and axes
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.xaxis.visible = False
-    p.yaxis.visible = False
-
-    show(p)
-
-    return p
+    for functional_group in functional_groups_contained:
+        if 'Ester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif functional_group == 'Carboxylic Acid':
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+        elif 'Ester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif 'Phosphate' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif 'Thioester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+        elif 'Sulfonic acid' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+        elif 'Sulfoxide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+        elif 'Acyl Chloride' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Chloride')
+        elif 'Anhydride' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ester')
+                functional_groups_contained.remove('Ester')
+                functional_groups_contained.append('Ether')
+        elif 'Enamine2' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Enamine2')
+                functional_groups_contained.append('Enamine')
+        elif 'Enamine3' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Enamine3')
+                functional_groups_contained.remove('Amine')
+                functional_groups_contained.append('Enamine')
+        elif 'Imide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Amide')
+                functional_groups_contained.remove('Amide')
+        elif 'Enol' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alkene')
+                functional_groups_contained.remove('Alcohol')
+        elif 'Hemiacetal' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Alcohol')
+        elif 'Carbonate2' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Carbonate2')
+                functional_groups_contained.append('Carbonate')
+        elif 'Disulfide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+                functional_groups_contained.remove('Sulfide')
+        elif 'Peroxide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+                functional_groups_contained.remove('Ether')
+    return
 
 def functional_group_display(contained_functional_groups):
 
