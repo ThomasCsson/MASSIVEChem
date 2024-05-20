@@ -9,6 +9,7 @@ from bokeh.io import output_file, show
 from bokeh.layouts import layout
 from bokeh.models import Div
 from plotly.io import to_html
+import pandas as pd
 
 def smiles_to_xyz(smiles, output_file):
     # Generate 3D coordinates from SMILES string
@@ -46,48 +47,62 @@ import panel as pn
 plotly_pane = pn.pane.Plotly(fig)
 
 
-from math import pi
+from rdkit import Chem
+from rdkit.Chem import Draw, AllChem
 
-from bokeh.palettes import Category20c, Category20
-from bokeh.plotting import figure
-from bokeh.transform import cumsum
+from io import BytesIO
+import base64
 
-x = {
-    'United States': 157,
-    'United Kingdom': 93,
-    'Japan': 89,
-    'China': 63,
-    'Germany': 44,
-    'India': 42,
-    'Italy': 40,
-    'Australia': 35,
-    'Brazil': 32,
-    'France': 31,
-    'Taiwan': 31,
-    'Spain': 29
-}
-
-data = pd.Series(x).reset_index(name='value').rename(columns={'index':'country'})
-data['angle'] = data['value']/data['value'].sum() * 2*pi
-data['color'] = Category20c[len(x)]
-
-p = figure(height=350, title="Pie Chart", toolbar_location=None,
-           tools="hover", tooltips="@country: @value", x_range=(-0.5, 1.0))
-
-r = p.wedge(x=0, y=1, radius=0.4,
-        start_angle=cumsum('angle', include_zero=True), end_angle=cumsum('angle'),
-        line_color="white", fill_color='color', legend_field='country', source=data)
-
-p.axis.axis_label=None
-p.axis.visible=False
-p.grid.grid_line_color = None
-
-bokeh_pane = pn.pane.Bokeh(p, theme="dark_minimal")
+from bokeh.plotting import show
+from bokeh.io import show
+from bokeh.models import Div
 
 
+def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
 
-final = pn.Row(bokeh_pane,plotly_pane)
+    #---------------------------------------------------------------------------------------------#
+    '''
+    mol_web_show(mol_smi, show_Hs=False, show_3D = False)
+    
+    Input: SMILEs of a molecule. Also specify if want the function to show the hydrogens explicitely or the 3D
+    
+    Output: image of the molecule as a bokeh plot
+    '''
+    #---------------------------------------------------------------------------------------------#
 
-final.show()
+    # Generate the image from the molecule
+    mol = Chem.MolFromSmiles(mol_smi)
+
+    # Show the molecule in 3D if specified
+    if show_3D:
+        mol = Chem.AddHs(mol)
+        AllChem.EmbedMolecule(mol)
+    
+    # Adds the hydrogens to the molecule if specified
+    if show_Hs:
+        mol = Chem.AddHs(mol)
+
+    #Draws the image
+    image = Draw.MolToImage(mol)
+
+    #stocks the image in a base64 format
+    buffered = BytesIO()
+    image.save(buffered, format="PNG")
+    image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    image_url = f"data:image/png;base64,{image_base64}"
+
+    # Create a Div element to display the image
+    img_div = Div(text=f'<img src="{image_url}" style="width:350px;height:350px;">')
+   
+    return img_div
+    
+input_mol = input('MOL:  ')
+
+bokeh =mol_web_show(input_mol,False,True)
+
+bokeh_pane = pn.pane.Bokeh(bokeh)
+
+layout = pn.Row(bokeh_pane,plotly_pane)
+
 
 
