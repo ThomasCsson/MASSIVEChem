@@ -12,6 +12,8 @@
 [![GitHub3](https://img.shields.io/badge/Contributors-3-green.svg)](https://github.com/ThomasCsson/MASSIVEChem/graphs/contributors)
 [![GitHub3](https://img.shields.io/badge/License-3-purple.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/LICENSE.txt)
 [![GitHub3](https://img.shields.io/badge/EPFL-Ch200-red.svg)](https://edu.epfl.ch/studyplan/en/bachelor/chemistry-and-chemical-engineering/coursebook/practical-programming-in-chemistry-CH-200)
+[![GitHub3](https://img.shields.io/badge/EPFL-Ch200-red.svg)](https://x.com/pschwllr/status/1760713822111723990)
+
 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
