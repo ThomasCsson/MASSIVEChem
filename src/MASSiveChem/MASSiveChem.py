@@ -11,8 +11,10 @@ from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import row, column
 from bokeh.io import show
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
+from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div, Button
 from bokeh.models.widgets import DataTable, TableColumn
+
+from io import BytesIO
 
 def calculate_unsaturation(mol_smile) -> int:
      #---------------------------------------------------------------------------------------------#
@@ -457,7 +459,7 @@ def functional_group_finder(mol_smi) -> list[str]:
         'Ester': 'CC(=O)[Oh0]',
         'Ether': '*[Oh0]*',
         'Amide': 'C(=O)N',
-        'Amine': '[C][Nh2]',
+        'Amine': '[C][N]',
         'Nitrile': 'C#N',
         'Chloride': 'Cl',
         'Bromide': 'Br',
@@ -501,84 +503,72 @@ def functional_group_finder(mol_smi) -> list[str]:
                 functional_groups_contained.append(name)
 
     # exceptions for conflicts during the iteration of functional groups
-
-    if 'Carboxylic Acid' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-    if 'Ester' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-    if 'Phosphate' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-    if 'Thioester' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Sulfonic acid' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Sulfoxide' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-    if 'Acyl Chloride' in functional_groups_contained:
-        functional_groups_contained.remove('Chloride')
-    if 'Anhydride' in functional_groups_contained:
-        functional_groups_contained.remove('Ester')
-        functional_groups_contained.remove('Ester')
-    if 'Enamine2' in functional_groups_contained:
-        functional_groups_contained.remove('Enamine2')
-        functional_groups_contained.append('Enamine')
-    if 'Enamine3' in functional_groups_contained:
-        functional_groups_contained.remove('Enamine3')
-        functional_groups_contained.remove('Amine')
-        functional_groups_contained.append('Enamine')
-    if 'Imide' in functional_groups_contained:
-        functional_groups_contained.remove('Amide')
-        functional_groups_contained.remove('Amide')
-    if 'Enol' in functional_groups_contained:
-        functional_groups_contained.remove('Alkene')
-        functional_groups_contained.remove('Alcohol')
-    if 'Hemiacetal' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Alcohol')
-    if 'Carbonate2' in functional_groups_contained:
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Alcohol')
-        functional_groups_contained.remove('Carbonate2')
-        functional_groups_contained.append('Carbonate')
-    if 'Disulfide' in functional_groups_contained:
-        functional_groups_contained.remove('Sulfide')
-        functional_groups_contained.remove('Sulfide')
-    if 'Amine2' in functional_groups_contained:
-        functional_groups_contained.remove('Amine2')
-        functional_groups_contained.append('Amine')
-    if 'Peroxide' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
-        functional_groups_contained.remove('Ether')
-    
-    return functional_groups_contained
-
-
-
-    #---------------------------------------------------------------------------------------------#
-    '''
-    mol_web_show(image_url)
-    
-    Input: path of the molecule image
-    
-    Output: image of the molecule in bokeh
-
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-
-    # Creating a Bokeh figure to display the molecule
-    p = figure(width=400, height=400,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=[image_url], x=0, y=1, w=1, h=1)
-
-    # Hide grid lines and axes
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.xaxis.visible = False
-    p.yaxis.visible = False
-
-    show(p)
-
-    return p
+    for functional_group in functional_groups_contained:
+        if 'Ester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif functional_group == 'Carboxylic Acid':
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+        elif 'Ester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif 'Phosphate' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif 'Thioester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+        elif 'Sulfonic acid' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+        elif 'Sulfoxide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+        elif 'Acyl Chloride' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Chloride')
+        elif 'Anhydride' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ester')
+                functional_groups_contained.remove('Ester')
+                functional_groups_contained.append('Ether')
+        elif 'Enamine2' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Enamine2')
+                functional_groups_contained.append('Enamine')
+        elif 'Enamine3' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Enamine3')
+                functional_groups_contained.remove('Amine')
+                functional_groups_contained.append('Enamine')
+        elif 'Imide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Amide')
+                functional_groups_contained.remove('Amide')
+        elif 'Enol' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alkene')
+                functional_groups_contained.remove('Alcohol')
+        elif 'Hemiacetal' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Alcohol')
+        elif 'Carbonate2' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Alcohol')
+                functional_groups_contained.remove('Carbonate2')
+                functional_groups_contained.append('Carbonate')
+        elif 'Disulfide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Sulfide')
+                functional_groups_contained.remove('Sulfide')
+        elif 'Peroxide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+                functional_groups_contained.remove('Ether')
+    return
 
 def functional_group_display(contained_functional_groups):
 
@@ -782,28 +772,94 @@ def delete_mol_image_file():
 
         print(f"File '{filepath}' does not exist.")
 
-def all_in_one(p1,p2,p3):
+def button_display(mol_weight, unsat, nbr_atoms, atom_list):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    button_display(mol_weight, unsat, nbr_atoms, atom_list)
+    
+    Input: molecular weight (int), unsaturation (int), number of atoms (int) and contained atoms (list) of the molecule.
+    
+    Output: bokeh layout of 4 buttons that displays the information
+
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # Change the list of atom to a string to display
+    formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in atom_list]
+
+    # Join all formatted elements into a single string with a space between them
+    atom_string = ' , '.join(formatted_elements)
+
+    # Create a Div element to display the information with adaptive size
+    info_div = Div(text="", styles={'background-color': '#f0f0f0', 'padding': '10px', 'border': '2px solid #ccc', 'border-radius': '5px'})
+    
+    # Create Buttons
+    button1 = Button(label="Molecular Mass", button_type="success")
+    button2 = Button(label="Unsaturation", button_type="success")
+    button3 = Button(label="Number of Atoms", button_type="success")
+    button4 = Button(label="Types of Atoms", button_type="success")
+    
+    # JavaScript code to update the Div with the input information
+    callback1 = CustomJS(args=dict(div=info_div, info=f'{mol_weight} g/mol'), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    if unsat == 1:
+        info = '1 unsaturation'
+    else:
+        info = (f'{unsat} unsaturations')
+    callback2 = CustomJS(args=dict(div=info_div, info = info), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    
+    callback3 = CustomJS(args=dict(div=info_div, info=f'{nbr_atoms} atoms'), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    
+    callback4 = CustomJS(args=dict(div=info_div, info=atom_string), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    
+    # Attach the callbacks to the buttons' click events
+    button1.js_on_click(callback1)
+    button2.js_on_click(callback2)
+    button3.js_on_click(callback3)
+    button4.js_on_click(callback4)
+    
+    # Create the layout
+    layout = column(button1, button2, button3, button4, info_div)
+    
+    return layout
+
+def all_in_one(p1, p2, p3, p4):
 
     #---------------------------------------------------------------------------------------------#
     '''
-    all_in_one(p1,p2,p3)
+    all_in_one(p1,p2,p3, p4)
     
     Input: 3 bokeh plots
             Usually used in this package:
                     - p1 : bokeh double plot of mass spectrometry
                     - p2 : image of the molecule
                     - p3 : table of functional groups
+                    - p4 : buttons with info on the molecule
     
-    Output: bokeh page with all 3 graphs well arranged
+    Output: bokeh page with all 4 graphs well arranged
 
     '''
     #---------------------------------------------------------------------------------------------#
+    
+    #creates a layout in row with p3 and p4
+    layout1 = row(p3, p4)
 
-    #creates a layout in column with p2 and p3
-    layout1 = column(p2, p3)
+    #creates a layout in column with p2 and layout1
+    layout2 = column(p2, layout1)
 
     #creates the final layout in row with layout1 and p1
-    layout = row(p1, layout1)
+    layout = row(p1, layout2)
 
     return layout
 

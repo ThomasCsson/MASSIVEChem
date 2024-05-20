@@ -12,7 +12,52 @@ from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, 
 from bokeh.models.widgets import DataTable, TableColumn
 
 
+from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
+from bokeh.models.widgets import DataTable, TableColumn
+from bokeh.plotting import show
+import base64
+from io import BytesIO
+from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
+from bokeh.models.widgets import DataTable, TableColumn
+from bokeh.plotting import show
+from rdkit import Chem
+from rdkit.Chem import Draw
+
+
+from bokeh.layouts import column
+from bokeh.models import Button, CustomJS, Div
+from bokeh.plotting import show
+
+
+
+
+
+
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_directory='.'):
+
+    C, N, HX, halogens_hydrogen = 0, 0, 0, ['F', 'Cl', 'Br', 'I', 'At', 'H']
+
+    mol = Chem.AddHs(Chem.MolFromSmiles(mol_smi))
+
+    for atom in mol.GetAtoms():
+        if atom.GetSymbol() == 'C':
+            C += 1
+        elif atom.GetSymbol() == 'N':
+            N += 1
+        elif atom.GetSymbol() in halogens_hydrogen:
+            HX += 1
+
+    unsaturation = C + 1 + (N - HX) / 2
+
+    nbr_atoms = mol.GetNumAtoms()
+
+    mol, list_atoms,list_atoms = Chem.MolFromSmiles(mol_smi),[],[]
+    for atom in mol.GetAtoms():
+        list_atoms.append(atom.GetSymbol())
+    for atom in mol.GetAtoms():
+        element = (f'{atom.GetSymbol()} : {list_atoms.count(atom.GetSymbol())}')   
+        if element not in list_atoms:
+            list_atoms.append(element)
 
     #lists of the data to facilitise the pip-installability of the package
 
@@ -462,89 +507,116 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Ether')
                 functional_groups_contained.remove('Ether')
+    if 'Carboxilic Acid' and 'Ester' in functional_groups_contained:
+        functional_groups_contained.remove('Ether')
 
+    #initiate empty variables
+    present_group_smarts = []    
+    present_group_images_base64 = []
+    
+    #appends the smarts of the contained functional groups
+    for i,j in functional_groups_smarts.items():
+        for x in functional_groups_contained:
+            if x == i:
+                present_group_smarts.append(j)
 
-    # dictionnary of the images of all functional groups
+    #converts the smarts to images in base64 format
+    for x in present_group_smarts:
 
-    functional_groups_images = {
-        'Alcohol': '../Functional groups images/Alcohol_image.png',
-        'Aldehyde': '../data/Functional groups images/Aldehyde_image.png',
-        'Ketone': '../data/Functional groups images/Ketone_image.png',
-        'Carboxylic Acid': '../data/Functional groups images/Acid_image.png',
-        'Ester': '../data/Functional groups images/Ester_image.png',
-        'Ether': '../data/Functional groups images/Ether_image.png',
-        'Amide': '../data/Functional groups images/Amide_image.png',
-        'Amine': '../data/Functional groups images/Amine_image.png',
-        'Nitrile': '../data/Functional groups images/Nitrile_image.png',
-        'Chloride': '../data/Functional groups images/Halogen_image.png',
-        'Bromide': '../data/Functional groups images/Bromide_image.png',
-        'Fluoride': '../data/Functional groups images/Fluoride_image.png',
-        'Iodide': '../data/Functional groups images/Iodide_image.png',
-        'Alkene': '../data/Functional groups images/Alkene_image.png',
-        'Alkyne': '../data/Functional groups images/Alkyne_image.png',
-        'Imine': '../data/Functional groups images/Imine_image.png',
-        'Amino acid': '../data/Functional groups images/Amino_acid_image.png',
-        'Proline': '../data/Functional groups images/Proline_image.png',
-        'Thiol': '../data/Functional groups images/Thiol_image.png',
-        'Sulfide': '../data/Functional groups images/Sulfides_image.png',
-        'Acyl Chloride': '../data/Functional groups images/Acyl_chloride_image.png',
-        'Anhydride': '../data/Functional groups images/Anhydride_image.png',
-        'Nitro': '../data/Functional groups images/Nitro_image.png',
-        'Enamine': '../data/Functional groups images/Enamine_image.png',
-        'Enamine2': '../data/Functional groups images/Enamine2_image.png',
-        'Enamine3': '../data/Functional groups images/Enamine3_image.png',
-        'Imide': '../data/Functional groups images/Imide_image.png',
-        'Azide': '../data/Functional groups images/Azide_image.png',
-        'Enol': '../data/Functional groups images/Enol_image.png',
-        'Hemiacetal': '../data/Functional groups images/Hemiacetal_image.png',
-        'Carbonate': '../data/Functional groups images/Carbonate_image.png',
-        'Carbonate2': '../data/Functional groups images/Carbonate2_image.png',
-        'Disulfide': '../data/Functional groups images/Disulfide_image.png',
-        'Sulfoxide': '../data/Functional groups images/Sulfoxide_image.png',
-        'Sulfone': '../data/Functional groups images/Sulfone_image.png',
-        'Sulfonic acid': '../data/Functional groups images/Sulfonic_acid_image.png',
-        'Thioester': '../data/Functional groups images/Thioester_image.png',
-        'Phosphine': '../data/Functional groups images/Phosphine_image.png',
-        'Phosphate ester': '../data/Functional groups images/Phosphate_image.png',
-        'Benzene': '../data/Functional groups images/Benzene_image.png',
-        'Peroxide': '../data/Functional groups images/Peroxide_image.png'
-}
+        #converts SMARTs to SMILEs for the images to be nicer
+        mol_x = Chem.MolFromSmarts(x)
+        mol_smi = Chem.MolToSmiles(mol_x)
+        mol = Chem.MolFromSmiles(mol_smi)
 
-    # creates a dictionnary of the present groups and associated images of the molecule
+        if mol:
 
-    present_group_images = []
-    groups_list = functional_groups_contained
-    for x in groups_list:
-        present_group_images.append(functional_groups_images[x])
+            #creates the image
+            image = Draw.MolToImage(mol)
+
+            # Convert the image to base64 format
+            buffered = BytesIO()
+            image.save(buffered, format="PNG")
+            image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+            #appends the image to an empty dictionnary
+            present_group_images_base64.append(image_base64)
+
+    #creates a dictionnary that links the name of the functional group to its image
     data = dict(
-        groups=groups_list,
-        images=[f'<img src="{group_image}" style="width:50px;height:50px;">' for group_image in present_group_images]
+        groups=functional_groups_contained,
+        images=present_group_images_base64
     )
     source = ColumnDataSource(data)
 
-    #template for the bokeh table
-
+    #template for the bokeh table that read the base64 format 
     template = """
     <div>
-    <%= value %>
+        <img src="data:image/png;base64, <%= value %>" style="width:50px;height:50px;">
     </div>
     """
 
     # initiallizing the bokeh figure using the previous template for each functional group
-
     columns = [
         TableColumn(field="groups", title="Functional Groups"),
         TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))
     ]
-    num_groups = len(groups_list)
+    num_groups = len(functional_groups_contained)
 
     table_height = min(200 + num_groups * 60, 800)
 
     data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
 
-    last = column(p, data_table)
+    formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in list_atoms]
+
+    # Join all formatted elements into a single string with a space between them
+    atom_string = ' , '.join(formatted_elements)
+
+    # Create a Div element to display the information with adaptive size
+    info_div = Div(text="", styles={'background-color': '#f0f0f0', 'padding': '10px', 'border': '2px solid #ccc', 'border-radius': '5px'})
+    
+    # Create Buttons
+    button1 = Button(label="Molecular Mass", button_type="success")
+    button2 = Button(label="Unsaturation", button_type="success")
+    button3 = Button(label="Number of Atoms", button_type="success")
+    button4 = Button(label="Types of Atoms", button_type="success")
+    
+    # JavaScript code to update the Div with the input information
+    callback1 = CustomJS(args=dict(div=info_div, info=f'{mol_weight} g/mol'), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    if unsaturation == 1:
+        info = '1 unsaturation'
+    else:
+        info = (f'{unsaturation} unsaturations')
+    callback2 = CustomJS(args=dict(div=info_div, info = info), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    
+    callback3 = CustomJS(args=dict(div=info_div, info=f'{nbr_atoms} atoms'), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    
+    callback4 = CustomJS(args=dict(div=info_div, info=atom_string), code="""
+        div.text = info;
+        div.change.emit();
+    """)
+    
+    # Attach the callbacks to the buttons' click events
+    button1.js_on_click(callback1)
+    button2.js_on_click(callback2)
+    button3.js_on_click(callback3)
+    button4.js_on_click(callback4)
+    
+    # Create the layout
+    layout2 = column(button1, button2, button3, button4, info_div)
+
+    ante = row(layout2, data_table)
+    last = column(p, ante)
     final = row(layout, last)
     return final
 
-show(spectrum('C=CCCC(=O)OCCCCC(=O)O', True, 0.01))
+show(spectrum('CC(=O)OCCCC(=O)O', True, 0.01))

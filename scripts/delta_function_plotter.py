@@ -19,9 +19,9 @@ def delta_function_plotter(x_in, y_in) -> list[float]:
 
     x_axis, y_axis = [min_x-0.5],[0]
     for i in range (len(x_in)):
-        x_axis.append(x_in[i]-10**(-10))
+        x_axis.append(x_in[i]-10**(-100))
         x_axis.append(x_in[i])
-        x_axis.append(x_in[i]+10**(-10))
+        x_axis.append(x_in[i]+10**(-100))
         y_axis.append(0)
         y_axis.append(y_in[i])
         y_axis.append(0)
