@@ -14,87 +14,32 @@ from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
 
-def calculate_insaturation(mol_smile) -> int:
-    # This function takes as input a string representing the SMILES notation of a molecule. 
-    # Using the RDKit library, it creates a representation of the molecule, adds hydrogens and then calculates the unsaturation level of the molecule. 
-    # The level of unsaturation is determined by counting the number of carbon, nitrogen and halogen atoms, then applying a specific formula. 
-    # Finally, the function displays the unsaturation level and the image of the molecule, and indicates the time required to perform the function.
-    mol_1 = Chem.MolFromSmiles(mol_smile)
-    mol = Chem.AddHs(mol_1)
+def calculate_unsaturation(mol_smile) -> int:
+     #---------------------------------------------------------------------------------------------#
+    '''
+    calculate_unsaturation(mol_smile)
 
-    C, N, HX = 0, 0, 0
-    halogens_hydrogen = ['F', 'Cl', 'Br', 'I', 'At', 'H']
+    Input: molecule under SMILEs representation
+
+    Output: unsaturation of the input molecule (integer value)
+    '''
+    #---------------------------------------------------------------------------------------------# 
+
+    C, N, HX, halogens_hydrogen = 0, 0, 0, ['F', 'Cl', 'Br', 'I', 'At', 'H']
+
+    mol = Chem.AddHs(Chem.MolFromSmiles(mol_smile))
+
     for atom in mol.GetAtoms():
-        atom_sym = atom.GetSymbol()
-        if atom_sym == 'C':
+        if atom.GetSymbol() == 'C':
             C += 1
-        elif atom_sym == 'N':
+        elif atom.GetSymbol() == 'N':
             N += 1
-        elif atom_sym in halogens_hydrogen:
+        elif atom.GetSymbol() in halogens_hydrogen:
             HX += 1
 
-    insaturation = C + 1 + (N - HX) / 2
+    unsaturation = C + 1 + (N - HX) / 2
 
-    print(f'The insaturation of the given molecule is {insaturation}')
-    img = Draw.MolToImage(mol_1)
-    img.show()
-
-def data_list_generator():
-
-    #---------------------------------------------------------------------------------------------#
-    '''
-    data_list_generator ()
-
-    Input: none
-
-    Output: three lists:
-    1. mass: [mass1, mass2, mass3,...]  
-    2. abundance: [ab1, ab2, ab3,...]
-    3. isotopes: [iso1, iso2, iso3,...]
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-
-    #Turn data of (Symbol | Mass | Probability) into lists 
-
-    df = pd.read_csv('data/abundance.txt'
-                    , sep='\t'
-                    , header=None
-                    , names=['Atom', 'Mass', 'Percentage'])
-
-
-    #mass = [mass1, mass2, mass3,...]
-
-    mass = df['Mass'].tolist()
-
-
-    #change from elements to floats
-
-    mass = [float(m) for m in mass]
-
-
-    #abundance = [ab1, ab2, ab3,...]
-
-    abundance_percent = df['Percentage'].tolist()
-
-
-    #change from elements to floats
-
-    abundance_percent = [float(ap) for ap in abundance_percent]
-
-
-    #from percent to proba
-
-    abundance = []
-    for percent in abundance_percent:
-        abundance.append(percent/100)
-
-
-    #isotopes = [iso1, iso2, iso3,...]
-
-    isotopes = df['Atom'].tolist()
-
-    return mass, abundance, isotopes
+    return unsaturation
 
 def SMILEs_interpreter(mol_smi):
     #---------------------------------------------------------------------------------------------#
@@ -103,7 +48,7 @@ def SMILEs_interpreter(mol_smi):
 
     Input: molecule under SMILEs representation
     
-    Output: molecule under MOL representation
+    Output: molecule under Mol representation
     '''
     #---------------------------------------------------------------------------------------------#
 
@@ -112,9 +57,7 @@ def SMILEs_interpreter(mol_smi):
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
-        print('')
-        print("Invalid SMILEs input.")
-        print('Please try again with a different SMILEs.')
+        print(f'\n Invalid SMILEs input.\n Please try again with a different SMILEs.')
         exit()
 
     mol = Chem.AddHs(mol_without_Hs)
@@ -1341,3 +1284,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     return final
 
 #end
+print(SMILEs_interpreter('CCMC'))
