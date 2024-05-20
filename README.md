@@ -12,14 +12,13 @@
 [![GitHub3](https://img.shields.io/badge/Contributors-3-green.svg)](https://github.com/ThomasCsson/MASSIVEChem/graphs/contributors)
 [![GitHub3](https://img.shields.io/badge/License-3-purple.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/LICENSE.txt)
 [![GitHub3](https://img.shields.io/badge/EPFL-CH200-red.svg)](https://edu.epfl.ch/studyplan/en/bachelor/chemistry-and-chemical-engineering/coursebook/practical-programming-in-chemistry-CH-200)
-[![GitHub3](https://img.shields.io/badge/EPFL-CH200-red.svg)](https://x.com/pschwllr/status/1760713822111723990)
 
 
  - Python package for applied analytical chemistry focused primarily on mass speectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
 ## Package description
-[![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://en.wikipedia.org/wiki/Science)
+[![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://x.com/pschwllr/status/1760713822111723990)
 [![GitHub4](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 MASSIVEChem, which stands for "Mass Analytical Spectrometry System for Investigation and Visual Extrapolation in Chemistry", is a pip-installable python package developped at EPFL in 2024 focused on, as its name would suggest, analytical chemistry.
