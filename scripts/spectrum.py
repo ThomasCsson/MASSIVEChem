@@ -1,7 +1,6 @@
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
 
-import pandas as pd
 
 import os
 
@@ -399,7 +398,10 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     # exceptions for conflicts during the iteration of functional groups
     for functional_group in functional_groups_contained:
-        if functional_group == 'Carboxylic Acid':
+        if 'Ester' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Ether')
+        elif functional_group == 'Carboxylic Acid':
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Alcohol')
         elif 'Ester' == functional_group:
@@ -545,4 +547,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(layout, last)
     return final
 
-show(spectrum('C=C(C(=O)O)OP(=O)(O)O', True, 0.01))
+show(spectrum('C=CCCC(=O)OCCCCC(=O)O', True, 0.01))
