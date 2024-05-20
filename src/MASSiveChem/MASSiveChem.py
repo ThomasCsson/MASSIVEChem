@@ -14,6 +14,8 @@ from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
 
+from io import BytesIO
+
 def calculate_unsaturation(mol_smile) -> int:
      #---------------------------------------------------------------------------------------------#
     '''
