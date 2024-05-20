@@ -1,6 +1,15 @@
 from rdkit import Chem
             
 def atom_present_list(mol_smi):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    atom_present_list(mol_smi)
+    
+    Input: molecule under MOL representation
+    
+    Output: list of atoms present in the molecule with their respective count
+    '''
+    #---------------------------------------------------------------------------------------------#
     mol, list_atoms,list_out_final = Chem.MolFromSmiles(mol_smi),[],[]
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())

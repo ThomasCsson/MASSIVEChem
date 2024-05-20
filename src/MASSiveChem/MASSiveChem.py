@@ -229,21 +229,6 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
                 y_axis_final[index] =y_axis_final[index] + y_axis[j]
 
 
-    #if there is any, add peaks corresponding to Sulphur/Nitrogen presence
-    maximum = max(y_axis_final)
-    maximum_2 = 0
-    for i in range (len(y_axis_final)):
-        if y_axis_final[i]>maximum_2 and y_axis_final[i]< maximum:
-            maximum_2 = y_axis_final[i]
-    index = y_axis_final.index(maximum_2)
-
-    if has_N:
-        x_axis_final.append(x_axis_final[index] - 0.006)  
-        y_axis_final.append(0.0035*count_N*maximum)  
-    
-    if has_S:
-        x_axis_final.append(x_axis_final[index]-0.004)  
-        y_axis_final.append(0.008*count_S*maximum)  
 
     return x_axis_final, y_axis_final
 
@@ -279,6 +264,68 @@ def peak_merger(x_in, y_in, apparatus_resolution) -> list[float]:
             y_in.pop(0)
     x_out.append(x_in[0])
     y_out.append(y_in[0])
+
+    return x_out, y_out
+
+def sulphur_nitrogen_adder(x_in, y_in, has_N, has_S, count_N, count_S) -> list[float]:
+    #---------------------------------------------------------------------------------------------#
+    '''
+    sulphur_nitrogen_adder(x_in, y_in, has_N, has_S, count_N, count_S)
+    
+    Input: two lists + 4 booleans:
+    1. ordered list of the masses with values on y merged together if peaks within precision of apparatus
+    2. ordered list of the probabilities of apparation of each of the molecules
+    3. boolean that tells if the molecule contains Nitrogen
+    4. boolean that tells if the molecule contains Sulphur
+    5. number of Nitrogen atoms in the molecule
+    6. number of Sulphur atoms in the molecule
+    
+    Output: two lists:
+    1. ordered list of the masses with values on y merged together if peaks within precision of apparatus
+    2. ordered list of the probabilities of apparation of each of the molecules
+    
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    maximum = max(y_in)
+
+    if has_N:
+        x_in.append(x_in[1] - 0.006)  
+        y_in.append(0.0035*count_N*maximum)  
+    
+    if has_S:
+        x_in.append(x_in[1]-0.004)  
+        y_in.append(0.008*count_S*maximum)
+
+
+    return x_in, y_in
+
+def peak_sorter(x_in, y_in) -> list[float]:
+    #---------------------------------------------------------------------------------------------#
+    '''
+    peak_sorter(x_in, y_in)
+    
+    Input: two lists:
+    1. ordered list of the masses with values on y merged together if peaks within precision of apparatus
+    2. ordered list of the probabilities of apparation of each of the molecules
+    
+    Output: two lists:
+    1. ordered list of the masses with values on y merged together if peaks within precision of apparatus
+    2. ordered list of the probabilities of apparation of each of the molecules
+    
+    (the mass in list 1 at index i is associated to the probability at index i in list 2)
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    x_out, y_out = [],[]
+    while len(x_in)>0:
+        min_x = min(x_in)
+        index_min = x_in.index(min_x)
+        x_out.append(min_x)
+        y_out.append(y_in[index_min])
+        x_in.pop(index_min)
+        y_in.pop(index_min)
 
     return x_out, y_out
 
