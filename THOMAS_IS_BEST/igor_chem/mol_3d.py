@@ -10,8 +10,10 @@ from bokeh.layouts import layout
 from bokeh.models import Div
 from plotly.io import to_html
 import pandas as pd
+from io import BytesIO
+import panel as pn
 
-def smiles_to_xyz(smiles, output_file):
+"""def smiles_to_xyz(smiles, output_file):
     # Generate 3D coordinates from SMILES string
     mol = Chem.MolFromSmiles(smiles)
     mol = Chem.AddHs(mol)  # Add hydrogens for better geometry optimization
@@ -104,7 +106,49 @@ bokeh_pane = pn.pane.Bokeh(bokeh)
 
 layout = pn.Row(bokeh_pane,plotly_pane)
 
-layout.show()
+layout.show()"""
 
+
+
+#second version
+
+from rdkit import Chem
+from rdkit.Chem import AllChem
+from io import BytesIO
+import tempfile
+from xyz2graph import MolGraph, to_plotly_figure
+import panel as pn
+
+def smiles_to_xyz_plotly(smiles):
+    # Generate 3D coordinates from SMILES string
+    mol = Chem.MolFromSmiles(smiles)
+    mol = Chem.AddHs(mol)  # Add hydrogens for better geometry optimization
+    AllChem.EmbedMolecule(mol, randomSeed=42)  # Embed the molecule in 3D space
+    AllChem.MMFFOptimizeMolecule(mol)  # Optimize the geometry using MMFF94 force field
+
+    # Create a temporary file
+    with tempfile.NamedTemporaryFile(delete=False) as tmp:
+        tmp.write(f"{mol.GetNumAtoms()}\n\n".encode('utf-8'))  # Write number of atoms
+        for atom in mol.GetAtoms():
+            pos = mol.GetConformer().GetAtomPosition(atom.GetIdx())
+            tmp.write(f"{atom.GetSymbol()} {pos.x} {pos.y} {pos.z}\n".encode('utf-8'))
+        tmp_path = tmp.name
+
+    # Create the MolGraph object
+    mg = MolGraph()
+    
+    # Read the data from the temporary file
+    mg.read_xyz(tmp_path)
+
+    # Create the Plotly figure object
+    fig = to_plotly_figure(mg)
+
+    plotly_pane = pn.pane.Plotly(fig)
+    
+    return plotly_pane
+
+# Example usage
+input_mol = input('MOL:  ')
+smiles_to_xyz_plotly(input_mol).show()
 
 
