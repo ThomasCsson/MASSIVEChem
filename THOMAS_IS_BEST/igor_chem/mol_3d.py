@@ -98,11 +98,13 @@ def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
     
 input_mol = input('MOL:  ')
 
-bokeh =mol_web_show(input_mol,False,True)
+bokeh =mol_web_show(input_mol)
 
 bokeh_pane = pn.pane.Bokeh(bokeh)
 
 layout = pn.Row(bokeh_pane,plotly_pane)
+
+layout.show()
 
 
 
