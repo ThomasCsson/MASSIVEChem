@@ -1,10 +1,27 @@
 
 from bokeh.layouts import column
 from bokeh.models import Button, CustomJS, Div
-from bokeh.plotting import show, output_notebook
+from bokeh.plotting import show
 
 
-def button_display(info1, info2, info3, info4):
+def button_display(mol_weight, unsat, nbr_atoms, atom_list):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    button_display(mol_weight, unsat, nbr_atoms, atom_list)
+    
+    Input: molecular weight (int), unsaturation (int), number of atoms (int) and contained atoms (list) of the molecule.
+    
+    Output: bokeh layout of 4 buttons that displays the information
+
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    # Change the list of atom to a string to display
+    formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in atom_list]
+
+    # Join all formatted elements into a single string with a space between them
+    atom_string = ' , '.join(formatted_elements)
+
     # Create a Div element to display the information with adaptive size
     info_div = Div(text="", styles={'background-color': '#f0f0f0', 'padding': '10px', 'border': '2px solid #ccc', 'border-radius': '5px'})
     
@@ -15,25 +32,25 @@ def button_display(info1, info2, info3, info4):
     button4 = Button(label="Types of Atoms", button_type="success")
     
     # JavaScript code to update the Div with the input information
-    callback1 = CustomJS(args=dict(div=info_div, info=f'{info1} g/mol'), code="""
+    callback1 = CustomJS(args=dict(div=info_div, info=f'{mol_weight} g/mol'), code="""
         div.text = info;
         div.change.emit();
     """)
-    if info2 == 1:
+    if unsat == 1:
         info = '1 unsaturation'
     else:
-        info = (f'{info2} unsaturations')
+        info = (f'{unsat} unsaturations')
     callback2 = CustomJS(args=dict(div=info_div, info = info), code="""
         div.text = info;
         div.change.emit();
     """)
     
-    callback3 = CustomJS(args=dict(div=info_div, info=f'{info3} atoms'), code="""
+    callback3 = CustomJS(args=dict(div=info_div, info=f'{nbr_atoms} atoms'), code="""
         div.text = info;
         div.change.emit();
     """)
     
-    callback4 = CustomJS(args=dict(div=info_div, info=info4), code="""
+    callback4 = CustomJS(args=dict(div=info_div, info=atom_string), code="""
         div.text = info;
         div.change.emit();
     """)
@@ -44,11 +61,11 @@ def button_display(info1, info2, info3, info4):
     button3.js_on_click(callback3)
     button4.js_on_click(callback4)
     
-    # Create the layout and display it
+    # Create the layout
     layout = column(button1, button2, button3, button4, info_div)
     
     return layout
 
-show(button_display(230, 1, 13, "C=3 N=2 O=2 H=6vvvvvvvvvvvr4nurtcvhineub fberikvniv bzinebz"))
+show(button_display(230, 1, 13,['C : 10', 'H : 24']))
 
 
