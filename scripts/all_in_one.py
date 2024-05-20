@@ -1,54 +1,28 @@
-from bokeh.layouts import row, column
-
-def all_in_one(p1,p2,p3):
-
-    #---------------------------------------------------------------------------------------------#
-    '''
-    all_in_one(p1,p2,p3)
-    
-    Input: 3 bokeh plots
-            Usually used in this package:
-                    - p1 : bokeh double plot of mass spectrometry
-                    - p2 : image of the molecule
-                    - p3 : table of functional groups
-    
-    Output: bokeh page with all 3 graphs well arranged
-
-    '''
-    #---------------------------------------------------------------------------------------------#
-
-    #creates a layout in column with p2 and p3
-    layout1 = column(p2, p3)
-
-    #creates the final layout in row with layout1 and p1
-    layout = row(p1, layout1)
-
-    return layout
-
 import unittest
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource
 from bokeh.layouts import column, row
 from bokeh.models.widgets import DataTable, TableColumn
 
-def all_in_one(p1, p2, p3):
+def all_in_one(p1, p2, p3, p4):
     #---------------------------------------------------------------------------------------------#
     '''
-    all_in_one(p1,p2,p3)
+    all_in_one(p1,p2,p3, p4)
     
     Input: 3 bokeh plots
             Usually used in this package:
                     - p1 : bokeh double plot of mass spectrometry
                     - p2 : image of the molecule
                     - p3 : table of functional groups
+                    - p4 : buttons with info on the molecule
     
-    Output: bokeh page with all 3 graphs well arranged
+    Output: bokeh page with all 4 graphs well arranged
 
     '''
     #---------------------------------------------------------------------------------------------#
 
     #creates a layout in column with p2 and p3
-    layout1 = column(p2, p3)
+    layout1 = column(p2, p3, p4)
 
     #creates the final layout in row with layout1 and p1
     layout = row(p1, layout1)
