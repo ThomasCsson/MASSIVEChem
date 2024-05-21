@@ -92,11 +92,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
-        print('')
-        print("Invalid SMILEs input.")
-        print('Please try again with a different SMILEs.')
-        exit()
-
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+    
     mol = Chem.AddHs(mol_without_Hs)
 
     list_atoms = []
@@ -530,4 +527,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('c1ccccc1C(=O)O', True, 0.01))
+show(spectrum('CCCXCCC', True, 0.01))
