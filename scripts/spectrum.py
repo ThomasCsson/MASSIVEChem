@@ -1,39 +1,19 @@
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
 
-
-import os
-
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import row, column
 from bokeh.io import show
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
+from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
 from bokeh.models.widgets import DataTable, TableColumn
-from rdkit.Chem import Descriptors
 
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
-from bokeh.models.widgets import DataTable, TableColumn
-from bokeh.plotting import show
 import base64
 from io import BytesIO
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
-from bokeh.models.widgets import DataTable, TableColumn
-from bokeh.plotting import show
-from rdkit import Chem
-from rdkit.Chem import Draw
 
 
-from bokeh.layouts import column
-from bokeh.models import Button, CustomJS, Div
-from bokeh.plotting import show
+def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
-
-
-
-
-
-def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_directory='.'):
     #lists of the data to facilitise the pip-installability of the package
 
     mass = [108.904755, 106.90509, 26.981539, 39.962383, 37.96273, 35.967545, 74.92159, 196.96654, 11.009305, 10.012937, 137.90523, 136.9058, 135.90456, 134.90567, 133.90448, 131.90504, 129.90628, 9.012182, 208.98038, 78.918335, 80.91629, 13.003355, 12.0, 45.95369, 43.95548, 42.958767, 41.95862, 39.96259, 47.952534, 110.90418, 109.90301, 107.90418, 115.904755, 113.90336, 112.9044, 111.902756, 141.90924, 139.90543, 137.90599, 135.90714, 36.965904, 34.968853, 58.933197, 53.93888, 52.94065, 51.94051, 49.946045, 132.90543, 62.939598, 157.92441, 155.92528, 163.92917, 162.92873, 161.92679, 160.92693, 159.92519, 169.93546, 167.93237, 166.93205, 165.93028, 163.9292, 161.92877, 152.92122, 150.91985, 18.998404, 57.933277, 56.935394, 53.939613, 70.9247, 68.92558, 157.9241, 156.92395, 155.92212, 154.92262, 153.92087, 151.91978, 159.92705, 75.9214, 73.92118, 72.92346, 71.92208, 69.92425, 2.014, 1.007825, 4.0026, 3.01603, 173.94005, 179.94655, 178.94582, 177.9437, 176.94322, 203.97346, 201.97061, 200.97028, 199.9683, 198.96825, 197.96674, 195.9658, 164.93031, 126.90447, 114.90388, 112.90406, 190.96059, 192.96292, 40.961826, 39.964, 38.963707, 77.9204, 85.910614, 83.91151, 82.91414, 81.91348, 79.91638, 138.90634, 137.9071, 7.016003, 6.015121, 174.94077, 25.982594, 24.985838, 23.985043, 54.938046, 94.90584, 93.90508, 91.90681, 99.90748, 97.9054, 96.90602, 95.90468, 15.000108, 14.003074, 22.989767, 92.90638, 142.9098, 141.90771, 149.92088, 147.91689, 145.91312, 144.91257, 143.91008, 21.991383, 20.993843, 19.992435, 61.928345, 60.931057, 59.930786, 57.935345, 63.927967, 237.0482, 17.99916, 16.99913, 15.994915, 189.95844, 188.95813, 187.95586, 186.95573, 185.95383, 183.95248, 191.96147, 30.973763, 206.97588, 205.97444, 203.97302, 207.97662, 109.90517, 107.90389, 105.90348, 104.90508, 103.90403, 101.90563, 140.90765, 189.95992, 197.96786, 195.96492, 194.96477, 193.96266, 191.96101, 86.90919, 84.9118, 186.95575, 184.95296, 102.9055, 103.905426, 101.90435, 100.90558, 99.90422, 98.90594, 97.90529, 95.9076, 35.96708, 33.967865, 32.971455, 31.97207, 122.90421, 120.903824, 44.95591, 77.917305, 76.919914, 75.91921, 73.92248, 81.916695, 79.91652, 29.97377, 28.976496, 27.976927, 153.92221, 151.91972, 149.91727, 148.91718, 147.91483, 146.9149, 143.912, 123.90527, 121.90344, 119.9022, 118.90331, 117.90161, 116.902954, 115.90175, 114.90335, 113.90279, 111.90482, 87.90562, 86.90888, 85.90926, 83.91343, 180.948, 179.94746, 158.92534, 125.90331, 124.904434, 123.902824, 122.904274, 121.90305, 119.904045, 129.90623, 127.904465, 232.03806, 46.951763, 45.95263, 49.944794, 48.947872, 47.94795, 204.9744, 202.97232, 168.93422, 50.943962, 49.947163, 185.95436, 183.95093, 182.95023, 181.9482, 179.9467, 173.93886, 172.9382, 171.93637, 170.93633, 169.93475, 167.9339, 175.94257, 69.92532, 67.92484, 66.92713, 65.92603, 63.929146, 93.90647, 91.90504, 90.90565, 89.9047, 95.90827]
@@ -73,7 +53,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     if 'N' in list_atoms and list_atoms.count('N')%2 == 1:
         has_N = True
         count_N = list_atoms.count('N')
-    elif 'S' in list_atoms and list_atoms.count('S')%2 == 1:
+        
+    if 'S' in list_atoms and list_atoms.count('S')%2 == 1:
         has_S = True
         count_S = list_atoms.count('S')
 
@@ -204,10 +185,12 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     if has_N:
         x_in.append(x_in[1] - 0.006)  
         y_in.append(0.0035*count_N*maximum)  
+        print('N')
     
     if has_S:
         x_in.append(x_in[1]-0.004)  
         y_in.append(0.008*count_S*maximum)
+        print('S')
 
     x_out, y_out = [],[]
 
@@ -249,25 +232,25 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     #creates the principal graph, mass spectrum of the molecule (interactive)
 
-    p1 = figure(width=700, title=f'Mass spectrum of molecule')
-    p1 = figure(x_axis_label = '[m/z]')
-    p1 = figure(y_axis_label = 'Abundance')
-    p1.xaxis.axis_label = "[m/z]"
-    p1.title = 'Mass spectrum of molecule'
-    p1.height = 500
-    p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
-    p1.add_tools(WheelPanTool(dimension="height"))
-    p1.add_tools(WheelZoomTool(dimensions="height"))
-    p1.line(x_in, y_in, line_width=1)
-    p1.xaxis.major_label_orientation = "horizontal"
+    princ_graph = figure(width=700, title=f'Mass spectrum of molecule')
+    princ_graph = figure(x_axis_label = '[m/z]')
+    princ_graph = figure(y_axis_label = 'Abundance')
+    princ_graph.xaxis.axis_label = "[m/z]"
+    princ_graph.title = 'Mass spectrum of molecule'
+    princ_graph.height = 500
+    princ_graph.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
+    princ_graph.add_tools(WheelPanTool(dimension="height"))
+    princ_graph.add_tools(WheelZoomTool(dimensions="height"))
+    princ_graph.line(x_in, y_in, line_width=1)
+    princ_graph.xaxis.major_label_orientation = "horizontal"
 
      #creates the secondary graph, mass spectrum of the molecule (non-interactive)
 
-    p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
-    p2 = figure(width=250, title=f'Mass spectrum of molecule')
-    p2 = figure(toolbar_location=None)
-    p2.height = 250
-    p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
+    sec_graph = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
+    sec_graph = figure(width=250, title=f'Mass spectrum of molecule')
+    sec_graph = figure(toolbar_location=None)
+    sec_graph.height = 250
+    sec_graph.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
 
     #creates a tool in order that the second graph shows where the zoom is on the first one
 
@@ -282,84 +265,35 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     xcb = CustomJS(args=dict(box=box), code=jscode % ('left', 'right'))
     ycb = CustomJS(args=dict(box=box), code=jscode % ('bottom', 'top'))
 
-    p1.x_range.js_on_change('start', xcb)
-    p1.x_range.js_on_change('end', xcb)
-    p1.y_range.js_on_change('start', ycb)
-    p1.y_range.js_on_change('end', ycb)
+    princ_graph.x_range.js_on_change('start', xcb)
+    princ_graph.x_range.js_on_change('end', xcb)
+    princ_graph.y_range.js_on_change('start', ycb)
+    princ_graph.y_range.js_on_change('end', ycb)
 
     # adds the functionnality to the second figure
 
-    p2.add_layout(box)
+    sec_graph.add_layout(box)
 
     # creates a layout that displays the 2 graphs
 
-    layout = column(p1, p2)
+    double_graph = column(princ_graph, sec_graph)
 
 
-
-        # name of the file name to create
-    filename = 'molecule_image.png'
-
-    #finds the current directory
-    current_directory = os.getcwd()
-
-    #creates a file path to the current directory
-    filepath = os.path.join(current_directory, filename)
-
-    #checks if the file already exists
-    if not os.path.exists(filepath):
-
-        #if no, creates the path
-        with open(filepath, 'a'):
-            pass
-    else:
-
-        #else pass
-        pass
-    
-    for root, dirs, files in os.walk(search_directory):
-
-    #checks all the file names in the directory
-        if filename in files:
-
-            #return file path
-            file_mol = os.path.join(root, filename)
-
-    show_Hs= False
-    show_3D = False
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
-    file_path = file_mol
-    # Adds the hydrogens to the molecule if specified
-    if show_Hs:
-        mol = Chem.AddHs(mol)
 
-    # Show the molecule in 3D if specified
-    if show_3D:
-        mol = AllChem.EmbedMolecule(mol)
-
+    #Draws the image
     image = Draw.MolToImage(mol)
 
-    # Save the image to a file
-    image.save(filepath)
-    print(filepath)
+    #stocks the image in a base64 format
+    buffered = BytesIO()
+    image.save(buffered, format="PNG")
+    image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    image_url = f"data:image/png;base64,{image_base64}"
 
+    # Create a Div element to display the image
+    img_div = Div(text=f'<img src="{image_url}" style="width:350px;height:350px;">')
 
-
-
-
-
-    # Creating a Bokeh figure to display the molecule
-    p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=[filepath], x=0, y=1, w=1, h=1)
-
-    # Hide grid lines and axes
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.xaxis.visible = False
-    p.yaxis.visible = False
-
-    # initiate variables
     # initiate variables
     functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
 
@@ -420,7 +354,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     for functional_group in functional_groups_contained:
         if 'Ester' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Ether')
+                if 'Ether' in functional_groups_contained:
+                    functional_groups_contained.remove('Ether')
         elif functional_group == 'Carboxylic Acid':
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Alcohol')
@@ -505,16 +440,30 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
         if mol:
 
-            #creates the image
-            image = Draw.MolToImage(mol)
+            if x == 'CC(=O)[Oh0]':
+                mol2 = Chem.MolFromSmiles('CC(=O)OC')
 
-            # Convert the image to base64 format
-            buffered = BytesIO()
-            image.save(buffered, format="PNG")
-            image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+                #creates the image
+                image = Draw.MolToImage(mol2)
 
-            #appends the image to an empty dictionnary
-            present_group_images_base64.append(image_base64)
+                # Convert the image to base64 format
+                buffered = BytesIO()
+                image.save(buffered, format="PNG")
+                image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+                #appends the image to an empty dictionnary
+                present_group_images_base64.append(image_base64)
+            else:
+                #creates the image
+                image = Draw.MolToImage(mol)
+
+                # Convert the image to base64 format
+                buffered = BytesIO()
+                image.save(buffered, format="PNG")
+                image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+                #appends the image to an empty dictionnary
+                present_group_images_base64.append(image_base64)
 
     #creates a dictionnary that links the name of the functional group to its image
     data = dict(
@@ -539,86 +488,10 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     table_height = min(200 + num_groups * 60, 800)
 
-    data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
+    func_group_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
-    #Create the list (atom symbol : count of this atom in molecule) called atom_string_out
-    mol, atom_string_pre, atom_string_out = Chem.MolFromSmiles(mol_smi),[],[]
-    molwithHs = Chem.AddHs(mol)
-    for atom in molwithHs.GetAtoms():
-        atom_string_pre.append(atom.GetSymbol())
-    for atom in mol.GetAtoms():
-        element = (f'{atom.GetSymbol()} : {atom_string_pre.count(atom.GetSymbol())}')   
-        if element not in atom_string_pre:
-            atom_string_out.append(element)
-
-    formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in atom_string_out]
-
-    # Join all formatted elements into a single string with a space between them
-    atom_string = ' , '.join(formatted_elements)
-
-    # Create a Div element to display the information with adaptive size
-    info_div = Div(text="", styles={'background-color': '#f0f0f0', 'padding': '10px', 'border': '2px solid #ccc', 'border-radius': '5px'})
-    
-    # Create Buttons
-    button1 = Button(label="Molecular Mass", button_type="success")
-    button2 = Button(label="Unsaturation", button_type="success")
-    button3 = Button(label="Number of Atoms", button_type="success")
-    button4 = Button(label="Types of Atoms", button_type="success")
-    
-    #Determining molecular weight of the molecule
-    mol_weight = round(Descriptors.ExactMolWt(Chem.MolFromSmiles(mol_smi)), 3)
-    
-
-    callback1 = CustomJS(args=dict(div=info_div, info=f'{mol_weight} g/mol'), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    #determination of unsaturation of teh molecule
-    C, N, HX, halogens_hydrogen = 0, 0, 0, ['F', 'Cl', 'Br', 'I', 'At', 'H']
-
-    mol = Chem.AddHs(Chem.MolFromSmiles(mol_smi))
-
-    for atom in mol.GetAtoms():
-        if atom.GetSymbol() == 'C':
-            C += 1
-        elif atom.GetSymbol() == 'N':
-            N += 1
-        elif atom.GetSymbol() in halogens_hydrogen:
-            HX += 1
-
-    unsaturation = C + 1 + (N - HX) / 2
-
-    if unsaturation == 1:
-        info = '1 unsaturation'
-    else:
-        info = (f'{unsaturation} unsaturations')
-    callback2 = CustomJS(args=dict(div=info_div, info = info), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    nbr_atoms = mol.GetNumAtoms()
-    callback3 = CustomJS(args=dict(div=info_div, info=f'{nbr_atoms} atoms'), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    
-    callback4 = CustomJS(args=dict(div=info_div, info=atom_string), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    
-    # Attach the callbacks to the buttons' click events
-    button1.js_on_click(callback1)
-    button2.js_on_click(callback2)
-    button3.js_on_click(callback3)
-    button4.js_on_click(callback4)
-    
-    # Create the layout
-    layout2 = column(button1, button2, button3, button4, info_div)
-
-    ante = row(layout2, data_table)
-    last = column(p, ante)
-    final = row(layout, last)
+    last = column(img_div, func_group_table)
+    final = row(double_graph, last)
     return final
 
-show(spectrum('CC(=O)OCCCC(=O)O', True, 0.01))
+show(spectrum('NCCCCS', True, 0.01))
