@@ -10,7 +10,7 @@ from bokeh.layouts import row, column
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 from bokeh.models.widgets import DataTable, TableColumn
-
+from rdkit.Chem import Descriptors
 
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
 from bokeh.models.widgets import DataTable, TableColumn
@@ -543,8 +543,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     #Create the list (atom symbol : count of this atom in molecule) called atom_string_out
     mol, atom_string_pre, atom_string_out = Chem.MolFromSmiles(mol_smi),[],[]
-
-    for atom in Chem.AddHs(mol.GetAtoms()):
+    molwithHs = Chem.AddHs(mol)
+    for atom in molwithHs.GetAtoms():
         atom_string_pre.append(atom.GetSymbol())
     for atom in mol.GetAtoms():
         element = (f'{atom.GetSymbol()} : {atom_string_pre.count(atom.GetSymbol())}')   
@@ -566,16 +566,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     button4 = Button(label="Types of Atoms", button_type="success")
     
     #Determining molecular weight of the molecule
-    smi = mol_smi
-    molint = Chem.MolFromSmiles(smi)
-    mol = Chem.AddHs(molint)
-    mm = 0
-    for atom in mol.GetAtoms():
-        mm = mm + atom.GetMass()
-    mol_weight = ((1000*mm)//1)/1000
+    mol_weight = round(Descriptors.ExactMolWt(Chem.MolFromSmiles(mol_smi)), 3)
     
-
-
 
     callback1 = CustomJS(args=dict(div=info_div, info=f'{mol_weight} g/mol'), code="""
         div.text = info;
