@@ -1,32 +1,18 @@
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
 
-
-import os
-
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import row, column
 from bokeh.io import show
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
+from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
 from bokeh.models.widgets import DataTable, TableColumn
 
-
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
-from bokeh.models.widgets import DataTable, TableColumn
-from bokeh.plotting import show
 import base64
 from io import BytesIO
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
-from bokeh.models.widgets import DataTable, TableColumn
-from bokeh.plotting import show
-from rdkit import Chem
-from rdkit.Chem import Draw
 
 
-from bokeh.layouts import column
-from bokeh.models import Button, CustomJS, Div
-from bokeh.plotting import show
+
 
 
 
@@ -323,15 +309,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
-
-    # Show the molecule in 3D if specified
-    """if show_3D:
-        mol = Chem.AddHs(mol)
-        AllChem.EmbedMolecule(mol)
-    
-    # Adds the hydrogens to the molecule if specified
-    if show_Hs:
-        mol = Chem.AddHs(mol)"""
 
     #Draws the image
     image = Draw.MolToImage(mol)
