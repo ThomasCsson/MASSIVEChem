@@ -543,5 +543,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('CCCN', True, 0.01))
-''''''
+show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', True, 0.01))
