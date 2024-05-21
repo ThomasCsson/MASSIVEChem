@@ -490,16 +490,30 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
         if mol:
 
-            #creates the image
-            image = Draw.MolToImage(mol)
+            if x == 'CC(=O)[Oh0]':
+                mol2 = Chem.MolFromSmiles('CC(=O)OC')
 
-            # Convert the image to base64 format
-            buffered = BytesIO()
-            image.save(buffered, format="PNG")
-            image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+                #creates the image
+                image = Draw.MolToImage(mol2)
 
-            #appends the image to an empty dictionnary
-            present_group_images_base64.append(image_base64)
+                # Convert the image to base64 format
+                buffered = BytesIO()
+                image.save(buffered, format="PNG")
+                image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+                #appends the image to an empty dictionnary
+                present_group_images_base64.append(image_base64)
+            else:
+                #creates the image
+                image = Draw.MolToImage(mol)
+
+                # Convert the image to base64 format
+                buffered = BytesIO()
+                image.save(buffered, format="PNG")
+                image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+                #appends the image to an empty dictionnary
+                present_group_images_base64.append(image_base64)
 
     #creates a dictionnary that links the name of the functional group to its image
     data = dict(
@@ -526,56 +540,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     func_group_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
-
-    formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in list_atoms]
-
-    # Join all formatted elements into a single string with a space between them
-    atom_string = ' , '.join(formatted_elements)
-
-    # Create a Div element to display the information with adaptive size
-    info_div = Div(text="", styles={'background-color': '#f0f0f0', 'padding': '10px', 'border': '2px solid #ccc', 'border-radius': '5px'})
-    
-    # Create Buttons
-    button1 = Button(label="Molecular Mass", button_type="success")
-    button2 = Button(label="Unsaturation", button_type="success")
-    button3 = Button(label="Number of Atoms", button_type="success")
-    button4 = Button(label="Types of Atoms", button_type="success")
-    
-    # JavaScript code to update the Div with the input information
-    callback1 = CustomJS(args=dict(div=info_div, info=f'{mol_weight} g/mol'), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    if unsaturation == 1:
-        info = '1 unsaturation'
-    else:
-        info = (f'{unsaturation} unsaturations')
-    callback2 = CustomJS(args=dict(div=info_div, info = info), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    
-    callback3 = CustomJS(args=dict(div=info_div, info=f'{nbr_atoms} atoms'), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    
-    callback4 = CustomJS(args=dict(div=info_div, info=atom_string), code="""
-        div.text = info;
-        div.change.emit();
-    """)
-    
-    # Attach the callbacks to the buttons' click events
-    button1.js_on_click(callback1)
-    button2.js_on_click(callback2)
-    button3.js_on_click(callback3)
-    button4.js_on_click(callback4)
-    
-    # Create the layout
-    buttons = column(button1, button2, button3, button4, info_div)
-
-    ante = row(buttons, func_group_table)
-    last = column(img_div, ante)
+    last = column(img_div, func_group_table)
     final = row(double_graph, last)
     return final
 
