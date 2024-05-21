@@ -53,9 +53,6 @@ def smiles_to_3D_plot(mol_smi,last,double_graph):
     return final
 
 import unittest
-
-
-import unittest
 from bokeh.plotting import figure
 
 
@@ -104,9 +101,3 @@ class TestSmilesTo3DPlot(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
-
-
