@@ -185,12 +185,12 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     if has_N:
         x_in.append(x_in[1] - 0.006)  
         y_in.append(0.0035*count_N*maximum)  
-        print('N')
+        
     
     if has_S:
         x_in.append(x_in[1]-0.004)  
         y_in.append(0.008*count_S*maximum)
-        print('S')
+        
 
     x_out, y_out = [],[]
 
@@ -303,7 +303,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         'Alcohol': 'C[Oh1+0]',
         'Aldehyde': 'C[Ch1]=O',
         'Ketone': 'CC(=O)C',
-        'Carboxylic Acid': 'CC(=O)[Oh1]',
+        'Carboxylic Acid': '*C(=O)[Oh1]',
         'Ester': 'CC(=O)[Oh0]',
         'Ether': '*[Oh0]*',
         'Amide': 'C(=O)N',
@@ -494,4 +494,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('NCCCCS', True, 0.01))
+show(spectrum('c1ccccc1C(=O)O', True, 0.01))
