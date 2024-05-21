@@ -84,7 +84,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     if 'N' in list_atoms and list_atoms.count('N')%2 == 1:
         has_N = True
         count_N = list_atoms.count('N')
-    elif 'S' in list_atoms and list_atoms.count('S')%2 == 1:
+        
+    if 'S' in list_atoms and list_atoms.count('S')%2 == 1:
         has_S = True
         count_S = list_atoms.count('S')
 
@@ -215,10 +216,12 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     if has_N:
         x_in.append(x_in[1] - 0.006)  
         y_in.append(0.0035*count_N*maximum)  
+        print('N')
     
     if has_S:
         x_in.append(x_in[1]-0.004)  
         y_in.append(0.008*count_S*maximum)
+        print('S')
 
     x_out, y_out = [],[]
 
@@ -382,7 +385,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     for functional_group in functional_groups_contained:
         if 'Ester' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Ether')
+                if 'Ether' in functional_groups_contained:
+                    functional_groups_contained.remove('Ether')
         elif functional_group == 'Carboxylic Acid':
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Alcohol')
@@ -521,4 +525,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     final = row(double_graph, last)
     return final
 
-show(spectrum('CC(=O)OCCCC(=O)O', True, 0.01))
+show(spectrum('NCCCCS', True, 0.01))
