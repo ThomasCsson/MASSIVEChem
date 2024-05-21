@@ -119,7 +119,18 @@ import tempfile
 from xyz2graph import MolGraph, to_plotly_figure
 import panel as pn
 
-def smiles_to_xyz_plotly(smiles):
+def smiles_to_3D_plot(smiles):
+
+     #---------------------------------------------------------------------------------------------#
+    '''
+    smiles_to_3D_plot(smiles)
+    
+    Input: molecule is a SMILEs format
+
+    Output: panel graph of the molecule in 3D and interactive
+    '''
+    #---------------------------------------------------------------------------------------------#
+
     # Generate 3D coordinates from SMILES string
     mol = Chem.MolFromSmiles(smiles)
     mol = Chem.AddHs(mol)  # Add hydrogens for better geometry optimization
@@ -149,6 +160,6 @@ def smiles_to_xyz_plotly(smiles):
 
 # Example usage
 input_mol = input('MOL:  ')
-smiles_to_xyz_plotly(input_mol).show()
+smiles_to_3D_plot(input_mol).show()
 
 
