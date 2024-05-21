@@ -274,25 +274,25 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     #creates the principal graph, mass spectrum of the molecule (interactive)
 
-    p1 = figure(width=700, title=f'Mass spectrum of molecule')
-    p1 = figure(x_axis_label = '[m/z]')
-    p1 = figure(y_axis_label = 'Abundance')
-    p1.xaxis.axis_label = "[m/z]"
-    p1.title = 'Mass spectrum of molecule'
-    p1.height = 500
-    p1.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
-    p1.add_tools(WheelPanTool(dimension="height"))
-    p1.add_tools(WheelZoomTool(dimensions="height"))
-    p1.line(x_in, y_in, line_width=1)
-    p1.xaxis.major_label_orientation = "horizontal"
+    princ_graph = figure(width=700, title=f'Mass spectrum of molecule')
+    princ_graph = figure(x_axis_label = '[m/z]')
+    princ_graph = figure(y_axis_label = 'Abundance')
+    princ_graph.xaxis.axis_label = "[m/z]"
+    princ_graph.title = 'Mass spectrum of molecule'
+    princ_graph.height = 500
+    princ_graph.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
+    princ_graph.add_tools(WheelPanTool(dimension="height"))
+    princ_graph.add_tools(WheelZoomTool(dimensions="height"))
+    princ_graph.line(x_in, y_in, line_width=1)
+    princ_graph.xaxis.major_label_orientation = "horizontal"
 
      #creates the secondary graph, mass spectrum of the molecule (non-interactive)
 
-    p2 = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
-    p2 = figure(width=250, title=f'Mass spectrum of molecule')
-    p2 = figure(toolbar_location=None)
-    p2.height = 250
-    p2.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
+    sec_graph = figure(title="Simulated Mass Spectrum", x_axis_label='Mass [Th]', y_axis_label='Intensity')
+    sec_graph = figure(width=250, title=f'Mass spectrum of molecule')
+    sec_graph = figure(toolbar_location=None)
+    sec_graph.height = 250
+    sec_graph.line(x_in, y_in, legend_label="Mass spectrum", line_width=1)
 
     #creates a tool in order that the second graph shows where the zoom is on the first one
 
@@ -307,84 +307,44 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     xcb = CustomJS(args=dict(box=box), code=jscode % ('left', 'right'))
     ycb = CustomJS(args=dict(box=box), code=jscode % ('bottom', 'top'))
 
-    p1.x_range.js_on_change('start', xcb)
-    p1.x_range.js_on_change('end', xcb)
-    p1.y_range.js_on_change('start', ycb)
-    p1.y_range.js_on_change('end', ycb)
+    princ_graph.x_range.js_on_change('start', xcb)
+    princ_graph.x_range.js_on_change('end', xcb)
+    princ_graph.y_range.js_on_change('start', ycb)
+    princ_graph.y_range.js_on_change('end', ycb)
 
     # adds the functionnality to the second figure
 
-    p2.add_layout(box)
+    sec_graph.add_layout(box)
 
     # creates a layout that displays the 2 graphs
 
-    layout = column(p1, p2)
+    double_graph = column(princ_graph, sec_graph)
 
 
-
-        # name of the file name to create
-    filename = 'molecule_image.png'
-
-    #finds the current directory
-    current_directory = os.getcwd()
-
-    #creates a file path to the current directory
-    filepath = os.path.join(current_directory, filename)
-
-    #checks if the file already exists
-    if not os.path.exists(filepath):
-
-        #if no, creates the path
-        with open(filepath, 'a'):
-            pass
-    else:
-
-        #else pass
-        pass
-    
-    for root, dirs, files in os.walk(search_directory):
-
-    #checks all the file names in the directory
-        if filename in files:
-
-            #return file path
-            file_mol = os.path.join(root, filename)
-
-    show_Hs= False
-    show_3D = False
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
-    file_path = file_mol
-    # Adds the hydrogens to the molecule if specified
-    if show_Hs:
-        mol = Chem.AddHs(mol)
 
     # Show the molecule in 3D if specified
-    if show_3D:
-        mol = AllChem.EmbedMolecule(mol)
+    """if show_3D:
+        mol = Chem.AddHs(mol)
+        AllChem.EmbedMolecule(mol)
+    
+    # Adds the hydrogens to the molecule if specified
+    if show_Hs:
+        mol = Chem.AddHs(mol)"""
 
+    #Draws the image
     image = Draw.MolToImage(mol)
 
-    # Save the image to a file
-    image.save(filepath)
-    print(filepath)
+    #stocks the image in a base64 format
+    buffered = BytesIO()
+    image.save(buffered, format="PNG")
+    image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    image_url = f"data:image/png;base64,{image_base64}"
 
+    # Create a Div element to display the image
+    img_div = Div(text=f'<img src="{image_url}" style="width:350px;height:350px;">')
 
-
-
-
-
-    # Creating a Bokeh figure to display the molecule
-    p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=[filepath], x=0, y=1, w=1, h=1)
-
-    # Hide grid lines and axes
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.xaxis.visible = False
-    p.yaxis.visible = False
-
-    # initiate variables
     # initiate variables
     functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
 
@@ -564,7 +524,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
 
     table_height = min(200 + num_groups * 60, 800)
 
-    data_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
+    func_group_table = DataTable(source=source, columns=columns, width=250, height=table_height, row_height=60)
 
 
     formatted_elements = [f"{part.split(':')[0].strip()} : {part.split(':')[1].strip()}" for part in list_atoms]
@@ -612,11 +572,11 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution,search_direct
     button4.js_on_click(callback4)
     
     # Create the layout
-    layout2 = column(button1, button2, button3, button4, info_div)
+    buttons = column(button1, button2, button3, button4, info_div)
 
-    ante = row(layout2, data_table)
-    last = column(p, ante)
-    final = row(layout, last)
+    ante = row(buttons, func_group_table)
+    last = column(img_div, ante)
+    final = row(double_graph, last)
     return final
 
 show(spectrum('CC(=O)OCCCC(=O)O', True, 0.01))
