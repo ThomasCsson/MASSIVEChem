@@ -367,7 +367,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     functional_groups_smarts = {
         'Alcohol': 'C[Oh1+0]','Aldehyde': 'C[Ch1]=O','Ketone': 'CC(=O)C','Carboxylic Acid': '*C(=O)[Oh1]','Ester': 'CC(=O)[Oh0]',
-        'Ether': '*[Oh0]*','Amide': 'C(=O)N','Amine': '[C][N]','Nitrile': 'C#N','Chloride': 'Cl','Bromide': 'Br','Fluoride': 'F',
+        'Ether': '*[Oh0]*','Amide': 'C(=O)N','Amine': '[N]','Nitrile': 'C#N','Chloride': 'Cl','Bromide': 'Br','Fluoride': 'F',
         'Iodide': 'I','Alkene': 'C=C','Alkyne': 'C#C','Imine': 'C=N*','Amino acid': '[Nh2][Ch1*]C(=O)O','Proline': '[Nh1][Ch1*]C(=O)O',
         'Thiol': '[Sh1]','Sulfide': '*[Sh0]*','Acyl Chloride': 'CC(=O)Cl','Anhydride': '*[Ch0](=O)O[Ch0](=O)*','Nitro': 'C[N+](=O)[O-]',
         'Enamine': 'C=C[Nh0]','Enamine2': 'C=C[Nh1]','Enamine3': 'C=C[Nh2]','Imide': 'C(=O)NC(=O)*','Azide': 'CNNN','Enol': 'C=C([Oh1])C',
@@ -450,6 +450,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
             for _ in range (functional_groups_contained.count(functional_group)):
                 functional_groups_contained.remove('Ether')
                 functional_groups_contained.remove('Ether')
+        elif 'Amide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                functional_groups_contained.remove('Amine')
     if 'Carboxilic Acid' and 'Ester' in functional_groups_contained:
         functional_groups_contained.remove('Ether')
 
@@ -475,6 +478,19 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
             if x == 'CC(=O)[Oh0]':
                 mol2 = Chem.MolFromSmiles('CC(=O)OC')
+
+                #creates the image
+                image = Draw.MolToImage(mol2)
+
+                # Convert the image to base64 format
+                buffered = BytesIO()
+                image.save(buffered, format="PNG")
+                image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+                #appends the image to an empty dictionnary
+                present_group_images_base64.append(image_base64)
+            elif x == '[N]':
+                mol2 = Chem.MolFromSmiles('CN')
 
                 #creates the image
                 image = Draw.MolToImage(mol2)
@@ -527,4 +543,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('CCCXCCC', True, 0.01))
+show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', True, 0.01))
