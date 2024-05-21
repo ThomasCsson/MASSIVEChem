@@ -116,7 +116,7 @@ show(spectrum(mol_smi, True, apparatus_resolution))
 ```
 The output of this command will be:
 
-![spectrum](Spectrum_output.png)
+![Spectrum](Spectrum_output.png)
 ## Getting started
 [![jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
 
