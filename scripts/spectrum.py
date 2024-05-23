@@ -243,7 +243,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     x_out.append(x_in[0])
     y_out.append(y_in[0])
 
-
     x_in = x_out
     y_in = y_out
     maximum = max(y_in)
@@ -595,4 +594,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', True, 0.01))
+show(spectrum('CCOCC(=O)CC', True, 0.01))
