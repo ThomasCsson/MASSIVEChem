@@ -14,8 +14,9 @@ from io import BytesIO
 
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
-    if not mol_smi:
-        raise ValueError('Enter a non-empty input')
+    #tests for wether the input is valid
+    if mol_without_Hs is None:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if imprecision_True_False not in [True, False]:
         raise ValueError('Enter a boolean value')
     if apparatus_resolution < 0:
@@ -101,17 +102,18 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
-    if mol_without_Hs is None:
-        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+
     
     mol = Chem.AddHs(mol_without_Hs)
 
+    '''molecule list generator'''
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
 
     #In the case of ionisation by proton, we need to add a H+ ion, which is done in the following
 
+    '''Ionisation method'''
     if 'H' in list_atoms:
 
         #Check that there is in fact a proton to remove
@@ -120,12 +122,13 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     render_imprecise_list = imprecision_True_False 
     #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
 
-    #check for sulphur and nitrogen
-
+    
     has_N = False
     count_N = 0
     has_S = False
     count_S = 0
+
+    '''sulphur_nitrogen_finder function'''
     if 'N' in list_atoms and list_atoms.count('N')%2 == 1:
         has_N = True
         count_N = list_atoms.count('N')
@@ -141,6 +144,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     abundance_copy = abundance.copy()
     isotopes_copy = isotopes.copy()
 
+    '''main function'''
     for i in range (isotopes.count(list_atoms[0])):
         
         index = isotopes.index(list_atoms[0])
@@ -225,6 +229,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     
     x_out, y_out = [],[]
 
+    '''list_sorter function'''
     while len(x_in)>0:
         min_x = min(x_in)
         index_min = x_in.index(min_x)
@@ -236,7 +241,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
 
     x_in, y_in = x_out, y_out 
-#resolution
+    
+    '''peak_merger function'''
     x_out, y_out = [],[]
     while len(x_in)>1:
         
@@ -257,6 +263,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     y_in = y_out
     maximum = max(y_in)
 
+    '''sulphur_nitrogen_plotter function'''
     if has_N:
         x_in.append(x_in[1] - 0.006)  
         y_in.append(0.0035*count_N*maximum)  
@@ -281,6 +288,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     min_x , max_x = min(x_in), max(x_in)
 
+    '''delta_function_plotter function'''
     x_axis, y_axis = [min_x-0.2],[0]
     for i in range (len(x_in)):
         x_axis.append(x_in[i]-10**(-100))
@@ -297,6 +305,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     x_in = x_axis
     y_in = y_axis
 
+    '''double_plot function'''
     ticked_peaks = []
     for i in range(len(x_in)):
         if imprecision_True_False:    
@@ -375,6 +384,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     # dictionnary of all the considered functional groups to check (some might be missing)
 
+    '''functional_group_finder function'''
     functional_groups_smarts = {
         'Alcohol': 'C[Oh1+0]','Aldehyde': 'C[Ch1]=O','Ketone': 'CC(=O)C','Carboxylic Acid': 'CC(=O)[Oh1]','Ester': 'CC(=O)[Oh0]',
         'Ether': '*[Oh0]*','Amide': 'C(=O)N','Amine': '[C][N]','Nitrile': 'C#N','Chloride': 'Cl','Bromide': 'Br','Fluoride': 'F',
@@ -544,10 +554,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 present_group_images_base64.append(image_base64)
 
     #creates a dictionnary that links the name of the functional group to its image
-    data = dict(
-        groups=functional_groups_contained,
-        images=present_group_images_base64
-    )
+    data = dict(groups=functional_groups_contained,images=present_group_images_base64)
     source = ColumnDataSource(data)
 
     #template for the bokeh table that read the base64 format 
@@ -558,10 +565,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     """
 
     # initiallizing the bokeh figure using the previous template for each functional group
-    columns = [
-        TableColumn(field="groups", title="Functional Groups"),
-        TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))
-    ]
+    columns = [TableColumn(field="groups", title="Functional Groups"),
+    TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))]
     num_groups = len(functional_groups_contained)
 
     table_height = min(200 + num_groups * 60, 800)
