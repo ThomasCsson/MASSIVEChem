@@ -75,26 +75,38 @@ pip install -e .
 The package runs on python 3.10 but supports python 3.8 through 3.10
 The package requires several other packages to function correctly.
 
+```bash
 matplotlib
 bokeh
 rdkit
 pandas
+panel 
+xyz2graph
+```
 
-If everything runs in order during the installation, the preceding packages should install automatically.
-But check that these packages are correctly installed using 
+
+If all goes well during installation, the preceding packages should all install automatically.
+But this can be checked by veryfying that they have all been installed in the desired environment. To do this, simply write the following command in the terminal:
 
 ```bash
 pip show "name of the package"
 ```
 
-If not, install them using the following commands, otherwise the package will not work. 
+If not, install them using the following commands. (Bear in mind that the package will not run without its dependencies. 
 
 ```bash
 pip install matplotlib
 pip install bokeh
 pip install rdkit
 pip install pandas
+pip install panel
 ```
+Additionally, the package 'xyz2graph' is required to run the 3D imaging functionallity in the function XXX. This package is not pip-installable, so to intall it yourslef, the following command needs to be run.
+
+```bash
+python -m pip install git+https://github.com/zotko/xyz2graph.git
+```
+
 
 ## Usage
 
