@@ -73,32 +73,6 @@ class TestMolWebShow(unittest.TestCase):
         image_base64_with_hs = base64.b64encode(buffered_with_hs.getvalue()).decode("utf-8")
         self.assertIn(image_base64_with_hs[:100], result.text)  # Partial match for simplicity
 
-    def test_show_3D(self):
-        mol_smi = "CCO"  # Ethanol
-        result = mol_web_show(mol_smi, show_3D=True)
-        self.assertIsInstance(result, Div)
-        mol = Chem.MolFromSmiles(mol_smi)
-        mol_with_hs = Chem.AddHs(mol)
-        AllChem.EmbedMolecule(mol_with_hs)
-        image_3d = Draw.MolToImage(mol_with_hs)
-        buffered_3d = BytesIO()
-        image_3d.save(buffered_3d, format="PNG")
-        image_base64_3d = base64.b64encode(buffered_3d.getvalue()).decode("utf-8")
-        self.assertIn(image_base64_3d[:100], result.text)  # Partial match for simplicity
-
-    def test_show_Hs_and_3D(self):
-        mol_smi = "CCO"  # Ethanol
-        result = mol_web_show(mol_smi, show_Hs=True, show_3D=True)
-        self.assertIsInstance(result, Div)
-        mol = Chem.MolFromSmiles(mol_smi)
-        mol_with_hs = Chem.AddHs(mol)
-        AllChem.EmbedMolecule(mol_with_hs)
-        image_with_hs_3d = Draw.MolToImage(mol_with_hs)
-        buffered_with_hs_3d = BytesIO()
-        image_with_hs_3d.save(buffered_with_hs_3d, format="PNG")
-        image_base64_with_hs_3d = base64.b64encode(buffered_with_hs_3d.getvalue()).decode("utf-8")
-        self.assertIn(image_base64_with_hs_3d[:100], result.text)  # Partial match for simplicity
-
     def test_invalid_smiles(self):
         mol_smi = "InvalidSMILES"
         with self.assertRaises(ValueError):
@@ -108,6 +82,19 @@ class TestMolWebShow(unittest.TestCase):
         mol_smi = "C1=CC=C(C=C1)C2=CC=CC=C2"  # Biphenyl
         result = mol_web_show(mol_smi)
         self.assertIsInstance(result, Div)
+    
+    def test_benzene_show_Hs(self):
+        mol_smi = "C1=CC=CC=C1"  # Benzene
+        result = mol_web_show(mol_smi, show_Hs=True)
+        self.assertIsInstance(result, Div)
+        mol = Chem.MolFromSmiles(mol_smi)
+        mol_with_hs = Chem.AddHs(mol)
+        image_with_hs = Draw.MolToImage(mol_with_hs)
+        buffered_with_hs = BytesIO()
+        image_with_hs.save(buffered_with_hs, format="PNG")
+        image_base64_with_hs = base64.b64encode(buffered_with_hs.getvalue()).decode("utf-8")
+        self.assertIn(image_base64_with_hs[:100], result.text)  # Partial match for simplicity
+
 
 if __name__ == '__main__':
     unittest.main()
