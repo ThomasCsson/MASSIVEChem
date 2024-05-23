@@ -38,8 +38,6 @@ Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z).
 
 On the y axis of the output spectrum, the relative abundance of the different ions is plotted. This abundance is given by the different natural abundances of the different isotopes of the atoms in teh molecule. For example, the relative abundance of $^{13}C$ is of 1.1% and that of $^{12}C$ is of 98.9%.
 
-Detection: The separated ions are detected, and a mass spectrum is produced. This spectrum displays the m/z ratios on the x-axis and the relative abundance of each ion on the y-axis. The resulting data provides information on the molecular weight of the compounds in the sample and, in some cases, structural information about the molecules.
-
 Mass spectrometry is widely used in various fields, including:
 
 Chemistry: For molecular identification and structural elucidation.
