@@ -134,3 +134,77 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
         y_axis_final.append(0.008*count_S*maximum)  
 
     return x_axis_final, y_axis_final
+
+
+print(main_function(['H'], False))
+#print(main_function(['C', 'C'], False))
+#print(main_function(['C', 'H', 'O'], False))
+#print(main_function(['N', 'N', 'N'], False))
+##print(main_function(['N', 'N'], False))
+#print(main_function(['S', 'S', 'S'], False))
+#print(main_function(['C', 'C', 'H'], True))
+
+import unittest
+
+"""class TestMainFunction(unittest.TestCase):
+
+    def test_single_atom(self):
+        list_atoms = ['H']
+        imprecision_True_False = False
+        result = main_function(list_atoms, imprecision_True_False)
+        expected_masses = [1.008]
+        expected_probabilities = [1.0]
+        self.assertEqual(result, (expected_masses, expected_probabilities))
+
+    def test_single_atom_multiple(self):
+        list_atoms = ['C', 'C']
+        imprecision_True_False = False
+        result = main_function(list_atoms, imprecision_True_False)
+        expected_masses = [24.0, 25.003355, 25.003355, 26.00671]
+        expected_probabilities = [0.9781, 0.0219, 0.0219, 0.00047961]
+        self.assertEqual(result, (expected_masses, expected_probabilities))
+
+    def test_multiple_atoms(self):
+        list_atoms = ['C', 'H', 'O']
+        imprecision_True_False = False
+        result = main_function(list_atoms, imprecision_True_False)
+        expected_masses = [30.00894, 31.011065, 31.011065, 32.01442]
+        expected_probabilities = [0.989, 0.0219, 0.011, 0.00047961]
+        self.assertEqual(result, (expected_masses, expected_probabilities))
+
+    def test_odd_count_nitrogen(self):
+        list_atoms = ['N', 'N', 'N']
+        imprecision_True_False = False
+        result = main_function(list_atoms, imprecision_True_False)
+        expected_masses = [41.99905, 42.99915, 42.99915, 43.99925]
+        expected_probabilities = [0.9880000000000001, 0.012, 0.012, 0.000144]
+        self.assertAlmostEqual(result[0][-1], 41.99305, places=3)
+        self.assertAlmostEqual(result[1][-1], 0.010374, places=5)
+
+    def test_even_count_nitrogen(self):
+        list_atoms = ['N', 'N']
+        imprecision_True_False = False
+        result = main_function(list_atoms, imprecision_True_False)
+        expected_masses = [28.0, 29.00307, 29.00307, 30.00614]
+        expected_probabilities = [0.988, 0.011, 0.011, 0.000121]
+        self.assertEqual(result, (expected_masses, expected_probabilities))
+
+    def test_odd_count_sulfur(self):
+        list_atoms = ['S', 'S', 'S']
+        imprecision_True_False = False
+        result = main_function(list_atoms, imprecision_True_False)
+        expected_masses = [95.96445, 97.95919, 97.95919, 99.95487]
+        expected_probabilities = [0.9532, 0.0032, 0.0032, 0.000001024]
+        self.assertAlmostEqual(result[0][-1], 95.96045, places=3)
+        self.assertAlmostEqual(result[1][-1], 0.007632, places=5)
+
+    def test_imprecision_filter(self):
+        list_atoms = ['C', 'C', 'H']
+        imprecision_True_False = True
+        result = main_function(list_atoms, imprecision_True_False)
+        expected_masses = [25.008825, 26.011955]
+        expected_probabilities = [0.9562180000000001, 0.0219]
+        self.assertEqual(result, (expected_masses, expected_probabilities))
+
+if __name__ == '__main__':
+    unittest.main()"""

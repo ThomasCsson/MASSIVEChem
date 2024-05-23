@@ -32,8 +32,6 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
         count_S = list_atoms.count('S')
 
 
-    print(list_atoms)
-
     list_output = []
     mass_copy = mass.copy()
     abundance_copy = abundance.copy()
@@ -90,7 +88,7 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
                 
         list_output = list_output_new
         list_atoms.pop(0)
-    print(list_output)
+
 
 
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
