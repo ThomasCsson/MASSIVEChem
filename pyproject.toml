@@ -28,8 +28,6 @@ authors = [
 ]
 dependencies = [
   "rdkit",
-  "pandas",
-  "matplotlib",
   "bokeh",
   "panel",
 ]
