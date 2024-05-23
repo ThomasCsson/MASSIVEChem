@@ -5,14 +5,14 @@ dependencies:
   - bzip2=1.0.8=h2bbff1b_6
   - ca-certificates=2024.3.11=haa95532_0
   - libffi=3.4.4=hd77b12b_1
-  - openssl=3.0.13=h2bbff1b_1
+  - openssl=3.0.13=h2bbff1b_2
   - pip=24.0=py310haa95532_0
   - python=3.10.12=he1021f5_0
   - setuptools=69.5.1=py310haa95532_0
   - sqlite=3.45.3=h2bbff1b_0
   - tk=8.6.14=h0416ee5_0
-  - vc=14.2=h21ff451_1
-  - vs2015_runtime=14.27.29016=h5e58377_2
+  - vc=14.2=h2eaa2aa_1
+  - vs2015_runtime=14.29.30133=h43f2093_3
   - wheel=0.43.0=py310haa95532_0
   - xz=5.4.6=h8cc25b3_1
   - zlib=1.2.13=h8cc25b3_1
@@ -23,29 +23,22 @@ dependencies:
       - charset-normalizer==3.3.2
       - colorama==0.4.6
       - contourpy==1.2.1
-      - cycler==0.12.1
-      - filelock==3.14.0
-      - fonttools==4.51.0
       - idna==3.7
       - jinja2==3.1.4
-      - kiwisolver==1.4.5
       - linkify-it-py==2.0.3
       - markdown==3.6
       - markdown-it-py==3.0.0
       - markupsafe==2.1.5
-      - matplotlib==3.8.4
       - mdit-py-plugins==0.4.1
       - mdurl==0.1.2
       - networkx==3.3
       - numpy==1.26.4
       - packaging==24.0
       - pandas==2.2.2
-      - panel==1.4.2
+      - panel==1.4.3
       - param==2.1.0
       - pillow==10.3.0
       - plotly==5.22.0
-      - pyparsing==3.1.2
-      - pyproject-api==1.6.1
       - python-dateutil==2.9.0.post0
       - pytz==2024.1
       - pyviz-comms==3.0.2
@@ -63,4 +56,4 @@ dependencies:
       - webencodings==0.5.1
       - xyz2graph==2.0.0
       - xyzservices==2024.4.0
-
+prefix: C:\Users\maintenant Pret\anaconda3\envs\MASSIVEChem

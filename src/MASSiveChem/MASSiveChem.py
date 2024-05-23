@@ -1,8 +1,6 @@
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
 
-import pandas as pd
-
 import base64
 
 import os
