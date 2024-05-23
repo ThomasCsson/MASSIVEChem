@@ -30,7 +30,22 @@ Developpers:
 - Arthur Humery, student in chemical engineering at EPFL                [![jhc github](https://img.shields.io/badge/GitHub-Arthurhmy-181717.svg?style=flat&logo=github)](https://github.com/Arthurhmy)
 
 ### What is mass spectrometry ?
-   - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating pre-charged ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their composition.
+Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves three main steps:
+
+Ionization: The sample is ionized, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionization (ESI), or matrix-assisted laser desorption/ionization (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
+
+Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyzer, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyzer works differently but ultimately serves to distinguish ions by their specific m/z values. The unit of these m/z values is 1 Th or 1 $\frac{Da}{e}$.
+
+On the y axis of the output spectrum, the relative abundance of the different ions is plotted. This abundance is given by the different natural abundances of the different isotopes of the atoms in teh molecule. For example, the relative abundance of $^{13}C$ is of 1.1% and that of $^{12}C$ is of 98.9%.
+
+Mass spectrometry is widely used in various fields, including:
+
+Chemistry: For molecular identification and structural elucidation.
+Biochemistry: For studying proteins, peptides, and other biomolecules.
+Pharmaceuticals: For drug development and metabolite analysis.
+Environmental Science: For detecting pollutants and analyzing environmental samples.
+Clinical Diagnostics: For identifying biomarkers and analyzing complex biological samples.
+The technique's sensitivity, accuracy, and ability to analyze complex mixtures make it an essential tool in both research and applied sciences.
 
 Now, let us go through the steps required to use this package!
 
@@ -117,15 +132,20 @@ An example on how to make the function work is shown below for benzylpenicilin:
 The ionization method is set to monodeprotonation and the resolution of the apparatus is 0.01 Th
 
 ```bash
-import MASSIVEChem as ms
-from ms.MASSIVEChem import spectrum
+import MASSIVEChem.MASSIVEChem as ms
 from bokeh.plotting import show
 
 mol_smi = 'CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'
 apparatus_resolution = 0.01
 
-show(spectrum(mol_smi, True, apparatus_resolution))
+show(ms.spectrum(mol_smi, True, apparatus_resolution))
+
+'''
+The first input in ms.spectrum is the molecule under SMILEs representation,
+the second computes an approximate spectrum if True and the precise spectrum if False
+and the third is the resolution of the apparatus (typically, this value is of 0.01
 ```
+
 The output of this command will be:
 
 ![Spectrum](Spectrum_output.png)
