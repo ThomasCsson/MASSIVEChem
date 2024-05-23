@@ -167,9 +167,9 @@ class TestFunctionalGroupFinder(unittest.TestCase):
 
     def test_functional_group_finder_duplicate_functional_groups(self):
         # Test the function with a molecule containing duplicate functional groups
-        mol_smi = "CCOCC(=O)OCCC(=O)OC(=O)C"
+        mol_smi = "NCCCOCC1CC(C=O)CC(CCC=NC)C1"
         functional_groups = functional_group_finder(mol_smi)
-        self.assertEqual(functional_groups, ['Ester', 'Ether', 'Anhydride'])
+        self.assertEqual(functional_groups, ['Aldehyde', 'Ether', 'Amine', 'Amine', 'Imine'])
 
 if __name__ == '__main__':
     unittest.main()
