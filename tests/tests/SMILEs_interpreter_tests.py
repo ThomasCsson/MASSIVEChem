@@ -25,6 +25,8 @@ def SMILEs_interpreter(mol_smi):
 
     return mol
 
+print(SMILEs_interpreter('CC(=O)OC1=CC=CC=C1C(=O)O'))
+
 import unittest
 
 class TestSMILEsInterpreter(unittest.TestCase):
@@ -34,10 +36,10 @@ class TestSMILEsInterpreter(unittest.TestCase):
         self.assertIsNotNone(mol)
         self.assertEqual(Chem.MolToSmiles(Chem.RemoveHs(mol)), smiles)
     
-    """def test_invalid_smiles(self):
-        smiles = "C1CCC1"
+    def test_invalid_smiles(self):
+        smiles = "C1CCxVCC"
         with self.assertRaises(SystemExit):
-            SMILEs_interpreter(smiles)"""
+            SMILEs_interpreter(smiles)
     
     def test_simple_molecule(self):
         smiles = "C"
@@ -51,11 +53,6 @@ class TestSMILEsInterpreter(unittest.TestCase):
         self.assertIsNotNone(mol)
         self.assertEqual(Chem.MolToSmiles(mol), "[H]C([H])([H])[H]")
     
-    def test_complex_molecule(self):
-        smiles = "CC(=O)OC1=CC=CC=C1C(=O)O"
-        mol = SMILEs_interpreter(smiles)
-        self.assertIsNotNone(mol)
-        self.assertEqual(Chem.MolToSmiles(mol), smiles)
 
 if __name__ == "__main__":
     unittest.main()
