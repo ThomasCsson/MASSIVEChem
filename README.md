@@ -138,8 +138,14 @@ from bokeh.plotting import show
 mol_smi = 'CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'
 apparatus_resolution = 0.01
 
-show(spectrum(mol_smi, True, apparatus_resolution))
+show(ms.spectrum(mol_smi, True, apparatus_resolution))
+
+'''
+The first input in ms.spectrum is the molecule under SMILEs representation,
+the second computes an approximate spectrum if True and the precise spectrum if False
+and the third is the resolution of the apparatus (typically, this value is of 0.01
 ```
+
 The output of this command will be:
 
 ![Spectrum](Spectrum_output.png)
