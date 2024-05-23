@@ -72,18 +72,18 @@ pip install -e .
 
 
 ## Requirments
-The package runs on python 3.10 but supports python 3.8 through 3.10
-The package requires several other packages to function correctly.
+The package runs on python 3.10 but supports python 3.8 through 3.10.
+It requires several other packages to function correctly.
 
 ```bash
 matplotlib
 bokeh
 rdkit
 pandas
-panel 
-xyz2graph
+panel
 ```
 
+(Note: panel is not directly used, but is required for added functionality involving the 3 dimmensinal visualisation of the input molecule)
 
 If all goes well during installation, the preceding packages should all install automatically.
 But this can be checked by veryfying that they have all been installed in the desired environment. To do this, simply write the following command in the terminal:
@@ -130,9 +130,9 @@ The output of this command will be:
 
 ![Spectrum](Spectrum_output.png)
 
-Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is due to the presence of an odd number of sulphur atoms. This causes there to be a peak at 0.004 [th] from the second peak. 
+Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is due to the presence of an odd number of sulphur atoms. This causes there to be a peak 0.004 [th] infront of the second peak. This can be verified by zooming in on the sectrum:
 
-<img width="925" alt="Focused_spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/assets/160872481/440ac2ea-c2fe-40ff-b1ed-1a447024bcb0">
+<img width="600" alt="Focused_spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/assets/160872481/440ac2ea-c2fe-40ff-b1ed-1a447024bcb0">
 
 ## Getting started
 [![jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
