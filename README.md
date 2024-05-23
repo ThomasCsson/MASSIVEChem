@@ -159,4 +159,5 @@ To begin to use the package the following jupyter notebook will give you informa
 '''link to jupter notebook'''
 
 🐰 If you've made it this far through our project, you might want to try to find the hidden easter egg in this ReadMe :)🐰
+
 (_hint: you might want to try clicking on various buttons throughout the ReadMe_)
