@@ -80,11 +80,10 @@ matplotlib
 bokeh
 rdkit
 pandas
-panel 
-xyz2graph
+panel
 ```
 
-
+(Note: panel is not directly used, but is required for added functionality involving the 3 dimmensinal visualisation of the input molecule)
 If all goes well during installation, the preceding packages should all install automatically.
 But this can be checked by veryfying that they have all been installed in the desired environment. To do this, simply write the following command in the terminal:
 
