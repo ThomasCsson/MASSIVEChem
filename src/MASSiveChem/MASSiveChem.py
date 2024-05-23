@@ -226,7 +226,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 #removes any molecule who's probability is below 0.0001
 
                 if render_imprecise_list: #only removes low-probability arrangements if render_imprecise_list arg is True
-                    if new_proba>0.0001:
+                    if new_proba>0.00001:
                         list_output_new.append([new_mass,new_proba])
 
                 else:
@@ -786,10 +786,10 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
                 new_proba = list_output[i][1] * abundance_copy[index]
 
 
-                #removes any molecule who's probability is below 0.0001
+                #removes any molecule who's probability is below 0.00001
 
                 if render_imprecise_list: #only removes low-probability arrangements if render_imprecise_list arg is True
-                    if new_proba>0.0001:
+                    if new_proba>0.00001:
                         list_output_new.append([new_mass,new_proba])
 
                 else:
@@ -1451,10 +1451,10 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
                 new_proba = list_output[i][1] * abundance_copy[index]
 
 
-                #removes any molecule who's probability is below 0.0001
+                #removes any molecule who's probability is below 0.00001
 
                 if render_imprecise_list: #only removes low-probability arrangements if render_imprecise_list arg is True
-                    if new_proba>0.0001:
+                    if new_proba>0.00001:
                         list_output_new.append([new_mass,new_proba])
 
                 else:
