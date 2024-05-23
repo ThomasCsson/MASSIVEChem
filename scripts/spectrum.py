@@ -554,10 +554,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 present_group_images_base64.append(image_base64)
 
     #creates a dictionnary that links the name of the functional group to its image
-    data = dict(
-        groups=functional_groups_contained,
-        images=present_group_images_base64
-    )
+    data = dict(groups=functional_groups_contained,images=present_group_images_base64)
     source = ColumnDataSource(data)
 
     #template for the bokeh table that read the base64 format 
@@ -568,10 +565,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     """
 
     # initiallizing the bokeh figure using the previous template for each functional group
-    columns = [
-        TableColumn(field="groups", title="Functional Groups"),
-        TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))
-    ]
+    columns = [TableColumn(field="groups", title="Functional Groups"),
+    TableColumn(field="images", title="Images", width=200, formatter=HTMLTemplateFormatter(template=template))]
     num_groups = len(functional_groups_contained)
 
     table_height = min(200 + num_groups * 60, 800)
