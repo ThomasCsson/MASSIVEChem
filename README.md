@@ -85,8 +85,8 @@ xyz2graph
 ```
 
 
-If everything runs in order during the installation, the preceding packages should install automatically.
-But check that these packages are correctly installed using 
+If all goes well during installation, the preceding packages should all install automatically.
+But this can be checked by veryfying that they have all been installed in the desired environment. To do this, simply write the following command:
 
 ```bash
 pip show "name of the package"
