@@ -6,10 +6,10 @@ import base64
 import os
 
 from bokeh.plotting import figure, row
-from bokeh.models.tickers import FixedTicker
-from bokeh.layouts import row, column
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
+from bokeh.models.tickers import FixedTicker
 from bokeh.models.widgets import DataTable, TableColumn
+from bokeh.layouts import row, column
 
 from io import BytesIO
 
@@ -2147,4 +2147,9 @@ def smiles_to_3D_plot(mol_smi):
     fig = to_plotly_figure(mg)
 
     return fig
+
+
+
+
+
 
