@@ -30,7 +30,22 @@ Developpers:
 - Arthur Humery, student in chemical engineering at EPFL                [![jhc github](https://img.shields.io/badge/GitHub-Arthurhmy-181717.svg?style=flat&logo=github)](https://github.com/Arthurhmy)
 
 ### What is mass spectrometry ?
-   - Mass spectrometry is an analytical technique used to identify and quantify chemical compounds in a sample by measuring the mass and sometimes the charge of molecules. It involves separating pre-charged ions according to their mass-to-charge ratio (m/z), then detecting and analysing them. This method is widely used in chemistry, biochemistry, pharmacology and other fields to characterise substances and understand their composition.
+Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves three main steps:
+
+Ionization: The sample is ionized, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionization (ESI), or matrix-assisted laser desorption/ionization (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
+
+Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyzer, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyzer works differently but ultimately serves to distinguish ions by their specific m/z values. The unit of these m/z values is 1 [Th] or 1 [Da/e].
+
+Detection: The separated ions are detected, and a mass spectrum is produced. This spectrum displays the m/z ratios on the x-axis and the relative abundance of each ion on the y-axis. The resulting data provides information on the molecular weight of the compounds in the sample and, in some cases, structural information about the molecules.
+
+Mass spectrometry is widely used in various fields, including:
+
+Chemistry: For molecular identification and structural elucidation.
+Biochemistry: For studying proteins, peptides, and other biomolecules.
+Pharmaceuticals: For drug development and metabolite analysis.
+Environmental Science: For detecting pollutants and analyzing environmental samples.
+Clinical Diagnostics: For identifying biomarkers and analyzing complex biological samples.
+The technique's sensitivity, accuracy, and ability to analyze complex mixtures make it an essential tool in both research and applied sciences.
 
 Now, let us go through the steps required to use this package!
 
