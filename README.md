@@ -161,4 +161,4 @@ To begin to use the package the following jupyter notebook will give you informa
 ## Fun !
 🐰 If you've made it this far through our project, you might want to try to find the hidden easter egg in this ReadMe :)🐰
 
-(_hint: you might want to try clicking on various buttons throughout the ReadMe_)
+(_hint: you might want to try clicking on various badges throughout the ReadMe_)
