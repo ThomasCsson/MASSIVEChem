@@ -161,7 +161,14 @@ def functional_group_finder(mol_smi):
                     functional_groups_contained.remove('Ether')
                 if 'Ether' in functional_groups_contained:
                     functional_groups_contained.remove('Ether')
+        elif 'Amide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
+
     
     
     return functional_groups_contained
-print(functional_group_finder('CC(=O)OCCN'))
+print(functional_group_finder('NCCC(=O)NCCCNCCCN'))

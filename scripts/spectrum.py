@@ -15,7 +15,7 @@ from io import BytesIO
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     #tests for wether the input is valid
-    if mol_without_Hs is None:
+    if mol_smi is None:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if imprecision_True_False not in [True, False]:
         raise ValueError('Enter a boolean value')
@@ -494,6 +494,12 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                     functional_groups_contained.remove('Ether')
                 if 'Ether' in functional_groups_contained:
                     functional_groups_contained.remove('Ether')
+        elif 'Amide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
 
     #initiate empty variables
     present_group_smarts = []    
@@ -577,4 +583,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('CCOCC(=O)CC', True, 0.01))
+show(spectrum('NCCC(=O)NCCCNCCCN', True, 0.01))

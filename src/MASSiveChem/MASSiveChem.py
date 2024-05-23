@@ -19,25 +19,6 @@ from xyz2graph import MolGraph, to_plotly_figure
 
 import panel as pn
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
 def calculate_unsaturation(mol_smile) -> int:
     #---------------------------------------------------------------------------------------------#
     '''
@@ -555,6 +536,12 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                     functional_groups_contained.remove('Ether')
                 if 'Ether' in functional_groups_contained:
                     functional_groups_contained.remove('Ether')
+        elif 'Amide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
 
     #initiate empty variables
     present_group_smarts = []    
@@ -1314,6 +1301,12 @@ def functional_group_finder(mol_smi):
                     functional_groups_contained.remove('Ether')
                 if 'Ether' in functional_groups_contained:
                     functional_groups_contained.remove('Ether')
+        elif 'Amide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
     
     
     return functional_groups_contained
