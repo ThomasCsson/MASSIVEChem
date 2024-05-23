@@ -30,22 +30,18 @@ Developpers:
 - Arthur Humery, student in chemical engineering at EPFL                [![jhc github](https://img.shields.io/badge/GitHub-Arthurhmy-181717.svg?style=flat&logo=github)](https://github.com/Arthurhmy)
 
 ### What is mass spectrometry ?
+
 Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves three main steps:
 
-Ionization: The sample is ionized, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionization (ESI), or matrix-assisted laser desorption/ionization (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
+Ionisation: The sample is ionised, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionisation (ESI), or matrix-assisted laser desorption/ionisation (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
 
-Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyzer, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyzer works differently but ultimately serves to distinguish ions by their specific m/z values. The unit of these m/z values is 1 Th or 1 $\frac{Da}{e}$.
+Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyser, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyser works differently but ultimately serves to distinguish ions by their specific m/z values. The unit of these m/z values is 1 Th or 1 Da.
 
-On the y axis of the output spectrum, the relative abundance of the different ions is plotted. This abundance is given by the different natural abundances of the different isotopes of the atoms in teh molecule. For example, the relative abundance of $^{13}C$ is of 1.1% and that of $^{12}C$ is of 98.9%.
+On the y axis of the output spectrum, the relative abundance of the different ions is plotted. This abundance is given by the different natural abundances of the different isotopes of the atoms in the molecule. For example, the relative abundance of $^{13}C$is 1.1% and that of $^{12}C$ is 98.9%.
 
 Mass spectrometry is widely used in various fields, including:
 
-Chemistry: For molecular identification and structural elucidation.
-Biochemistry: For studying proteins, peptides, and other biomolecules.
-Pharmaceuticals: For drug development and metabolite analysis.
-Environmental Science: For detecting pollutants and analyzing environmental samples.
-Clinical Diagnostics: For identifying biomarkers and analyzing complex biological samples.
-The technique's sensitivity, accuracy, and ability to analyze complex mixtures make it an essential tool in both research and applied sciences.
+Chemistry: For molecular identification and structural elucidation. Biochemistry: For studying proteins, peptides, and other biomolecules. Pharmaceuticals: For drug development and metabolite analysis. Environmental Science: For detecting pollutants and analysing environmental samples. Clinical Diagnostics: For identifying biomarkers and analysing complex biological samples. The technique's sensitivity, accuracy, and ability to analyse complex mixtures make it an essential tool in both research and applied sciences.
 
 Now, let us go through the steps required to use this package!
 
