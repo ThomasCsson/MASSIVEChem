@@ -16,10 +16,7 @@ def SMILEs_interpreter(mol_smi):
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
-        print('')
-        print("Invalid SMILEs input.")
-        print('Please try again with a different SMILEs.')
-        exit()
+        raise ValueError('Invalid SMILEs representation')
 
     mol = Chem.AddHs(mol_without_Hs)
 

@@ -1,5 +1,5 @@
 from rdkit import Chem
-from rdkit.Chem import Draw, AllChem
+from rdkit.Chem import Draw
 
 from bokeh.plotting import figure, show, row
 from bokeh.models.tickers import FixedTicker
@@ -13,6 +13,16 @@ from io import BytesIO
 
 
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
+
+    if not mol_smi:
+        raise ValueError('Enter a non-empty input')
+    if imprecision_True_False not in [True, False]:
+        raise ValueError('Enter a boolean value')
+    if apparatus_resolution < 0:
+        raise ValueError('Enter a positive value')
+    if type(apparatus_resolution) != int:
+        raise ValueError('Enter an integer value')
+
 
     #lists of the data to facilitise the pip-installability of the package
 

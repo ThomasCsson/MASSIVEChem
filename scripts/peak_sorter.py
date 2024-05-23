@@ -14,6 +14,13 @@ def peak_sorter(x_in, y_in) -> list[float]:
     (the mass in list 1 at index i is associated to the probability at index i in list 2)
     '''
     #---------------------------------------------------------------------------------------------#
+    
+    if not x_in:
+        raise ValueError('Empty list entry')
+    if not y_in:
+        raise ValueError('Empty list entry')
+    if len(x_in) != len(y_in):
+        raise ValueError('Lists should be of the same size')
 
     x_out, y_out = [],[]
     while len(x_in)>0:
