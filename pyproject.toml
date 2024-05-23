@@ -39,10 +39,6 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 
-[tool.poetry.files]
-include = ["../data/abundance.txt","../data/Functional groups images"]
-
-
 [project.urls]
 Homepage = "https://github.com/ThomasCsson/MASSIVEChem.git"
 GitHub_Thomas_Christiansson = "https://github.com/ThomasCsson"

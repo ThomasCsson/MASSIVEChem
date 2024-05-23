@@ -76,4 +76,42 @@ def double_plot(x_in,y_in):
     return layout
 
 
+import unittest
+
+class TestDoublePlot(unittest.TestCase):
+    def test_double_plot(self):
+        # Test the function with sample data
+        x_in = [100, 200, 300, 400, 500]
+        y_in = [0.1, 0.2, 0.3, 0.4, 0.5]
+        layout = double_plot(x_in, y_in)
+        self.assertIsNotNone(layout)
+        self.assertEqual(len(layout.children), 2)  # Check if there are two plots in the layout
+
+    def test_double_plot_empty_data(self):
+        # Test the function with empty data
+        x_in = []
+        y_in = []
+        layout = double_plot(x_in, y_in)
+        self.assertIsNotNone(layout)
+        self.assertEqual(len(layout.children), 2)  # Check if there are two plots in the layout
+
+    def test_double_plot_single_point(self):
+        # Test the function with a single point
+        x_in = [100]
+        y_in = [0.1]
+        layout = double_plot(x_in, y_in)
+        self.assertIsNotNone(layout)
+        self.assertEqual(len(layout.children), 2)  # Check if there are two plots in the layout
+
+    def test_double_plot_identical_data(self):
+        # Test the function with identical x and y data
+        x_in = [100, 200, 300, 400, 500]
+        y_in = [0.1, 0.1, 0.1, 0.1, 0.1]
+        layout = double_plot(x_in, y_in)
+        self.assertIsNotNone(layout)
+        self.assertEqual(len(layout.children), 2)  # Check if there are two plots in the layout
+
+if __name__ == '__main__':
+    unittest.main()
+
 
