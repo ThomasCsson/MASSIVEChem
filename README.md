@@ -86,13 +86,13 @@ xyz2graph
 
 
 If all goes well during installation, the preceding packages should all install automatically.
-But this can be checked by veryfying that they have all been installed in the desired environment. To do this, simply write the following command:
+But this can be checked by veryfying that they have all been installed in the desired environment. To do this, simply write the following command in the terminal:
 
 ```bash
 pip show "name of the package"
 ```
 
-If not, install them using the following commands, otherwise the package will not work. 
+If not, install them using the following commands. (Bear in mind that the package will not run without its dependencies. 
 
 ```bash
 pip install matplotlib
