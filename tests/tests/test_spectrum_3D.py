@@ -7,12 +7,12 @@ from bokeh.layouts import row, column
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
 from bokeh.models.widgets import DataTable, TableColumn
+from matplotlib.figure import Figure
 
 import base64
 from io import BytesIO
 
 import panel as pn
-import xyz2graph
 import tempfile
 from xyz2graph import MolGraph, to_plotly_figure
 
@@ -20,7 +20,7 @@ from xyz2graph import MolGraph, to_plotly_figure
 
 
 
-def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
+def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
 
     #lists of the data to facilitise the pip-installability of the package
 
@@ -576,7 +576,84 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     return total_plot_pane
 
-input_mol = input('Mol SMI: ')
-spectrum(input_mol, True, 0.01).show()
+import unittest
+
+class TestSpectrum3D(unittest.TestCase):
+    
+    def setUp(self):
+        self.apparatus_resolution = 0.01
+
+    def test_methane(self):
+        mol_smi = "C"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, Figure)
+
+    def test_ammonia(self):
+        mol_smi = "N"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, Figure)
+
+    def test_water(self):
+        mol_smi = "O"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, Figure)
+
+    def test_ethanol(self):
+        mol_smi = "CCO"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, dict)
+
+    def test_methanethiol(self):
+        mol_smi = "CS"
+        imprecision_True_False = True
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, dict)
+
+    def test_acetic_acid(self):
+        mol_smi = "CC(=O)O"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, dict)
+
+    def test_benzene(self):
+        mol_smi = "C1C=CC=CC=C1"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, dict)
+
+    def test_acetone(self):
+        mol_smi = "CC(=O)C"
+        imprecision_True_False = True
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, dict)
+
+    def test_toluene(self):
+        mol_smi = "CC1=CC=CC=C1"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, dict)
+
+    def test_formaldehyde(self):
+        mol_smi = "C=O"
+        imprecision_True_False = False
+        result = spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, dict)
+
+if __name__ == '__main__':
+    unittest.main()
 
 
