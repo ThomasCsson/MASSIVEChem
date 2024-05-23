@@ -79,6 +79,8 @@ matplotlib
 bokeh
 rdkit
 pandas
+panel 
+xyz2graph
 
 If everything runs in order during the installation, the preceding packages should install automatically.
 But check that these packages are correctly installed using 
