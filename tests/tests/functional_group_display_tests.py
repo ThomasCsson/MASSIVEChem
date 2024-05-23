@@ -137,25 +137,28 @@ import unittest
 
 class TestFunctionalGroupDisplay(unittest.TestCase):
     def test_functional_group_display(self):
-        # Test the function with a list of functional groups
+        
         groups_list = ['Alcohol', 'Aldehyde', 'Ketone']
         table = functional_group_display(groups_list)
+
         self.assertIsNotNone(table)
         self.assertEqual(len(table.columns), 2)  # Check if there are two columns
         self.assertEqual(table.columns[0].field, "groups")  # Check if the first column is for functional groups
         self.assertEqual(table.columns[1].field, "images")  # Check if the second column is for images
 
     def test_functional_group_display_empty_list(self):
-        # Test the function with an empty list
+        
         table = functional_group_display([])
+
         self.assertIsNotNone(table)
         self.assertEqual(len(table.columns), 2)  # Check if there are two columns
         self.assertEqual(len(table.source.data['groups']), 0)  # Check if the number of groups is 0
 
     def test_functional_group_display_invalid_group(self):
-        # Test the function with an invalid group
+        
         groups_list = ['Alcohol', 'InvalidGroup']
         table = functional_group_display(groups_list)
+        
         self.assertIsNotNone(table)
         self.assertEqual(len(table.columns), 2)  # Check if there are two columns
         self.assertEqual(len(table.source.data['groups']), 2)  # Check if the number of groups is 1
