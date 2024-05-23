@@ -4,7 +4,7 @@ import tempfile
 from xyz2graph import MolGraph, to_plotly_figure
 import panel as pn
 
-def smiles_to_3D_plot(mol_smi,last,double_graph):
+def smiles_to_3D_plot(mol_smi):
 
      #---------------------------------------------------------------------------------------------#
     '''
@@ -39,15 +39,7 @@ def smiles_to_3D_plot(mol_smi,last,double_graph):
     # Create the Plotly figure object
     fig = to_plotly_figure(mg)
 
-    plotly_pane = pn.pane.Plotly(fig)
-
-    p1_pane = pn.pane.Bokeh(last)
-    p2_pane = pn.pane.Bokeh(double_graph)
-
-    layout12 = pn.Column( plotly_pane, p1_pane)
-    final = pn.Row(p2_pane, layout12)
-
-    return final
+    return fig
 
 # Example usage
 input_mol = input('MOL:  ')
