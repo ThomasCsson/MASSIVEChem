@@ -11,6 +11,12 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
     (the mass in list 1 at index i is associated to the probability at index i in list 2)
     '''
     #---------------------------------------------------------------------------------------------#
+
+    if not list_atoms:
+        raise ValueError('Enter a valid input for the first argument')
+    if imprecision_True_False not in [True, False]:
+        raise ValueError('Enter a valid input for the second argument')
+    
     render_imprecise_list = imprecision_True_False 
     #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
     
