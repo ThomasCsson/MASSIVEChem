@@ -15,7 +15,15 @@ def delta_function_plotter(x_in, y_in) -> list[float]:
     '''
     #---------------------------------------------------------------------------------------------#
 
+
+    if not x_in:
+        raise ValueError('Enter a valid input')
+    if not y_in:
+        raise ValueError('Enter a valid input')
+    if len(x_in) != len(y_in):
+        raise ValueError('Both entry should be of the same length')
     min_x , max_x = min(x_in), max(x_in)
+    
 
     x_axis, y_axis = [min_x-0.5],[0]
     for i in range (len(x_in)):
