@@ -72,6 +72,3 @@ def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
 
     return p
     
-input_mol = input('MOL:  ')
-
-show(mol_web_show(input_mol))

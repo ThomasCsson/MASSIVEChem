@@ -173,9 +173,3 @@ class TestFunctionalGroupFinder(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
-
-print(functional_group_finder('CCCC(=O)OCCC(=O)O'))
