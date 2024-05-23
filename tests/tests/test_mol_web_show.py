@@ -9,13 +9,13 @@ from bokeh.io import show
 from bokeh.models import Div
 
 
-def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
+def mol_web_show(mol_smi):
 
     #---------------------------------------------------------------------------------------------#
     '''
-    mol_web_show(mol_smi, show_Hs=False, show_3D = False)
+    mol_web_show(mol_smi)
     
-    Input: SMILEs of a molecule. Also specify if want the function to show the hydrogens explicitely or the 3D
+    Input: SMILEs of a molecule
     
     Output: image of the molecule as a bokeh plot
     '''
@@ -23,15 +23,6 @@ def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
 
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
-
-    # Show the molecule in 3D if specified
-    if show_3D:
-        mol = Chem.AddHs(mol)
-        AllChem.EmbedMolecule(mol)
-    
-    # Adds the hydrogens to the molecule if specified
-    if show_Hs:
-        mol = Chem.AddHs(mol)
 
     #Draws the image
     image = Draw.MolToImage(mol)
@@ -64,19 +55,19 @@ class TestMolWebShow(unittest.TestCase):
 
         self.assertIsInstance(result, Div)
 
-    def test_show_Hs(self):
+    def test_small_smiles(self):
         mol_smi = "CCO"  
 
-        result = mol_web_show(mol_smi, show_Hs=True)
+        result = mol_web_show(mol_smi)
 
         self.assertIsInstance(result, Div)
 
         mol = Chem.MolFromSmiles(mol_smi)
-        mol_with_hs = Chem.AddHs(mol)
-        image_with_hs = Draw.MolToImage(mol_with_hs)
-        buffered_with_hs = BytesIO()
-        image_with_hs.save(buffered_with_hs, format="PNG")
-        image_base64_with_hs = base64.b64encode(buffered_with_hs.getvalue()).decode("utf-8")
+        
+        image = Draw.MolToImage(mol)
+        buffered = BytesIO()
+        image.save(buffered, format="PNG")
+        image_base64_with_hs = base64.b64encode(buffered.getvalue()).decode("utf-8")
 
         self.assertIn(image_base64_with_hs[:100], result.text)  
 
@@ -95,20 +86,20 @@ class TestMolWebShow(unittest.TestCase):
 
         self.assertIsInstance(result, Div)
     
-    def test_benzene_show_Hs(self):
+    def test_benzene(self):
 
         mol_smi = "C1=CC=CC=C1" 
 
-        result = mol_web_show(mol_smi, show_Hs=True)
+        result = mol_web_show(mol_smi)
 
         self.assertIsInstance(result, Div)
 
         mol = Chem.MolFromSmiles(mol_smi)
-        mol_with_hs = Chem.AddHs(mol)
-        image_with_hs = Draw.MolToImage(mol_with_hs)
-        buffered_with_hs = BytesIO()
-        image_with_hs.save(buffered_with_hs, format="PNG")
-        image_base64_with_hs = base64.b64encode(buffered_with_hs.getvalue()).decode("utf-8")
+
+        image = Draw.MolToImage(mol)
+        buffered = BytesIO()
+        image.save(buffered, format="PNG")
+        image_base64_with_hs = base64.b64encode(buffered.getvalue()).decode("utf-8")
 
         self.assertIn(image_base64_with_hs[:100], result.text) 
 

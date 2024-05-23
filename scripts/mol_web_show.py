@@ -1,74 +1,43 @@
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
 
-import pandas as pd
+from io import BytesIO
+import base64
 
-import os
-
-from bokeh.plotting import figure, show, row
-from bokeh.models.tickers import FixedTicker
-from bokeh.layouts import row, column
+from bokeh.plotting import show
 from bokeh.io import show
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
-from bokeh.models.widgets import DataTable, TableColumn
+from bokeh.models import Div
 
-def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
 
-     #---------------------------------------------------------------------------------------------#
+def mol_web_show(mol_smi):
+
+    #---------------------------------------------------------------------------------------------#
     '''
-    mol_web_show(mol_smi, show_Hs=False, show_3D = False)
+    mol_web_show(mol_smi)
     
-    Input: SMILEs of a molecule. Also specify if want the function to show the hydrogens explicitely or the 3D
+    Input: SMILEs of a molecule
     
     Output: image of the molecule as a bokeh plot
     '''
     #---------------------------------------------------------------------------------------------#
 
-    # name of the file name to create
-    filename = 'molecule_image.png'
-
-    #finds the current directory
-    current_directory = os.getcwd()
-
-    #creates a file path to the current directory
-    filepath = os.path.join(current_directory, filename)
-
-    #checks if the file already exists
-    if not os.path.exists(filepath):
-
-        #if no, creates the path
-        with open(filepath, 'a'):
-            pass
-    else:
-
-        #else pass
-        pass
-
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
 
-    # Adds the hydrogens to the molecule if specified
-    if show_Hs:
-        mol = Chem.AddHs(mol)
-
-    # Show the molecule in 3D if specified
-    if show_3D:
-        mol = AllChem.EmbedMolecule(mol)
-
+    #Draws the image
     image = Draw.MolToImage(mol)
 
-    # Save the image to a file
-    image.save(filepath)
+    #stocks the image in a base64 format
+    buffered = BytesIO()
+    image.save(buffered, format="PNG")
+    image_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    image_url = f"data:image/png;base64,{image_base64}"
 
-    # Creating a Bokeh figure to display the molecule
-    p = figure(width=350, height=350,toolbar_location=None, x_range=(0, 1), y_range=(0, 1))
-    p.image_url(url=[filepath], x=0, y=1, w=1, h=1)
-
-    # Hide grid lines and axes
-    p.xgrid.grid_line_color = None
-    p.ygrid.grid_line_color = None
-    p.xaxis.visible = False
-    p.yaxis.visible = False
-
-    return p
+    # Create a Div element to display the image
+    img_div = Div(text=f'<img src="{image_url}" style="width:350px;height:350px;">')
+   
+    return img_div
     
+input_mol = input('MOL:  ')
+
+show(mol_web_show(input_mol,False,False))
