@@ -21,6 +21,15 @@ def all_in_one(p1, p2, p3, p4):
     '''
     #---------------------------------------------------------------------------------------------#
     
+    if not p1:
+        raise ValueError("Enter a non-empty plot")
+    if not p2:
+        raise ValueError("Enter a non-empty plot")
+    if not p3:
+        raise ValueError("Enter a non-empty plot")
+    if not p4:
+        raise ValueError("Enter a non-empty plot")
+    
     #creates a layout in row with p3 and p4
     layout1 = row(p3, p4)
 

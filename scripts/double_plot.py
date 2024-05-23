@@ -20,7 +20,13 @@ def double_plot(x_in,y_in):
     #---------------------------------------------------------------------------------------------#
 
     # tells where to put the graduation on the graph
-
+    if not x_in:
+        raise ValueError("Enter a non-empty list as first argument")
+    if not y_in:
+        raise ValueError("Enter a non-empty list as second argument")
+    if len(x_in) != len(y_in):
+        raise ValueError("The two lists must have the same length")
+    
     ticked_peaks = []
     for i in range(len(x_in)):
         if y_in[i] > 0.0001:

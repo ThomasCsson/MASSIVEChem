@@ -19,6 +19,27 @@ def sulphur_nitrogen_adder(x_in, y_in, has_N, has_S, count_N, count_S) -> list[f
     '''
     #---------------------------------------------------------------------------------------------#
 
+    if not x_in:
+        raise ValueError("Enter a non-empty list")
+    if not y_in:
+        raise ValueError("Enter a non-empty list")
+    if len(x_in) != len(y_in):
+        raise ValueError("The two lists must have the same length")
+    if has_N not in [True, False]:
+        raise ValueError("The third argument must be a boolean")
+    if has_S not in [True, False]:
+        raise ValueError("The fourth argument must be a boolean")
+    if count_N < 0:
+        raise ValueError("The fifth argument must be a positive integer")
+    if count_S < 0:
+        raise ValueError("The sixth argument must be a positive integer")
+    if type(count_N) != int:
+        raise ValueError("The fifth argument must be an integer")
+    if type(count_S) != int:
+        raise ValueError("The sixth argument must be an integer")
+    if x_in != sorted(x_in):
+        raise ValueError("The first list must be ordered")
+
     maximum = max(y_in)
 
     if has_N:

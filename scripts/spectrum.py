@@ -20,7 +20,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
         raise ValueError('Enter a boolean value')
     if apparatus_resolution < 0:
         raise ValueError('Enter a positive value')
-    if type(apparatus_resolution) != int:
+    if type(apparatus_resolution) != float:
         raise ValueError('Enter an integer value')
 
 
