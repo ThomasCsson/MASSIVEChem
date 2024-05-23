@@ -48,33 +48,66 @@ def mol_web_show(mol_smi, show_Hs=False, show_3D = False):
     return img_div
 
 import unittest
-
+from rdkit import Chem
+from rdkit.Chem import AllChem, Draw
+from io import BytesIO
+import base64
+from bokeh.models import Div
 
 class TestMolWebShow(unittest.TestCase):
 
-    def test_mol_web_show_no_Hs_no_3D(self):
-        # Test with no explicit hydrogens and no 3D
-        mol_smi = "CCO"  # Example SMILES string
-        result = mol_web_show(mol_smi, show_Hs=False, show_3D=False)
-        self.assertIsInstance(result, Div)  # Check if the output is a Div element
+    def test_default_parameters(self):
+        mol_smi = "CCO"  # Ethanol
+        result = mol_web_show(mol_smi)
+        self.assertIsInstance(result, Div)
 
-    def test_mol_web_show_with_Hs_no_3D(self):
-        # Test with explicit hydrogens but no 3D
-        mol_smi = "CCO"  # Example SMILES string
-        result = mol_web_show(mol_smi, show_Hs=True, show_3D=False)
-        self.assertIsInstance(result, Div)  # Check if the output is a Div element
+    def test_show_Hs(self):
+        mol_smi = "CCO"  # Ethanol
+        result = mol_web_show(mol_smi, show_Hs=True)
+        self.assertIsInstance(result, Div)
+        mol = Chem.MolFromSmiles(mol_smi)
+        mol_with_hs = Chem.AddHs(mol)
+        image_with_hs = Draw.MolToImage(mol_with_hs)
+        buffered_with_hs = BytesIO()
+        image_with_hs.save(buffered_with_hs, format="PNG")
+        image_base64_with_hs = base64.b64encode(buffered_with_hs.getvalue()).decode("utf-8")
+        self.assertIn(image_base64_with_hs[:100], result.text)  # Partial match for simplicity
 
-    def test_mol_web_show_no_Hs_with_3D(self):
-        # Test with no explicit hydrogens but with 3D
-        mol_smi = "CCO"  # Example SMILES string
-        result = mol_web_show(mol_smi, show_Hs=False, show_3D=True)
-        self.assertIsInstance(result, Div)  # Check if the output is a Div element
+    def test_show_3D(self):
+        mol_smi = "CCO"  # Ethanol
+        result = mol_web_show(mol_smi, show_3D=True)
+        self.assertIsInstance(result, Div)
+        mol = Chem.MolFromSmiles(mol_smi)
+        mol_with_hs = Chem.AddHs(mol)
+        AllChem.EmbedMolecule(mol_with_hs)
+        image_3d = Draw.MolToImage(mol_with_hs)
+        buffered_3d = BytesIO()
+        image_3d.save(buffered_3d, format="PNG")
+        image_base64_3d = base64.b64encode(buffered_3d.getvalue()).decode("utf-8")
+        self.assertIn(image_base64_3d[:100], result.text)  # Partial match for simplicity
 
-    def test_mol_web_show_with_Hs_with_3D(self):
-        # Test with explicit hydrogens and with 3D
-        mol_smi = "CCO"  # Example SMILES string
+    def test_show_Hs_and_3D(self):
+        mol_smi = "CCO"  # Ethanol
         result = mol_web_show(mol_smi, show_Hs=True, show_3D=True)
-        self.assertIsInstance(result, Div)  # Check if the output is a Div element
+        self.assertIsInstance(result, Div)
+        mol = Chem.MolFromSmiles(mol_smi)
+        mol_with_hs = Chem.AddHs(mol)
+        AllChem.EmbedMolecule(mol_with_hs)
+        image_with_hs_3d = Draw.MolToImage(mol_with_hs)
+        buffered_with_hs_3d = BytesIO()
+        image_with_hs_3d.save(buffered_with_hs_3d, format="PNG")
+        image_base64_with_hs_3d = base64.b64encode(buffered_with_hs_3d.getvalue()).decode("utf-8")
+        self.assertIn(image_base64_with_hs_3d[:100], result.text)  # Partial match for simplicity
+
+    def test_invalid_smiles(self):
+        mol_smi = "InvalidSMILES"
+        with self.assertRaises(ValueError):
+            mol_web_show(mol_smi)
+
+    def test_complex_smiles(self):
+        mol_smi = "C1=CC=C(C=C1)C2=CC=CC=C2"  # Biphenyl
+        result = mol_web_show(mol_smi)
+        self.assertIsInstance(result, Div)
 
 if __name__ == '__main__':
     unittest.main()
