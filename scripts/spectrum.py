@@ -301,6 +301,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     princ_graph = figure(x_axis_label = '[m/z]')
     princ_graph = figure(y_axis_label = 'Abundance')
     princ_graph.xaxis.axis_label = "[m/z]"
+    princ_graph.yaxis.axis_label = "Abundance"
     princ_graph.title = 'Mass spectrum of molecule'
     princ_graph.height = 500
     princ_graph.xaxis.ticker = FixedTicker(ticks=ticked_peaks)
