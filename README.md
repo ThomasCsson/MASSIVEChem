@@ -141,9 +141,9 @@ apparatus_resolution = 0.01
 show(ms.spectrum(mol_smi, True, apparatus_resolution))
 
 
-The first input in ms.spectrum is the molecule under SMILEs representation,
-the second computes an approximate spectrum if True and the precise spectrum if False
-and the third is the resolution of the apparatus (typically, this value is of 0.01
+#The first input in ms.spectrum is the molecule under SMILEs representation,
+#and the third is the resolution of the apparatus (typically, this value is of 0.01
+#the second computes an approximate spectrum if True and the precise spectrum if False
 
 ```
 
