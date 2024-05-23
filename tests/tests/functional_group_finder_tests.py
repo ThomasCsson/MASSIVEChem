@@ -142,33 +142,43 @@ import unittest
 
 class TestFunctionalGroupFinder(unittest.TestCase):
     def test_functional_group_finder_empty(self):
-        # Test the function with an empty SMILES string
+        
         mol_smi = ""
+        
         functional_groups = functional_group_finder(mol_smi)
+
         self.assertEqual(functional_groups, [])
 
     def test_functional_group_finder_no_functional_groups(self):
-        # Test the function with a molecule without any functional groups
+        
         mol_smi = "CC"
+
         functional_groups = functional_group_finder(mol_smi)
+
         self.assertEqual(functional_groups, [])
 
     def test_functional_group_finder_single_functional_group(self):
-        # Test the function with a molecule containing a single functional group
+        
         mol_smi = "CCO"
+
         functional_groups = functional_group_finder(mol_smi)
+
         self.assertEqual(functional_groups, ['Alcohol'])
 
     def test_functional_group_finder_multiple_functional_groups(self):
-        # Test the function with a molecule containing multiple functional groups
+        
         mol_smi = "CCOCC(=O)OC"
+
         functional_groups = functional_group_finder(mol_smi)
+
         self.assertEqual(functional_groups, ['Ester', 'Ether'])
 
     def test_functional_group_finder_duplicate_functional_groups(self):
-        # Test the function with a molecule containing duplicate functional groups
+        
         mol_smi = "NCCCOCC1CC(C=O)CC(CCC=NC)C1"
+
         functional_groups = functional_group_finder(mol_smi)
+
         self.assertEqual(functional_groups, ['Aldehyde', 'Ether', 'Amine', 'Amine', 'Imine'])
 
 if __name__ == '__main__':

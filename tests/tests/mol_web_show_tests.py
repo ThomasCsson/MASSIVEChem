@@ -57,43 +57,60 @@ from bokeh.models import Div
 class TestMolWebShow(unittest.TestCase):
 
     def test_default_parameters(self):
-        mol_smi = "CCO"  # Ethanol
+
+        mol_smi = "CCO"
+         
         result = mol_web_show(mol_smi)
+
         self.assertIsInstance(result, Div)
 
     def test_show_Hs(self):
-        mol_smi = "CCO"  # Ethanol
+        mol_smi = "CCO"  
+
         result = mol_web_show(mol_smi, show_Hs=True)
+
         self.assertIsInstance(result, Div)
+
         mol = Chem.MolFromSmiles(mol_smi)
         mol_with_hs = Chem.AddHs(mol)
         image_with_hs = Draw.MolToImage(mol_with_hs)
         buffered_with_hs = BytesIO()
         image_with_hs.save(buffered_with_hs, format="PNG")
         image_base64_with_hs = base64.b64encode(buffered_with_hs.getvalue()).decode("utf-8")
-        self.assertIn(image_base64_with_hs[:100], result.text)  # Partial match for simplicity
+
+        self.assertIn(image_base64_with_hs[:100], result.text)  
 
     def test_invalid_smiles(self):
+
         mol_smi = "InvalidSMILES"
+
         with self.assertRaises(ValueError):
             mol_web_show(mol_smi)
 
     def test_complex_smiles(self):
-        mol_smi = "C1=CC=C(C=C1)C2=CC=CC=C2"  # Biphenyl
+
+        mol_smi = "C1=CC=C(C=C1)C2=CC=CC=C2" 
+
         result = mol_web_show(mol_smi)
+
         self.assertIsInstance(result, Div)
     
     def test_benzene_show_Hs(self):
-        mol_smi = "C1=CC=CC=C1"  # Benzene
+
+        mol_smi = "C1=CC=CC=C1" 
+
         result = mol_web_show(mol_smi, show_Hs=True)
+
         self.assertIsInstance(result, Div)
+
         mol = Chem.MolFromSmiles(mol_smi)
         mol_with_hs = Chem.AddHs(mol)
         image_with_hs = Draw.MolToImage(mol_with_hs)
         buffered_with_hs = BytesIO()
         image_with_hs.save(buffered_with_hs, format="PNG")
         image_base64_with_hs = base64.b64encode(buffered_with_hs.getvalue()).decode("utf-8")
-        self.assertIn(image_base64_with_hs[:100], result.text)  # Partial match for simplicity
+
+        self.assertIn(image_base64_with_hs[:100], result.text) 
 
 
 if __name__ == '__main__':
