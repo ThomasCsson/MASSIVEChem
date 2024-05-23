@@ -34,7 +34,7 @@ Mass spectrometry (MS) is an analytical technique used to measure the mass-to-ch
 
 Ionization: The sample is ionized, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionization (ESI), or matrix-assisted laser desorption/ionization (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
 
-Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyzer, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyzer works differently but ultimately serves to distinguish ions by their specific m/z values. The unit of these m/z values is 1 [Th] or 1 [$\frac{Da}{e}$].
+Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyzer, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyzer works differently but ultimately serves to distinguish ions by their specific m/z values. The unit of these m/z values is 1 [Th] or 1 [$$\frac{Da}{e}$$].
 
 Detection: The separated ions are detected, and a mass spectrum is produced. This spectrum displays the m/z ratios on the x-axis and the relative abundance of each ion on the y-axis. The resulting data provides information on the molecular weight of the compounds in the sample and, in some cases, structural information about the molecules.
 
