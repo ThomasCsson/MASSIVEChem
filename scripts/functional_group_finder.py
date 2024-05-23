@@ -12,6 +12,8 @@ def functional_group_finder(mol_smi):
     '''
     #---------------------------------------------------------------------------------------------#
 
+    if not mol_smi:
+        raise ValueError("Enter a non-empty string as argument")
     # initiate variables
     functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
 
@@ -162,3 +164,4 @@ def functional_group_finder(mol_smi):
     
     
     return functional_groups_contained
+print(functional_group_finder('CC(=O)OCCN'))
