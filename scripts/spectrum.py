@@ -110,6 +110,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
+    print(list_atoms)
 
     #In the case of ionisation by proton, we need to add a H+ ion, which is done in the following
 
@@ -118,7 +119,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
         #Check that there is in fact a proton to remove
         list_atoms.remove('H')
-
+    print(list_atoms)
     render_imprecise_list = imprecision_True_False 
     #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
 
@@ -583,4 +584,4 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('NCCC(=O)NCCCNCCCN', True, 0.01))
+show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', True, 0.01))
