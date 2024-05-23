@@ -75,12 +75,15 @@ pip install -e .
 The package runs on python 3.10 but supports python 3.8 through 3.10
 The package requires several other packages to function correctly.
 
+```bash
 matplotlib
 bokeh
 rdkit
 pandas
 panel 
 xyz2graph
+```
+
 
 If everything runs in order during the installation, the preceding packages should install automatically.
 But check that these packages are correctly installed using 
