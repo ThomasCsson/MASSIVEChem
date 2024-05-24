@@ -128,10 +128,6 @@ def functional_group_display(contained_functional_groups):
 
 groups = ['Aldehyde']
 
-show(functional_group_display(groups))
-
-
-show(functional_group_display(['Alcohol', 'InvalidGroup']))
 
 import unittest
 
