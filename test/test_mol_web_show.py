@@ -21,8 +21,14 @@ def mol_web_show(mol_smi):
     '''
     #---------------------------------------------------------------------------------------------#
 
+    if not mol_smi:
+        raise ValueError('Incorrect SMILEs input')
+    
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
+
+    if mol is None:
+        raise ValueError('Incorrect SMILEs input')
 
     #Draws the image
     image = Draw.MolToImage(mol)
@@ -37,7 +43,7 @@ def mol_web_show(mol_smi):
     img_div = Div(text=f'<img src="{image_url}" style="width:350px;height:350px;">')
    
     return img_div
-
+  
 import unittest
 from rdkit import Chem
 from rdkit.Chem import AllChem, Draw
@@ -74,6 +80,13 @@ class TestMolWebShow(unittest.TestCase):
     def test_invalid_smiles(self):
 
         mol_smi = "InvalidSMILES"
+
+        with self.assertRaises(ValueError):
+            mol_web_show(mol_smi)
+
+    def test_empty_smiles(self):
+
+        mol_smi = ""
 
         with self.assertRaises(ValueError):
             mol_web_show(mol_smi)

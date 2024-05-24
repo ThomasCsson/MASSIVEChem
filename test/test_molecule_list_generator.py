@@ -1,11 +1,26 @@
 import unittest
 from rdkit import Chem
-
 def molecule_list_generator(mol) -> list[str]:
+    #---------------------------------------------------------------------------------------------#
+    '''
+    molecule_list_generator(mol)
+    
+    Input: molecule under MOL representation
+    
+    Output: list containing the atomic symbol of each atom in the input molecule
+    '''
+    #---------------------------------------------------------------------------------------------#
+    if not mol:
+        raise ValueError('Enter a non-empty input')
+    if not Chem.MolToSmiles(mol):
+        raise ValueError('Wrong format or mol type')
+    
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
     return list_atoms
+
+
 
 class TestMoleculeListGenerator(unittest.TestCase):
 
@@ -30,6 +45,12 @@ class TestMoleculeListGenerator(unittest.TestCase):
         expected = ['O']
         
         self.assertEqual(result, expected)
+
+    def test_no_molecule(self):
+
+        with self.assertRaises(ValueError):
+            molecule_list_generator('') 
+    
 
 if __name__ == '__main__':
     unittest.main()

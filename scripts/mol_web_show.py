@@ -21,8 +21,14 @@ def mol_web_show(mol_smi):
     '''
     #---------------------------------------------------------------------------------------------#
 
+    if not mol_smi:
+        raise ValueError('Incorrect SMILEs input')
+    
     # Generate the image from the molecule
     mol = Chem.MolFromSmiles(mol_smi)
+
+    if mol is None:
+        raise ValueError('Incorrect SMILEs input')
 
     #Draws the image
     image = Draw.MolToImage(mol)
@@ -38,6 +44,3 @@ def mol_web_show(mol_smi):
    
     return img_div
     
-input_mol = input('MOL:  ')
-
-show(mol_web_show(input_mol,False,False))

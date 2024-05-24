@@ -20,7 +20,13 @@ def double_plot(x_in,y_in):
     #---------------------------------------------------------------------------------------------#
 
     # tells where to put the graduation on the graph
-
+    if not x_in:
+        raise ValueError("Enter a non-empty list as first argument")
+    if not y_in:
+        raise ValueError("Enter a non-empty list as second argument")
+    if len(x_in) != len(y_in):
+        raise ValueError("The two lists must have the same length")
+    
     ticked_peaks = []
     for i in range(len(x_in)):
         if y_in[i] > 0.0001:
@@ -75,7 +81,6 @@ def double_plot(x_in,y_in):
     print('here')
     return layout
 
-
 import unittest
 
 class TestDoublePlot(unittest.TestCase):
@@ -94,10 +99,24 @@ class TestDoublePlot(unittest.TestCase):
         x_in = []
         y_in = []
 
-        layout = double_plot(x_in, y_in)
+        with self.assertRaises(ValueError):
+            double_plot(x_in, y_in)
+    
+    def test_double_plot_1_empty_data(self):
 
-        self.assertIsNotNone(layout)
-        self.assertEqual(len(layout.children), 2)  # Check if there are two plots in the layout
+        x_in = [1]
+        y_in = []
+
+        with self.assertRaises(ValueError):
+            double_plot(x_in, y_in)
+    
+    def test_double_plot_1_empty_data_2(self):
+
+        x_in = []
+        y_in = [1]
+
+        with self.assertRaises(ValueError):
+            double_plot(x_in, y_in)
 
     def test_double_plot_single_point(self):
         

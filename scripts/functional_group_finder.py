@@ -17,6 +17,9 @@ def functional_group_finder(mol_smi):
     # initiate variables
     functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
 
+    if not mol_in:
+        raise ValueError('Incorrect SMILEs input')
+
     # dictionnary of all the considered functional groups to check (some might be missing)
 
     functional_groups_smarts = {
@@ -171,4 +174,4 @@ def functional_group_finder(mol_smi):
     
     
     return functional_groups_contained
-print(functional_group_finder('NCCC(=O)NCCCNCCCN'))
+

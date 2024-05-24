@@ -11,9 +11,6 @@ from bokeh.models.widgets import DataTable, TableColumn
 import base64
 from io import BytesIO
 
-
-
-
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     #lists of the data to facilitise the pip-installability of the package
@@ -89,10 +86,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 'Sn', 'Sn', 'Sn', 'Sn', 'Sn', 'Sn', 'Sr', 'Sr', 'Sr', 'Sr', 'Ta', 'Ta', 'Tb', 'Te', 'Te', 'Te', 'Te', 'Te', 'Te', 
                 'Te', 'Te', 'Th', 'Ti', 'Ti', 'Ti', 'Ti', 'Ti', 'TI', 'TI', 'Tm', 'V', 'V', 'W', 'W', 'W', 'W', 'W', 'Yb', 'Yb', 'Yb', 
                 'Yb', 'Yb', 'Yb', 'Yb', 'Zn', 'Zn', 'Zn', 'Zn', 'Zn', 'Zr', 'Zr', 'Zr', 'Zr', 'Zr ']
-    
     if not mol_smi:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
-    
+
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
@@ -103,7 +99,10 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     list_atoms = []
     for atom in mol.GetAtoms():
         list_atoms.append(atom.GetSymbol())
-
+    
+    if not list_atoms:
+        return None
+    
     #In the case of ionisation by proton, we need to add a H+ ion, which is done in the following
 
     if 'H' in list_atoms:

@@ -7,18 +7,14 @@ from bokeh.layouts import row, column
 from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
 from bokeh.models.widgets import DataTable, TableColumn
-from matplotlib.figure import Figure
-
 
 import base64
 from io import BytesIO
 
 import panel as pn
+import xyz2graph
 import tempfile
 from xyz2graph import MolGraph, to_plotly_figure
-
-
-
 
 
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
@@ -101,10 +97,10 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
     
     if not mol_smi:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
-    
+
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
-    if not mol_without_Hs:
+    if mol_without_Hs is None:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     
     mol = Chem.AddHs(mol_without_Hs)
@@ -183,10 +179,10 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
                 new_proba = list_output[i][1] * abundance_copy[index]
 
 
-                #removes any molecule who's probability is below 0.0001
+                #removes any molecule who's probability is below 0.00001
 
                 if render_imprecise_list: #only removes low-probability arrangements if render_imprecise_list arg is True
-                    if new_proba>0.0001:
+                    if new_proba>0.00001:
                         list_output_new.append([new_mass,new_proba])
 
                 else:
@@ -407,67 +403,95 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
                     functional_groups_contained.remove('Ether')
         elif functional_group == 'Carboxylic Acid':
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Alcohol')
-        elif 'Ester' == functional_group:
-            for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Ether')
+                if 'Alcohol' in functional_groups_contained:
+                    functional_groups_contained.remove('Alcohol')
         elif 'Phosphate' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Ether')
+                if 'Ether' in functional_groups_contained:
+                    functional_groups_contained.remove('Ether')
         elif 'Thioester' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Sulfide')
+                if 'Sulfide' in functional_groups_contained:
+                    functional_groups_contained.remove('Sulfide')
         elif 'Sulfonic acid' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Sulfide')
+                if 'Sulfide' in functional_groups_contained:
+                    functional_groups_contained.remove('Sulfide')
         elif 'Sulfoxide' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Sulfide')
+                if 'Sulfide' in functional_groups_contained:
+                    functional_groups_contained.remove('Sulfide')
         elif 'Acyl Chloride' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Chloride')
+                if 'Sulfide' in functional_groups_contained:
+                    functional_groups_contained.remove('Sulfide')
         elif 'Anhydride' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Ester')
-                functional_groups_contained.remove('Ester')
-                functional_groups_contained.append('Ether')
+                if 'Ester' in functional_groups_contained:
+                    functional_groups_contained.remove('Ester')
+                if 'Ester' in functional_groups_contained:
+                    functional_groups_contained.remove('Ester')
+                if 'Ether' in functional_groups_contained:
+                    functional_groups_contained.append('Ether')
         elif 'Enamine2' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Enamine2')
-                functional_groups_contained.append('Enamine')
+                if 'Enamine2' in functional_groups_contained:
+                    functional_groups_contained.remove('Enamine2')
+                if 'Enamine' in functional_groups_contained:
+                    functional_groups_contained.append('Enamine')
         elif 'Enamine3' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Enamine3')
-                functional_groups_contained.remove('Amine')
+                if 'Enamine3' in functional_groups_contained:
+                    functional_groups_contained.remove('Enamine3')
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
                 functional_groups_contained.append('Enamine')
         elif 'Imide' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Amide')
-                functional_groups_contained.remove('Amide')
+                if 'Amide' in functional_groups_contained:
+                    functional_groups_contained.remove('Amide')
+                if 'Amide' in functional_groups_contained:
+                    functional_groups_contained.remove('Amide')
         elif 'Enol' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Alkene')
-                functional_groups_contained.remove('Alcohol')
+                if 'Alkene' in functional_groups_contained:
+                    functional_groups_contained.remove('Alkene')
+                if 'Alcohol' in functional_groups_contained:
+                    functional_groups_contained.remove('Alcohol')
         elif 'Hemiacetal' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Alcohol')
-                functional_groups_contained.remove('Alcohol')
+                if 'Alcohol' in functional_groups_contained:
+                    functional_groups_contained.remove('Alcohol')
+                if 'Alcohol' in functional_groups_contained:
+                    functional_groups_contained.remove('Alcohol')
         elif 'Carbonate2' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Alcohol')
-                functional_groups_contained.remove('Alcohol')
-                functional_groups_contained.remove('Carbonate2')
-                functional_groups_contained.append('Carbonate')
+                if 'Alcohol' in functional_groups_contained:
+                    functional_groups_contained.remove('Alcohol')
+                if 'Alcohol' in functional_groups_contained:
+                    functional_groups_contained.remove('Alcohol')
+                if 'Carbonate2' in functional_groups_contained:
+                    functional_groups_contained.remove('Carbonate2')
+                if 'Carbonate' in functional_groups_contained:
+                    functional_groups_contained.append('Carbonate')
         elif 'Disulfide' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Sulfide')
-                functional_groups_contained.remove('Sulfide')
+                if 'Sulfide' in functional_groups_contained:
+                    functional_groups_contained.remove('Sulfide')
+                if 'Sulfide' in functional_groups_contained:
+                    functional_groups_contained.remove('Sulfide')
         elif 'Peroxide' == functional_group:
             for _ in range (functional_groups_contained.count(functional_group)):
-                functional_groups_contained.remove('Ether')
-                functional_groups_contained.remove('Ether')
-    if 'Carboxilic Acid' and 'Ester' in functional_groups_contained:
-        functional_groups_contained.remove('Ether')
+                if 'Ether' in functional_groups_contained:
+                    functional_groups_contained.remove('Ether')
+                if 'Ether' in functional_groups_contained:
+                    functional_groups_contained.remove('Ether')
+        elif 'Amide' == functional_group:
+            for _ in range (functional_groups_contained.count(functional_group)):
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
+                if 'Amine' in functional_groups_contained:
+                    functional_groups_contained.remove('Amine')
 
     #initiate empty variables
     present_group_smarts = []    
@@ -578,6 +602,8 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
     total_plot_pane = pn.Row(left_pane, right_pane)
 
     return total_plot_pane
+
+
 
 import unittest
 

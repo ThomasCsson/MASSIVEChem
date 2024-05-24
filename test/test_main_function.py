@@ -11,6 +11,12 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
     (the mass in list 1 at index i is associated to the probability at index i in list 2)
     '''
     #---------------------------------------------------------------------------------------------#
+
+    if not list_atoms:
+        raise ValueError('Enter a valid input for the first argument')
+    if imprecision_True_False not in [True, False]:
+        raise ValueError('Enter a valid input for the second argument')
+    
     render_imprecise_list = imprecision_True_False 
     #Set arg to be True for long molecules, set arg to False for short molecules/if precision for minuscule peaks is important
     
@@ -30,8 +36,6 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
     elif 'S' in list_atoms and list_atoms.count('S')%2 == 1:
         has_S = True
         count_S = list_atoms.count('S')
-
-
 
 
     list_output = []
@@ -75,10 +79,10 @@ def main_function(list_atoms, imprecision_True_False) -> list[float]:
                 new_proba = list_output[i][1] * abundance_copy[index]
 
 
-                #removes any molecule who's probability is below 0.0001
+                #removes any molecule who's probability is below 0.00001
 
                 if render_imprecise_list: #only removes low-probability arrangements if render_imprecise_list arg is True
-                    if new_proba>0.0001:
+                    if new_proba>0.00001:
                         list_output_new.append([new_mass,new_proba])
 
                 else:

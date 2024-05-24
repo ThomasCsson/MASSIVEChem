@@ -17,13 +17,14 @@ def smiles_to_3D_plot(mol_smi):
     #---------------------------------------------------------------------------------------------#
 
     if not mol_smi:
-        raise ValueError('Invalid SMILEs input')
+        raise ValueError("Enter a non-empty string as argument")
 
     # Generate 3D coordinates from SMILES string
     mol2 = Chem.MolFromSmiles(mol_smi)
 
     if not mol2:
-        raise ValueError('Invalide SMILEs input')
+        raise ValueError('Enter a correct SMILEs')
+    
     mol2 = Chem.AddHs(mol2)  # Add hydrogens for better geometry optimization
     AllChem.EmbedMolecule(mol2, randomSeed=42)  # Embed the molecule in 3D space
     AllChem.MMFFOptimizeMolecule(mol2)  # Optimize the geometry using MMFF94 force field
@@ -47,6 +48,7 @@ def smiles_to_3D_plot(mol_smi):
 
     return fig
 
+
 import unittest
 
 class TestSmilesTo3DPlot(unittest.TestCase):
@@ -58,12 +60,12 @@ class TestSmilesTo3DPlot(unittest.TestCase):
 
         self.assertIsNotNone(result)
 
-    def test_invalid_smiles(self):
+    def test_empty_smiles(self):
         
         with self.assertRaises(ValueError):
             smiles_to_3D_plot("")  
 
-    def test_nonexistent_smiles(self):
+    def test_invalid_smiles(self):
         
         with self.assertRaises(ValueError):
             smiles_to_3D_plot("invalid_smiles")    
