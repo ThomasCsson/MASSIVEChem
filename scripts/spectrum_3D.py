@@ -98,6 +98,8 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
                 'Te', 'Te', 'Th', 'Ti', 'Ti', 'Ti', 'Ti', 'Ti', 'TI', 'TI', 'Tm', 'V', 'V', 'W', 'W', 'W', 'W', 'W', 'Yb', 'Yb', 'Yb', 
                 'Yb', 'Yb', 'Yb', 'Yb', 'Zn', 'Zn', 'Zn', 'Zn', 'Zn', 'Zr', 'Zr', 'Zr', 'Zr', 'Zr ']
     
+    if not mol_smi:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
 
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 

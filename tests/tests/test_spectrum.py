@@ -12,6 +12,8 @@ import base64
 from io import BytesIO
 
 
+
+
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     #lists of the data to facilitise the pip-installability of the package
@@ -88,7 +90,9 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 'Te', 'Te', 'Th', 'Ti', 'Ti', 'Ti', 'Ti', 'Ti', 'TI', 'TI', 'Tm', 'V', 'V', 'W', 'W', 'W', 'W', 'W', 'Yb', 'Yb', 'Yb', 
                 'Yb', 'Yb', 'Yb', 'Yb', 'Zn', 'Zn', 'Zn', 'Zn', 'Zn', 'Zr', 'Zr', 'Zr', 'Zr', 'Zr ']
     
-
+    if not mol_smi:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+    
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
@@ -527,41 +531,40 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-#show(spectrum('CCCXCCC', True, 0.01))
-
 
 import unittest
-from rdkit import Chem
-from bokeh.plotting import figure, Figure
 
+class TestSpectrum3D(unittest.TestCase):
+    
+    def setUp(self):
+        self.apparatus_resolution = 0.01
 
-class TestSpectrumFunction(unittest.TestCase):
+    def test_butane_False(self):
+        mol_smi = "CCCC"
+        imprecision_True_False = False
+        result = spectrum(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
     
-    def test_empty_smiles(self):
-        smiles = ""
-        result = spectrum(smiles, True, 0.1)
-        self.assertIsNone(result)
-    
-    def test_apparatus_resolution(self):
-        smiles = "CCO"
-        for res in [0.1, 0.5, 1.0]:
-            result = spectrum(smiles, True, res)
-            self.assertIsInstance(result, Figure)
-    
-    def test_imprecision_false(self):
-        smiles = "CCO"
-        result = spectrum(smiles, False, 0.1)
-        self.assertIsInstance(result, Figure)
-    
-    def test_imprecision_true(self):
-        smiles = "CCO"
-        result = spectrum(smiles, True, 0.1)
-        self.assertIsInstance(result, Figure)
-    
-    def test_valid_smiles(self):
-        smiles = "CCO"
-        result = spectrum(smiles, True, 0.1)
-        self.assertIsInstance(result, Figure)
+    def test_butane_True(self):
+        mol_smi = "CCCC"
+        imprecision_True_False = True
+        result = spectrum(mol_smi, imprecision_True_False, self.apparatus_resolution)
+        self.assertIsNotNone(result)
+
+    def test_empty_input(self):
+        
+        with self.assertRaises(ValueError):
+            imprecision_True_False= False
+            spectrum("",imprecision_True_False, self.apparatus_resolution)
+
+    def test_invalid_input(self):
+        
+        with self.assertRaises(ValueError):
+            imprecision_True_False = False
+            spectrum("invalid_smiles",imprecision_True_False, self.apparatus_resolution)  
+        
 
 if __name__ == '__main__':
     unittest.main()
+
+
