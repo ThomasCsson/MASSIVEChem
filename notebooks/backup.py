@@ -52,10 +52,11 @@ def calculate_unsaturation(mol_smile) -> int:
     unsaturation = C + 1 + (N - HX) / 2
 
     return unsaturation
-
+import time
 #2
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
-
+    begin = time.time()
+    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
     #tests for wether the input is valid
     if mol_without_Hs is None:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
@@ -142,7 +143,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 'Yb', 'Yb', 'Yb', 'Yb', 'Zn', 'Zn', 'Zn', 'Zn', 'Zn', 'Zr', 'Zr', 'Zr', 'Zr', 'Zr ']
     
 
-    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
+    
 
 
     
@@ -623,8 +624,22 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     last = column(img_div, func_group_table)
     final = row(double_graph, last)
+    end = time.time()
+    print(f' {end-begin} seconds')
     return final
+from rdkit import Chem
+from rdkit.Chem import Draw
 
+from bokeh.plotting import figure, show, row
+from bokeh.models.tickers import FixedTicker
+from bokeh.layouts import row, column
+from bokeh.io import show
+from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
+from bokeh.models.widgets import DataTable, TableColumn
+
+import base64
+from io import BytesIO
+show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', False, 0.01))
 #3
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
 
