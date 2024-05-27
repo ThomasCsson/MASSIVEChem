@@ -141,7 +141,7 @@ show(MC.spectrum(mol_smi, True, apparatus_resolution))
 
 The output of this command will be:
 
-![Spectrum](Spectrum_output.png)
+<img width="600" alt="Focused_spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/Spectrum_output.png">
 
 Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is due to the presence of an odd number of sulphur atoms. This causes there to be a peak 0.004 [th] infront of the second peak. This can be verified by zooming in on the sectrum:
 
