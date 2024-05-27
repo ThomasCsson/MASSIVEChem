@@ -260,6 +260,5 @@ $RECYCLE.BIN/
 
 #.png 
 *.png
-*.jpg
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,jupyternotebooks,python
