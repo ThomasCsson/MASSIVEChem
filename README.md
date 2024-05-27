@@ -124,13 +124,13 @@ An example on how to make the function work is shown below for benzylpenicilin:
 The ionization method is set to monodeprotonation and the resolution of the apparatus is 0.01 Th
 
 ```bash
-import MASSIVEChem.MASSIVEChem as ms
+import MASSIVEChem.MASSIVEChem as MC
 from bokeh.plotting import show
 
 mol_smi = 'CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'
 apparatus_resolution = 0.01
 
-show(ms.spectrum(mol_smi, True, apparatus_resolution))
+show(MC.spectrum(mol_smi, True, apparatus_resolution))
 
 
 #The first input in ms.spectrum is the molecule under SMILEs representation,
