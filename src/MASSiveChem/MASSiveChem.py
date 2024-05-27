@@ -15,8 +15,6 @@ from io import BytesIO
 
 import tempfile
 
-from xyz2graph import MolGraph, to_plotly_figure
-
 import panel as pn
 
 #main functions:
@@ -627,6 +625,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
 #3
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
+
+    from xyz2graph import MolGraph, to_plotly_figure
 
     #lists of the data to facilitise the pip-installability of the package
 
