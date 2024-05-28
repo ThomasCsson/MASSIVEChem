@@ -175,3 +175,4 @@ def functional_group_finder(mol_smi):
     
     return functional_groups_contained
 
+print(functional_group_finder('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'))
