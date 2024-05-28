@@ -55,6 +55,8 @@ def calculate_unsaturation(mol_smile) -> int:
 
 #2
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
+    
+    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     #tests for wether the input is valid
     if mol_without_Hs is None:
@@ -141,10 +143,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 'Te', 'Te', 'Th', 'Ti', 'Ti', 'Ti', 'Ti', 'Ti', 'TI', 'TI', 'Tm', 'V', 'V', 'W', 'W', 'W', 'W', 'W', 'Yb', 'Yb', 'Yb', 
                 'Yb', 'Yb', 'Yb', 'Yb', 'Zn', 'Zn', 'Zn', 'Zn', 'Zn', 'Zr', 'Zr', 'Zr', 'Zr', 'Zr ']
     
-
-    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
-
-
     
     mol = Chem.AddHs(mol_without_Hs)
 
