@@ -70,7 +70,7 @@ The package can also be installed from source by running the following commands
 First, clone the repository from github and go in the folder. 
 ```bash
 git clone https://github.com/ThomasCsson/MASSIVEChem.git
-cd MASSIVEChem
+cd path/to/MASSIVEChem
 ```
 Then, install the package using : 
 ```bash
