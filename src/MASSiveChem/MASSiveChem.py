@@ -2067,7 +2067,7 @@ def all_in_one(p1, p2, p3):
 
     #---------------------------------------------------------------------------------------------#
     '''
-    all_in_one(p1,p2,p3, p4)
+    all_in_one(p1,p2,p3)
     
     Input: 3 bokeh plots
             Usually used in this package:
