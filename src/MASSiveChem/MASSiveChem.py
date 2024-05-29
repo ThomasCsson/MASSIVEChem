@@ -1602,6 +1602,10 @@ def sulphur_nitrogen_adder(x_in, y_in, has_N, has_S, count_N, count_S) -> list[f
         raise ValueError("The fifth argument must be an integer")
     if type(count_S) != int:
         raise ValueError("The sixth argument must be an integer")
+    if type(x_in) != list:
+        raise ValueError("The first argument must be a list")
+    if type(y_in) != list:
+        raise ValueError("The second argument must be a list")
 
 
     maximum = max(y_in)
