@@ -47,7 +47,21 @@ def calculate_unsaturation(mol_smile) -> int:
 
 #2
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
+    #---------------------------------------------------------------------------------------------#
+    '''
+    spectrum(mol_smi, imprecision_True_False, apparatus_resolution)
     
+    Input:  mol_smi --> SMILEs
+            imprecision_True_False --> True
+            apparatus_resolution --> 0.01
+
+    The second argument here being True indicates that the function will neglect any ions 
+    which have a probability of apparation under 0.00001.
+    
+    Output: Mass sprectrum of the molecule, "D image of the molecule and the functional groups in the molecule
+    '''
+    #---------------------------------------------------------------------------------------------#
+
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     #tests for wether the input is valid
@@ -619,8 +633,20 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
 #3
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
+#---------------------------------------------------------------------------------------------#
+    '''
+    spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution)
+    
+    Input:  mol_smi --> SMILEs
+            imprecision_True_False --> True
+            apparatus_resolution --> 0.01
 
-
+    The second argument here being True indicates that the function will neglect any ions 
+    which have a probability of apparation under 0.00001.
+    
+    Output: Mass sprectrum of the molecule, 3D image of the molecule and the functional groups in the molecule
+    '''
+    #---------------------------------------------------------------------------------------------#
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     if mol_without_Hs is None:
@@ -808,8 +834,6 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
         list_output = list_output_new
         list_atoms.pop(0)
     
-
-
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
 
     x_axis, y_axis = [],[]

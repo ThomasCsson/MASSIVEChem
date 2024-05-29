@@ -10,7 +10,22 @@ from io import BytesIO
 
 
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
+#---------------------------------------------------------------------------------------------#
+    '''
+    spectrum(mol_smi, imprecision_True_False, apparatus_resolution)
+    
+    Input:  mol_smi --> SMILEs
+            imprecision_True_False --> True
+            apparatus_resolution --> 0.01
 
+    The second argument here being True indicates that the function will neglect any ions 
+    which have a probability of apparation under 0.00001.
+    
+    Output: Mass sprectrum of the molecule, 2D image of the molecule and the functional groups in the molecule
+    '''
+    #---------------------------------------------------------------------------------------------#
+
+    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
     #tests for wether the input is valid
     if mol_smi == '':
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
@@ -99,10 +114,6 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
                 'Yb', 'Yb', 'Yb', 'Yb', 'Zn', 'Zn', 'Zn', 'Zn', 'Zn', 'Zr', 'Zr', 'Zr', 'Zr', 'Zr ']
     
 
-    mol_without_Hs = Chem.MolFromSmiles(mol_smi)
-
-
-    
     mol = Chem.AddHs(mol_without_Hs)
 
     '''molecule list generator'''
