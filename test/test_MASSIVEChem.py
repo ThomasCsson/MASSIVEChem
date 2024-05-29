@@ -1,3 +1,6 @@
+
+#This file contains the tests for the entire package 
+
 import MASSiveChem.MASSiveChem as MC
 import unittest
 from rdkit import Chem
