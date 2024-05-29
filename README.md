@@ -1,4 +1,4 @@
-<img width="600" alt="logo" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/Logo.jpg">
+<img width="830" alt="logo" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/Logo.jpg">
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ThomasCsson/MASSIVEChem)
 [![Thomas3](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org/)
@@ -15,7 +15,7 @@
 [![GitHub3](https://img.shields.io/badge/EPFL-CH200-red.svg)](https://edu.epfl.ch/studyplan/en/bachelor/chemistry-and-chemical-engineering/coursebook/practical-programming-in-chemistry-CH-200)
 
 
- - Python package for applied analytical chemistry focused primarily on mass speectrometry 
+ - Python package for applied analytical chemistry focused primarily on mass spectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
 ## Package description
@@ -136,7 +136,7 @@ show(MC.spectrum(mol_smi, True, apparatus_resolution))
 
 The output of this command will be:
 
-<img width="600" alt="spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/Spectrum_output.png">
+<img width="600" alt="spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/Spectrum_output.png">
 
 Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is due to the presence of an odd number of sulphur atoms. This causes there to be a peak 0.004 [th] infront of the second peak. This can be verified by zooming in on the sectrum:
 
