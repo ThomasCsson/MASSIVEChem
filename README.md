@@ -15,7 +15,7 @@
 [![GitHub3](https://img.shields.io/badge/EPFL-CH200-red.svg)](https://edu.epfl.ch/studyplan/en/bachelor/chemistry-and-chemical-engineering/coursebook/practical-programming-in-chemistry-CH-200)
 
 
- - Python package for applied analytical chemistry focused primarily on mass speectrometry 
+ - Python package for applied analytical chemistry focused primarily on mass spectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
 ## Package description
