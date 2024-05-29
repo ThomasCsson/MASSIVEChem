@@ -59,6 +59,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     #tests for wether the input is valid
+    if mol_smi is None:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if mol_without_Hs is None:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if imprecision_True_False not in [True, False]:
@@ -625,6 +627,16 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
 #3
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
+    if mol_smi is None:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+    if mol_without_Hs is None:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+    if imprecision_True_False not in [True, False]:
+        raise ValueError('Enter a boolean value')
+    if apparatus_resolution < 0:
+        raise ValueError('Enter a positive value')
+    if type(apparatus_resolution) != float:
+        raise ValueError('Enter an integer value')
 
     #lists of the data to facilitise the pip-installability of the package
 
@@ -2091,8 +2103,15 @@ def smiles_to_3D_plot(mol_smi):
     '''
     #---------------------------------------------------------------------------------------------#
 
+    if not mol_smi:
+        raise ValueError("Enter a non-empty string as argument")
+
     # Generate 3D coordinates from SMILES string
     mol2 = Chem.MolFromSmiles(mol_smi)
+
+    if not mol2:
+        raise ValueError('Enter a correct SMILEs')
+    
     mol2 = Chem.AddHs(mol2)  # Add hydrogens for better geometry optimization
     AllChem.EmbedMolecule(mol2, randomSeed=42)  # Embed the molecule in 3D space
     AllChem.MMFFOptimizeMolecule(mol2)  # Optimize the geometry using MMFF94 force field
@@ -2115,8 +2134,3 @@ def smiles_to_3D_plot(mol_smi):
     fig = to_plotly_figure(mg)
 
     return fig
-
-
-
-
-

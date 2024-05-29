@@ -16,7 +16,7 @@ class TestSMILEsInterpreter(unittest.TestCase):
 
         smiles = "C1CCxVCC"
 
-        with self.assertRaises(SystemExit):
+        with self.assertRaises(ValueError):
             MC.SMILEs_interpreter(smiles)
     
     def test_simple_molecule(self):
