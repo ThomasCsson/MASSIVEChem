@@ -2067,7 +2067,7 @@ def all_in_one(p1, p2, p3):
 
     #---------------------------------------------------------------------------------------------#
     '''
-    all_in_one(p1,p2,p3, p4)
+    all_in_one(p1,p2,p3)
     
     Input: 3 bokeh plots
             Usually used in this package:
@@ -2075,7 +2075,7 @@ def all_in_one(p1, p2, p3):
                     - p2 : image of the molecule
                     - p3 : table of functional groups
     
-    Output: bokeh page with all 4 graphs well arranged
+    Output: bokeh page with all 3 graphs well arranged
 
     '''
     #---------------------------------------------------------------------------------------------#
