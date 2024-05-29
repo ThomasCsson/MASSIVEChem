@@ -59,6 +59,8 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     #tests for wether the input is valid
+    if mol_smi is None:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if mol_without_Hs is None:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if imprecision_True_False not in [True, False]:
@@ -625,6 +627,16 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
 #3
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
+    if mol_smi is None:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+    if mol_without_Hs is None:
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+    if imprecision_True_False not in [True, False]:
+        raise ValueError('Enter a boolean value')
+    if apparatus_resolution < 0:
+        raise ValueError('Enter a positive value')
+    if type(apparatus_resolution) != float:
+        raise ValueError('Enter an integer value')
 
     #lists of the data to facilitise the pip-installability of the package
 
