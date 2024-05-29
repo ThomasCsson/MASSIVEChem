@@ -14,11 +14,10 @@ def functional_group_finder(mol_smi):
 
     if not mol_smi:
         raise ValueError("Enter a non-empty string as argument")
+    if not Chem.MolFromSmiles(mol_smi):
+        raise ValueError("Enter correct SMILEs")
     # initiate variables
     functional_groups_contained, mol_in = [], Chem.MolFromSmiles(mol_smi)
-
-    if not mol_in:
-        raise ValueError('Incorrect SMILEs input')
 
     # dictionnary of all the considered functional groups to check (some might be missing)
 
