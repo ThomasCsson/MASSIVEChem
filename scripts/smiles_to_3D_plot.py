@@ -2,7 +2,6 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 import tempfile
 from xyz2graph import MolGraph, to_plotly_figure
-import panel as pn
 
 def smiles_to_3D_plot(mol_smi):
 
@@ -21,6 +20,10 @@ def smiles_to_3D_plot(mol_smi):
 
     # Generate 3D coordinates from SMILES string
     mol2 = Chem.MolFromSmiles(mol_smi)
+
+    if not mol2:
+        raise ValueError('Enter a correct SMILEs')
+    
     mol2 = Chem.AddHs(mol2)  # Add hydrogens for better geometry optimization
     AllChem.EmbedMolecule(mol2, randomSeed=42)  # Embed the molecule in 3D space
     AllChem.MMFFOptimizeMolecule(mol2)  # Optimize the geometry using MMFF94 force field
@@ -44,9 +47,7 @@ def smiles_to_3D_plot(mol_smi):
 
     return fig
 
-# Example usage
-input_mol = input('MOL:  ')
-smiles_to_3D_plot(input_mol).show()
+
 
 
 
