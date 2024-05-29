@@ -153,7 +153,7 @@ Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is d
 
 To begin to use the package the following jupyter notebook will give you information about all the package's functions:
 
-[![GitHub3](https://img.shields.io/badge/Jupyter_Notebook.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/notebooks/project_report.ipynb)
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter_Notebook-orange.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/notebooks/project_report.ipynb)
 
 '''link to jupter notebook'''
 
