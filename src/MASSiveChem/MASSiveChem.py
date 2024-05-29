@@ -2115,8 +2115,3 @@ def smiles_to_3D_plot(mol_smi):
     fig = to_plotly_figure(mg)
 
     return fig
-
-
-
-
-
