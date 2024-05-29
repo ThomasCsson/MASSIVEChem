@@ -151,6 +151,21 @@ Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is d
 
 <img width="600" alt="Focused_spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/assets/160872481/440ac2ea-c2fe-40ff-b1ed-1a447024bcb0">
 
+## Trouble shooting
+
+If there is a problem with the functions of the package, first, verify that your version is up to date. To do this, type the following command into the terminal:
+```bash
+pip show MASSIVEChem
+```
+You can then compare the version that you have downloaded to that of the newest available version, which can be found on the PiPy page, https://pypi.org/project/MASSIVEChem/
+
+Then, if the version donwloaded is not the newest one, type the following command into the terminal:
+```bash
+pip intall MASSIVEChem -- upgrade
+```
+
+
+
 ## Getting started
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter_Notebook-orange.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/notebooks/project_report.ipynb)
 
