@@ -1,5 +1,4 @@
 from rdkit import Chem
-from rdkit.Chem import Draw
 
 def calculate_unsaturation(mol_smile) -> int:
     #---------------------------------------------------------------------------------------------#
