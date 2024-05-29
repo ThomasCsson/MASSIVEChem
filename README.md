@@ -46,7 +46,7 @@ Chemistry, for molecular identification and structural elucidation. Biochemistry
 
 The mathematical reasoning behind the calculation of these relative abundances is simply applying combinatorics to each isotope of each atom in the given molecule.
 
-To find the probability of a molecule composed of isotopes $ I_1 $
+To find the probability of a molecule composed of isotopes $I_{1}$
 
 Now, let us go through the steps required to use this package!
 
