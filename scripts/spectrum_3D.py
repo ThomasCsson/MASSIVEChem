@@ -12,6 +12,7 @@ import tempfile
 from xyz2graph import MolGraph, to_plotly_figure
 
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
+    
     if mol_smi == '':
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if mol_without_Hs is None:

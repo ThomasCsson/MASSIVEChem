@@ -1,7 +1,7 @@
 import MASSiveChem.MASSiveChem as MC
 import unittest
 
-class TestSpectrum3D(unittest.TestCase):
+class TestSpectrum(unittest.TestCase):
     
     def setUp(self):
         self.apparatus_resolution = 0.01
