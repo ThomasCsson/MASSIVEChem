@@ -18,12 +18,6 @@ class TestSpectrum3D(unittest.TestCase):
         result = MC.spectrum_3D(mol_smi, imprecision_True_False, self.apparatus_resolution)
         self.assertIsNotNone(result)
 
-    def test_empty_input(self):
-        
-        with self.assertRaises(ValueError):
-            imprecision_True_False= False
-            MC.spectrum_3D("",imprecision_True_False, self.apparatus_resolution)
-
     def test_invalid_input(self):
         
         with self.assertRaises(ValueError):

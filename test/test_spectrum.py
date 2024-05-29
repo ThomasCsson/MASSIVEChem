@@ -22,7 +22,7 @@ class TestSpectrum3D(unittest.TestCase):
         
         with self.assertRaises(ValueError):
             imprecision_True_False= False
-            MC.spectrum("",imprecision_True_False, self.apparatus_resolution)
+            MC.spectrum_3D("",imprecision_True_False, self.apparatus_resolution)
 
     def test_invalid_input(self):
         
