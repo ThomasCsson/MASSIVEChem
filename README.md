@@ -32,7 +32,7 @@ Developpers:
 
 ### What is mass spectrometry ?
 
-Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves three main steps:
+Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves two main steps:
 
 Ionisation: The sample is ionised, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionisation (ESI), or matrix-assisted laser desorption/ionisation (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
 
