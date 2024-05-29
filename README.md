@@ -101,7 +101,7 @@ If all goes well during installation, the preceding packages should all install 
 But this can be checked by veryfying that they have all been installed in the desired environment. To do this, simply write the following command in the terminal:
 
 ```bash
-pip show "name of the package"
+pip show MASSIVEChem
 ```
 
 If not, install them using the following commands. (Bear in mind that the package will not run without its dependencies. 
@@ -111,6 +111,7 @@ pip install bokeh
 pip install rdkit
 pip install panel
 ```
+
 Additionally, the package 'xyz2graph' is required to run the 3D imaging functionallity in the function 'spectrum'. This package is not pip-installable, so to intall it yourself, the following command needs to be run.
 
 ```bash
@@ -120,11 +121,11 @@ python -m pip install git+https://github.com/zotko/xyz2graph.git
 
 ## Usage
 
-The principal function of this package takes the SMILEs of a molecule as an input and displays the mass spectrometry of the molecule as well as the molecule itself and  the functional groups it contains.
+The principal function of this package takes the SMILEs of a molecule as an input and displays the mass spectrum of the molecule as well as the molecule itself and  the functional groups it contains.
 
 An example on how to make the function work is shown below for benzylpenicilin:
 
-The ionization method is set to monodeprotonation and the resolution of the apparatus is 0.01 Th
+The ionization method is set to monodeprotonation and the resolution of the apparatus is set to 0.01 Th
 
 ```bash
 import MASSIVEChem.MASSIVEChem as MC
@@ -150,12 +151,28 @@ Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is d
 
 <img width="600" alt="Focused_spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/assets/160872481/440ac2ea-c2fe-40ff-b1ed-1a447024bcb0">
 
+## Trouble shooting
+
+If there is a problem with the functions of the package, first, verify that your version is up to date. To do this, type the following command into the terminal:
+```bash
+pip show MASSIVEChem
+```
+You can then compare the version that you have downloaded to that of the newest available version, which can be found on the PiPy page, https://pypi.org/project/MASSIVEChem/
+
+Then, if the version donwloaded is not the newest one, type the following command into the terminal:
+```bash
+pip install MASSIVEChem -- upgrade
+```
+
+If problems persist, please feel free to contact any of the developpers for the package.
+
+
+
 ## Getting started
-[![jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626.svg?style=flat&logo=Jupyter)](https://jupyterlab.readthedocs.io/en/stable)
-
-To begin to use the package the following jupyter notebook will give you information about all the package's functions:
-
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter_Notebook-orange.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/notebooks/project_report.ipynb)
+
+To begin to use the package, the following jupyter notebook will give you information about all of its functions:
+
 
 ## Fun !
 🐰 If you've made it this far through our project, you might want to try to find the hidden easter egg in this ReadMe :)🐰

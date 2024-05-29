@@ -1,4 +1,4 @@
-from src.MASSIVEChem import MASSiveChem as MC
+import MASSiveChem.MASSiveChem as MC
 import unittest
 
 class TestDoublePlot(unittest.TestCase):
