@@ -168,7 +168,7 @@ spectrum_3D.show()
 ```
 The output of the command will be the following: 
 
-<img src="images/spectrum_3D.png" width="600">
+<img src="images/spectrum_3D.png" width="700">
 
 
 ## Trouble shooting
