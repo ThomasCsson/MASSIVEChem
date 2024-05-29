@@ -1,5 +1,4 @@
-from src.MASSIVEChem import MASSiveChem as MC
-
+import MASSiveChem.MASSiveChem as MC
 """
 def delta_function_plotter(x_in, y_in) -> list[float]:
     #---------------------------------------------------------------------------------------------#
