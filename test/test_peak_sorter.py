@@ -1,38 +1,4 @@
-def peak_sorter(x_in, y_in) -> list[float]:
-    #---------------------------------------------------------------------------------------------#
-    '''
-    peak_sorter(x_in, y_in)
-    
-    Input: two lists:
-    1. ordered list of the masses with values on y merged together if peaks within precision of apparatus
-    2. ordered list of the probabilities of apparation of each of the molecules
-    
-    Output: two lists:
-    1. ordered list of the masses with values on y merged together if peaks within precision of apparatus
-    2. ordered list of the probabilities of apparation of each of the molecules
-    
-    (the mass in list 1 at index i is associated to the probability at index i in list 2)
-    '''
-    #---------------------------------------------------------------------------------------------#
-    
-    if not x_in:
-        raise ValueError('Empty list entry')
-    if not y_in:
-        raise ValueError('Empty list entry')
-    if len(x_in) != len(y_in):
-        raise ValueError('Lists should be of the same size')
-
-    x_out, y_out = [],[]
-    while len(x_in)>0:
-        min_x = min(x_in)
-        index_min = x_in.index(min_x)
-        x_out.append(min_x)
-        y_out.append(y_in[index_min])
-        x_in.pop(index_min)
-        y_in.pop(index_min)
-
-    return x_out, y_out
-
+import MASSiveChem.MASSiveChem as MC
 import unittest
 
 class TestPeakSorter(unittest.TestCase):
@@ -42,7 +8,7 @@ class TestPeakSorter(unittest.TestCase):
         x_in = [3.0, 1.0, 2.0]
         y_in = [0.3, 0.1, 0.2]
 
-        result = peak_sorter(x_in, y_in)
+        result = MC.peak_sorter(x_in, y_in)
 
         expected_x = [1.0, 2.0, 3.0]
         expected_y = [0.1, 0.2, 0.3]
@@ -54,7 +20,7 @@ class TestPeakSorter(unittest.TestCase):
         x_in = [1.0, 2.0, 3.0]
         y_in = [0.1, 0.2, 0.3]
 
-        result = peak_sorter(x_in, y_in)
+        result = MC.peak_sorter(x_in, y_in)
 
         expected_x = [1.0, 2.0, 3.0]
         expected_y = [0.1, 0.2, 0.3]
@@ -64,23 +30,23 @@ class TestPeakSorter(unittest.TestCase):
     def test_empty_lists(self):
 
         with self.assertRaises(ValueError):
-            peak_sorter("","") 
+            MC.peak_sorter("","") 
     
     def test_one_empty_list_1(self):
 
         with self.assertRaises(ValueError):
-            peak_sorter("",['y']) 
+            MC.peak_sorter("",['y']) 
     
     def test_one_empty_list_2(self):
 
         with self.assertRaises(ValueError):
-            peak_sorter(['x'],"") 
+            MC.peak_sorter(['x'],"") 
 
     def test_single_element_lists(self):
         x_in = [2.0]
         y_in = [0.2]
 
-        result = peak_sorter(x_in, y_in)
+        result = MC.peak_sorter(x_in, y_in)
 
         expected_x = [2.0]
         expected_y = [0.2]
@@ -92,7 +58,7 @@ class TestPeakSorter(unittest.TestCase):
         x_in = [-1.0, -2.0, 3.0]
         y_in = [0.1, 0.2, 0.3]
 
-        result = peak_sorter(x_in, y_in)
+        result = MC.peak_sorter(x_in, y_in)
 
         expected_x = [-2.0, -1.0, 3.0]
         expected_y = [0.2, 0.1, 0.3]
@@ -105,7 +71,7 @@ class TestPeakSorter(unittest.TestCase):
         y_in = [0.1]
         
         with self.assertRaises(ValueError) as context:
-            peak_sorter(x_in, y_in)
+            MC.peak_sorter(x_in, y_in)
         self.assertEqual(str(context.exception), 'Lists should be of the same size')
 
 if __name__ == '__main__':
