@@ -45,9 +45,8 @@ Mass spectrometry is widely used in various fields, including:
 Chemistry, for molecular identification and structural elucidation. Biochemistry, for studying proteins, peptides, and other biomolecules. Pharmaceuticals, for drug development and metabolite analysis. Environmental Science, for detecting pollutants and analysing environmental samples. Clinical Diagnostics, for identifying biomarkers and analysing complex biological samples. The technique's sensitivity, accuracy, and ability to analyse complex mixtures make it an essential tool in both research and applied sciences.
 
 The mathematical reasoning behind the calculation of these relative abundances is simply applying combinatorics to each isotope of each atom in the given molecule.
-\begin{equation}
-    f(x)= \frac{1}{x}
-\end{equation}
+
+To find the probability of a molecule composed of isotopes $ I_1 $
 
 Now, let us go through the steps required to use this package!
 
