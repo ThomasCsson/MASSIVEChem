@@ -1,11 +1,8 @@
 from rdkit import Chem
-from rdkit.Chem import Draw, AllChem
+from rdkit.Chem import Draw
 
 from io import BytesIO
 import base64
-
-from bokeh.plotting import show
-from bokeh.io import show
 from bokeh.models import Div
 
 

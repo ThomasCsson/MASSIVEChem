@@ -1,11 +1,7 @@
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
 from bokeh.models.widgets import DataTable, TableColumn
-from bokeh.plotting import show
 import base64
 from io import BytesIO
-from bokeh.models import ColumnDataSource, HTMLTemplateFormatter
-from bokeh.models.widgets import DataTable, TableColumn
-from bokeh.plotting import show
 from rdkit import Chem
 from rdkit.Chem import Draw
 

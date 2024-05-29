@@ -1,24 +1,15 @@
 from rdkit import Chem
 from rdkit.Chem import Draw, AllChem
-
-from bokeh.plotting import figure, show, row
+from bokeh.plotting import figure, row
 from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import row, column
-from bokeh.io import show
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
 from bokeh.models.widgets import DataTable, TableColumn
-
 import base64
 from io import BytesIO
-
 import panel as pn
-import xyz2graph
 import tempfile
 from xyz2graph import MolGraph, to_plotly_figure
-
-
-
-
 
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
     if mol_smi == '':
@@ -616,7 +607,5 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
 
     return total_plot_pane
 
-input_mol = input('Mol SMI: ')
-spectrum_3D(input_mol, True, 0.01).show()
 
 

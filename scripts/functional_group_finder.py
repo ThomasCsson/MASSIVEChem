@@ -170,7 +170,5 @@ def functional_group_finder(mol_smi):
                 if 'Amine' in functional_groups_contained:
                     functional_groups_contained.remove('Amine')
 
-    
-    
     return functional_groups_contained
 

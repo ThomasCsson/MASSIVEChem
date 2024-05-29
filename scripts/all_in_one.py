@@ -1,13 +1,10 @@
-from bokeh.plotting import figure
-from bokeh.models import ColumnDataSource
 from bokeh.layouts import column, row
-from bokeh.models.widgets import DataTable, TableColumn
 
 def all_in_one(p1, p2, p3):
 
     #---------------------------------------------------------------------------------------------#
     '''
-    all_in_one(p1,p2,p3, p4)
+    all_in_one(p1,p2,p3)
     
     Input: 3 bokeh plots
             Usually used in this package:

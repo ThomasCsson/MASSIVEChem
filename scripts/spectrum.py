@@ -1,13 +1,10 @@
 from rdkit import Chem
 from rdkit.Chem import Draw
-
-from bokeh.plotting import figure, show, row
+from bokeh.plotting import figure, row
 from bokeh.models.tickers import FixedTicker
-from bokeh.layouts import row, column
-from bokeh.io import show
+from bokeh.layouts import column
 from bokeh.models import ColumnDataSource, HTMLTemplateFormatter, WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS, Div
 from bokeh.models.widgets import DataTable, TableColumn
-
 import base64
 from io import BytesIO
 
@@ -586,4 +583,3 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     final = row(double_graph, last)
     return final
 
-show(spectrum('CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C', True, 0.01))

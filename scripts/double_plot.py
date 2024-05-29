@@ -3,8 +3,6 @@ from bokeh.models.tickers import FixedTicker
 from bokeh.layouts import column
 from bokeh.models import WheelPanTool, WheelZoomTool, BoxAnnotation, CustomJS
 
-
-
 def double_plot(x_in,y_in):
 
     #---------------------------------------------------------------------------------------------#
@@ -78,7 +76,6 @@ def double_plot(x_in,y_in):
     # creates a layout that displays the 2 graphs
 
     layout = column(p1, p2)
-    print('here')
     return layout
 
 
