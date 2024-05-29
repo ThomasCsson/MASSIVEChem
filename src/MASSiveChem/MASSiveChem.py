@@ -59,7 +59,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     #tests for wether the input is valid
-    if mol_smi is None:
+    if mol_smi == '':
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if mol_without_Hs is None:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
