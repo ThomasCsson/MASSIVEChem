@@ -68,7 +68,7 @@ class TestSulphurNitrogenAdder(unittest.TestCase):
     
     def test_not_a_list(self):
         with self.assertRaises(ValueError):
-            MC.sulphur_nitrogen_adder(['NNS'], ['NNS'], True, True, 2, 2)
+            MC.sulphur_nitrogen_adder('NNS', 'NNS', True, True, 2, 2)
 
 if __name__ == '__main__':
     unittest.main()
