@@ -161,7 +161,7 @@ You can then compare the version that you have downloaded to that of the newest 
 
 Then, if the version donwloaded is not the newest one, type the following command into the terminal:
 ```bash
-pip install MASSIVEChem -- upgrade
+pip install MASSIVEChem -U
 ```
 
 If problems persist, please feel free to contact any of the developpers for the package.
