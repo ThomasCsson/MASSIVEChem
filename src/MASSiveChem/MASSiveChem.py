@@ -61,7 +61,7 @@ def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
     Output: Mass sprectrum of the molecule, "D image of the molecule and the functional groups in the molecule
     '''
     #---------------------------------------------------------------------------------------------#
-    
+
     mol_without_Hs = Chem.MolFromSmiles(mol_smi)
 
     #tests for wether the input is valid
@@ -834,8 +834,6 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
         list_output = list_output_new
         list_atoms.pop(0)
     
-
-
     #Conversion of list_output (which is a list of lists) to a combination of two lists (x_axis & y_axis)
 
     x_axis, y_axis = [],[]
