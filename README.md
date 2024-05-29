@@ -1,4 +1,4 @@
-<img width="600" alt="logo" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/Logo.jpg">
+<img width="830" alt="logo" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/Logo.jpg">
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ThomasCsson/MASSIVEChem)
 [![Thomas3](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org/)
@@ -15,7 +15,7 @@
 [![GitHub3](https://img.shields.io/badge/EPFL-CH200-red.svg)](https://edu.epfl.ch/studyplan/en/bachelor/chemistry-and-chemical-engineering/coursebook/practical-programming-in-chemistry-CH-200)
 
 
- - Python package for applied analytical chemistry focused primarily on mass speectrometry 
+ - Python package for applied analytical chemistry focused primarily on mass spectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
 ## Package description
@@ -32,7 +32,7 @@ Developpers:
 
 ### What is mass spectrometry ?
 
-Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves three main steps:
+Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves two main steps:
 
 Ionisation: The sample is ionised, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionisation (ESI), or matrix-assisted laser desorption/ionisation (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
 
