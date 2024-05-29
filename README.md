@@ -77,12 +77,6 @@ Then, install the package using :
 pip install -e .
 ```
 
-
-
-
-
-
-
 ## Requirments
 The package runs on python 3.10 but supports python 3.8 through 3.10.
 It requires several other packages to function correctly.
@@ -109,7 +103,7 @@ pip install bokeh
 pip install rdkit
 pip install panel
 ```
-Additionally, the package 'xyz2graph' is required to run the 3D imaging functionallity in the function 'spectrum'. This package is not pip-installable, so to intall it yourslef, the following command needs to be run.
+Additionally, the package 'xyz2graph' is required to run the 3D imaging functionallity in the function 'spectrum'. This package is not pip-installable, so to intall it yourself, the following command needs to be run.
 
 ```bash
 python -m pip install git+https://github.com/zotko/xyz2graph.git
