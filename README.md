@@ -1,4 +1,4 @@
-<img width="600" alt="logo" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/Logo.jpg">
+<img width="800" alt="logo" src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/Logo.jpg">
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ThomasCsson/MASSIVEChem)
 [![Thomas3](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org/)
