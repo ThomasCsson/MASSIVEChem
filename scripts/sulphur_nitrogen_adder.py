@@ -18,7 +18,7 @@ def sulphur_nitrogen_adder(x_in, y_in, has_N, has_S, count_N, count_S) -> list[f
     (the mass in list 1 at index i is associated to the probability at index i in list 2)
     '''
     #---------------------------------------------------------------------------------------------#
-
+    
     if not x_in:
         raise ValueError("Enter a non-empty list")
     if not y_in:

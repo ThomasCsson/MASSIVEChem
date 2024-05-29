@@ -15,7 +15,9 @@ from io import BytesIO
 def spectrum(mol_smi, imprecision_True_False, apparatus_resolution):
 
     #tests for wether the input is valid
-    if mol_smi is None:
+    if mol_smi == '':
+        raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
+    if mol_without_Hs is None:
         raise ValueError('\nInvalid SMILEs enterred.\nPlease enter a different SMILEs.')
     if imprecision_True_False not in [True, False]:
         raise ValueError('Enter a boolean value')
