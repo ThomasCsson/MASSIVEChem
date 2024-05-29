@@ -168,6 +168,8 @@ spectrum_3D.show()
 ```
 The output of the command will be the following: 
 
+![spectrum3D](https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/spectrum_3D.gif)
+
 ## Trouble shooting
 
 If there is a problem with the functions of the package, first, verify that your version is up to date. To do this, type the following command into the terminal:
