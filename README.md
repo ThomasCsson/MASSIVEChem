@@ -18,7 +18,7 @@
  - Python package for applied analytical chemistry focused primarily on mass spectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
-## Package description
+## 🧪 Package description
 [![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://x.com/pschwllr/status/1760713822111723990)
 [![GitHub4](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
@@ -30,7 +30,7 @@ Developpers:
 - Igor Gonteri, student in chemistry at EPFL                             [![jhc github](https://img.shields.io/badge/GitHub-igorgonteri-181717.svg?style=flat&logo=github)](https://github.com/igorgonteri)
 - Arthur Humery, student in chemical engineering at EPFL                [![jhc github](https://img.shields.io/badge/GitHub-Arthurhmy-181717.svg?style=flat&logo=github)](https://github.com/Arthurhmy)
 
-### What is mass spectrometry ?
+### 🔬 What is mass spectrometry ?
 
 Mass spectrometry (MS) is an analytical technique used to measure the mass-to-charge ratio of ions. It helps identify the structure of the chemical compound present in a sample by generating a spectrum of the masses of its ions. The process involves two main steps:
 
@@ -54,7 +54,7 @@ This probability is then the relative abundance of the molecule composed of thos
 
 Now, let us go through the steps required to use this package!
 
-## Installation
+## 🛠️ Installation
 [![Thomas2](https://img.shields.io/badge/pypi-3775A9?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/MASSIVEChem/)
 
 MASSIVEChem can be installed using pip as
@@ -85,7 +85,7 @@ Then, install the package using :
 pip install -e .
 ```
 
-## Requirments
+## 📚 Requirments
 The package runs on python 3.10 but supports python 3.8 through 3.10.
 It requires several other packages to function correctly.
 
@@ -119,7 +119,7 @@ python -m pip install git+https://github.com/zotko/xyz2graph.git
 ```
 
 
-## Usage
+## 💻 Usage
 
 The principal function of this package takes the SMILEs of a molecule as an input and displays the mass spectrum of the molecule as well as the molecule itself and  the functional groups it contains.
 
@@ -171,7 +171,7 @@ The output of the command will be the following:
 <img src="images/spectrum_3D.png" width="700">
 
 
-## Trouble shooting
+## 🔧 Trouble shooting
 
 If there is a problem with the functions of the package, first, verify that your version is up to date. To do this, type the following command into the terminal:
 ```bash
@@ -188,7 +188,7 @@ If problems persist, please feel free to contact any of the developpers for the 
 
 
 
-## Getting started
+## 🚀 Getting started
 
 To begin to use the package, the following jupyter notebook will give you information about all of its functions:
 
