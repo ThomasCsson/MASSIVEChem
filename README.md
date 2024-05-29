@@ -169,6 +169,8 @@ spectrum_3D.show()
 The output of the command will be the following: 
 
 ![spectrum3D](https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/spectrum_3D.gif)
+<img src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/spectrum_3D.gif" width="500">
+
 
 ## Trouble shooting
 
