@@ -151,6 +151,26 @@ Note that here there appear to be two overlapping peaks at ~ 334 [th]. This is d
 
 <img width="600" alt="Focused_spectrum" src="https://github.com/ThomasCsson/MASSIVEChem/assets/160872481/440ac2ea-c2fe-40ff-b1ed-1a447024bcb0">
 
+It is also possible to add to the plot an interactive 3D plot of the input molecule.
+
+To do so, type the following command:
+
+```bash
+import MASSiveChem.MASSiveChem as MC
+
+mol_smi = 'CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'
+imprecision = True
+apparatus_resolution = 0.01
+
+spectrum_3D = MC.spectrum_3D(mol_smi, imprecision, apparatus_resolution)
+
+spectrum_3D.show()
+```
+The output of the command will be the following: 
+
+<img src="images/spectrum_3D.png" width="700">
+
+
 ## Trouble shooting
 
 If there is a problem with the functions of the package, first, verify that your version is up to date. To do this, type the following command into the terminal:
@@ -169,9 +189,11 @@ If problems persist, please feel free to contact any of the developpers for the 
 
 
 ## Getting started
-[![Jupyter Notebook](https://img.shields.io/badge/Jupyter_Notebook-orange.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/notebooks/project_report.ipynb)
 
 To begin to use the package, the following jupyter notebook will give you information about all of its functions:
+
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter_Notebook-orange.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/notebooks/project_report.ipynb)
+
 
 
 ## Fun !
