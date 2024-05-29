@@ -1,3 +1,6 @@
+from src.MASSIVEChem import MASSiveChem as MC
+
+"""
 def delta_function_plotter(x_in, y_in) -> list[float]:
     #---------------------------------------------------------------------------------------------#
     '''
@@ -38,7 +41,7 @@ def delta_function_plotter(x_in, y_in) -> list[float]:
     x_axis.append(max_x+1)
     y_axis.append(0)
 
-    return x_axis, y_axis
+    return x_axis, y_axis """
 
 import unittest
 
@@ -52,7 +55,7 @@ class TestDeltaFunctionPlotter(unittest.TestCase):
         expected_x = [0.5, 1.0 - 10**(-100), 1.0, 1.0 + 10**(-100), 2.0]
         expected_y = [0, 0, 0.5, 0, 0]
 
-        x_axis, y_axis = delta_function_plotter(x_in, y_in)
+        x_axis, y_axis = MC.delta_function_plotter(x_in, y_in)
 
         self.assertEqual(x_axis, expected_x)
         self.assertEqual(y_axis, expected_y)
@@ -68,7 +71,7 @@ class TestDeltaFunctionPlotter(unittest.TestCase):
         ]
         expected_y = [0, 0, 0.5, 0, 0, 0.8, 0, 0]
 
-        x_axis, y_axis = delta_function_plotter(x_in, y_in)
+        x_axis, y_axis = MC.delta_function_plotter(x_in, y_in)
 
         self.assertEqual(x_axis, expected_x)
         self.assertEqual(y_axis, expected_y)
@@ -85,7 +88,7 @@ class TestDeltaFunctionPlotter(unittest.TestCase):
         ]
         expected_y = [0, 0, 0.5, 0, 0, 0.8, 0, 0, 0.2, 0, 0]
 
-        x_axis, y_axis = delta_function_plotter(x_in, y_in)
+        x_axis, y_axis = MC.delta_function_plotter(x_in, y_in)
 
         self.assertEqual(x_axis, expected_x)
         self.assertEqual(y_axis, expected_y)
@@ -94,20 +97,20 @@ class TestDeltaFunctionPlotter(unittest.TestCase):
 
         with self.assertRaises(ValueError):
 
-            delta_function_plotter([], [])
+            MC.delta_function_plotter([], [])
         
         with self.assertRaises(ValueError):
 
-            delta_function_plotter([1.0], [])
+            MC.delta_function_plotter([1.0], [])
         
         with self.assertRaises(ValueError):
 
-            delta_function_plotter([], [0.5])
+            MC.delta_function_plotter([], [0.5])
 
     def test_invalid_input_length_mismatch(self):
 
         with self.assertRaises(ValueError):
-            delta_function_plotter([1.0, 2.0], [0.5])
+            MC.delta_function_plotter([1.0, 2.0], [0.5])
 
 if __name__ == '__main__':
     unittest.main()

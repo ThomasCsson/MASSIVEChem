@@ -1,5 +1,5 @@
-from rdkit import Chem
-import MASSiveChem.MASSiveChem as MC
+from src.MASSIVEChem import MASSiveChem as MC
+
 """
 def calculate_unsaturation(mol_smile) -> int:
     #---------------------------------------------------------------------------------------------#
