@@ -155,8 +155,6 @@ To begin to use the package the following jupyter notebook will give you informa
 
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter_Notebook-orange.svg)](https://github.com/ThomasCsson/MASSIVEChem/blob/main/notebooks/project_report.ipynb)
 
-'''link to jupter notebook'''
-
 ## Fun !
 🐰 If you've made it this far through our project, you might want to try to find the hidden easter egg in this ReadMe :)🐰
 
