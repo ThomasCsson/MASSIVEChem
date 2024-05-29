@@ -168,7 +168,7 @@ spectrum_3D.show()
 ```
 The output of the command will be the following: 
 
-<img src="https://github.com/ThomasCsson/MASSIVEChem/blob/main/images/spectrum_3D.gif" width="500">
+<img src="images/spectrum_3D.png" width="500">
 
 
 ## Trouble shooting
