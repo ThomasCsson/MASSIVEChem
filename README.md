@@ -36,13 +36,18 @@ Mass spectrometry (MS) is an analytical technique used to measure the mass-to-ch
 
 Ionisation: The sample is ionised, which means its molecules are converted into charged particles (ions). This can be done using various methods, such as electron impact (EI), electrospray ionisation (ESI), or matrix-assisted laser desorption/ionisation (MALDI). In this case, the ionisation is set to the most commonly used method; deprotonation.
 
-Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyser, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyser works differently but ultimately serves to distinguish ions by their specific m/z values. The unit of these m/z values is 1 Th or 1 $\frac{Da}{e}$.
+Mass Analysis: The ions are separated based on their mass-to-charge ratio (m/z). This is usually done using a mass analyser, such as a quadrupole, time-of-flight (TOF), or an ion trap. Each type of mass analyser works differently but ultimately serves to distinguish ions by their specific $\frac{m}{z}$ values. The unit of these $\frac{m}{z}$ values is 1 Th or 1 $\frac{Da}{e}$.
 
 On the y axis of the output spectrum, the relative abundance of the different ions is plotted. This abundance is given by the different natural abundances of the different isotopes of the atoms in the molecule. For example, the relative abundance of $^{13}C$ is 1.1% and that of $^{12}C$ is 98.9%.
 
 Mass spectrometry is widely used in various fields, including:
 
-Chemistry: For molecular identification and structural elucidation. Biochemistry: For studying proteins, peptides, and other biomolecules. Pharmaceuticals: For drug development and metabolite analysis. Environmental Science: For detecting pollutants and analysing environmental samples. Clinical Diagnostics: For identifying biomarkers and analysing complex biological samples. The technique's sensitivity, accuracy, and ability to analyse complex mixtures make it an essential tool in both research and applied sciences.
+Chemistry, for molecular identification and structural elucidation. Biochemistry, for studying proteins, peptides, and other biomolecules. Pharmaceuticals, for drug development and metabolite analysis. Environmental Science, for detecting pollutants and analysing environmental samples. Clinical Diagnostics, for identifying biomarkers and analysing complex biological samples. The technique's sensitivity, accuracy, and ability to analyse complex mixtures make it an essential tool in both research and applied sciences.
+
+The mathematical reasoning behind the calculation of these relative abundances is simply applying combinatorics to each isotope of each atom in the given molecule.
+
+To find the probability of a molecule composed of isotopes $I_{1}$ , $I_{2}$ , ... , $I_{n}$ is given by the following formula:
+$Pr(I_{1},I_{2}),...I_{n}$ = $Pr(I_{1})$$Pr(I_{1})$...$Pr(I_{n})$
 
 Now, let us go through the steps required to use this package!
 
