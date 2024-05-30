@@ -128,7 +128,7 @@ An example on how to make the function work is shown below for benzylpenicilin:
 The ionization method is set to monodeprotonation and the resolution of the apparatus is set to 0.01 Th
 
 ```bash
-import MASSIVEChem.MASSIVEChem as MC
+import MASSiveChem.MASSiveChem as MC
 from bokeh.plotting import show
 
 mol_smi = 'CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C'
