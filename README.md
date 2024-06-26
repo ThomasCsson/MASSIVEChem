@@ -85,7 +85,7 @@ Then, install the package using :
 pip install -e .
 ```
 
-## 📚 Requirments
+## 📚 Requirements
 The package runs on python 3.10 but supports python 3.8 through 3.10.
 It requires several other packages to function correctly.
 
