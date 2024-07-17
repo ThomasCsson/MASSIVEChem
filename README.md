@@ -17,6 +17,7 @@
 
  - Python package for applied analytical chemistry focused primarily on mass spectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
+##### Grade obtained: 5.75/6
 
 
 ## 🧪 Package description
