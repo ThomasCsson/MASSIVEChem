@@ -18,6 +18,7 @@
  - Python package for applied analytical chemistry focused primarily on mass spectrometry 
 #### Project within _practical programming in chemistry_ course -- EPFL CH-200
 
+
 ## 🧪 Package description
 [![GitHub3](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://x.com/pschwllr/status/1760713822111723990)
 [![GitHub4](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
