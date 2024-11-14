@@ -8,7 +8,7 @@ from bokeh.models.widgets import DataTable, TableColumn
 from bokeh.layouts import row, column
 from io import BytesIO
 import tempfile
-from xyz2graph import MolGraph, to_plotly_figure
+from xyz2graph import MolGraph
 import panel as pn
 
 #main functions:
@@ -1223,7 +1223,7 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
     mg.read_xyz(tmp_path)
 
     # Create the Plotly figure object
-    fig = to_plotly_figure(mg)
+    fig = mg.to_plotly()
 
 
     # Converts all the graphs to pane to combine Bokeh and Plotly
@@ -2155,6 +2155,6 @@ def smiles_to_3D_plot(mol_smi):
     mg.read_xyz(tmp_path)
 
     # Create the Plotly figure object
-    fig = to_plotly_figure(mg)
+    fig = mg.to_plotly()
 
     return fig
