@@ -9,7 +9,7 @@ import base64
 from io import BytesIO
 import panel as pn
 import tempfile
-from xyz2graph import MolGraph, to_plotly_figure
+from xyz2graph import MolGraph
 
 def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
     #---------------------------------------------------------------------------------------------#
@@ -605,7 +605,7 @@ def spectrum_3D(mol_smi, imprecision_True_False, apparatus_resolution):
     mg.read_xyz(tmp_path)
 
     # Create the Plotly figure object
-    fig = to_plotly_figure(mg)
+    fig = mg.to_plotly()
 
 
     # Converts all the graphs to pane to combine Bokeh and Plotly

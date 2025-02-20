@@ -112,12 +112,7 @@ If not, install them using the following commands. (Bear in mind that the packag
 pip install bokeh
 pip install rdkit
 pip install panel
-```
-
-Additionally, the package 'xyz2graph' is required to run the 3D imaging functionallity in the function 'spectrum'. This package is not pip-installable, so to intall it yourself, the following command needs to be run.
-
-```bash
-python -m pip install git+https://github.com/zotko/xyz2graph.git
+pip install xyz2graph
 ```
 
 
