@@ -197,3 +197,6 @@ To begin to use the package, the following jupyter notebook will give you inform
 🐰 If you've made it this far through our project, you might want to try to find the hidden easter egg in this ReadMe :)🐰
 
 (_hint: you might want to try clicking on various badges throughout the ReadMe_)
+
+##Note
+All of this information is valid as of March 2025, if any discrepencies are noticed, please forward them to either of the main developpers of the package.
