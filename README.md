@@ -50,7 +50,7 @@ The mathematical reasoning behind the calculation of these relative abundances i
 
 To find the probability of a molecule composed of isotopes $I_{1}$ , $I_{2}$ , ... , $I_{n}$ is given by the following formula:
 
-$Pr(I_{1},I_{2},...,I_{n})$ = $Pr(I_{1})$ $\cdot$ $Pr(I_{2})$ $\cdot$ ... $\cdot$ $Pr(I_{n})$= $\prod_iPr(I_i)$
+$Pr(I_{1},I_{2},...,I_{n})$ = $Pr(I_{1})$ $\cdot$ $Pr(I_{2})$ $\cdot$ ... $\cdot$ $Pr(I_{n})$= $\prod_{i=1}^nPr(I_i)$
 
 This probability is then the relative abundance of the molecule composed of those isotopes.
 
